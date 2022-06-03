@@ -5,5 +5,6 @@
 <ul>
     <li> Augusto Picardo </li>
     <li> Thomas Villagran </li>
-    <li> &#685 David Dos Santos &#685 </li>
+    <li> David Dos Santos </li>
+    <li> Bautista Canobra </li>
 </ul>
