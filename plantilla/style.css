@@ -1,0 +1,81 @@
+body{
+    background-color: rgb(233, 233, 233);
+    margin: 0;
+}
+
+.caja1{
+    width: 1750px;
+    height: 100px;
+    background-color: rgb(127, 126, 131);
+    margin-left: 55px;
+}
+
+.caja2{
+    width: 1500px;
+    height: 400px;
+    background-color: rgb(127, 126, 131);
+    margin-top: 10px;
+    margin-left: 180px;
+}
+
+.caja3{
+    width: 150px;
+    height: 30px;
+    background-color: rgb(127, 126, 131);
+    margin-left: 850px;
+    margin-top: 20px;
+}
+
+.caja4{
+    width: 30px;
+    height: 50px;
+    background-color: rgb(127, 126, 131);
+    margin-top: 140px;
+    margin-left: 110px;
+    display: inline-block;
+}
+
+.caja5{
+    width: 269px;
+    height: 400px;
+    background-color: rgb(127, 126, 131);
+    margin-top: 15px;
+    margin-left: 35px;
+    display: inline-block;
+}
+
+.caja6{
+    width: 269px;
+    height: 400px;
+    background-color: rgb(127, 126, 131);
+    margin-top: 15px;
+    margin-left: 35px;
+    display: inline-block;
+}
+
+.caja7{
+    width: 269px;
+    height: 400px;
+    background-color: rgb(127, 126, 131);
+    margin-top: 15px;
+    margin-left: 35px;
+    display: inline-block;
+}
+
+.caja8{
+    width: 269px;
+    height: 400px;
+    background-color: rgb(127, 126, 131);
+    margin-top: 15px;
+    margin-left: 35px;
+    display: inline-block;
+}
+
+.caja9{
+    width: 269px;
+    height: 400px;
+    background-color: rgb(127, 126, 131);
+    margin-top: 15px;
+    margin-left: 35px;
+    display: inline-block;
+}
