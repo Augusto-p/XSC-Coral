@@ -1,24 +1,25 @@
-body{
+body {
     background-color: rgb(233, 233, 233);
     margin: 0;
 }
 
-.caja1{
+.caja1 {
     width: 1750px;
     height: 100px;
     background-color: rgb(127, 126, 131);
     margin-left: 55px;
 }
 
-.caja2{
+.caja2 {
     width: 1500px;
     height: 400px;
     background-color: rgb(127, 126, 131);
     margin-top: 10px;
-    margin-left: 180px;
+    margin-left: 80px;
+    margin-right: 80px;
 }
 
-.caja3{
+.caja3 {
     width: 150px;
     height: 30px;
     background-color: rgb(127, 126, 131);
@@ -26,16 +27,23 @@ body{
     margin-top: 20px;
 }
 
-.caja4{
+.caja4 {
     width: 30px;
     height: 50px;
     background-color: rgb(127, 126, 131);
-    margin-top: 140px;
+
+    display: inline-block;
+}
+
+#caja4-d {
+    margin-right: 110px;
+}
+
+#caja4-i {
     margin-left: 110px;
-    display: inline-block;
 }
 
-.caja5{
+.caja5 {
     width: 269px;
     height: 400px;
     background-color: rgb(127, 126, 131);
@@ -44,7 +52,7 @@ body{
     display: inline-block;
 }
 
-.caja6{
+.caja6 {
     width: 269px;
     height: 400px;
     background-color: rgb(127, 126, 131);
@@ -53,7 +61,7 @@ body{
     display: inline-block;
 }
 
-.caja7{
+.caja7 {
     width: 269px;
     height: 400px;
     background-color: rgb(127, 126, 131);
@@ -62,7 +70,7 @@ body{
     display: inline-block;
 }
 
-.caja8{
+.caja8 {
     width: 269px;
     height: 400px;
     background-color: rgb(127, 126, 131);
@@ -71,11 +79,19 @@ body{
     display: inline-block;
 }
 
-.caja9{
+.caja9 {
     width: 269px;
     height: 400px;
     background-color: rgb(127, 126, 131);
     margin-top: 15px;
     margin-left: 35px;
     display: inline-block;
+}
+
+.baner {
+    display: flex;
+    margin-top: 10px;
+    width: 1750px;
+    justify-content: space-evenly;
+    align-items: center;
 }
