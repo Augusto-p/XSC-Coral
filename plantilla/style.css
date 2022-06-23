@@ -1,37 +1,36 @@
-body {
+body{
     background-color: rgb(233, 233, 233);
     margin: 0;
 }
 
-.caja1 {
+.caja1{
     width: 1750px;
     height: 100px;
     background-color: rgb(127, 126, 131);
     margin-left: 55px;
 }
 
-.caja2 {
+.caja2{
     width: 1500px;
     height: 400px;
     background-color: rgb(127, 126, 131);
     margin-top: 10px;
-    margin-left: 80px;
+    margin-left: 100px;
     margin-right: 80px;
 }
 
-.caja3 {
-    width: 150px;
+.caja3{
+    width: 215px;
     height: 30px;
     background-color: rgb(127, 126, 131);
-    margin-left: 850px;
+    margin-left: 818px;
     margin-top: 20px;
 }
 
-.caja4 {
+.caja4{
     width: 30px;
     height: 50px;
     background-color: rgb(127, 126, 131);
-
     display: inline-block;
 }
 
@@ -43,8 +42,17 @@ body {
     margin-left: 110px;
 }
 
-.caja5 {
-    width: 269px;
+.caja5{
+    width: 215px;
+    height: 400px;
+    background-color: rgb(127, 126, 131);
+    margin-top: 15px;
+    margin-left: 313px;
+    display: inline-block;
+}
+
+.caja6{
+    width: 213px;
     height: 400px;
     background-color: rgb(127, 126, 131);
     margin-top: 15px;
@@ -52,8 +60,8 @@ body {
     display: inline-block;
 }
 
-.caja6 {
-    width: 269px;
+.caja7{
+    width: 213px;
     height: 400px;
     background-color: rgb(127, 126, 131);
     margin-top: 15px;
@@ -61,8 +69,8 @@ body {
     display: inline-block;
 }
 
-.caja7 {
-    width: 269px;
+.caja8{
+    width: 213px;
     height: 400px;
     background-color: rgb(127, 126, 131);
     margin-top: 15px;
@@ -70,17 +78,8 @@ body {
     display: inline-block;
 }
 
-.caja8 {
-    width: 269px;
-    height: 400px;
-    background-color: rgb(127, 126, 131);
-    margin-top: 15px;
-    margin-left: 35px;
-    display: inline-block;
-}
-
-.caja9 {
-    width: 269px;
+.caja9{
+    width: 213px;
     height: 400px;
     background-color: rgb(127, 126, 131);
     margin-top: 15px;
@@ -94,4 +93,83 @@ body {
     width: 1750px;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.caja10{
+    width: 800px;
+    height: 200px;
+    background-color: rgb(127, 126, 131);
+    margin-top: 70px;
+    margin-left: 110px;
+    display: inline-block;
+}
+
+.caja11{
+    width: 700px;
+    height: 200px;
+    background-color: rgb(127, 126, 131);
+    margin-left: 26px;
+    margin-top: 80px;
+    display: inline-block;
+}
+
+.caja12{
+    width: 300px;
+    height: 20px;
+    background-color: rgb(127, 126, 131);
+    margin-left: 780px;
+    margin-top: 50px;
+}
+
+.caja13{
+    width: 213px;
+    height: 400px;
+    background-color: rgb(127, 126, 131);
+    margin-top: 25px;
+    margin-left: 313px;
+    display: inline-block;
+}
+
+.caja14{
+    width: 213px;
+    height: 400px;
+    background-color: rgb(127, 126, 131);
+    margin-top: 25px;
+    margin-left: 35px;
+    display: inline-block;
+}
+
+.caja15{
+    width: 213px;
+    height: 400px;
+    background-color: rgb(127, 126, 131);
+    margin-top: 25px;
+    margin-left: 35px;
+    display: inline-block;
+}
+
+.caja16{
+    width: 213px;
+    height: 400px;
+    background-color: rgb(127, 126, 131);
+    margin-top: 25px;
+    margin-left: 35px;
+    display: inline-block;
+}
+
+.caja17{
+    width: 213px;
+    height: 400px;
+    background-color: rgb(127, 126, 131);
+    margin-top: 25px;
+    margin-left: 35px;
+    display: inline-block;
+}
+
+.caja18{
+    width: 1750px;
+    height: 600px;
+    background-color: rgb(127, 126, 131);
+    margin-top: 15px;
+    margin-left: 55px;
 }
