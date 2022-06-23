@@ -4,18 +4,18 @@ body{
 }
 
 .caja1{
-    width: 1750px;
+    width: 1700px;
     height: 100px;
     background-color: rgb(127, 126, 131);
-    margin-left: 55px;
+    margin-left: 70px;
 }
 
 .caja2{
-    width: 1500px;
+    width: 1800px;
     height: 400px;
     background-color: rgb(127, 126, 131);
     margin-top: 10px;
-    margin-left: 100px;
+    margin-left: 70px;
     margin-right: 80px;
 }
 
@@ -28,10 +28,10 @@ body{
 }
 
 .caja4{
-    width: 30px;
+    width: 70px;
     height: 50px;
     background-color: rgb(127, 126, 131);
-    display: inline-block;
+    display: flex;
 }
 
 #caja4-d {
@@ -39,7 +39,7 @@ body{
 }
 
 #caja4-i {
-    margin-left: 110px;
+    margin-left: 200px;
 }
 
 .caja5{
@@ -90,34 +90,34 @@ body{
 .baner {
     display: flex;
     margin-top: 10px;
-    width: 1750px;
-    justify-content: space-evenly;
+    width: 1770px;
     align-items: center;
+    padding-right: 70px;
 }
 
 .caja10{
-    width: 800px;
+    width: 710px;
     height: 200px;
     background-color: rgb(127, 126, 131);
     margin-top: 70px;
-    margin-left: 110px;
+    margin-left: 200px;
     display: inline-block;
 }
 
 .caja11{
-    width: 700px;
+    width: 710px;
     height: 200px;
     background-color: rgb(127, 126, 131);
-    margin-left: 26px;
+    margin-left: 37px;
     margin-top: 80px;
     display: inline-block;
 }
 
 .caja12{
-    width: 300px;
+    width: 295px;
     height: 20px;
     background-color: rgb(127, 126, 131);
-    margin-left: 780px;
+    margin-left: 778px;
     margin-top: 50px;
 }
 
@@ -167,9 +167,9 @@ body{
 }
 
 .caja18{
-    width: 1750px;
+    width: 1715px;
     height: 600px;
     background-color: rgb(127, 126, 131);
     margin-top: 15px;
-    margin-left: 55px;
+    margin-left: 70px;
 }
