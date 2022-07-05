@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="css/aminations.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <section id="global">
+        <section id="g-izq">
+            <div id="g-izq-content">
+
+                <div id="g-izq-content-up">
+                    <img src="img/Logo --Mimundo--.svg" alt="">
+                </div>
+                <div id="g-izq-content-down">
+                    <h2 id="myname">Mi Mundo</h2>
+                </div>
+            </div>
+        </section>
+        <section id="g-der">
+            <form action="" method="post" id="form-reg">
+                <h2 id="titulo">Registrarse</h2>
+                <div id="form-sls">
+                    <div id="form-in">
+                        <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="inputs">
+                        <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="inputs">
+                        <input type="email" name="email" id="email" placeholder="Email" class="inputs">
+                        <input type="password" name="password" id="password" placeholder="Password" class="inputs">
+                        <input type="password" name="rpassword" id="rpassword" placeholder="Confirmar Password" class="inputs">
+                        <input type="date" name="fecha" id="fecha" placeholder="Fecha de Nacimiento" class="inputs">
+                        <select name="genero" id="genero" class="inputs">
+                            <option value="" selected disabled>Genero</option>
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                            <option value="P">Otro</option>
+                        </select>
+                        <input type="text" name="genero" id="GP" placeholder="Genero" class="inputs">
+                        <div id="Sig" class="btn">Sigiente</div>
+                        <span class="span-cam">
+                            ya tenes cuenta? <a href="#">Login</a>
+                        </span>
+                    </div>
+                    <div id="form-end">
+                        <input type="number" name="numero" id="numero" placeholder="Numero" class="inputs">
+                        <input type="text" name="calle" id="calle" placeholder="Calle" class="inputs">
+                        <input type="text" name="ciudad" id="ciudad" placeholder="Ciudad" class="inputs">
+                        <input type="number" name="codigo" id="codigo" placeholder="Codigo Postal" class="inputs">
+                        <input type="text" name="departamento" list="depaList" id="departamento" placeholder="Departamento" class="inputs">
+                        <datalist id="depaList">
+                            <option value="Artigas">
+                            <option value="Canelones">
+                            <option value="Cerro Largo">
+                            <option value="Coloña">
+                            <option value="Durazno">
+                            <option value="Flores">
+                            <option value="Florida">
+                            <option value="Lavalleja">
+                            <option value="Maldonado">
+                            <option value="Montevideo">
+                            <option value="Paisandú">
+                            <option value="Rivera">
+                            <option value="Rocha">
+                            <option value="Salto">
+                            <option value="San Jose">
+                            <option value="Soriano">
+                            <option value="Tacuarembó">
+                            <option value="Treinta y Tres">
+                        </datalist>
+                        <div id="i-global">
+                            <input type="file" name="foto" id="foto">
+                            <div id="not-image">
+                                <img src="icon/add_photo_2.svg" alt="">
+                                <span id="DDTesxt">Seleccione su foto de perfil</span>
+                            </div>
+                            <div id="yes-image">
+                                <img src="" alt="" id="foto-img">
+                            </div>
+                        </div>
+                        <button id="send" class="btn">Enviar</button>
+                        <span class="span-cam">
+                            ya tenes cuenta? <a href="#">Login</a>
+                        </span>
+                    </div>
+                    
+                </div>
+                
+                
+                
+            </form>
+        </section>
+
+
+    </section>
+</body>
+<script src="js/main.js"></script>
+<script src="js/registro.js"></script>
+
+</html>

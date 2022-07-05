@@ -1,0 +1,30 @@
+#global {
+    grid-template-columns: 60vw 40vw;
+}
+
+#form-log {
+    background-color: transparent;
+    width: 75%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border-radius: 2vw;
+    border-color: #2692ca;
+    border-style: dashed;
+    border-width: 1vh;
+}
+
+#span-olv{
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+}
+#span-olv a{
+    color: #145075;
+    text-decoration: none;
+}
+#span-olv a:hover{
+    text-decoration: underline;
+}
+
