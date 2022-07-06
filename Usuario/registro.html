@@ -48,10 +48,10 @@
                         </span>
                     </div>
                     <div id="form-end">
-                        <input type="number" name="numero" id="numero" placeholder="Numero" class="inputs">
+                        <input type="number" name="numero" id="numero" placeholder="Numero" class="inputs" step="1" min="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                         <input type="text" name="calle" id="calle" placeholder="Calle" class="inputs">
                         <input type="text" name="ciudad" id="ciudad" placeholder="Ciudad" class="inputs">
-                        <input type="number" name="codigo" id="codigo" placeholder="Codigo Postal" class="inputs">
+                        <input type="number" name="codigo" id="codigo" placeholder="Codigo Postal" class="inputs" step="1" min="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                         <input type="text" name="departamento" list="depaList" id="departamento" placeholder="Departamento" class="inputs">
                         <datalist id="depaList">
                             <option value="Artigas">

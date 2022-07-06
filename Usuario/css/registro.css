@@ -1,5 +1,6 @@
 #global {
     grid-template-columns: 50vw 50vw;
+
 }
 
 #form-reg {
@@ -18,8 +19,10 @@
 
 #form-sls {
     display: grid;
-    grid-template-columns: repeat(2, 100%);
+    grid-template-columns: repeat(2, 101%);
     animation-duration: 3s;
+    width: 100%;
+
 }
 
 #form-sls>div {
@@ -83,4 +86,104 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media (max-width: 768px) {
+    #global {
+        grid-template-columns: 100%;
+        grid-template-rows: 15% 85%;
+        background-image: url("https://www.wallpaperuse.com/wallp/59-590508_m.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+
+    #g-izq {
+        background: none;
+        background-color: rgba(0, 0, 0, 0.6);
+        grid-row: 1;
+
+    }
+
+    #g-izq-content {
+        flex-direction: row;
+        align-content: center;
+        align-items: flex-end;
+
+        background-color: transparent;
+    }
+
+    #g-izq-content-up {
+        height: 75%;
+        width: 30%;
+        border-radius: 2vw;
+        border-color: #2692ca;
+        border-style: dashed;
+        border-width: 1vh;
+        border-right: none;
+        border-bottom: none;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    #g-izq-content-down {
+        height: 75%;
+        width: 45%;
+        border-radius: 2vw;
+        border-color: #2692ca;
+        border-style: dashed;
+        border-width: 1vh;
+        border-left: none;
+        border-bottom: none;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    #g-der {
+        grid-column: 1;
+        background-color: rgba(0, 0, 0, 0.6);
+        grid-row: 2;
+        align-items: flex-start;
+    }
+
+    #myname {
+        font-size: 2em;
+        font-family: 'Roboto', sans-serif;
+        color: #145075;
+    }
+
+    .span-cam {
+        color: white;
+    }
+
+
+    #titulo {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .inputs {
+        max-width: 70vw;
+    }
+    .inputs:focus{
+        color: white;
+    }
+
+    #form-reg {
+        height: 98%;
+        border-top: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    #i-global {
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+    #form-sls>div{
+        height: 75vh;
+    }
 }
