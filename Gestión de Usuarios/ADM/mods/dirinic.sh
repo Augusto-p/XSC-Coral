@@ -1,23 +1,53 @@
 #!/bin/bash
-source ./utils/utils.sh
-directoriomanage() {
-    casucha
+#Aplicación diseñada y creada por XSC Software Company
+source ./ADM/mod.sh
+source ./UserMain.shs
+directoriomanage(){
+    clear
+    echo "Ingrese el nuevo nombre de la carpeta"
+    read -p "Aquí:" newhome
+}
+dirproc() {
+    directoriomanage
     if grep -qi "$newhome" /etc/passwd; then
-        zenity --info --width 480 --text "El nombre de la carpeta ya esta en uso"
-        casucha
+        echo "El nombre de la carpeta ya esta en uso"
+        directoriomanage
     else
         sudo mkdir /home/$newhome
-        zenity --question --width 480 --text "¿Desea mover todos los archivos a la nueva carpeta?"
-        movimiento=$?
-        if [ $movimiento -eq 0 ]; then
-            sudo usermod $pepe -d $newhome -m
+        echo "¿Desea mover todos los archivos a la nueva carpeta?"
+        echo "Y=Si"
+        echo "N=No"
+        echo ""
+        read -p "Ingrese Y/N" con
+        if [ $con == "Y" ] || [ $con == "y" ]; then
+        sudo usermod $pepe -d $newhome -m
         else
             sudo usermod $pepe -d $newhome
         fi
         if grep -qi "$newhome" /etc/passwd; then
-            zenity --info --width 480 --text "La carpeta de inicio fue modificada exitosamente"
+            echo "La carpeta de inicio fue modificada exitosamente"
+            echo "¿Desea continuar?"
+            echo "Y=Si"
+            echo "N=No"
+            echo "Ingrese Y/N"
+            read con
+            if [ $con == "Y" ] || [ $con == "y" ]; then
+                usermodif
+            else
+                menuinic
+        fi
         else
-            zenity --error --width 480 --text "La carpeta de inicio no pudo ser modificada"
+            echo "La carpeta de inicio no pudo ser modificada"
+            echo "¿Desea continuar?"
+            echo "Y=Si"
+            echo "N=No"
+            echo "Ingrese Y/N"
+            read con
+            if [ $con == "Y" ] || [ $con == "y" ]; then
+                usermodif
+            else
+                menuinic
+        fi
         fi
     fi
 }

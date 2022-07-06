@@ -1,4 +1,5 @@
 #!/bin/bash
+#Aplicación diseñada y creada por XSC Software Company
 source ./UserMain.sh
 clear
 adduser() {
@@ -26,7 +27,7 @@ addproc() {
             echo "N=No"
             echo "Ingrese Y/N"
             read con
-            if [ $con == "Y" ]; then
+            if [ $con == "Y" ] || [ $con == "y" ]; then
                 adduser
             else
                 menuinic
@@ -38,7 +39,7 @@ addproc() {
             echo "N=No"
             echo "Ingrese Y/N"
             read con
-            if [ $con == "Y" ]; then
+            if [ $con == "Y" ] || [ $con == "y" ]; then
                 adduser
             else
                 menuinic

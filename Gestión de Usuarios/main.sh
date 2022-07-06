@@ -16,7 +16,7 @@ menuinic() {
     case $opc in
     1) adduser ;;
     2) deluser ;;
-    3) moduser ;;
+    3) usermodif ;;
     esac
 }
 clear
