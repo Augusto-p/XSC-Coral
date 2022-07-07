@@ -1,7 +1,7 @@
 #!/bin/bash
 #Aplicación diseñada y creada por XSC Software Company
 source ./ADM/mod.sh
-source ./UserMain.sh
+source ./main.sh
 passwordmanage(){
     echo "Ingrese la nueva contraseña a ingresar"
     read -p "Aquí:" newpass

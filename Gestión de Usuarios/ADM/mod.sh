@@ -1,6 +1,6 @@
 #!/bin/bash
 #Aplicación diseñada y creada por XSC Software Company
-source ./UserMain.sh
+source ./main.sh
 source ./ADM/mods/dirinic.sh
 source ./ADM/mods/logininic.sh
 source ./ADM/mods/passwdinic.sh

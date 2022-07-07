@@ -1,6 +1,6 @@
 #!/bin/bash
 #Aplicación diseñada y creada por XSC Software Company
-source ./UserMain.sh
+source ./main.sh
 clear
 deluser() {
     echo "Ingrese el nombre de usuario a eliminar"

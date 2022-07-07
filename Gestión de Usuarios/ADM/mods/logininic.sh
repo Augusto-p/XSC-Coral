@@ -1,7 +1,7 @@
 #!/bin/bash
 #Aplicación diseñada y creada por XSC Software Company
 source ./ADM/mod.sh
-source ./UserMain.sh
+source ./main.sh
 loginmanage() {
     echo "Ingrese el nuevo nombre de usuario"
     echo "ej:ramon04"

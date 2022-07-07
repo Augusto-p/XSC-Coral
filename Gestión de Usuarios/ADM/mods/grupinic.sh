@@ -1,7 +1,7 @@
 #!/bin/bash
 #Aplicación diseñada y creada por XSC Software Company
 source ./ADM/mod.sh
-source ./UserMain.sh
+source ./main.sh
 groupmanage(){
 echo "¿Desea agregar, quitar o modificar los grupos del usuario?"
 read -p "Agregar=A Quitar=Q Modificar=M" mod
