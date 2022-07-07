@@ -26,8 +26,8 @@ class Usuario_Controller extends Controller
     public function signin()
     {
         $user = new Usuario();
-        $user->email = $_POST['email'];
-        $user->password = $_POST['password'];
+        $user->email = $_POST['Email'];
+        $user->password = $_POST['Password'];
         $usr = $this->model->entrar($user);
         if (!$usr) {
             $this->view->render('usuario/login');
@@ -41,10 +41,11 @@ class Usuario_Controller extends Controller
 
     public function signup(){
         $user = new Usuario();
-        $user->nombre = $_POST['Nombre'] . " " . $_POST['Apellido'];
+        $user->nombre = $_POST['Nombre'];
+        $user->apellido = $_POST['Apellido'];
         $user->email = $_POST['Email'];
         $user->password = $_POST['Password'];
-        $user->Fnacimento = $_POST['Fecha_de_Naminento'];
+        $user->Fnacimento = $_POST['FNaminento'];
         if ($_POST['Genero'] == "M") {
             $user->Genero = "Masculino";
         } elseif ($_POST['Genero'] == "F") {
@@ -52,13 +53,21 @@ class Usuario_Controller extends Controller
         } else {
             $user->Genero = $_POST['Gpersonalizado'];
         }
+        $user->numero = $_POST['Numero'];
+        $user->calle = $_POST['Calle'];
+        $user->ciudad = $_POST['Ciudad'];
+        $user->codigoPostal = $_POST['CodigoPostal'];
+        $user->departamento = $_POST['Departamento'];
+
+
+
         //foto de perfill
-        $NameI = basename($_FILES["Photo"]["name"]);  //nombre de la imagen
+        $NameI = basename($_FILES["PhotoPerfil"]["name"]);  //nombre de la imagen
         $TypeI = pathinfo($NameI, PATHINFO_EXTENSION); // formato de imagen
          
         $Types = array('jpg','png','jpeg','gif'); //lista de formatos aceptados
         if(in_array($TypeI, $Types)){ //verifica que el formato de la imagen este soportado
-            $img = $_FILES['Photo']['tmp_name'];  //obtiene el archivo temporal de la imagen
+            $img = $_FILES['PhotoPerfil']['tmp_name'];  //obtiene el archivo temporal de la imagen
             $imgContent = addslashes(file_get_contents($img)); //obtiene el contenido de la imagen BLOB
             $user->Iuser = $imgContent;
 

@@ -40,9 +40,17 @@ class Usuario_Model extends Model
             $db = $this->db;
             $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
             $consulta->bindValue(':name', $user->nombre);
+            $consulta->bindValue(':ape', $user->apellido);
             $consulta->bindValue(':email', $user->email);
             $consulta->bindValue(':pass', $user->password);
             $consulta->bindValue(':FNacim', $user->Fecha_nacimiento);
+            $consulta->bindValue(':Genero', $user->Genero);
+            $consulta->bindValue(':Rol', $user->rol);
+            $consulta->bindValue(':Numero', $user->numero);
+            $consulta->bindValue(':Calle', $user->calle);
+            $consulta->bindValue(':Ciudad', $user->ciudad);
+            $consulta->bindValue(':CodigoPostal', $user->codigoPostal);
+            $consulta->bindValue(':Departamento', $user->departamento);
             $consulta->bindValue(':img', $user->$Iuser);
             
             return $consulta->execute();
