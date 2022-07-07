@@ -14,8 +14,8 @@ menuinic() {
     echo "3-Modificar Usuarios"
     read opc
     case $opc in
-    1) adduser ;;
-    2) deluser ;;
+    1) userana ;;
+    2) userbor ;;
     3) usermodif ;;
     esac
 }

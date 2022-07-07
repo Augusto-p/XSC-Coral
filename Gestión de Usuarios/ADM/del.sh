@@ -2,7 +2,7 @@
 #Aplicación diseñada y creada por XSC Software Company
 source ./main.sh
 clear
-deluser() {
+userbor() {
     echo "Ingrese el nombre de usuario a eliminar"
     read username
     delproc

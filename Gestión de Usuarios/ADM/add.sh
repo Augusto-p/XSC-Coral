@@ -2,7 +2,7 @@
 #Aplicación diseñada y creada por XSC Software Company
 source ./main.sh
 clear
-adduser() {
+userana() {
     echo "Ingrese el nombre de usuario a crear"
     read username
     addproc
