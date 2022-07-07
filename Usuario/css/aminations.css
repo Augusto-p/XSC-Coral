@@ -1,10 +1,21 @@
-@keyframes sigiente {
+@keyframes sigienteMov {
     0% {
         transform: translateX(0);
     }
 
     100% {
         transform: translateX(-75vw);
+    }
+
+}
+
+@keyframes sigienteDesk {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-38vw);
     }
 
 }

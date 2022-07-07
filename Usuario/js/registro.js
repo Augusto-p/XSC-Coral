@@ -59,10 +59,25 @@ function setSize() {
 
 
 function sigiente() {
-    formsls.style.animationName = 'sigiente';
+    console.log("hello");
+    
+    if (window.innerWidth > 768) {
+        formsls.style.animationName = 'sigienteDesk';
+        
+    }else{
+        formsls.style.animationName = 'sigienteMov';
+
+    }
+
+
 }
 function permanteSigiente(){
-    formsls.style.transform = 'translateX(-75vw)';
+    if (window.innerWidth > 768) {
+        formsls.style.transform = 'translateX(-38vw)';
+    }else{
+        formsls.style.transform = 'translateX(-75vw)';
+    }
+    
 }
 function vpass() {
     if (pass.value == rpass.value) {
