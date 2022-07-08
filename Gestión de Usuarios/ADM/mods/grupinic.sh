@@ -3,17 +3,47 @@
 source ./ADM/mod.sh
 source ./main.sh
 groupmanage(){
-echo "¿Desea agregar, quitar o modificar los grupos del usuario?"
-read -p "Agregar=A Quitar=Q Modificar=M" mod
-if [ $mod == A ] || [ $mod == a ] ;then
+echo "¿Desea agregar o quitar grupos al usuario?"
+read -p "Agregar=A Quitar=Q" mod
+if [ $mod == "A" ] || [ $mod == "a" ] ;then
+clear
     echo "¿Desea visualizar los grupos?"
-    read -p "Si=Y No=N"
-
-    echo "¿Desea agregar un grupo por id o por nombre?"
-    read -p "Id=I Nombre=N" gru
-    if [ $gru == I ] || [ $gru == i ];then
-    echo "Ingrese la Id del grupo a agregar"
-    read -p "Aquí:" newgroup
+    read -p "Si=Y No=N" vis
+    if [ $vis == "Y" ] || [ $vis == "y" ];then
+        cat /etc/group
     fi
-fi
+        echo "Ingrese la Id del grupo a agregar"
+        read -p "Aquí:" groid
+        sudo groupadd -g $groid $username
+        echo "¿Desea continuar?"
+            echo "Y=Si"
+            echo "N=No"
+            echo "Ingrese Y/N"
+            read con
+            if [ $con == "Y" ] || [ $con == "y" ]; then
+                usermodif
+            else
+                menuinic
+        fi
+elif [ $mod == "Q" ] || [ $mod == "q" ] ;then
+clear
+    echo "¿Desea visualizar los grupos?"
+    read -p "Si=Y No=N" vis
+    if [ $vis == "Y" ] || [ $vis == "y" ];then
+        cat /etc/group
+    fi
+        echo "Ingrese la Id del grupo a quitar"
+        read -p "Aquí:" groid
+        sudo deluser --quiet --system $username $groid
+        echo "¿Desea continuar?"
+            echo "Y=Si"
+            echo "N=No"
+            echo "Ingrese Y/N"
+            read con
+            if [ $con == "Y" ] || [ $con == "y" ]; then
+                usermodif
+            else
+                menuinic
+        fi
+    fi
 }

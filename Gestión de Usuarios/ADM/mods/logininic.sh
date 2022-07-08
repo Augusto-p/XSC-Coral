@@ -26,7 +26,7 @@ loginmanage() {
         echo "N=No"
         echo "Ingrese Y/N"
         read con
-        if [ $con == "Y" ] || [ $con == "y" ]s; then
+        if [ $con == "Y" ] || [ $con == "y" ]; then
             usermodif
         else
             menuinic
