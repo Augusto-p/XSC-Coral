@@ -26,19 +26,10 @@ dirproc() {
         fi
         if grep -qi "$newhome" /etc/passwd; then
             echo "La carpeta de inicio fue modificada exitosamente"
-            echo "¿Desea continuar?"
-            echo "Y=Si"
-            echo "N=No"
-            echo "Ingrese Y/N"
-            read con
-            if [ $con == "Y" ] || [ $con == "y" ]; then
-                usermodif
-            else
-                menuinic
-        fi
         else
             echo "La carpeta de inicio no pudo ser modificada"
-            echo "¿Desea continuar?"
+        fi
+        echo "¿Desea continuar?"
             echo "Y=Si"
             echo "N=No"
             echo "Ingrese Y/N"
@@ -47,7 +38,6 @@ dirproc() {
                 usermodif
             else
                 menuinic
-        fi
         fi
     fi
 }

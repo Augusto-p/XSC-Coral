@@ -15,20 +15,19 @@ delproc() {
             menuinic
         else
             echo "El usuario fue eliminado exitosamente"
-            echo "¿Desea continuar?"
+        fi
+    else
+        echo "El nombre de usuario no existe"
+        userbor
+    fi
+    echo "¿Desea continuar?"
             echo "Y=Si"
             echo "N=No"
             echo "Ingrese Y/N"
             read con
             if [ $con == "Y" ] || [ $con == "y" ]; then
-                deluser
+                userbor
             else
                 menuinic
             fi
-
-        fi
-    else
-        echo "El nombre de usuario no existe"
-        deluser
-    fi
 }
