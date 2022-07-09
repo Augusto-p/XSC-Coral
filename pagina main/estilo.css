@@ -1,0 +1,127 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #37BEE2;
+}
+
+.titulo{
+    background-color: #E0E0E0;
+    margin-top: 0px;
+    margin-left: 0px;
+    float: left;
+    height: 62px;
+    width: 1858px;
+}
+
+p{
+    font-size: 35px;
+    margin-left: 80px;
+    margin-top: 7px;
+    font-family: 'Roboto', sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+.busqueda{
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 300px;
+}
+
+input{
+    padding: 10px;
+    outline: none;
+    width: 800px;
+    height: 40px;
+    box-sizing: border-box;
+    color: rgb(0, 0, 0);
+    border: rgb(255, 255, 255) solid 1px;
+    border-radius: 5px;
+    float: left;
+    font-size: 16px;
+}
+
+.boton{
+    position: absolute;
+    width: 33px;
+    height: 33px;
+    line-height: 33px;
+    background-color: #E0E0E0;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    border-radius:15%;
+    cursor: pointer;
+    margin-left: 0px;
+    padding-left: 10px;
+    display: inline-block;
+    margin-top: 4px;
+
+}
+
+::placeholder{
+    font-family: 'Roboto', sans-serif;
+}
+
+.navegacion{
+    margin-top: 5px;
+    width: 570px;
+    margin-left: 1145px;
+    background: #E0E0E0;
+    position: absolute;
+    font-size: 14px;
+}
+
+.navegacion ul{
+    list-style: none;
+}
+
+.menu > li{
+    display: inline-block;
+    position: relative;
+}
+
+.menu li a{
+    display: inline-block;
+    color: black;
+    padding: 0px 16px;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.menu li a:hover{
+    color: #ffffff;
+}
+
+.submenu{
+    position: absolute;
+    background: #E0E0E0;
+    width: 150px;
+    display: none;
+}
+
+.submenu li a{
+    display: block;
+    padding: 15px 5px;
+    color: rgb(0, 0, 0);
+    font-family: 'Roboto', sans-serif;
+}
+
+.menu li:hover .submenu{
+    display: block;
+}
+
+.carrito{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    margin-left: 630px;
+    margin-top: 0px;
+    top: 20%;
+    left: 5%;
+}
+
+.baner{
+    margin-top: 10px;
+    margin-left: 240px;
+}
