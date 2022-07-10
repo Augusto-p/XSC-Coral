@@ -1,7 +1,6 @@
 #!/bin/bash
 #Aplicación diseñada y creada por XSC Software Company
 source ./ADM/mod.sh
-source ./main.shs
 directoriomanage(){
     clear
     echo "Ingrese el nuevo nombre de la carpeta"
@@ -35,9 +34,9 @@ dirproc() {
             echo "Ingrese Y/N"
             read con
             if [ $con == "Y" ] || [ $con == "y" ]; then
-                usermodif
+                source ./ADM/mod.sh
             else
-                menuinic
+                source ./main.sh
         fi
     fi
 }

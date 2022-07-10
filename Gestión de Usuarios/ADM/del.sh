@@ -1,6 +1,5 @@
 #!/bin/bash
 #Aplicación diseñada y creada por XSC Software Company
-source ./main.sh
 clear
 userbor() {
     echo "Ingrese el nombre de usuario a eliminar"
@@ -28,6 +27,6 @@ delproc() {
             if [ $con == "Y" ] || [ $con == "y" ]; then
                 userbor
             else
-                menuinic
+                source ./main.sh
             fi
 }

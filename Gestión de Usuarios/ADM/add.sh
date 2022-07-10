@@ -1,6 +1,6 @@
 #!/bin/bash
 #Aplicación diseñada y creada por XSC Software Company
-source ./main.sh
+
 clear
 userana() {
     echo "Ingrese el nombre de usuario a crear"
@@ -34,6 +34,6 @@ addproc() {
             if [ $con == "Y" ] || [ $con == "y" ]; then
                 userana
             else
-                menuinic
+                source ./main.sh
             fi
 }

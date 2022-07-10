@@ -1,10 +1,6 @@
 #!/bin/bash
 #Aplicación diseñada y creada por XSC Software Company
-source ./main.sh
-source ./ADM/mods/dirinic.sh
-source ./ADM/mods/logininic.sh
-source ./ADM/mods/passwdinic.sh
-source ./ADM/mods/grupinic.sh
+#source ./main.sh
 clear
 usermodif() {
     echo "Ingrese el nombre de usuario a modificar"
@@ -22,19 +18,23 @@ modproc() {
         read opc
         case $opc in
         1)
-            loginmanage
+            source ./ADM/mods/logininic.sh
             ;;
         2)
-            directoriomanage
+            source ./ADM/mods/dirinic.sh
             ;;
         3)
-            passwordmanage
+            source ./ADM/mods/passwdinic.sh
             ;;
-        4)  groupmanage
+        4)  
+            source ./ADM/mods/grupinic.sh
             ;;
-        5) shellmanage
+        5)  
+            source ./ADM/mods/shellinic.sh
             ;;
-        6) ;;
+        6) 
+            source ./ADM/mods/cominic.sh
+            ;;
         esac
 
     else

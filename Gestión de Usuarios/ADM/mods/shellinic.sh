@@ -1,7 +1,6 @@
 #!/bin/bash
 #Aplicación diseñada y creada por XSC Software Company
 source ./ADM/mod.sh
-source ./main.sh
 shellmanage(){
 echo "Ingrese el nuevo Shell a utilizar"
     read -p "Aquí:" newcapa
@@ -12,9 +11,9 @@ echo "Ingrese el nuevo Shell a utilizar"
     echo "Ingrese Y/N"
     read con
     if [ $con == "Y" ] || [ $con == "y" ]; then
-        usermodif
+        source ./ADM/mod.sh
     else
-        menuinic
+        source ./main.sh
     fi
 
 }

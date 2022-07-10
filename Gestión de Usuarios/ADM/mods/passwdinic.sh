@@ -1,7 +1,6 @@
 #!/bin/bash
 #Aplicación diseñada y creada por XSC Software Company
-source ./ADM/mod.sh
-source ./main.sh
+
 passwordmanage(){
     echo "Ingrese la nueva contraseña a ingresar"
     read -p "Aquí:" newpass
@@ -12,8 +11,8 @@ passwordmanage(){
     echo "Ingrese Y/N"
     read con
     if [ $con == "Y" ] || [ $con == "y" ]; then
-        usermodif
+        source ./ADM/mod.sh
     else
-        menuinic
+       source ./main.sh
     fi
 }

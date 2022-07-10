@@ -1,8 +1,8 @@
 #!/bin/bash
 #Aplicación diseñada y creada por XSC Software Company
-source ./ADM/add.sh
-source ./ADM/del.sh
-source ./ADM/mod.sh
+#source ./ADM/add.sh
+#source ./ADM/del.sh
+#source ./ADM/mod.sh
 
 menuinic() {
     echo "      Gestión de Usuarios      "
@@ -14,9 +14,9 @@ menuinic() {
     echo "3-Modificar Usuarios"
     read opc
     case $opc in
-    1) userana ;;
-    2) userbor ;;
-    3) usermodif ;;
+    1) source ./ADM/add.sh ;;
+    2) source ./ADM/del.sh;;
+    3) source ./ADM/mod.sh;;
     esac
 }
 clear
