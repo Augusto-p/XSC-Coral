@@ -11,7 +11,7 @@ delproc() {
         sudo userdel -fr $name
         if grep -qi "$name" /etc/passwd; then
             echo "El usuario no fue eliminado"
-            menuinic
+            source ./main.sh
         else
             echo "El usuario fue eliminado exitosamente"
         fi
@@ -30,3 +30,4 @@ delproc() {
                 source ./main.sh
             fi
 }
+userbor

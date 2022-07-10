@@ -17,3 +17,4 @@ echo "Ingrese el nuevo Shell a utilizar"
     fi
 
 }
+shellmanage

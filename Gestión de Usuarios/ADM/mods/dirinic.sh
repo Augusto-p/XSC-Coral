@@ -40,3 +40,4 @@ dirproc() {
         fi
     fi
 }
+directoriomanage

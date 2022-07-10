@@ -22,3 +22,4 @@ echo "¿Desea continuar?"
            source ./main.sh
         fi
 }
+loginmanage

@@ -37,3 +37,4 @@ addproc() {
                 source ./main.sh
             fi
 }
+userana

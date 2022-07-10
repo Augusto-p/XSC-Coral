@@ -42,3 +42,4 @@ modproc() {
         usermodif
     fi
 }
+usermodif
