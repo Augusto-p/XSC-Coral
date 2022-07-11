@@ -125,3 +125,61 @@ input{
     margin-top: 10px;
     margin-left: 240px;
 }
+
+.boton1 img{
+    width: 15px;
+    height: 20px;
+}
+
+.boton2 img{
+    width: 15px;
+    height: 20px;
+}
+
+.producto{
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.cat-prod{
+    padding: 0 10vw;
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 40px;
+    margin-left: 700px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.producto-container{
+    padding: 1 1vw;
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+}
+
+.producto-container{
+    display: flex;
+}
+
+
+.producto-container::-webkit-scrollbar{
+    display: none;
+}
+
+.carta{
+    flex: 0 0 auto;
+    width: 250px;
+    height: 450px;
+    margin-right: 40px;
+}
+
+.prod-imagen{
+    position: relative;
+    width: 200px;
+    height: 350px;
+    overflow: hidden;
+    margin-left: 215px;
+}
+
