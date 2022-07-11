@@ -1,7 +1,16 @@
 #!/bin/bash
 #Aplicación diseñada y creada por XSC Software Company
-source ./ADM/mod.sh
 groupmanage(){
+echo "Ingrese el nombre de usuario a modificar"
+    read -p "Aquí:" username
+    if grep -qi "$username" /etc/passwd; then
+    grouproc
+    else
+    echo "El nombre de usuario no existe"
+    groupmanage
+    fi  
+}
+grouproc(){
 echo "¿Desea agregar o quitar grupos al usuario?"
 read -p "Agregar=A Quitar=Q" mod
 if [ $mod == "A" ] || [ $mod == "a" ] ;then

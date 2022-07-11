@@ -1,7 +1,16 @@
 #!/bin/bash
 #Aplicación diseñada y creada por XSC Software Company
-source ./ADM/mod.sh
 loginmanage() {
+    echo "Ingrese el nombre de usuario a modificar"
+    read -p "Aquí:" username
+    if grep -qi "$username" /etc/passwd; then
+    loginproc
+    else
+    echo "El nombre de usuario no existe"
+    loginmanage
+    fi  
+} 
+loginproc() {
     echo "Ingrese el nuevo nombre de usuario"
     echo "ej:ramon04"
     read -p "Aquí" newusername

@@ -1,7 +1,16 @@
 #!/bin/bash
 #Aplicación diseñada y creada por XSC Software Company
-source ./ADM/mod.sh
 shellmanage(){
+echo "Ingrese el nombre de usuario a modificar"
+    read -p "Aquí:" username
+    if grep -qi "$username" /etc/passwd; then
+    shellproc
+    else
+    echo "El nombre de usuario no existe"
+    shellmanage
+    fi  
+    }
+shellproc(){
 echo "Ingrese el nuevo Shell a utilizar"
     read -p "Aquí:" newcapa
     sudo usermod -s $newcapa $username

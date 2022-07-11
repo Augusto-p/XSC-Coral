@@ -1,7 +1,17 @@
 #!/bin/bash
 #Aplicación diseñada y creada por XSC Software Company
-source ./ADM/mod.sh
-loginmanage() {
+
+commanage(){
+echo "Ingrese el nombre de usuario a modificar"
+    read -p "Aquí:" username
+    if grep -qi "$username" /etc/passwd; then
+    commproc
+    else
+    echo "El nombre de usuario no existe"
+    commanage
+    fi  
+    }
+commproc() {
     echo "Ingrese el nuevo comentario del usuario"
     echo "ej:ramon04"
     read -p "Aquí" newusercom
