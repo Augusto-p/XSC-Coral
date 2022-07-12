@@ -14,10 +14,9 @@ directoriomanage(){
 dirproc() {
     echo "Ingrese el nuevo nombre de la carpeta"
     read -p "Aquí:" newhome
-    directoriomanage
     if grep -qi "$newhome" /etc/passwd; then
         echo "El nombre de la carpeta ya esta en uso"
-        directoriomanage
+        dirproc
     else
         sudo mkdir /home/$newhome
         echo "¿Desea mover todos los archivos a la nueva carpeta?"
