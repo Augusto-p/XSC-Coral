@@ -25,10 +25,11 @@ dirproc() {
         echo ""
         read -p "Ingrese Y/N" con
         if [ $con == "Y" ] || [ $con == "y" ]; then
-        sudo usermod $username -d $newhome -m
+            sudo usermod $username -d $newhome -m
         else
             sudo usermod $username -d $newhome
         fi
+        
         if grep -qi "$newhome" /etc/passwd; then
             echo "La carpeta de inicio fue modificada exitosamente"
         else

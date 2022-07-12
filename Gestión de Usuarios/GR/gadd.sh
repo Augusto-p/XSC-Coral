@@ -1,6 +1,11 @@
 #!/bin/bash
 #Aplicación diseñada y creada por XSC Software Company
 graddmanage(){
+    echo "¿Desea visualizar los grupos?"
+    read -p "Si=Y No=N" vis
+    if [ $vis == "Y" ] || [ $vis == "y" ];then
+        cat /etc/group
+    fi
     echo "Ingrese el nombre del grupo a crear"
     read -p "Aquí: " gname
     echo "Ingrese el GID del grupo a crear"
