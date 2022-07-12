@@ -7,11 +7,10 @@ userbor() {
     delproc
 }
 delproc() {
-    if grep -qi "$name" /etc/passwd; then
-        sudo userdel -fr $name
-        if grep -qi "$name" /etc/passwd; then
+    if grep -qi "$username" /etc/passwd; then
+        sudo userdel -fr $username
+        if grep -qi "$username" /etc/passwd; then
             echo "El usuario no fue eliminado"
-            source ./main.sh
         else
             echo "El usuario fue eliminado exitosamente"
         fi
