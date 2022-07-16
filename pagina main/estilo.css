@@ -15,7 +15,7 @@ body{
 
 p{
     font-size: 35px;
-    margin-left: 80px;
+    margin-left: 120px;
     margin-top: 7px;
     font-family: 'Roboto', sans-serif;
     color: rgb(0, 0, 0);
@@ -147,7 +147,7 @@ input{
     font-size: 30px;
     font-weight: 500;
     margin-bottom: 40px;
-    margin-left: 700px;
+    margin-left: 670px;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -281,4 +281,143 @@ h2{
 .boton1:hover img,
 .boton2:hover img{
     opacity: 3;
+}
+
+.baner1 img{
+    width: 700px;
+    height: 170px;
+    margin-left: 170px;
+    position: absolute;
+}
+
+.baner2 img{
+    width: 700px;
+    height: 170px;
+    margin-left: 0px;
+    display: inline;
+    float: right;
+    margin-top: 0px;
+    margin-right: 180px;
+
+}
+
+.baner1{
+    margin-left: 200px;
+    width: 700px;
+    height: 150px;
+}
+
+.baner2{
+    width: 700px;
+    height: 150px;
+    margin-left: 50px;
+}
+
+
+footer {
+	width: 1770px;
+	background: #202020;
+	color: white;
+	padding: 40px;
+
+}
+
+.container-footer-all{
+	width: 100%;
+	max-width: 1200px;
+	margin: auto;
+	padding: 40px;
+}
+
+.container-body{
+	display: flex;
+	justify-content: space-between;
+}
+
+.columna1{
+	max-width: 400px;
+}
+
+.columna1 h1{
+	font-size: 24px;
+	font-family: 'Roboto', sans-serif;
+    margin-left: 10px;
+}
+
+.columna1 p{
+	font-size: 16px;
+	color: #E0E0E0;
+	margin-top: 20px;
+	font-family: 'Roboto', sans-serif;
+    margin-left: 10px;
+}
+
+.columna2{
+	max-width: 400px;
+    margin-right: 300px;
+}
+
+.columna2 h1{
+	font-size: 20px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.row{
+	margin-top: 20px;
+	display: flex;
+}
+
+.row label{
+	margin-top: 1px;
+	margin-left: 1px;
+	color: #C7C7C7;
+}
+
+.columna3{
+	max-width: 400px;
+}
+
+.columna3 h1{
+	font-size: 22px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.row2{
+	margin-top: 20px;
+	display: flex;
+}
+
+
+.row2 label{
+	margin-top: 10px;
+	margin-left: 20px;
+	max-width: 140px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.container-footer{
+	width: 100%;
+	background: #101010;
+
+}
+
+.footer{
+	max-width: 1200px;
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+
+}
+
+.copyright{
+	color: #E0E0E0;
+}
+
+.imagen{
+    width: 90px;
+    height: 47px;
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 15px;
 }
