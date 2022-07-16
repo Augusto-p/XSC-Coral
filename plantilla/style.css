@@ -1,175 +1,90 @@
-body{
+body {
     background-color: rgb(233, 233, 233);
     margin: 0;
 }
 
-.caja1{
-    width: 1700px;
+.caja1 {
+    width: 93vw;
     height: 100px;
     background-color: rgb(127, 126, 131);
-    margin-left: 70px;
+    margin-left: 3vw;
+    margin-right: 5vw;
 }
 
-.caja2{
-    width: 1800px;
+.caja2 {
+    width: 78vw;
     height: 400px;
     background-color: rgb(127, 126, 131);
     margin-top: 10px;
-    margin-left: 70px;
-    margin-right: 80px;
+    margin-left: 9.7vw;
+    margin-right: 10vw;
 }
 
-.caja3{
-    width: 215px;
+.caja2-2 {
+    width: 15vw;
     height: 30px;
     background-color: rgb(127, 126, 131);
-    margin-left: 818px;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-left: 41.3vw;
+    margin-bottom: 15px;
 }
 
-.caja4{
+.caja3 {
+    display: flex;
+    margin-top: 40px;
+    width: 90vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    align-items: center;
+}
+
+.caja4 {
     width: 70px;
     height: 50px;
     background-color: rgb(127, 126, 131);
     display: flex;
 }
 
-#caja4-d {
-    margin-right: 110px;
-}
-
-#caja4-i {
-    margin-left: 200px;
-}
-
-.caja5{
-    width: 215px;
-    height: 400px;
-    background-color: rgb(127, 126, 131);
-    margin-top: 15px;
-    margin-left: 313px;
-    display: inline-block;
-}
-
-.caja6{
-    width: 213px;
-    height: 400px;
-    background-color: rgb(127, 126, 131);
-    margin-top: 15px;
-    margin-left: 35px;
-    display: inline-block;
-}
-
-.caja7{
-    width: 213px;
-    height: 400px;
-    background-color: rgb(127, 126, 131);
-    margin-top: 15px;
-    margin-left: 35px;
-    display: inline-block;
-}
-
-.caja8{
-    width: 213px;
-    height: 400px;
-    background-color: rgb(127, 126, 131);
-    margin-top: 15px;
-    margin-left: 35px;
-    display: inline-block;
-}
-
-.caja9{
-    width: 213px;
-    height: 400px;
-    background-color: rgb(127, 126, 131);
-    margin-top: 15px;
-    margin-left: 35px;
-    display: inline-block;
-}
-
-.baner {
+.caja5 {
+    width: 80vw;
     display: flex;
-    margin-top: 10px;
-    width: 1770px;
-    align-items: center;
-    padding-right: 70px;
+    justify-content: space-evenly;
 }
 
-.caja10{
-    width: 710px;
-    height: 200px;
+.caja6 {
+    width: 15vw;
+    height: 400px;
     background-color: rgb(127, 126, 131);
-    margin-top: 70px;
-    margin-left: 200px;
-    display: inline-block;
 }
 
-.caja11{
-    width: 710px;
-    height: 200px;
-    background-color: rgb(127, 126, 131);
-    margin-left: 37px;
-    margin-top: 80px;
-    display: inline-block;
+.caja7 {
+    margin-top: 100px;
+    width: auto;
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.caja12{
-    width: 295px;
-    height: 20px;
+.caja8 {
+    width: 39.5vw;
+    height: 210px;
     background-color: rgb(127, 126, 131);
-    margin-left: 778px;
+    margin-right: 55px;
+    margin-left: 7px;
+}
+
+.caja9 {
+    width: 20.9vw;
+    height: 30px;
+    background-color: rgb(127, 126, 131);
     margin-top: 50px;
+    margin-left: 38vw;
 }
 
-.caja13{
-    width: 213px;
-    height: 400px;
-    background-color: rgb(127, 126, 131);
-    margin-top: 25px;
-    margin-left: 313px;
-    display: inline-block;
-}
-
-.caja14{
-    width: 213px;
-    height: 400px;
-    background-color: rgb(127, 126, 131);
-    margin-top: 25px;
-    margin-left: 35px;
-    display: inline-block;
-}
-
-.caja15{
-    width: 213px;
-    height: 400px;
-    background-color: rgb(127, 126, 131);
-    margin-top: 25px;
-    margin-left: 35px;
-    display: inline-block;
-}
-
-.caja16{
-    width: 213px;
-    height: 400px;
-    background-color: rgb(127, 126, 131);
-    margin-top: 25px;
-    margin-left: 35px;
-    display: inline-block;
-}
-
-.caja17{
-    width: 213px;
-    height: 400px;
-    background-color: rgb(127, 126, 131);
-    margin-top: 25px;
-    margin-left: 35px;
-    display: inline-block;
-}
-
-.caja18{
-    width: 1715px;
+.caja10 {
+    width: 93vw;
     height: 600px;
     background-color: rgb(127, 126, 131);
-    margin-top: 15px;
-    margin-left: 70px;
+    margin-right: 5vw;
+    margin-left: 3vw;
+    margin-top: 70px;
 }
