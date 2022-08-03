@@ -27,14 +27,11 @@ addproc() {
         fi
     fi
     echo "¿Desea continuar?"
-            echo "Y=Si"
-            echo "N=No"
-            echo "Ingrese Y/N"
-            read con
-            if [ $con == "Y" ] || [ $con == "y" ]; then
-                userana
-            else
-                source ./main.sh
-            fi
+    read -p "Si=Y No=N" con
+    if [ $con == "Y" ] || [ $con == "y" ]; then
+        userana
+    else
+        source ./main.sh
+    fi
 }
 userana

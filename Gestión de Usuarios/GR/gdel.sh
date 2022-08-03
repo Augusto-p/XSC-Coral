@@ -17,7 +17,7 @@ gdelmanage(){
         echo "¿Desea continuar?"
         read -p "Si=Y No=N" con
         if [ $con == "Y" ] || [ $con == "y" ]; then
-            source ./ADM/mod.sh
+            gdelmanage
         else
             source ./main.sh
         fi

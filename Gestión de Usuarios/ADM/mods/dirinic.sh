@@ -5,11 +5,11 @@ directoriomanage(){
     echo "Ingrese el nombre de usuario a modificar"
     read -p "Aquí:" username
     if grep -qi "$username" /etc/passwd; then
-    dirproc
+        dirproc
     else
-    echo "El nombre de usuario no existe"
-    
-    fi   
+        echo "El nombre de usuario no existe"
+        
+    fi
 }
 dirproc() {
     echo "Ingrese el nuevo nombre de la carpeta"
@@ -20,10 +20,7 @@ dirproc() {
     else
         sudo mkdir /home/$newhome
         echo "¿Desea mover todos los archivos a la nueva carpeta?"
-        echo "Y=Si"
-        echo "N=No"
-        echo ""
-        read -p "Ingrese Y/N" con
+        read -p "Si=Y No=N" con
         if [ $con == "Y" ] || [ $con == "y" ]; then
             sudo usermod $username -d $newhome -m
         else
@@ -36,14 +33,11 @@ dirproc() {
             echo "La carpeta de inicio no pudo ser modificada"
         fi
         echo "¿Desea continuar?"
-            echo "Y=Si"
-            echo "N=No"
-            echo "Ingrese Y/N"
-            read con
-            if [ $con == "Y" ] || [ $con == "y" ]; then
-                source ./ADM/mod.sh
-            else
-                source ./main.sh
+        read -p "Si=Y No=N" con
+        if [ $con == "Y" ] || [ $con == "y" ]; then
+            source ./ADM/mod.sh
+        else
+            source ./main.sh
         fi
     fi
 }

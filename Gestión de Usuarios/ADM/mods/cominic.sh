@@ -2,15 +2,15 @@
 #Aplicación diseñada y creada por XSC Software Company
 
 commanage(){
-echo "Ingrese el nombre de usuario a modificar"
+    echo "Ingrese el nombre de usuario a modificar"
     read -p "Aquí:" username
     if grep -qi "$username" /etc/passwd; then
-    commproc
+        commproc
     else
-    echo "El nombre de usuario no existe"
-    commanage
-    fi  
-    }
+        echo "El nombre de usuario no existe"
+        commanage
+    fi
+}
 commproc() {
     echo "Ingrese el nuevo comentario del usuario"
     echo "ej:ramon04"
@@ -21,15 +21,12 @@ commproc() {
     else
         echo "El usuario no pudo ser modificado"
     fi
-echo "¿Desea continuar?"
-        echo "Y=Si"
-        echo "N=No"
-        echo "Ingrese Y/N"
-        read con
-        if [ $con == "Y" ] || [ $con == "y" ]; then
-            source ./ADM/mod.sh
-        else
-           source ./main.sh
-        fi
+    echo "¿Desea continuar?"
+    read -p "Si=Y No=N" con
+    if [ $con == "Y" ] || [ $con == "y" ]; then
+        source ./ADM/mod.sh
+    else
+        source ./main.sh
+    fi
 }
 commanage
