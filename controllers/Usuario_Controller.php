@@ -1,5 +1,6 @@
 <?php 
 require_once './entidades/usuario.php';
+require_once './libs/PHPMailer/mails.php';
 
 class Usuario_Controller extends Controller
 {
@@ -24,6 +25,10 @@ class Usuario_Controller extends Controller
     public function resertPassword()
     {
         $this->view->render('usuario/resertPassword');
+    }
+    public function resetPasswordByIDPassword()
+    {
+        $this->view->render('Usuario/resertPassword');
     }
     
     
@@ -91,6 +96,17 @@ class Usuario_Controller extends Controller
     }
     public function SendEmailPassword()
     {
-        
+        $email = $_POST['Email'];
+        //generat unique string
+        $ID_Password_Reset = sha1(uniqid(mt_rand(), true)); // se genera una cadena unica
+        $nombre = $this->model->getNombre($email); //obtiene el nombre del usuario
+        $send = new mails(); // se crea una nueva instancia de la clase mails
+        $sending = $send->SendMailForgetPassword($email, $ID_Password_Reset , $nombre);
+        if ($sending){
+            echo "<script>alert('mail enviado')</script>";
+        }else{
+            echo "<script>alert('mail no enviado')</script>";
+        }
+
     }
 }; ?>

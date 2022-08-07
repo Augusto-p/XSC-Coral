@@ -60,4 +60,16 @@ class Usuario_Model extends Model
            $db = null;
         }
     }
+
+    public function getNombrebyEmail($email){
+        $db = $this->db;
+        $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+        $consulta->bindValue(':email', $email);
+        $consulta->execute();
+        $usr = new Usuario();
+        while ($row = $consulta->fetch()) {
+            $usr->nombre = $row['Nombre'];
+        }
+        return $usr->nombre;
+    }
 }; ?>

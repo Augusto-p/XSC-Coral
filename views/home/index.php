@@ -10,7 +10,7 @@
     <h1>Home page</h1> 
     <a href="<?php echo constant('URL'); ?>usuario/login">Logearse</a>
     <a href="<?php echo constant('URL'); ?>usuario/registrarse">Registrarse</a>
-    <a href="<?php echo constant('URL'); ?>usuario/olvpass">olv</a>
+    <a href="<?php echo constant('URL'); ?>usuario/resertPassword">olv</a>
 
 </body>
 </html>

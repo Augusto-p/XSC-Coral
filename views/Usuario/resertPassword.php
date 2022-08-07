@@ -7,7 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="<?php echo constant('URL'); ?>usuario/SendEmailPassword" method="post"></form>
+    <form action="<?php echo constant('URL'); ?>usuario/SendEmailPassword" method="post">
+    <input type="email" name="Email" id="email">
+    <input type="submit" value="Enviar">
+</form>
     
 </body>
 </html>
