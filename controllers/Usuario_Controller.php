@@ -21,6 +21,10 @@ class Usuario_Controller extends Controller
     public function registrarse(){
         $this->view->render('usuario/registrarse');
     }
+    public function resertPassword()
+    {
+        $this->view->render('usuario/resertPassword');
+    }
     
     
     public function signin()
@@ -68,12 +72,13 @@ class Usuario_Controller extends Controller
         $Types = array('jpg','png','jpeg','gif'); //lista de formatos aceptados
         if(in_array($TypeI, $Types)){ //verifica que el formato de la imagen este soportado
             $img = $_FILES['PhotoPerfil']['tmp_name'];  //obtiene el archivo temporal de la imagen
-            $imgContent = addslashes(file_get_contents($img)); //obtiene el contenido de la imagen BLOB
-            $user->Iuser = $imgContent;
+            $path = "public/imgs/Users/".$user->email.$TypeI; //ruta de la imagen
+            move_uploaded_file($img, $path); //mover la imagen a la ruta especificada
+            $user->Iuser = $path; //guarda la ruta de la imagen en la base de datos
 
         } else { 
             $this->view->mensaje = "Tipo de archivo no soportado"; 
-            $this->view->render('usuario/img');
+            $this->view->render('usuario/registrarse');
         }
 
         $reg = $this->model->registrarse($user);
@@ -84,5 +89,8 @@ class Usuario_Controller extends Controller
         }
            
     }
-
+    public function SendEmailPassword()
+    {
+        
+    }
 }; ?>
