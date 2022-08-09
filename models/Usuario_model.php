@@ -62,14 +62,52 @@ class Usuario_Model extends Model
     }
 
     public function getNombrebyEmail($email){
-        $db = $this->db;
-        $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
-        $consulta->bindValue(':email', $email);
-        $consulta->execute();
-        $usr = new Usuario();
-        while ($row = $consulta->fetch()) {
-            $usr->nombre = $row['Nombre'];
+        try {
+            $db = $this->db;
+            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $consulta->bindValue(':email', $email);
+            $consulta->execute();
+            $usr = new Usuario();
+            while ($row = $consulta->fetch()) {
+                $usr->nombre = $row['Nombre'];
+            }
+            return $usr->nombre;
+        } catch (PDOException $e) {
+            var_dump($e);
+        }finally {
+           $db = null;
         }
-        return $usr->nombre;
+        
     }
+
+    public function remplacePassWordBYEmailSystem($token, $password){
+        try {
+            $db = $this->db;
+            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $consulta->bindValue(':token', $token);
+            $consulta->bindValue(':password', $password);
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            var_dump($e);
+        }finally {
+              $db = null;
+          }
+    }
+
+    public function setTokenOfForgetPasswordByEmailSystem(){
+        try {
+            $db = $this->db;
+            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $consulta->bindValue(':email', $email);
+            $consulta->bindValue(':token', $token);
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            var_dump($e);
+        }finally {
+              $db = null;
+          }
+        
+    }
+
+
 }; ?>

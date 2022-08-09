@@ -7,7 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="<?php echo constant('URL'); ?>usuario/signupClientes" method="post" enctype="multipart/form-data">
+    <form action="<?php echo constant('URL'); ?>usuario/signupAdmin" method="post" enctype="multipart/form-data">
+        <select name="Rol" id="Rol">
+            <option value="">Seleccione un Rol</option>
+            <option value="Cliente">Cliente</option>
+            <option value="Vendedor">Vendedor</option>
+            <option value="Administrador">Administrador</option>
+        </select>
         <input type="text" name="Nombre" placeholder="Nombre">
         <input type="text" name="Apellido" placeholder="Apellido">
         <input type="email" name="Email" placeholder="Email">
