@@ -1,0 +1,29 @@
+USE Libreria;
+-- -- -- -- --  CREACIÓN DE USUARIOS -- -- -- -- -- -- -- -- 
+CREATE USER Thomas            IDENTIFIED BY 'WAIFUS2D'; -- Contraseña
+CREATE USER Augusto           IDENTIFIED BY 'FERRARI';  -- Contraseña
+CREATE USER David             IDENTIFIED BY 'LOL';      -- Contraseña
+CREATE USER Cancela           IDENTIFIED BY 'MIRA';     -- Contraseña
+CREATE USER Bautiz            IDENTIFIED BY 'TARDE';    -- Contraseña
+CREATE USER PROGRAMA          IDENTIFIED BY 'FAMILIA';  -- Contraseña
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+-- -- -- -- -- -- CREACIÓN DE ROLES -- -- -- -- -- -- 
+CREATE ROLE SUPERVISOR;
+CREATE ROLE ADMINISTRADOR;
+CREATE ROLE VISITANTE;
+CREATE ROLE CORAL; 
+-- -- -- -- -- --  ASIGNACIÓN DE PERMISOS A LOS ROLES -- -- 
+GRANT ALL PRIVILEGES ON Libreria.* TO SUPERVISOR;
+GRANT CREATE,UPDATE,ALTER,INSERT ON Libreria.* TO ADMINISTRADOR;
+GRANT SELECT ON Libreria.* TO  VISITANTE;
+GRANT INSERT,SELECT,UPDATE ON  Libreria.* TO CORAL;
+-- -- -- -- -- -- ASIGNACIÓN DE ROLES A LOS USUARIOS -- --
+GRANT SUPERVISOR TO Thomas;
+GRANT ADMINISTRADOR TO Augusto;
+GRANT ADMINISTRADOR TO David;
+GRANT VISITANTE TO Cancela;
+GRANT VISITANTE TO Bautiz;
+GRANT CORAL TO PROGRAMA;
+-- -- -- -- -- -- LISTADO DE LOS USUARIOS -- --
+SELECT USER FROM mysql.user;
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
