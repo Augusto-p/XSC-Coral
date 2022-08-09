@@ -1,5 +1,6 @@
 .vscode/*
 ideas/*
-config/config.php
-
+GitHub/*
+config\config_L.php
+config\config_S.php
 
