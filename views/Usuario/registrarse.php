@@ -1,28 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\Usuario\style.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\Usuario\registro.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\Usuario\aminations.css">
+    <title>MiMundo</title>
 </head>
+
 <body>
-    <form action="<?php echo constant('URL'); ?>usuario/signupClientes" method="post" enctype="multipart/form-data">
-        <input type="text" name="Nombre" placeholder="Nombre">
-        <input type="text" name="Apellido" placeholder="Apellido">
-        <input type="email" name="Email" placeholder="Email">
-        <input type="date" name="Fecha de Naminento" id="">
-        <select name="Genero" id="">
-            <option value="">Seleccione un Genero</option>
-            <option value="M">Masculino</option>
-            <option value="F">Femenino</option>
-            <option value="P">Personalizado</option>
-        </select>
-        <input type="text" name="Gpersonalizado">
-        <input type="password" name="Password" placeholder="Password">
-        <input type="password" name="RPassword" placeholder="Repita su Password">
-        <input type="file" name="Photo" id="">
-        <input type="submit" name="submit" value="Registrarse">
-    </form>
+    <section id="global">
+        <section id="g-izq">
+            <div id="g-izq-content">
+
+                <div id="g-izq-content-in">
+                    <img src="<?php echo constant('URL'); ?>public\Recursos\imgs\LogoMimundo.svg" alt="">
+                </div>
+
+            </div>
+        </section>
+        <section id="g-der">
+            <form action="<?php echo constant('URL'); ?>Usuario/signupClientes" method="post" id="form-reg">
+                <h2 id="titulo">Registrarse</h2>
+                <div id="form-sls">
+                    <div id="form-in">
+                        <input type="text" name="nombre" id="Nombre" placeholder="Nombre" class="inputs">
+                        <input type="text" name="apellido" id="Apellido" placeholder="Apellido" class="inputs">
+                        <input type="email" name="email" id="Email" placeholder="Email" class="inputs">
+                        <input type="password" name="Password" id="password" placeholder="Password" class="inputs">
+                        <input type="password" name="RPassword" id="rpassword" placeholder="Confirmar Password" class="inputs">
+                        <input type="date" name="FNacimiento" id="fecha" placeholder="Fecha de Nacimiento" class="inputs">
+                        <select name="Genero" id="genero" class="inputs">
+                            <option value="" selected disabled>Genero</option>
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                            <option value="P">Otro</option>
+                        </select>
+                        <input type="text" name="GPersonalizado" id="GP" placeholder="Genero" class="inputs">
+                        <div id="Sig" class="btn">Sigiente</div>
+                        <span class="span-cam">
+                            ya tenes cuenta? <a href="#">Login</a>
+                        </span>
+                    </div>
+                    <div id="form-end">
+                        <input type="number" name="numero" id="Numero" placeholder="Numero" class="inputs" step="1" min="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                        <input type="text" name="calle" id="Calle" placeholder="Calle" class="inputs">
+                        <input type="text" name="ciudad" id="Ciudad" placeholder="Ciudad" class="inputs">
+                        <input type="number" name="codigo" id="CPostal" placeholder="Codigo Postal" class="inputs" step="1" min="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                        <input type="text" name="Departamento" list="depaList" id="departamento" placeholder="Departamento" class="inputs">
+                        <datalist id="depaList">
+                            <option value="Artigas">
+                            <option value="Canelones">
+                            <option value="Cerro Largo">
+                            <option value="Coloña">
+                            <option value="Durazno">
+                            <option value="Flores">
+                            <option value="Florida">
+                            <option value="Lavalleja">
+                            <option value="Maldonado">
+                            <option value="Montevideo">
+                            <option value="Paisandú">
+                            <option value="Rivera">
+                            <option value="Rocha">
+                            <option value="Salto">
+                            <option value="San Jose">
+                            <option value="Soriano">
+                            <option value="Tacuarembó">
+                            <option value="Treinta y Tres">
+                        </datalist>
+                        <div id="i-global">
+                            <input type="file" name="PhotoPerfil" id="foto">
+                            <div id="not-image">
+                                <img src="icon/add_photo_2.svg" alt="">
+                                <span id="DDTesxt">Seleccione su foto de perfil</span>
+                            </div>
+                            <div id="yes-image">
+                                <img src="" alt="" id="foto-img">
+                            </div>
+                        </div>
+                        <button id="send" class="btn">Enviar</button>
+                        <span class="span-cam">
+                            ya tenes cuenta? <a href="#">Login</a>
+                        </span>
+                    </div>
+                    
+                </div>
+                
+                
+                
+            </form>
+        </section>
+
+
+    </section>
 </body>
+<script src="<?php echo constant('URL'); ?>public\js\Usuario\main.js"></script>
+<script src="<?php echo constant('URL'); ?>public\js\Usuario\registro.js"></script>
+
 </html>

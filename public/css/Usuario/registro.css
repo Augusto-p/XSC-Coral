@@ -1,0 +1,159 @@
+#global {
+    grid-template-columns: 50vw 50vw;
+
+}
+
+#form-reg {
+    background-color: transparent;
+    width: 75%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-color: #e0e0e0;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+}
+
+#form-sls {
+    display: grid;
+    grid-template-columns: repeat(2, 101%);
+    animation-duration: 3s;
+    width: 100%;
+
+}
+
+#form-sls>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+}
+
+#form-in {
+    grid-column: 1;
+    height: 80vh;
+}
+
+#form-end {
+    grid-column: 2;
+    height: 80vh;
+}
+
+
+#titulo {
+    margin-bottom: 0;
+    margin-top: 0em;
+}
+
+#GP {
+    display: none;
+}
+
+/* test */
+
+#not-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+#yes-image {
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#foto {
+    opacity: 0;
+
+    position: absolute;
+}
+
+#Sig {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    #global {
+        grid-template-columns: 100%;
+        grid-template-rows: 20% 80%;
+        background-image: url("./../../Recursos/imgs/UsuarioBg.png");
+        background-size: cover;
+        background-position: center;
+    }
+
+    #g-izq {
+        background: none;
+        background-color: rgba(255, 255, 255, 0.25);
+        grid-row: 1;
+
+    }
+
+    #g-izq-content {
+        flex-direction: row;
+        align-content: center;
+        align-items: flex-end;
+        background-color: transparent;
+    }
+
+    #g-izq-content-in {
+        height: 75%;
+        width: 75%;
+        border: none;
+        background-color: transparent;
+    }
+
+
+    #g-der {
+        grid-column: 1;
+        background-color: rgba(255, 255, 255, 0.25);
+        grid-row: 2;
+        align-items: flex-start;
+    }
+
+
+
+    .span-cam {
+        color: white;
+    }
+
+
+    #titulo {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .inputs {
+        max-width: 70vw;
+    }
+    .inputs:focus{
+        color: white;
+    }
+
+    #form-reg {
+        height: 98%;
+        border-top: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    #i-global {
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+    #form-sls>div{
+        height: 75vh;
+    }
+
+    #i-global:hover{
+        border-color:#2692ca
+    }
+}

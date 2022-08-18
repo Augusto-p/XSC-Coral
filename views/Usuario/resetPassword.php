@@ -4,17 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\Usuario\style.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\Usuario\resetPassword.css">
+    <title>MiMundo</title>
 </head>
 <body>
-    <form action="" method="post">
-        <input type="hidden" name="code" value="<?=$this->code;?>">
-        <input type="password" name="password" id="password">
-        <input type="password" name="Rpassword" id="password">
-        <input type="submit" value="Enviar">
-    </form>
+    <section id="global">
+        <section id="g-izq">
+            <div id="g-izq-content">
+                
+                <div id="g-izq-content-in">
+                    <img src="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.svg" alt="">
+                </div>
 
-
-    
+            </div>
+        </section>
+        <section id="g-der">
+            <form action="<?php echo constant('URL'); ?>Usuario/resetPasswordByCode" method="post" id="form-olv-new-pass">
+                <h2 id="titulo">Restablece Tu Contraseña</h2>
+                <input type="password" name="Password" id="password" placeholder="New Password" class="inputs">
+                <input type="password" name="RPassword" id="rpassword" placeholder="Confirmed Password" class="inputs">
+                <button id="entrar" type="button" onclick="SendNewPassword();" class="btn">Entrar</button>
+            </form>
+        </section>
+    </section>
 </body>
+<script src="<?php echo constant('URL'); ?>public\js\Usuario\main.js"></script>
+<script src="<?php echo constant('URL'); ?>public\js\Usuario\ResetPassword.js"></script>
 </html>
