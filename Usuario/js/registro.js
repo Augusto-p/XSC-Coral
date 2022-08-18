@@ -18,7 +18,6 @@ let fotoImg = document.getElementById('foto-img');
 let vH = window.innerHeight / 100;
 
 
-
 function setmindate(){
     let date = new Date();
     let year = date.getFullYear();
@@ -119,6 +118,9 @@ foto.addEventListener('change', (e) => {
 
 
 
-setSize();
+
 setmindate();
 
+btnSigiente.style.width = (input.offsetWidth -50) + 'px';
+btnSend.style.width = (input.offsetWidth -50) + 'px';
+IGlobal.style.width = (input.offsetWidth -50) + 'px';

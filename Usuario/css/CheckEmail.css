@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    background-image: url("https://www.wallpaperuse.com/wallp/59-590508_m.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#global {
+    width: 80vw;
+    height: 70vh;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5vw;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border: 2px solid #e0e0e0;
+    border-top: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#head {
+    width: 40%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+h1 {
+    font-size: 4vw;
+    color: #145075;
+}
+
+#body {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+h2 {
+    font-size: 3.5vw;
+    color: #145075;
+}
+
+p {
+    font-size: 1.5vw;
+}
+
+span {
+    font-size: 1.5vw;
+    text-decoration: underline;
+}
+
+span:hover {
+    cursor: pointer;
+    color: #2692ca;
+}
+
+a{
+    font-size: 1.5vw;
+    text-decoration: none;
+    color: #2692ca;
+    cursor: pointer;
+}
+a:hover{
+    text-decoration: underline;
+}

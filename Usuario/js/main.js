@@ -4,7 +4,7 @@ let entrar = document.getElementById('entrar');
 
 window.addEventListener('resize', setsize);
 function setsize() {
-    entrar.style.width = inputs[0].offsetWidth + 'px';
+    entrar.style.width = (inputs[0].offsetWidth -77) + 'px';
 }
 
 function ConfirmedPasword(pass1,pass2) {

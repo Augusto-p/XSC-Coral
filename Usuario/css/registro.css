@@ -10,10 +10,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 2vw;
-    border-color: #2692ca;
-    border-style: dashed;
-    border-width: 1vh;
+    border-color: #e0e0e0;
+    border-style: solid;
+    border-width: 1px;
     overflow: hidden;
 }
 
@@ -54,12 +53,6 @@
 }
 
 /* test */
-#i-global {
-    border-radius: 2vw;
-    border-color: #145075;
-    border-style: solid;
-    border-width: 1vh;
-}
 
 #not-image {
     display: flex;
@@ -91,7 +84,7 @@
 @media (max-width: 768px) {
     #global {
         grid-template-columns: 100%;
-        grid-template-rows: 15% 85%;
+        grid-template-rows: 20% 80%;
         background-image: url("https://www.wallpaperuse.com/wallp/59-590508_m.jpg");
         background-size: cover;
         background-position: center;
@@ -99,7 +92,7 @@
 
     #g-izq {
         background: none;
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(255, 255, 255, 0.25);
         grid-row: 1;
 
     }
@@ -108,52 +101,25 @@
         flex-direction: row;
         align-content: center;
         align-items: flex-end;
-
         background-color: transparent;
     }
 
-    #g-izq-content-up {
+    #g-izq-content-in {
         height: 75%;
-        width: 30%;
-        border-radius: 2vw;
-        border-color: #2692ca;
-        border-style: dashed;
-        border-width: 1vh;
-        border-right: none;
-        border-bottom: none;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-        background-color: rgba(0, 0, 0, 0.6);
+        width: 75%;
+        border: none;
+        background-color: transparent;
     }
 
-    #g-izq-content-down {
-        height: 75%;
-        width: 45%;
-        border-radius: 2vw;
-        border-color: #2692ca;
-        border-style: dashed;
-        border-width: 1vh;
-        border-left: none;
-        border-bottom: none;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        background-color: rgba(0, 0, 0, 0.6);
-    }
 
     #g-der {
         grid-column: 1;
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(255, 255, 255, 0.25);
         grid-row: 2;
         align-items: flex-start;
     }
 
-    #myname {
-        font-size: 2em;
-        font-family: 'Roboto', sans-serif;
-        color: #145075;
-    }
+
 
     .span-cam {
         color: white;
@@ -177,7 +143,7 @@
         border-top: none;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(255, 255, 255, 0.8);
     }
 
     #i-global {
