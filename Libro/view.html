@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/baner.css">
+    <link rel="stylesheet" href="css/view.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="banner">
+        <div class="marca">
+            <img class="logo" src="../Recursos/imgs/LogoMimundo.svg">
+            <h2 class="nombre">MiMundo</h2>
+        </div>
+    
+        <div class="busqueda">
+            <input class="barra" name="barra_de_busqueda" type="text" placeholder="buscar libros">
+            <button class="boton-lupa"><img class="lupa" src="../Recursos/icons/lupa.svg" alt=""></button>
+        </div>
+    
+        <div class="menu">
+            <ul class="menu-ul">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Explorar</a></li>
+                <li><a href="#">Sobre nosotros</a></li>
+                <li><img class="user" src="../Recursos/icons/user.svg" alt="">
+                    <ul class="submenu">
+                        <li><a href="#">Ingresar</a></li>
+                        <li><a href="#">Registro</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    
+        <div class="carrito-div">
+            <a href="#"><img class="carrito" src="../Recursos/icons/carrito.svg" alt=""></a>
+        </div>
+    </div>
+
+    <section class="big-contenedor">
+        <section class="contenedor">
+            <section class="slider-book">
+                <button class="slider-book-btn" id="btn-slider-a">❮</button>
+                <button class="slider-book-btn" id="btn-slider-s">❯</button>
+                <img id="slider-book-image"> <!-- aca se mustra la imagen -->
+                <section id="book-image-pointer-section">
+                    <!-- dependiendo de la cantiad de imagens insertadas se crean atraves de js -->
+                </section>
+            </section>
+            <section class="info-book">
+                <div class="info-book-in">
+                    <span id="categorias-book-span">
+                        Categorias: 
+                        <a href="" class="categoria-book">Hobbies</a>
+                        <a href="" class="categoria-book">Deportes</a>
+
+                    </span>
+                    <h2 id="titulo-book">Cómo hacer un coche</h2>
+                    <p id="sipnosis-book">En este emocionante libro descubriremos de manera exhaustiva, fascinante y extraordinariamente entretenida cómo funciona
+                    un coche de carreras, mientras recorremos la trayectoria de Adrian Newey, el más grande diseñador de automóviles de la
+                    historia, desde sus comienzos en la IndyCar hasta alcanzar un éxito inigualado en la Fórmula 1 diseñando coches para
+                    pilotos como Mario Andretti, Nigel Mansell, Alain Prost, Mika Häkkinen, Mark Webber o Sebastian Vettel entre otros,
+                    siempre con un objetivo inquebrantable: conseguir el coche más rápido.</p>
+                    <h3 id="precio-book">UYU$ 2.164,75</h3>
+                    <button id="btn-addCarrito">Añadir al carrito</button>
+
+                    <!-- public $isbn;
+                        public $idAutor; -->
+                </div>
+                <div id="info-autor-book">
+                    <div id="autor-book">
+                        <img id="img-autor-book" src="">
+                        <h3 id="nombre-autor-book"></h3>
+                    </div>
+                    <div id="data-autor-book">
+                        <div id="data-autor-book-fn">
+                            <h4>Fecha de nacimiento:</h4>
+                            <h4 id="data-autor-book-fn-in"></h4>
+                        </div>
+                        <div id="data-autor-book-na">
+                            <h4>Nacionalidad:</h4>
+                            <h4 id="data-autor-book-na-in"></h4>
+                            <img src="" alt="" id="autor-image-country"> <!-- aca se muestra la bandera  ej ../Recursos/icons/flags/reino-unido.svg-->
+
+                        </div>
+                    </div>
+                    
+                    <p id="bio-autor-book"></p>
+                
+                <div id="autor-book-slider">
+                    <button class="autor-btn" id="btn-autor-a">❮</button>
+                    <section id="slider-autor-pointers-div">
+                        <!-- dependiendo de la cantidad de libros del autor se crean -->
+                        
+
+                    </section>
+                    <button class="autor-btn" id="btn-autor-s">❯</button>
+                </div>
+                </div>
+
+        </section>
+
+    </section>
+    
+</body>
+<script src="js/view.js"></script>
+<script>
+    addbookimage("example.jpeg");
+    addbookimage("example2.jpg");
+    addbookimage("example.jpeg");
+    addbookimage("example2.jpg");
+    addbookimage("example.jpeg");
+    addbookimage("example2.jpg");
+
+    addbookAutor(1, "Adrian Newey",  "Britanico", "Adrian Newey es el diseñador de automóviles más laureado de la historia de la Fórmula 1. Ha diseñado 14 coches campeones del mundo, 10 de ellos con el equipo Red Bull Racing, y ha sido galardonado con el Premio de Diseño de la FIA en cuatro ocasiones. En 2019 recibió el Premio Príncipe de Asturias de los Deportes.", "1963-01-15", "https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg");
+    addbookAutor(1, "Adrian Newey", "Britanico", "Adrian Newey es el diseñador de automóviles más laureado de la historia de la Fórmula 1. Ha diseñado 14 coches campeones del mundo, 10 de ellos con el equipo Red Bull Racing, y ha sido galardonado con el Premio de Diseño de la FIA en cuatro ocasiones. En 2019 recibió el Premio Príncipe de Asturias de los Deportes.", "1963-01-16", "https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg");
+    run()
+</script>
+</html>
