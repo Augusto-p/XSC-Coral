@@ -115,3 +115,95 @@
 .submenu li {
     padding: 10px;
 }
+
+
+/* Pie de pagina*/
+footer {
+    width: 100%;
+    background: #202020;
+    color: white;
+    height: 50vh;
+    margin-top: 5vh;
+}
+
+.footer-up {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    height: 80%;
+}
+
+.footer-up-column {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.footer-up-Column-in {
+    width: 80%;
+    height: 100%;
+
+}
+
+.footer-up-Column-in a {
+    display: flex;
+    height: 7vh;
+    align-items: center;
+    color: white;
+    font-size: 1.2em;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+}
+
+.footer-up-Column-in a:hover {
+    color: #71EBA1;
+    text-decoration: underline;
+}
+
+.footer-up-Column-in img {
+    width: auto;
+    height: 5vh;
+    color: white;
+    filter: invert(1);
+    margin-right: 5px;
+}
+
+.footer-up-Column-in img:hover .footer-up-Column-in a {
+    color: #71EBA1;
+    text-decoration: underline;
+}
+
+.footer-up-column p {
+    font-size: 1.2em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-up-column h3 {
+    font-size: 1.8em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-down {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+}
+
+.copyright {
+    background: #101010;
+    color: white;
+    width: 80vw;
+    padding-inline-start: 3vw;
+    text-align: start;
+}
+
+.copyright h2 {
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+}
