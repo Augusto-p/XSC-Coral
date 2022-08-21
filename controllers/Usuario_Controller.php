@@ -1,5 +1,5 @@
 <?php 
-require_once './entidades/usuario.php';
+require_once './DTO/usuario.php';
 require_once './libs/PHPMailer/mails.php';
 
 class Usuario_Controller extends Controller
@@ -30,7 +30,7 @@ class Usuario_Controller extends Controller
     {
         $code = $_GET['code'];
         $this->view->code = $code;
-        $this->view->render('Usuario/resertPassword');
+        $this->view->render('Usuario/passwordReset');
     }
     
 
@@ -38,42 +38,50 @@ class Usuario_Controller extends Controller
     
     public function signin()
     {
-        $user = new Usuario();
-        $user->email = $_POST['Email'];
-        $user->password = $_POST['Password'];
+        $user = new Usuario(); //creamos un objeto de tipo usuario
+        $user->email = $_POST['Email']; //asignamos el valor del email
+        $user->password = password_hash($_POST['Password'], PASSWORD_BCRYPT , ['cost' => 10]); //asignamos el valor del password encriptado
         $usr = $this->model->entrar($user);
         if (!$usr) {
             $this->view->render('usuario/login');
         } else {
-            $_SESSION['id'] = serialize($usr->ID);
-            $_SESSION['login'] = true;
+            $_SESSION['email'] = serialize($usr->email);
+            $_SESSION['nombre'] = serialize($usr->nombrecompleto);
             $_SESSION['rol'] = serialize($usr->rol);
+            $_SESSION['genero'] = serialize($usr->Genero);
+            $_SESSION['numero'] = serialize($usr->numero);
+            $_SESSION['calle'] = serialize($usr->calle);
+            $_SESSION['ciudad'] = serialize($usr->ciudad);
+            $_SESSION['codigoPostal'] = serialize($usr->codigoPostal);
+            $_SESSION['departamento'] = serialize($usr->departamento);
+            $_SESSION['Fnacimeto'] = serialize($usr->Fnacimento);
+            $_SESSION['login'] = true;
+            $this->view->render('home/index');
         }
 
     }
 
     public function signupClientes(){
         $user = new Usuario();
-        $user->nombre = $_POST['Nombre'];
-        $user->apellido = $_POST['Apellido'];
+        $user->nombrecompleto = $_POST['Nombre']. " " . $_POST['Apellido'];
         $user->email = $_POST['Email'];
-        $user->password = $_POST['Password'];
-        $user->Fnacimento = $_POST['FNaminento'];
+        
+        $user->Fnacimento = $_POST['FNacimiento'];
         if ($_POST['Genero'] == "M") {
             $user->Genero = "Masculino";
         } elseif ($_POST['Genero'] == "F") {
             $user->Genero = "Femenino";
         } else {
-            $user->Genero = $_POST['Gpersonalizado'];
+            $user->Genero = $_POST['GPersonalizado'];
         }
         $user->numero = $_POST['Numero'];
         $user->calle = $_POST['Calle'];
         $user->ciudad = $_POST['Ciudad'];
-        $user->codigoPostal = $_POST['CodigoPostal'];
+        $user->codigoPostal = $_POST['Codigo'];
         $user->departamento = $_POST['Departamento'];
         $user->rol = "Cliente";
-
-
+        $user->password = password_hash($_POST['Password'], PASSWORD_BCRYPT , ['cost' => 10]);
+    
 
         //foto de perfill
         $NameI = basename($_FILES["PhotoPerfil"]["name"]);  //nombre de la imagen
@@ -82,7 +90,7 @@ class Usuario_Controller extends Controller
         $Types = array('jpg','png','jpeg','gif'); //lista de formatos aceptados
         if(in_array($TypeI, $Types)){ //verifica que el formato de la imagen este soportado
             $img = $_FILES['PhotoPerfil']['tmp_name'];  //obtiene el archivo temporal de la imagen
-            $path = "public/imgs/Users/".$user->email.$TypeI; //ruta de la imagen
+            $path = "public/imgs/Users/".$user->email.".".$TypeI; //ruta de la imagen
             move_uploaded_file($img, $path); //mover la imagen a la ruta especificada
             $user->Iuser = $path; //guarda la ruta de la imagen en la base de datos
 
@@ -155,22 +163,29 @@ class Usuario_Controller extends Controller
     {
         $email = $_POST['Email'];
         //generat unique string
-        $ID_Password_Reset = sha1(uniqid(mt_rand(), true)); // se genera una cadena unica
-        $nombre = $this->model->getNombre($email); //obtiene el nombre del usuario
-        $send = new mails(); // se crea una nueva instancia de la clase mails
-        $sending = $send->SendMailForgetPassword($email, $ID_Password_Reset , $nombre);
-        if ($sending){
-            echo "<script>alert('mail enviado')</script>";
+        $nombre = $this->model->getNombrebyEmail($email); //obtiene el nombre del usuario
+        if ($nombre) {
+            $ID_Password_Reset = sha1(uniqid(mt_rand(), true)); // se genera una cadena unica
+            $date = date("Y-m-d"); // se obtiene la fecha actual
+            $this->model->setTokenOfForgetPasswordByEmailSystem( $email,$ID_Password_Reset, $date); //se guarda la cadena unica en la base de datos
+            $send = new mails(); // se crea una nueva instancia de la clase mails
+            $sending = $send->SendMailForgetPassword($email, $ID_Password_Reset , $nombre);
+            if ($sending){
+                echo "<script>alert('mail enviado')</script>";
+            }else{
+                echo "<script>alert('mail no enviado')</script>";
+            }
         }else{
             echo "<script>alert('mail no enviado')</script>";
         }
+        
 
     }
 
     public function resetPasswordByCode(){
         $code = $_POST['Code'];
-        $password = $_POST['Password'];
-        $reset = $this->model->resetPasswordByCode($code, $password);
+        $password = password_hash($_POST['Password'], PASSWORD_BCRYPT , ['cost' => 10]);
+        $reset = $this->model->remplacePassWordBYEmailSystem($code, $password);
         if ($reset){
             echo "<script>alert('Contraseña cambiada')</script>";
             $this->view->render('usuario/login');

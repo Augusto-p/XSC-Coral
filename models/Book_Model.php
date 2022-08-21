@@ -1,5 +1,5 @@
 <?php 
-class Libros_Model extends Model
+class Book_Model extends Model
 {
     public function __construct(){
         parent::__construct();
@@ -7,8 +7,8 @@ class Libros_Model extends Model
 
     public function get($id){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->bindValue(':isbn', $id);
             $consulta->execute();
             $libro = new Libro();
@@ -24,15 +24,15 @@ class Libros_Model extends Model
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
         
     }
 
     public function add($book){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->bindValue(':isbn', $book->isbn);
             $consulta->bindValue(':titulo', $book->titulo);
             $consulta->bindValue(':precio', $book->precio);
@@ -42,14 +42,14 @@ class Libros_Model extends Model
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
     }
 
     public function getAll(){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->execute();
             $libros = [];
             while ($row = $consulta->fetch()) {
@@ -66,15 +66,15 @@ class Libros_Model extends Model
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
         
     }
 
     public function getByAutor($idAutor){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->bindValue(':idAutor', $idAutor);
             $consulta->execute();
             $libros = [];
@@ -92,7 +92,7 @@ class Libros_Model extends Model
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
         
 
@@ -101,8 +101,8 @@ class Libros_Model extends Model
 
     public function getByEditorial($idEditorial){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->bindValue(':idEditorial', $idEditorial);
             $consulta->execute();
             $libros = [];
@@ -120,7 +120,7 @@ class Libros_Model extends Model
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
         
         
@@ -128,8 +128,8 @@ class Libros_Model extends Model
 
     public function update($book){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->bindValue(':isbn', $book->isbn);
             $consulta->bindValue(':titulo', $book->titulo);
             $consulta->bindValue(':precio', $book->precio);
@@ -139,21 +139,21 @@ class Libros_Model extends Model
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
         
     }
 
     public function delete($id){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->bindValue(':isbn', $id);
             return $consulta->execute();
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
         
         

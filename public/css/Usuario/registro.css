@@ -67,9 +67,18 @@
     display: none;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
-#foto {
+#yes-image img {
+    height: 100%;
+}
+
+#i-global{
+    height: 7vh;
+}
+ #foto {
     opacity: 0;
 
     position: absolute;
@@ -134,7 +143,8 @@
     .inputs {
         max-width: 70vw;
     }
-    .inputs:focus{
+
+    .inputs:focus {
         color: white;
     }
 
@@ -149,11 +159,12 @@
     #i-global {
         background-color: rgba(255, 255, 255, 0.6);
     }
-    #form-sls>div{
+
+    #form-sls>div {
         height: 75vh;
     }
 
-    #i-global:hover{
-        border-color:#2692ca
+    #i-global:hover {
+        border-color: #2692ca
     }
 }

@@ -15,6 +15,7 @@ class Usuario
     public $codigoPostal;
     public $departamento;
     public $Iuser;
+    public $nombrecompleto;
     
 }
 

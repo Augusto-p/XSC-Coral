@@ -24,13 +24,13 @@
             </div>
         </section>
         <section id="g-der">
-            <form action="<?php echo constant('URL'); ?>Usuario/signupClientes" method="post" id="form-reg">
+            <form action="<?php echo constant('URL'); ?>Usuario/signupClientes" method="post" id="form-reg" enctype="multipart/form-data">
                 <h2 id="titulo">Registrarse</h2>
                 <div id="form-sls">
                     <div id="form-in">
-                        <input type="text" name="nombre" id="Nombre" placeholder="Nombre" class="inputs">
-                        <input type="text" name="apellido" id="Apellido" placeholder="Apellido" class="inputs">
-                        <input type="email" name="email" id="Email" placeholder="Email" class="inputs">
+                        <input type="text" name="Nombre" id="Nombre" placeholder="Nombre" class="inputs">
+                        <input type="text" name="Apellido" id="Apellido" placeholder="Apellido" class="inputs">
+                        <input type="email" name="Email" id="Email" placeholder="Email" class="inputs">
                         <input type="password" name="Password" id="password" placeholder="Password" class="inputs">
                         <input type="password" name="RPassword" id="rpassword" placeholder="Confirmar Password" class="inputs">
                         <input type="date" name="FNacimiento" id="fecha" placeholder="Fecha de Nacimiento" class="inputs">
@@ -47,10 +47,10 @@
                         </span>
                     </div>
                     <div id="form-end">
-                        <input type="number" name="numero" id="Numero" placeholder="Numero" class="inputs" step="1" min="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                        <input type="text" name="calle" id="Calle" placeholder="Calle" class="inputs">
-                        <input type="text" name="ciudad" id="Ciudad" placeholder="Ciudad" class="inputs">
-                        <input type="number" name="codigo" id="CPostal" placeholder="Codigo Postal" class="inputs" step="1" min="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                        <input type="number" name="Numero" id="Numero" placeholder="Numero" class="inputs" step="1" min="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                        <input type="text" name="Calle" id="Calle" placeholder="Calle" class="inputs">
+                        <input type="text" name="Ciudad" id="Ciudad" placeholder="Ciudad" class="inputs">
+                        <input type="number" name="Codigo" id="CPostal" placeholder="Codigo Postal" class="inputs" step="1" min="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                         <input type="text" name="Departamento" list="depaList" id="departamento" placeholder="Departamento" class="inputs">
                         <datalist id="depaList">
                             <option value="Artigas">
@@ -75,14 +75,15 @@
                         <div id="i-global">
                             <input type="file" name="PhotoPerfil" id="foto">
                             <div id="not-image">
-                                <img src="icon/add_photo_2.svg" alt="">
+                                <img src="<?php echo constant('URL'); ?>public\Recursos\icons\AddPhoto.svg" alt="">
                                 <span id="DDTesxt">Seleccione su foto de perfil</span>
                             </div>
                             <div id="yes-image">
                                 <img src="" alt="" id="foto-img">
                             </div>
                         </div>
-                        <button id="send" class="btn">Enviar</button>
+                        
+                        <button id="send" type="submit" class="btn">Enviar</button>
                         <span class="span-cam">
                             ya tenes cuenta? <a href="#">Login</a>
                         </span>

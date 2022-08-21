@@ -22,6 +22,7 @@
         <section id="g-der">
             <form action="<?php echo constant('URL'); ?>Usuario/resetPasswordByCode" method="post" id="form-olv-new-pass">
                 <h2 id="titulo">Restablece Tu Contraseña</h2>
+                <input type="hidden" name="Code" value="<?=$this->code;?>">
                 <input type="password" name="Password" id="password" placeholder="New Password" class="inputs">
                 <input type="password" name="RPassword" id="rpassword" placeholder="Confirmed Password" class="inputs">
                 <button id="entrar" type="button" onclick="SendNewPassword();" class="btn">Entrar</button>

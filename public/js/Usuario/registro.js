@@ -18,6 +18,7 @@ let fotoImg = document.getElementById('foto-img');
 let vH = window.innerHeight / 100;
 
 
+
 function setmindate(){
     let date = new Date();
     let year = date.getFullYear();
@@ -39,16 +40,13 @@ function setmindate(){
     
 
 function setSize() {
-    btnSend.style.width = input.offsetWidth + 'px';
+    
     fecha.style.width = input.offsetWidth + 'px';
     genero.style.width = input.offsetWidth + 'px';
     btnSigiente.style.width = (input.offsetWidth -10) + 'px';
     IGlobal.style.width = (input.offsetWidth - (2 * vH)) + 'px';
     IGlobal.style.height = (input.offsetHeight *3) + 'px';
     //get 1 window height
-    
-    
-
     foto.style.width = input.offsetWidth + 'px';
     foto.style.height = (input.offsetHeight *3) + 'px';
     fotoImg.style.height = (input.offsetHeight * 3) + 'px';
@@ -56,6 +54,7 @@ function setSize() {
     
 }
 
+setSize()
 
 function sigiente() {
     console.log("hello");

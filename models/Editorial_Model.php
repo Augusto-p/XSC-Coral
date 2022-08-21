@@ -7,8 +7,8 @@ class Editorial_Model extends Model
 
     public function add($editorial){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->bindValue(':nombre', $editorial->nombre);
             $consulta->bindValue(':direccion', $editorial->direccion);
             $consulta->bindValue(':telefono', $editorial->telefono);
@@ -19,14 +19,14 @@ class Editorial_Model extends Model
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
     }
 
     public function getBybook($bookId){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->bindValue(':isbn', $bookId);
             $consulta->execute();
             $editoriales = [];
@@ -45,15 +45,15 @@ class Editorial_Model extends Model
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
         
     }
 
     public function getAll(){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->execute();
             $editoriales = [];
             while ($row = $consulta->fetch()) {
@@ -71,14 +71,14 @@ class Editorial_Model extends Model
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
     }
 
     public function get($id){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->bindValue(':id', $id);
             $consulta->execute();
             $row = $consulta->fetch();
@@ -94,14 +94,14 @@ class Editorial_Model extends Model
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
     }
 
     public function update($editorial){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->bindValue(':id', $editorial->id);
             $consulta->bindValue(':nombre', $editorial->nombre);
             $consulta->bindValue(':direccion', $editorial->direccion);
@@ -113,20 +113,20 @@ class Editorial_Model extends Model
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
     }
 
     public function delete($id){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->bindValue(':id', $id);
             return $consulta->execute();
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
     }
 };?>

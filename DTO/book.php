@@ -1,10 +1,10 @@
 <?php 
-class Libro{
+class Book{
     public $isbn;
     public $titulo;
     public $precio;
     public $categoria;
-    public $idAutor;
+    public $idsAutor;
     public $sipnosis;
     public $imagens;
 }; ?>

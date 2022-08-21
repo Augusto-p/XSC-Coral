@@ -7,8 +7,8 @@ class Autor_Model extends Model
 
     public function add($autor){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->bindValue(':id', $autor->id);
             $consulta->bindValue(':nombre', $autor->nombre);
             $consulta->bindValue(':nacionalidad', $autor->nacionalidad);
@@ -19,14 +19,14 @@ class Autor_Model extends Model
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
     }
 
     public function getBybook($bookId){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->bindValue(':isbn', $bookId);
             $consulta->execute();
             $autores = [];
@@ -44,15 +44,15 @@ class Autor_Model extends Model
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
         
     }
 
     public function getAll(){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->execute();
             $autores = [];
             while ($row = $consulta->fetch()) {
@@ -69,7 +69,7 @@ class Autor_Model extends Model
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
         
         
@@ -77,8 +77,8 @@ class Autor_Model extends Model
 
     public function get($id){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->bindValue(':id', $id);
             $consulta->execute();
             $row = $consulta->fetch();
@@ -93,15 +93,15 @@ class Autor_Model extends Model
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
         
     }
 
     public function update($autor){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->bindValue(':id', $autor->id);
             $consulta->bindValue(':nombre', $autor->nombre);
             $consulta->bindValue(':nacionalidad', $autor->nacionalidad);
@@ -112,20 +112,20 @@ class Autor_Model extends Model
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
     }
 
     public function delete($id){
         try {
-            $db = $this->db;
-            $consulta = $db->connect()->prepare(''); // consulta a la base de datos no disponible 
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
             $consulta->bindValue(':id', $id);
             return $consulta->execute();
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
-           $db = null;
+           $pdo = null;
         }
     }
 }; ?>
