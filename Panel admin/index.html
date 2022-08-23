@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+        <div class="banner">
+            <div class="marca">
+                <img class="logo" src="LogoMimundo.svg">
+                <h2 class="nombre">MiMundo</h2>
+            </div>
+        
+            <div class="busqueda">
+                <input class="barra" name="barra_de_busqueda" type="text" placeholder="buscar libros">
+                <button class="boton-lupa"><img class="lupa" src="lupa.svg" alt=""></button>
+            </div>
+        
+            <div class="menu">
+                <ul class="menu-ul">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Explorar</a></li>
+                    <li><a href="#">Sobre nosotros</a></li>
+                    <li><img class="user" src="user.svg" alt="">
+                        <ul class="submenu">
+                            <li><a href="#">Ingresar</a></li>
+                            <li><a href="#">Registro</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        
+            <div class="carrito-div">
+                <a href="#"><img class="carrito" src="carrito.svg" alt=""></a>
+            </div>
+        </div>
+
+       <div class="con-adm">
+        <ul class="menu-admin">
+            <li><a class="añad-usu" href="#">Añadir Usuario</a></li>
+            <img class="img-usr2" src="./usuario2.png" alt="">
+            <li><a class="añad-art" href="#">Añadir Articulo</a></li>
+            <li><a class="rem-art" href="#">Remover Artiuculo</a></li>
+        </ul>
+    </div> 
+
+    <div class="usuario">
+
+        <h3>Añadir Usuario.</h3>
+
+        <h4>Crear un usuario y añadirlo a la página.</h4>
+
+        <select class="tipo">
+            <option>Cliente</option>
+            <option>Administrador</option>
+        </select>
+        <input class="nombr-usr" type="text" placeholder="Nombre">
+        <input class="apell-usr" type="text" placeholder="Apellido">
+        <input class="email-usr" type="email" placeholder="Email">
+        <input class="passwrd-usr" type="password" placeholder="Password">
+        <input class="genero-usr" type="text" placeholder="Género">
+        <input class="genero-pers" type="text" placeholder="Genero Personalizado">
+        <input class="fecha_nac" type="date" placeholder="Fecha de Nacimiento">
+        <input class="numero-tel" type="text" placeholder="Numero Telefonico">
+        <input class="calle" type="text" placeholder="Calle">
+        <input class="ciudad" type="text" placeholder="Ciudad">
+        <input class="departamento" type="text" placeholder="Departamento">
+        <input class="cod-post" type="text" placeholder="Codigo Postal">
+
+        <button class="añadir" onclick="">Añadir usuario</button>
+    </div>
+
+</body>
+</html>
