@@ -7,6 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    
+
+    <h3>
+        <?php echo $this->Book->isbn; ?>
+    </h3>
+    <h1><?=$this->BookTitulo;?></h1>
+    <h2><?=$this->BookISBN;?></h2>
+    <h2><?=$this->BookPrecio;?></h2>
+    <h2><?=$this->BookCategorias;?></h2>
+    <h2><?=$this->BookSipnosis;?></h2>
+    <h2><?=$this->bookImagenes;?></h2>
+    <h2></h2>
 </body>
 </html>

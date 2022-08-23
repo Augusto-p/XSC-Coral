@@ -1,6 +1,7 @@
 <?php 
-require_once './DTO/book.php';
-require_once './DTO/autor.php';
+require_once 'DTO/book.php';
+require_once 'DTO/autor.php';
+require_once 'Funciones\Archivos.php';
 
 
 class Book_Controller extends Controller
@@ -15,27 +16,42 @@ class Book_Controller extends Controller
     }
     public function view(){
         $id = $_GET['id'];
-        $libro = $this->model->getLibro($id);
-        $autor = $this->model->getAutor($libro->id_autor);
-        $this->view->libro = $libro;
-        $this->view->autor = $autor;
+        $libro = $this->model->get($id);
+        $file = new Archivo;
+        $file->setPath($libro->sipnosis);
+        $file->read();
+        $libro->sipnosis = $file->getContent();
+
+        //send Data
+        $this->view->Book = $libro;     
+        $this->view->respuesta =  $libro->precio." ".$libro->IDEditorial." ".$libro->sipnosis;
         $this->view->render('libros/view');
     }
     public function new(){
-        $this->view->render('libros/new');
+        $this->view->render('libros/new2');
     }
     public function add(){
         $book = new Book();
         $book->isbn = $_POST['isbn'];
         $book->titulo = $_POST['titulo'];
         $book->precio = $_POST['precio'];
-        $book->categoria = $_POST['categoria'];
-        $book->id_Autor = $_POST['id_autor'];
-        $book->sipnosis = $_POST['sipnosis'];
+        $book->categorias = $_POST['categorias'];
+        // $book->idsAutor = $_POST['id_autor'];
+        $book->IDEditorial = $_POST['Editorial'];
         $imgs = $_FILES["Imagenes"];
         
-        mkdir("./public/imgs/Books/".$book->isbn);
+        //guardado de sipnosis
 
+        $file = new Archivo;
+        $file->setPath("public/texts/BookSipnosis/".$book->isbn.".txt");
+        $file->setContent($_POST['sipnosis']);
+        $file->save();
+        $book->sipnosis = $file->getPath();
+
+        //manego de imagenes 
+        if (!file_exists('./public/imgs/Books/".$book->isbn')) {
+            mkdir("./public/imgs/Books/".$book->isbn);
+        }
         $cont = 0;
         $paths = array();
         foreach($imgs["name"] as $i){
@@ -51,7 +67,7 @@ class Book_Controller extends Controller
             }
 
         }
-
+        $book->imagenes = $paths;
 
 
 

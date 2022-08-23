@@ -3,8 +3,9 @@ class Book{
     public $isbn;
     public $titulo;
     public $precio;
-    public $categoria;
+    public $categorias;
     public $idsAutor;
     public $sipnosis;
-    public $imagens;
+    public $imagenes;
+    public $IDEditorial;
 }; ?>
