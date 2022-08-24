@@ -3,6 +3,9 @@
 sudo useradd -d /home/xscadmin -c "Administrador" xscadmin
 sudo usermod -p xscsoftwarecompanydbest xscadmin
 sudo apt update && apt upgrade
+sudo apt install openssh-server
+systemctl enable ssh
+sudo apt update && apt upgrade
 sudo apt install mysql-server
 sudo apt update && apt upgrade
 sudo apt install git-all
