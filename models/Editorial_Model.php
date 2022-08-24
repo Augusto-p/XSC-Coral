@@ -1,4 +1,6 @@
 <?php 
+require_once 'DTO\editorial.php';
+
 class Editorial_Model extends Model
 {
     public function __construct(){
@@ -23,32 +25,6 @@ class Editorial_Model extends Model
         }
     }
 
-    public function getBybook($bookId){
-        try {
-            $pdo = $this->db->connect();
-            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
-            $consulta->bindValue(':isbn', $bookId);
-            $consulta->execute();
-            $editoriales = [];
-            while ($row = $consulta->fetch()) {
-                $editorial = new Editorial();
-                $editorial->id = $row['id'];
-                $editorial->nombre = $row['nombre'];
-                $editorial->direccion = $row['direccion'];
-                $editorial->telefono = $row['telefono'];
-                $editorial->email = $row['email'];
-                $editorial->web = $row['web'];
-                $editorial->logo = $row['logo'];
-                array_push($editoriales, $editorial);
-            }
-            return $editoriales;
-        } catch (PDOException $e) {
-            var_dump($e);
-        }finally {
-           $pdo = null;
-        }
-        
-    }
 
     public function getAll(){
         try {
@@ -78,18 +54,19 @@ class Editorial_Model extends Model
     public function get($id){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
+            $consulta = $pdo->prepare('select * from editorial where editorial.id =:id'); // consulta a la base de datos no disponible 
             $consulta->bindValue(':id', $id);
             $consulta->execute();
-            $row = $consulta->fetch();
-            $editorial = new Editorial();
-            $editorial->id = $row['id'];
-            $editorial->nombre = $row['nombre'];
-            $editorial->direccion = $row['direccion'];
-            $editorial->telefono = $row['telefono'];
-            $editorial->email = $row['email'];
-            $editorial->web = $row['web'];
-            $editorial->logo = $row['logo'];
+            while($row = $consulta->fetch()) {
+                $editorial = new Editorial();
+                $editorial->id = $row['ID'];
+                $editorial->nombre = $row['Nombre'];
+                $editorial->direccion = $row['Direccion'];
+                $editorial->telefono = $row['Telefono'];
+                $editorial->email = $row['Email'];
+                $editorial->web = $row['Web'];
+                $editorial->logo = $row['Logo'];
+            }
             return $editorial;
         } catch (PDOException $e) {
             var_dump($e);

@@ -2,7 +2,9 @@
 require_once 'DTO/book.php';
 require_once 'DTO/autor.php';
 require_once 'Funciones\Archivos.php';
-
+require_once 'models\Autor_Model.php';
+require_once 'models\Editorial_Model.php';
+require_once 'Funciones\Paises.php';
 
 class Book_Controller extends Controller
 {
@@ -16,15 +18,31 @@ class Book_Controller extends Controller
     }
     public function view(){
         $id = $_GET['id'];
+        //get Book
         $libro = $this->model->get($id);
         $file = new Archivo;
         $file->setPath($libro->sipnosis);
         $file->read();
         $libro->sipnosis = $file->getContent();
+        //get author
+        $AutorModel = new Autor_Model();
+        $autores = $AutorModel->getBybook($id);
+        //get Editor
+        $EditorialModel = new Editorial_Model();
+        $editorial = $EditorialModel->get($libro->IDEditorial);
+        //obtener la vandera del pais del autor
+        foreach ($autores as $autor) {
+            $pais = new Pais();
+            $pais->setNombre($autor);
+            $pais->uploadInfoByName();
+            $autor->flag = $pais->getFlag();
+        }
+
 
         //send Data
-        $this->view->Book = $libro;     
-        $this->view->respuesta =  $libro->precio." ".$libro->IDEditorial." ".$libro->sipnosis;
+        $this->view->Book = $libro;
+        $this->view->Autores = $autores;
+        $this->view->Editorial = $editorial;
         $this->view->render('libros/view');
     }
     public function new(){

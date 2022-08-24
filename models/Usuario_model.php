@@ -1,4 +1,5 @@
 <?php 
+require_once 'DTO\usuario.php';
 class Usuario_Model extends Model
 {
     public function __construct()

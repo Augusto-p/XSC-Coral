@@ -1,6 +1,6 @@
 <?php 
-require_once './DTO/usuario.php';
-require_once './libs/PHPMailer/mails.php';
+require_once 'DTO/usuario.php';
+require_once 'Funciones\Mails.php';
 
 class Usuario_Controller extends Controller
 {
@@ -110,49 +110,48 @@ class Usuario_Controller extends Controller
     public function siginUpAdmin(){ //la pagina de registro Para el uso del administradores Y los Vendeores
         if (Session::get('rol') == "Adminitrador") {
             $user = new Usuario();
-            $user->nombre = $_POST['Nombre'];
-            $user->apellido = $_POST['Apellido'];
-            $user->email = $_POST['Email'];
-            $user->password = $_POST['Password'];
-            $user->Fnacimento = $_POST['FNaminento'];
-            if ($_POST['Genero'] == "M") {
-                $user->Genero = "Masculino";
-            } elseif ($_POST['Genero'] == "F") {
-                $user->Genero = "Femenino";
-            } else {
-                $user->Genero = $_POST['Gpersonalizado'];
-            }
-            $user->numero = $_POST['Numero'];
-            $user->calle = $_POST['Calle'];
-            $user->ciudad = $_POST['Ciudad'];
-            $user->codigoPostal = $_POST['CodigoPostal'];
-            $user->departamento = $_POST['Departamento'];
-            $user->rol = $_POST['Rol'];
+        $user->nombrecompleto = $_POST['Nombre']. " " . $_POST['Apellido'];
+        $user->email = $_POST['Email'];
+        
+        $user->Fnacimento = $_POST['FNacimiento'];
+        if ($_POST['Genero'] == "M") {
+            $user->Genero = "Masculino";
+        } elseif ($_POST['Genero'] == "F") {
+            $user->Genero = "Femenino";
+        } else {
+            $user->Genero = $_POST['GPersonalizado'];
+        }
+        $user->numero = $_POST['Numero'];
+        $user->calle = $_POST['Calle'];
+        $user->ciudad = $_POST['Ciudad'];
+        $user->codigoPostal = $_POST['Codigo'];
+        $user->departamento = $_POST['Departamento'];
+        $user->rol = $_POST['Rol'];
+        $user->password = password_hash($_POST['Password'], PASSWORD_BCRYPT , ['cost' => 10]);
+    
 
+        //foto de perfill
+        $NameI = basename($_FILES["PhotoPerfil"]["name"]);  //nombre de la imagen
+        $TypeI = pathinfo($NameI, PATHINFO_EXTENSION); // formato de imagen
+         
+        $Types = array('jpg','png','jpeg','gif'); //lista de formatos aceptados
+        if(in_array($TypeI, $Types)){ //verifica que el formato de la imagen este soportado
+            $img = $_FILES['PhotoPerfil']['tmp_name'];  //obtiene el archivo temporal de la imagen
+            $path = "public/imgs/Users/".$user->email.".".$TypeI; //ruta de la imagen
+            move_uploaded_file($img, $path); //mover la imagen a la ruta especificada
+            $user->Iuser = $path; //guarda la ruta de la imagen en la base de datos
 
+        } else { 
+            $this->view->mensaje = "Tipo de archivo no soportado"; 
+            $this->view->render('usuario/registrarse');
+        }
 
-            //foto de perfill
-            $NameI = basename($_FILES["PhotoPerfil"]["name"]);  //nombre de la imagen
-            $TypeI = pathinfo($NameI, PATHINFO_EXTENSION); // formato de imagen
-            
-            $Types = array('jpg','png','jpeg','gif'); //lista de formatos aceptados
-            if(in_array($TypeI, $Types)){ //verifica que el formato de la imagen este soportado
-                $img = $_FILES['PhotoPerfil']['tmp_name'];  //obtiene el archivo temporal de la imagen
-                $path = "public/imgs/Users/".$user->email.$TypeI; //ruta de la imagen
-                move_uploaded_file($img, $path); //mover la imagen a la ruta especificada
-                $user->Iuser = $path; //guarda la ruta de la imagen en la base de datos
-
-            } else { 
-                $this->view->mensaje = "Tipo de archivo no soportado"; 
-                $this->view->render('usuario/registrarse');
-            }
-
-            $reg = $this->model->registrarse($user);
-            if (!$reg) {
-                $this->view->render('usuario/registrarse');
-            }else{
-                $this->view->render('usuario/login');
-            }
+        $reg = $this->model->registrarse($user);
+        if (!$reg) {
+            $this->view->render('usuario/registrarse');
+        }else{
+            $this->view->render('usuario/login');
+        }
         }else{
             $this->view->render('usuario/registrarse');
         }    
@@ -168,7 +167,7 @@ class Usuario_Controller extends Controller
             $ID_Password_Reset = sha1(uniqid(mt_rand(), true)); // se genera una cadena unica
             $date = date("Y-m-d"); // se obtiene la fecha actual
             $this->model->setTokenOfForgetPasswordByEmailSystem( $email,$ID_Password_Reset, $date); //se guarda la cadena unica en la base de datos
-            $send = new mails(); // se crea una nueva instancia de la clase mails
+            $send = new Mail(); // se crea una nueva instancia de la clase mails
             $sending = $send->SendMailForgetPassword($email, $ID_Password_Reset , $nombre);
             if ($sending){
                 echo "<script>alert('mail enviado')</script>";

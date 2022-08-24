@@ -6,4 +6,5 @@ class Autor{
     public $biografia;
     public $Fnacimento;
     public $foto;
+    public $flag;
 }; ?>

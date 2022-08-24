@@ -2,11 +2,11 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'Exception.php';
-require 'PHPMailer.php';
-require 'SMTP.php';
+require 'libs\PHPMailer\Exception.php';
+require 'libs\PHPMailer\PHPMailer.php';
+require 'libs\PHPMailer\SMTP.php';
 
-class mails {
+class Mail {
     private $mail;
     private $correo;
     private $pass;

@@ -1,4 +1,6 @@
 <?php 
+
+require_once 'DTO\book.php';
 class Book_Model extends Model
 {
     public function __construct(){

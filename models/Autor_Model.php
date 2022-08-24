@@ -1,4 +1,5 @@
 <?php 
+require_once 'DTO\autor.php';
 class Autor_Model extends Model
 {
     public function __construct(){
@@ -26,18 +27,18 @@ class Autor_Model extends Model
     public function getBybook($bookId){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
+            $consulta = $pdo->prepare('select autores.* from autores join tienen on autores.id = tienen.idautor where tienen.isbn=:isbn'); // consulta a la base de datos no disponible 
             $consulta->bindValue(':isbn', $bookId);
             $consulta->execute();
             $autores = [];
             while ($row = $consulta->fetch()) {
                 $autor = new Autor();
-                $autor->id = $row['id'];
-                $autor->nombre = $row['nombre'];
-                $autor->nacionalidad = $row['nacionalidad'];
-                $autor->biografia = $row['biografia'];
-                $autor->Fnacimento = $row['Fnacimento'];
-                $autor->foto = $row['foto'];
+                $autor->id = $row['ID'];
+                $autor->nombre = $row['Nombre'];
+                $autor->nacionalidad = $row['Nacionlidad'];
+                $autor->biografia = $row['Biografia'];
+                $autor->Fnacimento = $row['Fecha_Namcimetno'];
+                $autor->foto = $row['Foto'];
                 array_push($autores, $autor);
             }
             return $autores;
