@@ -9,6 +9,7 @@
     <title>MiMundo</title>
 </head>
 <body>
+    
     <?php require 'views/header.php';?>
 
     <section class="big-contenedor">
@@ -122,6 +123,11 @@ foreach ($this->Autores as $key => $autor) {
 foreach ($this->Book->imagenes as $key => $value) {
     echo '<script>addbookimage("'.constant('URL').$value.'");</script>';
 }; ?>
+
+
+<p id="PaisesData"><?=$this->Paises;?></p>
+
+
 
 <script>
     run() // se llama a la funcion run que inserta los datos de los autores y las imagenes en la vista

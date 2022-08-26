@@ -486,3 +486,7 @@ body {
 #info-editorial-book-dir {
     align-items: flex-start;
 }
+
+#PaisesData{
+    display: none;
+}

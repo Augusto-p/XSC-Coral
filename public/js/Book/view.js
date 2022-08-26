@@ -1,3 +1,4 @@
+let URL = document.getElementById("URL").value
 let btnSliderS = document.getElementById("btn-slider-s");
 let btnSliderA = document.getElementById("btn-slider-a");
 let sliderimg = document.getElementById("slider-book-image");
@@ -6,10 +7,11 @@ let bookimages = [];
 let bookAutores = new Map();
 
 
-
 function run() {
     uploadimage()
     uploadAutor()
+    uploadPaises()
+    
 }
 
 function addbookimage(url) {
@@ -128,6 +130,13 @@ let autorbtna = document.getElementById("btn-autor-a");
 let autorbtns = document.getElementById("btn-autor-s");
 let acont = 0;
 
+
+function getFlag(Pais) {
+    return Paises
+    
+}
+
+
 function uploadAutor() {
     let autor = bookAutores.get(0);
     document.getElementById("img-autor-book").src = autor.foto;
@@ -188,3 +197,7 @@ autorbtna.addEventListener("click", function () {
     document.getElementById("data-autor-book-fn-in").textContent = getdate(autor.FNacimento);
     autorPointers.children[acont].style.backgroundColor = "#145075";
 });
+
+
+
+

@@ -13,18 +13,13 @@
 
 <body>
 
-  <?php require 'views/header.php';?>
-
   <input type="hidden" value="<?php echo constant('URL'); ?>" id="url">
 
   <div class="container">
     <h2>Error</h2>
+    <h3><?=$this->mensaje ;?></h3>
   
-    <?php require 'views/footer.php';?>
 
-
-    <!-- importo el javascript-->
-    <script src="<?php echo constant('URL'); ?>/public/js/main.js"></script>
 
 </body>
 

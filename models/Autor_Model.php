@@ -9,14 +9,17 @@ class Autor_Model extends Model
     public function add($autor){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
-            $consulta->bindValue(':id', $autor->id);
+            $consulta = $pdo->prepare("INSERT INTO autores(Nombre, Nacionlidad, Biografia, Fecha_Namcimetno) VALUES (:nombre, :nacionalidad, :biografia, :Fnacimento);"); // consulta a la base de datos no disponible 
             $consulta->bindValue(':nombre', $autor->nombre);
             $consulta->bindValue(':nacionalidad', $autor->nacionalidad);
             $consulta->bindValue(':biografia', $autor->biografia);
             $consulta->bindValue(':Fnacimento', $autor->Fnacimento);
-            $consulta->bindValue(':foto', $autor->foto);
-            return $consulta->execute();
+            
+            if ($consulta->execute()) {
+                return $pdo->lastInsertId();
+            } else {
+                return -1;
+            }
         } catch (PDOException $e) {
             var_dump($e);
         }finally {
@@ -129,4 +132,13 @@ class Autor_Model extends Model
            $pdo = null;
         }
     }
+
+    public function updateImge($id, $path){
+        $pdo = $this->db->connect();
+        $consulta = $pdo->prepare("UPDATE autores SET Foto = :img WHERE (ID = :id);"); // consulta a la base de datos no disponible 
+        $consulta->bindValue(':id', $id);
+        $consulta->bindValue(':img', $path);    
+        $consulta->execute();
+    }
+
 }; ?>
