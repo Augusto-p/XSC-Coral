@@ -5,7 +5,7 @@ body {
 
 .caja1 {
     width: 93vw;
-    height: 100px;
+    height: 10vh;
     background-color: rgb(127, 126, 131);
     margin-left: 3vw;
     margin-right: 5vw;
@@ -13,25 +13,25 @@ body {
 
 .caja2 {
     width: 78vw;
-    height: 400px;
+    height: 42vh;
     background-color: rgb(127, 126, 131);
-    margin-top: 10px;
+    margin-top: 1vh;
     margin-left: 9.7vw;
     margin-right: 10vw;
 }
 
 .caja2-2 {
     width: 15vw;
-    height: 30px;
+    height: 3vh;
     background-color: rgb(127, 126, 131);
-    margin-top: 10px;
+    margin-top: 1vh;
     margin-left: 41.3vw;
     margin-bottom: 15px;
 }
 
 .caja3 {
     display: flex;
-    margin-top: 40px;
+    margin-top: 5vh;
     width: 90vw;
     margin-left: 5vw;
     margin-right: 5vw;
@@ -39,8 +39,8 @@ body {
 }
 
 .caja4 {
-    width: 70px;
-    height: 50px;
+    width: 3.6vw;
+    height: 5.2vh;
     background-color: rgb(127, 126, 131);
     display: flex;
 }
@@ -53,12 +53,12 @@ body {
 
 .caja6 {
     width: 15vw;
-    height: 400px;
+    height: 41vh;
     background-color: rgb(127, 126, 131);
 }
 
 .caja7 {
-    margin-top: 100px;
+    margin-top: 10.4vh;
     width: auto;
     display: flex;
     justify-content: space-evenly;
@@ -66,25 +66,151 @@ body {
 
 .caja8 {
     width: 39.5vw;
-    height: 210px;
+    height: 21.9vh;
     background-color: rgb(127, 126, 131);
-    margin-right: 55px;
-    margin-left: 7px;
+    margin-right: 2.8vw;
+    margin-left: 1vw;
 }
 
 .caja9 {
     width: 20.9vw;
-    height: 30px;
+    height: 3.1vh;
     background-color: rgb(127, 126, 131);
-    margin-top: 50px;
+    margin-top: 5.2vh;
     margin-left: 38vw;
 }
 
 .caja10 {
     width: 93vw;
-    height: 600px;
+    height: 62.8vh;
     background-color: rgb(127, 126, 131);
     margin-right: 5vw;
     margin-left: 3vw;
-    margin-top: 70px;
+    margin-top: 7.3vh;
 }
+
+@media (max-width: 767px)  {
+    .caja1{
+        width: 94%;
+        height: 8vh;
+    }
+
+    .caja2{
+        width: 81%;
+        height: 18vh;
+    }
+
+    .caja2-2{
+        width: 19%;
+        height: 2vh;
+    }
+
+    .caja3{
+        height: 22vh;
+    }
+
+    .caja4{
+        width: 4%;
+        height: 20%;
+        margin-left: 14.6vw;
+    }
+ 
+    .caja5{
+        width: 20%; 
+        height: 190%;
+        margin-top: 20vh;
+        margin-left: 18vw;
+    }
+
+    .caja6{
+        height: 50%;
+        width: 60%;
+    } 
+
+    .caja7{
+        width: 94%;
+        height: 10vh;
+        margin-left: 6vw;
+    }
+
+    .caja8{
+        width: 100%;
+        height: 10vh;
+        margin-left: 1.5vw;
+    } 
+
+    .caja9{
+        width: 19%;
+        height: 2vh;
+        margin-left: 41.2vw;
+    }
+
+    .caja10{
+        height: 35vh;
+        width: 94%;
+
+    }
+
+}
+     @media (max-width: 1200px) and (min-width: 768px)  {
+        .caja1{
+            width: 94%;
+            height: 8vh;
+        } 
+
+        .caja2{
+            width: 80%;
+            height: 25vh;
+        }
+
+        .caja2-2{
+            width: 18%;
+            height: 2vh;
+        }
+
+        .caja3{
+            height: 22vh;
+        }
+
+        .caja4{
+            width: 4%;
+            height: 20%;
+            margin-left: 14.6vw;
+        }
+     
+        .caja5{
+            width: 20%; 
+            height: 190%;
+            margin-top: 20vh;
+            margin-left: 18vw;
+        }
+    
+        .caja6{
+            height: 50%;
+            width: 40%;
+        } 
+    
+        .caja7{
+            width: 94%;
+            height: 10vh;
+            margin-left: 5vw;
+        }
+    
+        .caja8{
+            width: 100%;
+            height: 10vh;
+            margin-left: 1.5vw;
+        } 
+    
+        .caja9{
+            width: 18%;
+            height: 2vh;
+            margin-left: 41.2vw;
+        }
+    
+        .caja10{
+            height: 35vh;
+            width: 94%;
+    
+        }
+     }
