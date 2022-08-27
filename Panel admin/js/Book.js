@@ -47,7 +47,7 @@ function refreshCategoriasDiv(){
     CategoriasDiv.innerHTML = ""
     nvCategoriasIn.innerHTML =""
     for (let [key, value] of Categorias.entries()) {
-        CategoriasDiv.innerHTML += '<div class="categorias-Item-div"><h4>' + value + '</h4><button type="button" data-id="' + key +'"class="remove"><img src="../../Recursos/icons/delete.svg"></button><div>'
+        CategoriasDiv.innerHTML += '<div class="categorias-Item-div"><h4>' + value + '</h4><button type="button" data-id="' + key +'"class="remove"><img src="../../Recursos/icons/delete.svg"></button></div>'
         nvCategoriasIn.innerHTML += '<input type="text" name="Categorias[]" value="'+value+'">'
     }
 

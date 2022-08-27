@@ -84,6 +84,11 @@ body {
     border-bottom-right-radius: 2vh;
 }
 
+.OP-item-content-home {
+    height: 10vh;
+    transform: translateY(0vh);
+}
+
 .OP-item-content a {
     height: 10vh;
     width: 100%;
