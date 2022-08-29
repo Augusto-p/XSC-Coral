@@ -21,6 +21,7 @@ class Usuario_Model extends Model
                 $usr->nombrecompleto = $row['Nombre'];
                 $usr->email = $row['email'];
                 $usr->Fnacimento = $row["FNamcimento"];
+                $usr->password = $row['contrasena'];
                 $usr->rol = $row["rol"];
                 $usr->genero = $row["genero"];
                 $usr->Iuser = $row["foto"];
@@ -78,7 +79,6 @@ class Usuario_Model extends Model
                 $usr->nombrecompleto = $row['Nombre'];
                 $usr->email = $row['email'];
                 $usr->Fnacimento = $row["FNamcimento"];
-                $usr->password = $row['Contraseña'];
                 $usr->rol = $row["Rol"];
                 $usr->genero = $row["genero"];
                 $usr->Iuser = $row["foto"];
