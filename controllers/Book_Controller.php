@@ -69,16 +69,11 @@ class Book_Controller extends Controller {
         $cont  = 0;
         $paths = [];
         foreach ($imgs["name"] as $i) {
-            $NameI = basename($imgs["name"][$cont]); //nombre de la imagen
-            $TypeI = pathinfo($NameI, PATHINFO_EXTENSION); // formato de imagen
-            $Types = ['jpg', 'png', 'jpeg', 'gif']; //lista de formatos aceptados
-            if (in_array($TypeI, $Types)) { //verifica que el formato de la imagen este soportado
-                $img  = $imgs['tmp_name'][$cont]; //obtiene el archivo temporal de la imagen
-                $path = "public/imgs/Books/" . $book->isbn . "/" . $cont . "." . $TypeI; //ruta de la imagen
-                move_uploaded_file($img, $path); //mover la imagen a la ruta especificada
-                $paths[] = $path;
-                $cont++;
-            }
+            $img["name"] = $imgs["name"][$cont];
+            $img["tmp_name"] =  $imgs['tmp_name'][$cont];
+            $ImagenArticulo = new Imagenes($img, "public/imgs/Books/" . $book->isbn . "/" . $cont);
+            $paths[] = $ImagenArticulo->Upload();
+
 
         }
         $book->imagenes = $paths;

@@ -1,6 +1,7 @@
 <?php 
 require_once 'DTO/usuario.php';
 require_once 'utilidades\Mails.php';
+require_once 'utilidades\Imagenes.php';
 
 class Usuario_Controller extends Controller
 {
@@ -96,21 +97,14 @@ class Usuario_Controller extends Controller
     
 
         //foto de perfill
-        $NameI = basename($_FILES["PhotoPerfil"]["name"]);  //nombre de la imagen
-        $TypeI = pathinfo($NameI, PATHINFO_EXTENSION); // formato de imagen
-         
-        $Types = array('jpg','png','jpeg','gif'); //lista de formatos aceptados
-        if(in_array($TypeI, $Types)){ //verifica que el formato de la imagen este soportado
-            $img = $_FILES['PhotoPerfil']['tmp_name'];  //obtiene el archivo temporal de la imagen
-            $path = "public/imgs/Users/".$user->email.".".$TypeI; //ruta de la imagen
-            move_uploaded_file($img, $path); //mover la imagen a la ruta especificada
-            $user->Iuser = $path; //guarda la ruta de la imagen en la base de datos
-
-        } else { 
+        $ImagenUser = new Imagenes($_FILES["PhotoPerfil"], "public/imgs/Users/".$user->email);
+        $user->Iuser = $ImagenUser->Upload();
+        if (!$user->Iuser) {
             $this->view->mensaje = "Tipo de archivo no soportado"; 
             $this->view->render('usuario/registrarse');
         }
-
+         
+        
         $reg = $this->model->registrarse($user);
         if (!$reg) {
             $this->view->render('usuario/registrarse');
@@ -141,23 +135,14 @@ class Usuario_Controller extends Controller
         $user->rol = $_POST['Rol'];
         $user->password = password_hash($_POST['Password'], PASSWORD_BCRYPT , ['cost' => 10]);
     
-
         //foto de perfill
-        $NameI = basename($_FILES["PhotoPerfil"]["name"]);  //nombre de la imagen
-        $TypeI = pathinfo($NameI, PATHINFO_EXTENSION); // formato de imagen
-         
-        $Types = array('jpg','png','jpeg','gif'); //lista de formatos aceptados
-        if(in_array($TypeI, $Types)){ //verifica que el formato de la imagen este soportado
-            $img = $_FILES['PhotoPerfil']['tmp_name'];  //obtiene el archivo temporal de la imagen
-            $path = "public/imgs/Users/".$user->email.".".$TypeI; //ruta de la imagen
-            move_uploaded_file($img, $path); //mover la imagen a la ruta especificada
-            $user->Iuser = $path; //guarda la ruta de la imagen en la base de datos
-
-        } else { 
+        $ImagenUser = new Imagenes($_FILES["PhotoPerfil"], "public/imgs/Users/".$user->email);
+        $user->Iuser = $ImagenUser->Upload();
+        if (!$user->Iuser) {
             $this->view->mensaje = "Tipo de archivo no soportado"; 
             $this->view->render('usuario/registrarse');
         }
-
+        
         $reg = $this->model->registrarse($user);
         if (!$reg) {
             $this->view->render('usuario/registrarse');

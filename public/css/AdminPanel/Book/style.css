@@ -230,3 +230,18 @@
 
 }
 
+.btnSeach img {
+    height: 3vh;
+    filter: invert(1);
+}
+
+.btnSeach:hover {
+    background-color: #B80172;
+}
+.btnSeach {
+    height: 5vh;
+    width: 5vh;
+    background-color: #DC0088;
+    border: 1px solid #e0e0e0;
+    border-radius: .5vh;
+}
