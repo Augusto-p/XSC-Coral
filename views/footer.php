@@ -38,4 +38,4 @@
         </div>
     
     </footer>
-    <input type="hidden" name="url" id="URL" value="<?php echo constant('URL'); ?>">
+  

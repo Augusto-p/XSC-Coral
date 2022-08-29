@@ -1,7 +1,7 @@
 <?php
 require_once 'DTO/book.php';
 require_once 'DTO/autor.php';
-require_once 'Funciones\Archivos.php';
+require_once 'utilidades\Archivos.php';
 require_once 'models\Autor_Model.php';
 require_once 'models\Editorial_Model.php';
 
@@ -34,8 +34,12 @@ class Book_Controller extends Controller {
 
         $this->view->render('libros/view');
     }
-    public function new () {
-        $this->view->render('libros/new');
+    public function new() {
+        $this->view->render('PanelAdmin/Book/add');
+    }
+
+    public function change(){
+        $this->view->render('PanelAdmin/Book/mod');
     }
 
     

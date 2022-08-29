@@ -18,7 +18,7 @@ class App {
         } elseif (strtoupper($url[0]) == "API") {
             $nparam         = sizeof($url);
             if ($nparam > 1) {
-                $archivoController = 'API_Controllers/' . ucfirst($url[1]) . '_API_Controller.php';
+                $archivoController = 'api/' . ucfirst($url[1]) . '_API_Controller.php';
                 if (file_exists($archivoController)) {
                     require $archivoController;
                     $controllerName = ucfirst($url[1]) . '_API_Controller';

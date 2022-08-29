@@ -8,4 +8,6 @@ class Book{
     public $sipnosis;
     public $imagenes;
     public $IDEditorial;
+    public $Editorial;
+    public $Autores;
 }; ?>

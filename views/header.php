@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\baner.css">
 <div class="banner">
         <div class="marca">
             <img class="logo" src="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.svg">
@@ -11,13 +12,17 @@
     
         <div class="menu">
             <ul class="menu-ul">
-                <li><a href="#">Inicio</a></li>
+                <li><a href="<?php echo constant('URL'); ?>">Inicio</a></li>
                 <li><a href="#">Explorar</a></li>
                 <li><a href="#">Sobre nosotros</a></li>
                 <li><img class="user" src="<?php echo constant('URL'); ?>public\Recursos\icons\user.svg" alt="">
                     <ul class="submenu">
-                        <li><a href="#">Ingresar</a></li>
-                        <li><a href="#">Registro</a></li>
+                        <li class="noselect"><a href="#">Ingresar</a></li>
+                        <li class="noselect"><a href="#">Registro</a></li>
+                        <li class="noselect"><a href="<?php echo constant('URL'); ?>settings/homemod">Panel Admin</a></li>
+                        <li class="noselect"><a href="#">Configuracion</a></li>
+                        <hr>
+                        <li class="noselect"><a href="#">salir</a></li>
                     </ul>
                 </li>
             </ul>
@@ -27,3 +32,5 @@
             <a href="#"><img class="carrito" src="<?php echo constant('URL'); ?>public\Recursos\icons\carrito.svg" alt=""></a>
         </div>
     </div>
+    <input type="hidden" name="url" id="URL" value="<?php echo constant('URL'); ?>">
+    

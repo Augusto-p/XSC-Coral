@@ -1,6 +1,6 @@
 <?php 
 require_once 'DTO/usuario.php';
-require_once 'Funciones\Mails.php';
+require_once 'utilidades\Mails.php';
 
 class Usuario_Controller extends Controller
 {
@@ -33,6 +33,18 @@ class Usuario_Controller extends Controller
         $this->view->render('Usuario/passwordReset');
     }
     
+
+    // admin panel paths
+    public function apadd(){
+        $this->view->render("PanelAdmin\Usuario\add");
+    }
+    public function apmod(){
+        $this->view->render("PanelAdmin\Usuario\mod");
+    }
+    public function apdel(){
+        $this->view->render("PanelAdmin\Usuario\del");
+    }
+
 
     
     

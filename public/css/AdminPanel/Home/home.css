@@ -1,0 +1,173 @@
+.seven-row {
+    height: 20vw;
+    background-color: #e0e0e0;
+    width: 65.48vw;
+    grid-template-columns: 1fr;
+    border-radius: 2vw;
+    grid-template-rows: 1fr;
+}
+
+.content {
+    height: 240vh;
+}
+
+.colrow {
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.colrow img {
+    width: 60.48vw;
+    height: 18vh;
+}
+
+.colrow h3 {
+    margin: 0;
+    font-size: 2rem;
+    color: #145075;
+}
+
+.colrow p {
+    margin: 0;
+    font-size: .8rem;
+}
+
+.btn-change-ban {
+    font-size: 1.5rem;
+    color: #2692ca;
+    border: 2px solid #2692ca;
+    width: 20vw;
+    height: 5vh;
+    border-radius: 2vh;
+    background-color: #e0e0e0;
+}
+
+
+
+
+.InBanP {
+    position: absolute;
+    width: 20vw;
+    height: 5vh;
+    opacity: 0;
+}
+
+.div-change-ban:hover .btn-change-ban {
+    background-color: #2692ca;
+    color: white;
+    border: 2px solid #fff;
+}
+
+
+.subBaner {
+    height: 30vw;
+}
+
+.five-row {
+    height: 50vh;
+
+}
+
+.colSc {
+    overflow: hidden;
+    height: 50vh;
+}
+
+.sroliable {
+    overflow-y: scroll;
+    justify-content: flex-end;
+    height: 100%;
+    width: 70%;
+}
+
+#slider1Div, #slider2Div {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.014);
+
+}
+
+.slider-Item-div {
+    display: grid;
+    grid-template-columns: 1fr 6vh 6vh;
+    height: 5vh;
+}
+
+.slider-Item-div h4 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    font-size: 1.3rem;
+}
+
+.remove {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    height: 5vh;
+    width: 5vh;
+    border-radius: .5vh;
+    background-color: rgb(175, 2, 2);
+}
+
+.slider-Item-div img {
+    height: 2vh;
+    filter: invert(1);
+}
+
+.remove:hover {
+
+    background-color: rgb(136, 1, 1);
+}
+
+.view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    height: 5vh;
+    width: 5vh;
+    border-radius: .5vh;
+    background-color: #2692ca;
+}
+
+.view:hover {
+
+    background-color: #145075;
+}
+
+.view img {
+    height: 4vh;
+}
+
+.btnadd {
+    height: 5vh;
+    width: 5vh;
+    background-color: #71eba1;
+    border: 1px solid #e0e0e0;
+    border-radius: .5vh;
+}
+
+.btnadd img {
+    height: 2vh;
+    filter: invert(1);
+}
+
+.btnadd:hover {
+    background-color: #5dbd83;
+}
+
+.Slider-title {
+    font-size: 2rem;
+    color: #145075;
+    margin-bottom: 2vh;
+}
+
+#notView{
+    display: none;
+}

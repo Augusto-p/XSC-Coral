@@ -1,11 +1,10 @@
-<?php 
+<?php
 
 require_once 'DTO/book.php';
 require_once 'DTO/autor.php';
-require_once 'Funciones\Archivos.php';
+require_once 'utilidades\Archivos.php';
 require_once 'models\Autor_Model.php';
 require_once 'models\Editorial_Model.php';
-
 
 class Book_API_Controller extends Controller {
     public function __construct() {
@@ -35,5 +34,29 @@ class Book_API_Controller extends Controller {
         ];
         $this->view->res = json_encode($res);
         $this->view->render("API/Book/get");
+    }
+
+    public function seach() {
+        $Termino        = $_GET['Termino'];
+        $books          = $this->model->seach($Termino);
+        $EditorialModel = new Editorial_Model();
+        $AutorModel     = new Autor_Model();
+        foreach ($books as $key => $book) {
+            $file  = new Archivo;
+            $file->setPath($book->sipnosis);
+            $file->read();
+            $books[$key]->sipnosis = $file->getContent();
+            $books[$key]->Editorial = $EditorialModel->get($book->IDEditorial);
+            $books[$key]->Autores   = $AutorModel->getBybook($book->isbn);
+
+        }
+        $res = [
+            "mensaje"     => "Hey",
+            "Numero de Libros" => count($books),
+            "Libros"   => $books ,
+        ];
+        $this->view->res = json_encode($res);
+        $this->view->render("API/Book/seach");
+
     }
 }

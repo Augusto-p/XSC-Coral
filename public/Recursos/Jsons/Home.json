@@ -1,0 +1,77 @@
+{
+    "Pagina Principal": {
+        "Baner Principal": {
+            "img": "public\/imgs\/Baners\/Baner-Principal-2022-08-28-19-32-11.png"
+        },
+        "Baner Publisitario Uno": {
+            "img": "public\/imgs\/Baners\/Baner-Publisiatrio-1-2022-08-28-19-32-11.jpg"
+        },
+        "Baner Publisitario Dos": {
+            "img": "public\/imgs\/Baners\/Baner-Publisiatrio-2-2022-08-28-19-32-11.jpg"
+        },
+        "Slider Uno": [
+            {
+                "ISBN": "9788448025373"
+            },
+            {
+                "ISBN": "9788448025373"
+            },
+            {
+                "ISBN": "9788448025373"
+            },
+            {
+                "ISBN": "9788448025373"
+            },
+            {
+                "ISBN": "9788448025373"
+            },
+            {
+                "ISBN": "9788448025373"
+            },
+            {
+                "ISBN": "9788448025373"
+            },
+            {
+                "ISBN": "9788448025373"
+            },
+            {
+                "ISBN": "9788448025373"
+            },
+            {
+                "ISBN": "9788448025373"
+            }
+        ],
+        "Slider Dos": [
+            {
+                "ISBN": "9788448025373"
+            },
+            {
+                "ISBN": "9788448025373"
+            },
+            {
+                "ISBN": "9788448025373"
+            },
+            {
+                "ISBN": "9788448025373"
+            },
+            {
+                "ISBN": "9788448025373"
+            },
+            {
+                "ISBN": "9788448025373"
+            },
+            {
+                "ISBN": "9788448025373"
+            },
+            {
+                "ISBN": "9788448025373"
+            },
+            {
+                "ISBN": "9788448025373"
+            },
+            {
+                "ISBN": "9788448025373"
+            }
+        ]
+    }
+}

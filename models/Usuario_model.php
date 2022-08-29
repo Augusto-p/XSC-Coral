@@ -21,7 +21,6 @@ class Usuario_Model extends Model
                 $usr->nombrecompleto = $row['Nombre'];
                 $usr->email = $row['email'];
                 $usr->Fnacimento = $row["FNamcimento"];
-                $usr->password = $row['contrasena'];
                 $usr->rol = $row["rol"];
                 $usr->genero = $row["genero"];
                 $usr->Iuser = $row["foto"];
@@ -66,6 +65,36 @@ class Usuario_Model extends Model
         }finally {
            $pdo = null;
         }
+    }
+
+    public function get($email){
+        try {
+            $pdo = $this->db->connect();
+            $consulta = $pdo->prepare('select * from usuarios where usuarios.email = :email'); // consulta a la base de datos no disponible 
+            $consulta->bindValue(':email', $email);
+            $consulta->execute();
+            $usr = new Usuario();
+            while ($row = $consulta->fetch()) {
+                $usr->nombrecompleto = $row['Nombre'];
+                $usr->email = $row['email'];
+                $usr->Fnacimento = $row["FNamcimento"];
+                $usr->password = $row['Contraseña'];
+                $usr->rol = $row["Rol"];
+                $usr->genero = $row["genero"];
+                $usr->Iuser = $row["foto"];
+                $usr->numero = $row["Numero"];
+                $usr->calle = $row["Calle"];
+                $usr->ciudad = $row["Ciudad"];
+                $usr->codigoPostal = $row["Codigo_Postal"];
+                $usr->departamento = $row["Departamento"];
+            }
+            return $usr;
+        } catch (PDOException $e) {
+            var_dump($e);
+        }finally {
+           $pdo = null;
+        }
+        
     }
 
     public function getNombrebyEmail($email){
