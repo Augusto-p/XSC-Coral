@@ -9,13 +9,13 @@ class Autor_Controller extends Controller {
     }
 
     public function render() {
-        $this->view->render('Autor/new');
+        $this->view->render('PanelAdmin\Autor\add');
     }
     public function new() {
-        $this->view->render('Autor/new');
+        $this->view->render('PanelAdmin\Autor\add');
     }
     public function change() {
-        $this->view->render('Autor/mod');
+        $this->view->render('PanelAdmin\Autor\mod');
     }
 
     public function add() {

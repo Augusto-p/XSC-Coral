@@ -56,17 +56,17 @@ class Autor_Model extends Model
     public function getAll(){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
+            $consulta = $pdo->prepare('select autores.* from autores'); // consulta a la base de datos no disponible 
             $consulta->execute();
             $autores = [];
             while ($row = $consulta->fetch()) {
                 $autor = new Autor();
-                $autor->id = $row['id'];
-                $autor->nombre = $row['nombre'];
-                $autor->nacionalidad = $row['nacionalidad'];
-                $autor->biografia = $row['biografia'];
-                $autor->Fnacimento = $row['Fnacimento'];
-                $autor->foto = $row['foto'];
+                $autor->id = $row['ID'];
+                $autor->nombre = $row['Nombre'];
+                $autor->nacionalidad = $row['Nacionlidad'];
+                $autor->biografia = $row['Biografia'];
+                $autor->Fnacimento = $row['Fecha_Namcimetno'];
+                $autor->foto = $row['Foto'];
                 array_push($autores, $autor);
             }
             return $autores;
@@ -82,17 +82,17 @@ class Autor_Model extends Model
     public function get($id){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
+            $consulta = $pdo->prepare('select autores.* from autores where autores.ID = :id'); // consulta a la base de datos no disponible 
             $consulta->bindValue(':id', $id);
             $consulta->execute();
             $row = $consulta->fetch();
             $autor = new Autor();
-            $autor->id = $row['id'];
-            $autor->nombre = $row['nombre'];
-            $autor->nacionalidad = $row['nacionalidad'];
-            $autor->biografia = $row['biografia'];
-            $autor->Fnacimento = $row['Fnacimento'];
-            $autor->foto = $row['foto'];
+            $autor->id           = $row['ID'];
+            $autor->nombre       = $row['Nombre'];
+            $autor->nacionalidad = $row['Nacionlidad'];
+            $autor->biografia    = $row['Biografia'];
+            $autor->Fnacimento   = $row['Fecha_Namcimetno'];
+            $autor->foto         = $row['Foto'];
             return $autor;
         } catch (PDOException $e) {
             var_dump($e);

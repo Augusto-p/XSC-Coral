@@ -29,18 +29,18 @@ class Editorial_Model extends Model
     public function getAll(){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
+            $consulta = $pdo->prepare('select editorial.* from editorial'); // consulta a la base de datos no disponible 
             $consulta->execute();
             $editoriales = [];
             while ($row = $consulta->fetch()) {
                 $editorial = new Editorial();
-                $editorial->id = $row['id'];
-                $editorial->nombre = $row['nombre'];
-                $editorial->direccion = $row['direccion'];
-                $editorial->telefono = $row['telefono'];
-                $editorial->email = $row['email'];
-                $editorial->web = $row['web'];
-                $editorial->logo = $row['logo'];
+                $editorial->id        = $row['ID'];
+$editorial->nombre    = $row['Nombre'];
+$editorial->direccion = $row['Direccion'];
+$editorial->telefono  = $row['Telefono'];
+$editorial->email     = $row['Email'];
+$editorial->web       = $row['Web'];
+$editorial->logo      = $row['Logo'];
                 array_push($editoriales, $editorial);
             }
             return $editoriales;
@@ -57,8 +57,9 @@ class Editorial_Model extends Model
             $consulta = $pdo->prepare('select * from editorial where editorial.id =:id'); // consulta a la base de datos no disponible 
             $consulta->bindValue(':id', $id);
             $consulta->execute();
+            $editorial = new Editorial();
             while($row = $consulta->fetch()) {
-                $editorial = new Editorial();
+                
                 $editorial->id = $row['ID'];
                 $editorial->nombre = $row['Nombre'];
                 $editorial->direccion = $row['Direccion'];

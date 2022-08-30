@@ -1,0 +1,54 @@
+#btnAddimage {
+    width: 20vw;
+    height: 5vh;
+    background-color: transparent;
+    border-radius: 3vh;
+    border: 2px solid #2692ca;
+    font-size: 1.2rem;
+    color: #2692ca;
+}
+
+#btnAddimage:hover {
+    color: #71eba1;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid #71eba1;
+}
+
+#Logo {
+    width: 20vw;
+    height: 5vh;
+    position: absolute;
+    opacity: 0;
+}
+
+#Vlogo {
+    width: 10vh;
+    height: 10vh;
+    border-radius: 5vh;
+    object-fit: scale-down;
+}
+
+.btnSeach {
+    height: 5vh;
+    width: 5vh;
+    background-color: #DC0088;
+    border: 1px solid #e0e0e0;
+    border-radius: .5vh;
+}
+
+
+
+
+.btnSeach img {
+    height: 3vh;
+    filter: invert(1);
+}
+
+.btnSeach:hover {
+    background-color: #B80172;
+}
+
+.row-in-col {
+    display: flex;
+    justify-content: center;
+}

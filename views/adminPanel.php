@@ -36,8 +36,8 @@
                     <h4 class="noselect"><img src="<?php echo constant('URL'); ?>public\Recursos\icons\Editorial.svg">Editorial</h4>
                 </div>
                 <div class="OP-item-content">
-                    <a class="noselect">Añadir</a>
-                    <a class="noselect">Modificar</a>
+                    <a class="noselect" href="<?php echo constant('URL'); ?>editorial/new">Añadir</a>
+                    <a class="noselect" href="<?php echo constant('URL'); ?>editorial/change">Modificar</a>
                     <a class="OP-item-content-end noselect">Eliminar</a>
                 </div>
             </div>
@@ -46,8 +46,8 @@
                     <h4 class="noselect"><img src="<?php echo constant('URL'); ?>public\Recursos\icons\Autor.svg">Autor</h4>
                 </div>
                 <div class="OP-item-content">
-                    <a class="noselect">Añadir</a>
-                    <a class="noselect">Modificar</a>
+                    <a class="noselect" href="<?php echo constant('URL'); ?>autor/new">Añadir</a>
+                    <a class="noselect" href="<?php echo constant('URL'); ?>autor/change">Modificar</a>
                     <a class="OP-item-content-end noselect">Eliminar</a>
                 </div>
             </div>
