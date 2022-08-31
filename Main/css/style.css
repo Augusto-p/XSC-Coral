@@ -17,12 +17,12 @@ body {
 }
 
 .logo {
-    height: 5vh;
+    height: 3vh;
     width: auto;
 }
 
 .nombre {
-    font-size: 2.5em;
+    font-size: 1.8em;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -33,18 +33,18 @@ body {
 }
 
 .lupa {
-    width: calc(5vh + 20px);
+    width: calc(4vh + 10px);
     cursor: pointer;
-    height: calc(5vh + 22px);
+    height: calc(4vh + 10px);
     background-color: #E0E0E0;
 }
 
 .barra {
-    font-size: 16px;
+    font-size: 1em;
     padding: 10px;
     outline: none;
     width: 37vw;
-    height: 5vh;
+    height: 3vh;
     border-radius: 5px;
     font-family: 'Roboto', sans-serif;
 }
@@ -89,7 +89,7 @@ body {
     background-color: #E0E0E0;
     width: 12vw;
     list-style: none;
-    right: 10.3vh;
+    right: 11.9vh;
 }
 
 .menu-ul li:hover .submenu {
@@ -99,20 +99,20 @@ body {
 .carrito-div {
     background-color: #71EBA1;
     width: 10vh;
-    height: 10vh;
+    height: 8vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .carrito {
-    height: 5vh;
+    height: 4vh;
     width: auto;
 }
 
 .user {
     width: auto;
-    height: 6vh;
+    height: 4vh;
 }
 
 .submenu li {
@@ -442,3 +442,184 @@ footer {
     justify-content: center;
     transform: translateY(-10px);
 }
+
+.logos-res{
+    display: none;
+}
+
+/* responsive */
+
+@media (max-width: 768px) and (min-width: 400px){
+    .banner{
+        width: 100%;
+        height: 8vh;
+        align-items: center;
+        align-content: center;
+        justify-content: space-around;
+    }
+
+    .lista-res{
+        display: none;
+    }
+
+    .logos-res{
+        display: block;
+        width: auto;
+        height: 4vh;
+    }
+
+    .logos-res button{
+        border: none;
+        background-color: transparent;
+    }
+
+    .logos-res img{
+        display: block;
+        width: auto;
+        height: 4vh;
+    }
+
+    .menu{
+        width: 25vw;
+    }
+
+    .carrito-div{
+        width: 7vh;
+        height: 7vh;
+        border-radius: 4vh ;
+    }
+
+    .marca{
+        width: 40vw;
+        height: 4vh;
+    }
+
+    .logo{
+        width: 15vw;
+        height: 4vh;
+    }
+
+    .user{
+        width: auto;
+        height: 4vh;
+    }
+
+    .nombre{
+        font-size: 1.5em;
+        margin-right: 5vw;
+    }
+
+    .busqueda{
+        display: flex;
+        align-content: center;
+        display: none;
+    }
+
+    .barra{
+        height: 2vh;
+        width: 20vw;
+        display: none;
+    }
+
+    .banner1{
+        width: 100%;
+        height: 50%;
+    }
+
+     .cat-prod{
+        font-size: 1.5em;
+        margin-top: 5vh;
+    } 
+
+     .slider-content-in{
+        height: 40vh;
+        width: 20vw;
+        margin-top: 0vh;
+    }
+    
+    .slider{
+        width: 100%;
+        height: 40vh;
+        margin-top: 5vw;
+    }
+
+    .slider-item-up{
+        width: 100%;
+        height: 25vw;
+        margin-top: 5vh;
+    }
+
+    .slider-item{
+        width: 15vw;
+        height: 40vw;
+        display: grid;
+    }
+
+    #btn-slider-1{
+        height: 30vh;
+    }
+
+    #btn-slider-2{
+        height: 30vh;
+    }
+
+    .slider-item-down{
+        width: 15vw;
+        height: 12vh;
+        font-size: 13px;
+    }
+
+     .slider-content-view{
+        width: 17vw;
+        height: 50vh;
+    } 
+
+     .slider-item-precio{
+        width: 3vw;
+        height: 2vh;
+    }
+
+    .slider-item-up-up{
+        width: 13vw;
+        height: 4vh;
+    }
+
+    .banners img{
+        width: 40vw;
+        height: 10vh;
+    }
+
+    #btn-slider-3{
+        height: 30vh;
+    }
+
+    #btn-slider-4{
+        height: 30vh;
+    }
+
+    .footer-up-Column-in{
+        display: grid;
+        font-size: 10px ;
+    }
+    
+    .footer-up-column{
+        display: grid;
+    }
+
+    .footer-up-column{
+        display: grid;
+    }
+
+    .footer-down{
+        display: grid;
+    }
+
+    .submenu{
+        width: 20vw;
+        height: 10vh;
+    }
+
+    .submenu a{
+        font-size: 1em;
+    }
+}  
