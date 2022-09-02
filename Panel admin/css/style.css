@@ -219,3 +219,37 @@ body {
     animation-duration: 3s;
     color: #757575;
 }
+
+@media (max-width: 768px) and (min-width: 400px){
+    .optionPanel{
+        width: 19.5vw;
+        height: 160vh;
+    }
+
+    .titulo-Div-OP h3{
+        margin-left: 1vw;
+        width: 40vw;
+        font-size: 1.3em;
+    }
+
+    .OP-item-titulo img{
+        width: 3vw;
+        height: 3vh;
+    }
+
+    .OP-item-titulo h4{
+        font-size: 0.6em;
+    }
+
+    .OP-item-titulo{
+        height: 10vh;
+        width: 18vw;
+    }
+
+    .OP-item-content{
+        width: 15vw;
+        height: 30vh;
+        font-size: 0.6em;
+    }    
+
+}

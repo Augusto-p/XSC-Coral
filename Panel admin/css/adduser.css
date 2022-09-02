@@ -2,3 +2,27 @@
 #GP {
     display: none;
 }
+
+@media (max-width: 768px) and (min-width: 400px){
+    #titulo{
+        font-size: 1.4em
+    }
+    
+    .data{
+    width: 70vw;
+    height: 100%;
+    } 
+
+    .inputs{
+    width: 2vw;
+    height: 3vh;
+    font-size: 1em;
+    }
+
+
+    #save-div button{
+        width: 20vw;
+        height: 5vh;
+        font-size: 0.8em;
+    }
+}  
