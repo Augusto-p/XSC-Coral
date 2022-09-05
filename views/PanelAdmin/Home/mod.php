@@ -19,7 +19,7 @@
     <section class="content">
         <?php require 'views/adminPanel.php';?>
         <div class="conten-data">
-            <form action="<?php echo constant('URL'); ?>settings/savehomeMod" method="post" id="Formulario" enctype="multipart/form-data">
+            <form action="<?php echo constant('URL'); ?>home/saveMod" method="post" id="Formulario" enctype="multipart/form-data">
                 <h2 id="titulo">Home</h2>
                 <div class="data">
 

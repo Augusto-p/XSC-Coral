@@ -11,7 +11,7 @@ class App {
         if (empty($url[0])) {
             $archivoController = 'controllers/Home_Controller.php';
             require $archivoController;
-            $controller = new Index_Controller();
+            $controller = new Home_Controller();
             $controller->loadModel('index');
             $controller->render();
             return false;

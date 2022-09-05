@@ -8,7 +8,7 @@
                     <h4 class="noselect"><img src="<?php echo constant('URL'); ?>public\Recursos\icons\home.svg">Home</h4>
                 </div>
                 <div class="OP-item-content OP-item-content-home">
-                    <a class="OP-item-content-end noselect" href="<?php echo constant('URL'); ?>settings/homemod">Editar</a>
+                    <a class="OP-item-content-end noselect" href="<?php echo constant('URL'); ?>home/mod">Editar</a>
                 </div>
             </div>
             <div class="OP-item ">

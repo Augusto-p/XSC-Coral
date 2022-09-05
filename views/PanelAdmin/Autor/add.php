@@ -15,7 +15,7 @@
   <section class="content">
     <?php require 'views/adminPanel.php';?>
     <div class="conten-data">
-            <form action="" method="post" id="Formulario">
+            <form action="<?php echo constant('URL'); ?>autor/add" method="post" id="Formulario" enctype="multipart/form-data">
                 <h2 id="titulo">Añadir Autor</h2>
 
                 <div class="data">

@@ -1,6 +1,7 @@
 <?php
 
 require_once 'DTO/autor.php';
+require_once 'utilidades\Imagenes.php';
 
 
 class Autor_Controller extends Controller {
@@ -20,11 +21,11 @@ class Autor_Controller extends Controller {
 
     public function add() {
         $autor = new Autor();
-        $autor->nombre = $_POST['Nombre'] ." ". $_POST['Apellido'];
-        $autor->nacionalidad = $_POST['Pais'];
+        $autor->nombre = $_POST['nombre'];
+        $autor->nacionalidad = $_POST['Nacionalidad'];
         $autor->biografia = $_POST['Biografia'];
-        $autor->Fnacimento = $_POST['FNacimento'];
-        $imgin              = $_FILES["Imagenes"];
+        $autor->Fnacimento = $_POST['FNacimiento'];
+        $imgin              = $_FILES["Foto"];
     
         $id = $this->model->add($autor);
         if ($id >=0) {

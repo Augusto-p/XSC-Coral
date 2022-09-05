@@ -1,6 +1,7 @@
 <?php
 
 require_once 'DTO\editorial.php';
+require_once 'utilidades\Imagenes.php';
 
 
 class Editorial_Controller extends Controller {
@@ -17,4 +18,5 @@ class Editorial_Controller extends Controller {
     public function change() {
         $this->view->render('PanelAdmin\Editorial\mod');
     }
+    
 }

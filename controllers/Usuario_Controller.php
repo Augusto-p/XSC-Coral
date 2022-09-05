@@ -5,14 +5,11 @@ require_once 'utilidades\Imagenes.php';
 
 class Usuario_Controller extends Controller
 {
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct();
-        $this->view->mensaje        = "";
-        $this->view->resultadoLogin = "";
+        
     }
-    public function render()
-    {
+    public function render(){
         $this->view->mensaje = "cargado";
         $this->view->render('usuario/login');
     }
@@ -23,12 +20,10 @@ class Usuario_Controller extends Controller
     public function registrarse(){
         $this->view->render('usuario/registrarse');
     }
-    public function resertPassword()
-    {
+    public function resertPassword(){
         $this->view->render('usuario/sendResertPassword');
     }
-    public function resetPasswordByIDPassword()
-    {
+    public function resetPasswordByIDPassword(){
         $code = $_GET['code'];
         $this->view->code = $code;
         $this->view->render('Usuario/passwordReset');
@@ -49,11 +44,10 @@ class Usuario_Controller extends Controller
 
     
     
-    public function signin()
-    {
+    public function signin(){
         $user = new Usuario(); //creamos un objeto de tipo usuario
         $user->email = $_POST['Email']; //asignamos el valor del email
-        $user->password = password_hash($_POST['Password'], PASSWORD_BCRYPT , ['cost' => 10]); //asignamos el valor del password encriptado
+        $user->password = $_POST['Password']; //asignamos el valor del password
         $usr = $this->model->entrar($user);
         if (!$usr) {
             $this->view->render('usuario/login');
@@ -113,9 +107,8 @@ class Usuario_Controller extends Controller
         }
            
     }
-    public function siginUpAdmin(){ //la pagina de registro Para el uso del administradores Y los Vendeores
-        if (Session::get('rol') == "Adminitrador") {
-            $user = new Usuario();
+    public function signUpAdmin(){ //la pagina de registro Para el uso del administradores Y los Vendeores
+        $user = new Usuario();
         $user->nombrecompleto = $_POST['Nombre']. " " . $_POST['Apellido'];
         $user->email = $_POST['Email'];
         
@@ -135,13 +128,7 @@ class Usuario_Controller extends Controller
         $user->rol = $_POST['Rol'];
         $user->password = password_hash($_POST['Password'], PASSWORD_BCRYPT , ['cost' => 10]);
     
-        //foto de perfill
-        $ImagenUser = new Imagenes($_FILES["PhotoPerfil"], "public/imgs/Users/".$user->email);
-        $user->Iuser = $ImagenUser->Upload();
-        if (!$user->Iuser) {
-            $this->view->mensaje = "Tipo de archivo no soportado"; 
-            $this->view->render('usuario/registrarse');
-        }
+        
         
         $reg = $this->model->registrarse($user);
         if (!$reg) {
@@ -149,14 +136,11 @@ class Usuario_Controller extends Controller
         }else{
             $this->view->render('usuario/login');
         }
-        }else{
-            $this->view->render('usuario/registrarse');
-        }    
+           
         
     }
 
-    public function SendEmailPassword()
-    {
+    public function SendEmailPassword(){
         $email = $_POST['Email'];
         //generat unique string
         $nombre = $this->model->getNombrebyEmail($email); //obtiene el nombre del usuario

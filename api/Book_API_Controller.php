@@ -42,21 +42,46 @@ class Book_API_Controller extends Controller {
         $EditorialModel = new Editorial_Model();
         $AutorModel     = new Autor_Model();
         foreach ($books as $key => $book) {
-            $file  = new Archivo;
+            $file = new Archivo;
             $file->setPath($book->sipnosis);
             $file->read();
-            $books[$key]->sipnosis = $file->getContent();
+            $books[$key]->sipnosis  = $file->getContent();
             $books[$key]->Editorial = $EditorialModel->get($book->IDEditorial);
             $books[$key]->Autores   = $AutorModel->getBybook($book->isbn);
 
         }
         $res = [
-            "mensaje"     => "Hey",
+            "mensaje"          => "Hey",
             "Numero de Libros" => count($books),
-            "Libros"   => $books ,
+            "Libros"           => $books,
         ];
         $this->view->res = json_encode($res);
         $this->view->render("API/Book/seach");
 
+    }
+
+    public function getAll() {
+        $Books = [];
+        //gets Book
+        $libros = $this->model->getAll();
+        foreach ($libros as $key => $libro) {
+            $file  = new Archivo;
+            $file->setPath($libro->sipnosis);
+            $file->read();
+            $libros[$key]->sipnosis = $file->getContent();
+            $AutorModel = new Autor_Model();
+            $libros[$key]->Autores = $AutorModel->getBybook($libro->isbn);
+            $EditorialModel = new Editorial_Model();
+            $libros[$key]->Editorial =  $EditorialModel->get($libro->IDEditorial);
+        }
+
+
+        $res = [
+            "mensaje"   => "Hey",
+            "Numero De Libros"     => count($libros),
+            "Libros" => $libros,
+        ];
+        $this->view->res = json_encode($res);
+        $this->view->render("API/Book/get");
     }
 }

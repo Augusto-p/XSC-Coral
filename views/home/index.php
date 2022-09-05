@@ -32,7 +32,7 @@
                             <?php foreach ($this->Slider1 as $key => $book) {;?>
                                 <a href="<?php echo constant('URL'); ?>book/view?id=<?=$book->isbn;?>">
                                 <div class="slider-item">
-                                    <div class="slider-item-up" style="background-image: url('<?=$book->imagenes[0];?>')">
+                                    <div class="slider-item-up" style="background-image: url('<?php echo constant('URL'); ?><?=$book->imagenes[0];?>')">
                                         <div class="slider-item-up-up">
                                             <span class="slider-item-precio">$<?=$book->precio;?></span>
                                         </div>
@@ -95,7 +95,7 @@
                         <?php foreach ($this->Slider2 as $key => $book) {;?>
                                 <a href="<?php echo constant('URL'); ?>book/view?id=<?=$book->isbn;?>">
                                 <div class="slider-item">
-                                    <div class="slider-item-up" style="background-image: url('<?=$book->imagenes[0];?>')">
+                                    <div class="slider-item-up" style="background-image: url('<?php echo constant('URL'); ?><?=$book->imagenes[0];?>')">
                                         <div class="slider-item-up-up">
                                             <span class="slider-item-precio">$<?=$book->precio;?></span>
                                         </div>

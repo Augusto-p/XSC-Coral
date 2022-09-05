@@ -9,7 +9,7 @@ let nvCategoriasIn = document.getElementById("not-view-Categorias")
 let nvImagesIn = document.getElementById("not-view-images")
 let btnAddImge = document.getElementById("addImage")
 let ImagenesDiv = document.getElementById("ImagenesDiv")
-
+let URL = document.getElementById("URL").value
 let Categorias = new Map();
 let Autores = new Map();
 
@@ -38,7 +38,7 @@ function refreshAutoresDiv() {
     AutoresDiv.innerHTML = ""
     nvAutorIn.innerHTML = ""
     for (let [key, value] of Autores.entries()) {
-        AutoresDiv.innerHTML += '<div class="Autor-Item-div" id="AID-'+key+'"><h4>' + value + '</h4><button type="button" onclick="delAutor(' + key + ')" class="remove"><img src="../../Recursos/icons/delete.svg"></button><div>'
+        AutoresDiv.innerHTML += '<div class="Autor-Item-div" id="AID-' + key + '"><h4>' + value + '</h4><button type="button" onclick="delAutor(' + key + ')" class="remove"><img src="' + URL +'public/Recursos/icons/delete.svg"></button><div>'
         nvAutorIn.innerHTML += '<input type="number" name="IDSAutores[]" value="' + key + '" id="InA-' + key +'">'
     }
 }
@@ -47,7 +47,7 @@ function refreshCategoriasDiv(){
     CategoriasDiv.innerHTML = ""
     nvCategoriasIn.innerHTML =""
     for (let [key, value] of Categorias.entries()) {
-        CategoriasDiv.innerHTML += '<div class="categorias-Item-div"><h4>' + value + '</h4><button type="button" data-id="' + key +'"class="remove"><img src="../../Recursos/icons/delete.svg"></button><div>'
+        CategoriasDiv.innerHTML += '<div class="categorias-Item-div"><h4>' + value + '</h4><button type="button" data-id="' + key + '"class="remove"><img src="' + URL +'public/Recursos/icons/delete.svg"></button><div>'
         nvCategoriasIn.innerHTML += '<input type="text" name="Categorias[]" value="'+value+'">'
     }
 
@@ -100,5 +100,39 @@ function delAutor(id){
 }
 
 
+async function refreshAutores() {
+    let response = await fetch(`${URL}api/autor/getAll`, {
+        method: "GET", 
+    });
+
+    let data = await response.json();
+    let autores = data["Autores"]
+    Autor.innerHTML = "<option value='' selected disabled>Autor</option>"
+    autores.forEach(e => {
+        Autor.innerHTML += "<option value=" + e.id + " >" + e.nombre +"</option>"
+        
+    });
+    
+}
+
+async function refresheditoriales(){
+
+
+    let response = await fetch(URL+"api/editorial/getAll", {
+        method: "GET",
+    });
+
+    let data = await response.json();
+    let Editoriales = data["Editoriales"]
+    Editorial.innerHTML = "<option value='' selected disabled>Editorial</option>"
+    Editoriales.forEach(e =>{
+        Editorial.innerHTML += "<option value=" + e.id + " >" + e.nombre +"</option>"
+    })
+
+
+}
+
 setSize()
 NewImage() 
+refreshAutores()
+refresheditoriales()

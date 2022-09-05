@@ -1,9 +1,11 @@
 <?php
 require_once 'DTO/book.php';
 require_once 'DTO/autor.php';
+require_once 'DTO\editorial.php';
 require_once 'utilidades\Archivos.php';
 require_once 'models\Autor_Model.php';
 require_once 'models\Editorial_Model.php';
+require_once 'utilidades\Imagenes.php';
 
 class Book_Controller extends Controller {
     public function __construct() {
@@ -42,28 +44,26 @@ class Book_Controller extends Controller {
         $this->view->render('PanelAdmin/Book/mod');
     }
 
-    
-
     public function add() {
         $book             = new Book();
-        $book->isbn       = $_POST['isbn'];
-        $book->titulo     = $_POST['titulo'];
-        $book->precio     = $_POST['precio'];
-        $book->categorias = $_POST['categorias'];
-        // $book->idsAutor = $_POST['id_autor'];
-        $book->IDEditorial = $_POST['Editorial'];
-        $imgs              = $_FILES["Imagenes"];
+        $book->isbn       = $_POST['ISBN'];
+        $book->titulo     = $_POST['Titulo'];
+        $book->precio     = $_POST['Precio'];
+        $book->categorias = $_POST['Categorias'];
+        $book->idsAutor = $_POST["IDSAutores"];
+        $book->IDEditorial = 1;
+        $imgs              = $_FILES["Img"];
 
         //guardado de sipnosis
 
         $file = new Archivo;
         $file->setPath("public/texts/BookSipnosis/" . $book->isbn . ".txt");
-        $file->setContent($_POST['sipnosis']);
+        $file->setContent($_POST["Sipnosis"]);
         $file->save();
         $book->sipnosis = $file->getPath();
 
         //manego de imagenes
-        if (!file_exists('./public/imgs/Books/".$book->isbn')) {
+        if (!file_exists('./public/imgs/Books/'.$book->isbn)) {
             mkdir("./public/imgs/Books/" . $book->isbn);
         }
         $cont  = 0;

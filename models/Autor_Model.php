@@ -9,7 +9,7 @@ class Autor_Model extends Model
     public function add($autor){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare("INSERT INTO autores(Nombre, Nacionlidad, Biografia, Fecha_Namcimetno) VALUES (:nombre, :nacionalidad, :biografia, :Fnacimento);"); // consulta a la base de datos no disponible 
+            $consulta = $pdo->prepare("INSERT INTO autores (Nombre, Nacionalidad, Biografia, Fecha_Nacimiento) VALUES (:nombre, :nacionalidad, :biografia, :Fnacimento);"); // consulta a la base de datos no disponible                                                      
             $consulta->bindValue(':nombre', $autor->nombre);
             $consulta->bindValue(':nacionalidad', $autor->nacionalidad);
             $consulta->bindValue(':biografia', $autor->biografia);
@@ -25,12 +25,12 @@ class Autor_Model extends Model
         }finally {
            $pdo = null;
         }
-    }
+    }//upd
 
     public function getBybook($bookId){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare('select autores.* from autores join tienen on autores.id = tienen.idautor where tienen.isbn=:isbn'); // consulta a la base de datos no disponible 
+            $consulta = $pdo->prepare('select autores.* from autores join escriben on autores.ID = escriben.ID_Autor where escriben.ISBN = :isbn'); // consulta a la base de datos no disponible 
             $consulta->bindValue(':isbn', $bookId);
             $consulta->execute();
             $autores = [];
@@ -38,9 +38,9 @@ class Autor_Model extends Model
                 $autor = new Autor();
                 $autor->id = $row['ID'];
                 $autor->nombre = $row['Nombre'];
-                $autor->nacionalidad = $row['Nacionlidad'];
+                $autor->nacionalidad = $row['Nacionalidad'];
                 $autor->biografia = $row['Biografia'];
-                $autor->Fnacimento = $row['Fecha_Namcimetno'];
+                $autor->Fnacimento = $row['Fecha_Nacimiento'];
                 $autor->foto = $row['Foto'];
                 array_push($autores, $autor);
             }
@@ -63,9 +63,9 @@ class Autor_Model extends Model
                 $autor = new Autor();
                 $autor->id = $row['ID'];
                 $autor->nombre = $row['Nombre'];
-                $autor->nacionalidad = $row['Nacionlidad'];
+                $autor->nacionalidad = $row['Nacionalidad'];
                 $autor->biografia = $row['Biografia'];
-                $autor->Fnacimento = $row['Fecha_Namcimetno'];
+                $autor->Fnacimento = $row['Fecha_Nacimiento'];
                 $autor->foto = $row['Foto'];
                 array_push($autores, $autor);
             }
@@ -77,7 +77,7 @@ class Autor_Model extends Model
         }
         
         
-    }
+    }//upd
 
     public function get($id){
         try {
@@ -89,9 +89,9 @@ class Autor_Model extends Model
             $autor = new Autor();
             $autor->id           = $row['ID'];
             $autor->nombre       = $row['Nombre'];
-            $autor->nacionalidad = $row['Nacionlidad'];
+            $autor->nacionalidad = $row['Nacionalidad'];
             $autor->biografia    = $row['Biografia'];
-            $autor->Fnacimento   = $row['Fecha_Namcimetno'];
+            $autor->Fnacimento   = $row['Fecha_Nacimiento'];
             $autor->foto         = $row['Foto'];
             return $autor;
         } catch (PDOException $e) {
@@ -100,7 +100,7 @@ class Autor_Model extends Model
            $pdo = null;
         }
         
-    }
+    }//upd
 
     public function update($autor){
         try {
@@ -135,10 +135,10 @@ class Autor_Model extends Model
 
     public function updateImge($id, $path){
         $pdo = $this->db->connect();
-        $consulta = $pdo->prepare("UPDATE autores SET Foto = :img WHERE (ID = :id);"); // consulta a la base de datos no disponible 
+        $consulta = $pdo->prepare("UPDATE autores SET Foto = :img WHERE (autores.ID = :id);"); // consulta a la base de datos no disponible 
         $consulta->bindValue(':id', $id);
         $consulta->bindValue(':img', $path);    
-        $consulta->execute();
-    }
+        return $consulta->execute();
+    } //upd
 
 }; ?>

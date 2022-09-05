@@ -25,7 +25,7 @@
                         <div class="col1 col">
                             <div class="row-in-col">
                                 <input type="number" name="ISBN" id="ISBN" placeholder="ISBN" class="inputs">
-                                <Button class="btnSeach"><img src="<?php echo constant('URL'); ?>public\Recursos\icons\lupa.svg"></Button>
+                                <Button class="btnSeach" type="button" onclick="cargar()"><img src="<?php echo constant('URL'); ?>public\Recursos\icons\lupa.svg"></Button>
                             </div>
                             
                         </div>
@@ -45,7 +45,7 @@
 
 
                                 </select>
-                                <Button class="btnRefresh"><img src="<?php echo constant('URL'); ?>public\Recursos\icons\refresh.svg"></Button>
+                                <Button class="btnRefresh" type="button" onclick="refresheditoriales()"><img src="<?php echo constant('URL'); ?>public\Recursos\icons\refresh.svg"></Button>
                             </div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                                     <option value="" selected disabled>Autor</option>
 
                                 </select>
-                                <Button class="btnRefresh"><img src="<?php echo constant('URL'); ?>public\Recursos\icons\refresh.svg"></Button>
+                                <Button class="btnRefresh" type="button" onclick="refreshAutores()"><img src="<?php echo constant('URL'); ?>public\Recursos\icons\refresh.svg"></Button>
                                 <Button type="button" class="btnadd" onclick="addAutor()"><img
                                         src="<?php echo constant('URL'); ?>public\Recursos\icons\add.svg"></Button>
                             </div>
@@ -137,5 +137,6 @@
 <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\AdminPanel\Book\modbook.css">
 </body>
 <script src="<?php echo constant('URL'); ?>public\js\AdminPanel\Book\main.js"></script>
+<script src="<?php echo constant('URL'); ?>public\js\AdminPanel\Book\mod.js"></script>
 
 </html>

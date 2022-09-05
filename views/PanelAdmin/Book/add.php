@@ -43,7 +43,7 @@
 
 
                 </select>
-                <Button class="btnRefresh"><img
+                <Button class="btnRefresh" type="button" onclick="refresheditoriales()"><img
                     src="<?php echo constant('URL'); ?>public\Recursos\icons\refresh.svg"></Button>
               </div>
             </div>
@@ -62,7 +62,7 @@
                   <option value="" selected disabled>Autor</option>
 
                 </select>
-                <Button class="btnRefresh"><img
+                <Button class="btnRefresh" type="button" onclick="refreshAutores()"><img
                     src="<?php echo constant('URL'); ?>public\Recursos\icons\refresh.svg"></Button>
                 <Button type="button" class="btnadd" onclick="addAutor()"><img
                     src="<?php echo constant('URL'); ?>public\Recursos\icons\add.svg"></Button>
