@@ -16,15 +16,15 @@
     <section class="content">
         <?php require 'views/adminPanel.php';?>
             <div class="conten-data">
-            <form action="" method="post" id="Formulario">
+            <div id="Formulario">
                 <h2 id="titulo">Modificar Usuario</h2>
 
                 <div class="data">
                     <div class="row">
                         <div class="col1 col">
                             <div class="row-in-col">
-                                <input type="email" name="email" id="Email" placeholder="Email" class="inputs">
-                                <Button class="btnSeach"><img src="<?php echo constant('URL'); ?>public\Recursos\icons\lupa.svg"></Button>
+                                <input type="email" name="email" onkeyup="IDonKeyUp(event)" id="Email" placeholder="Email" class="inputs">
+                                <Button class="btnSeach" onclick="Seach()" type="button"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/lupa.svg"></Button>
                             </div>
                             
                         </div>
@@ -38,20 +38,10 @@
                     </div>
                     <div class="row">
                         <div class="col1 col">
-                            <input type="text" name="nombre" id="Nombre" placeholder="Nombre" class="inputs">
-                        </div>
-                        <div class="col2 col">
-                            <input type="text" name="apellido" id="Apellido" placeholder="Apellido" class="inputs">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col1 col">
                             <input type="password" name="Password" id="password" placeholder="Password" class="inputs">
-
                         </div>
                         <div class="col2 col">
-                            <input type="date" name="FNacimiento" id="fecha" placeholder="Fecha de Nacimiento"
-                                class="inputs">
+                            <input type="text" name="nombre" id="Nombre" placeholder="Nombre" class="inputs">
                         </div>
                     </div>
                     <div class="row">
@@ -62,31 +52,40 @@
                                 <option value="F">Femenino</option>
                                 <option value="P">Otro</option>
                             </select>
+
                         </div>
                         <div class="col2 col">
                             <input type="text" name="GPersonalizado" id="GP" placeholder="Genero" class="inputs">
+                            
                         </div>
                     </div>
                     <div class="row">
                         <div class="col1 col">
+                            <input type="date" name="FNacimiento" id="fecha" placeholder="Fecha de Nacimiento"
+                                class="inputs">
+                        </div>
+                        <div class="col2 col">
                             <input type="number" name="numero" id="Numero" placeholder="Numero" class="inputs" step="1"
                                 min="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col1 col">
+                             <input type="text" name="calle" id="Calle" placeholder="Calle" class="inputs">
+                        </div>
                         <div class="col2 col">
-                            <input type="text" name="calle" id="Calle" placeholder="Calle" class="inputs">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col1 col">
                             <input type="text" name="ciudad" id="Ciudad" placeholder="Ciudad" class="inputs">
+                           
                         </div>
-                        <div class="col2 col"><input type="number" name="codigo" id="CPostal"
-                                placeholder="Codigo Postal" class="inputs" step="1" min="1"
-                                onkeypress="return event.charCode >= 48 && event.charCode <= 57"></div>
                     </div>
                     <div class="row">
                         <div class="col1 col">
-                            <input type="text" name="Departamento" list="depaList" id="departamento"
+                            <input type="number" name="codigo" id="CPostal"
+                                placeholder="Codigo Postal" class="inputs" step="1" min="1"
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                        </div>
+                        <div class="col2 col">
+                             <input type="text" name="Departamento" list="depaList" id="departamento"
                                 placeholder="Departamento" class="inputs">
                             <datalist id="depaList">
                                 <option value="Artigas">
@@ -109,21 +108,28 @@
                                 <option value="Treinta y Tres">
                             </datalist>
                         </div>
-
                     </div>
+                    <!-- <div class="row">
+                        <div class="col1 col">
+                           
+                        </div>
+
+                    </div> -->
                 </div>
 
                 <div id="save-div">
                     <button type="submit">Guardar</button>
                 </div>
-            </form>
+</div>
         </div>
     </section>
 
 
-    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\AdminPanel\Usuario\moduser.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Usuario/moduser.css">
 
 </body>
-<script src="<?php echo constant('URL'); ?>public\js\AdminPanel\Usuario\main.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Usuario/main.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Usuario/mod.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/AdminPanel.js"></script>
 
 </html>

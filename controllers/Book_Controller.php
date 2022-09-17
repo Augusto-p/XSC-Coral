@@ -73,7 +73,7 @@ class Book_Controller extends Controller {
             $img["tmp_name"] =  $imgs['tmp_name'][$cont];
             $ImagenArticulo = new Imagenes($img, "public/imgs/Books/" . $book->isbn . "/" . $cont);
             $paths[] = $ImagenArticulo->Upload();
-
+            $cont++;
 
         }
         $book->imagenes = $paths;

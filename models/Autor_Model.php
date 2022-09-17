@@ -123,7 +123,7 @@ class Autor_Model extends Model
     public function delete($id){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
+            $consulta = $pdo->prepare('DELETE FROM autores WHERE (ID = :id);'); // consulta a la base de datos no disponible 
             $consulta->bindValue(':id', $id);
             return $consulta->execute();
         } catch (PDOException $e) {
@@ -131,7 +131,7 @@ class Autor_Model extends Model
         }finally {
            $pdo = null;
         }
-    }
+    }//upd
 
     public function updateImge($id, $path){
         $pdo = $this->db->connect();

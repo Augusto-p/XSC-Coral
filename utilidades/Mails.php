@@ -1,10 +1,7 @@
 <?php 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+require 'vendor/autoload.php';
 
-require 'libs\PHPMailer\Exception.php';
-require 'libs\PHPMailer\PHPMailer.php';
-require 'libs\PHPMailer\SMTP.php';
 
 class Mail {
     private $mail;

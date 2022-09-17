@@ -44,7 +44,7 @@ class Book_Model extends Model {
             $pdo = null;
         }
 
-    }
+    }//upd
 
     public function add($book) {
         try {
@@ -82,7 +82,7 @@ class Book_Model extends Model {
         } finally {
             $pdo = null;
         }
-    }
+    }//upd
 
     public function seach($Termino) {
         try {
@@ -125,7 +125,7 @@ class Book_Model extends Model {
         } finally {
             $pdo = null;
         }
-    }
+    }//upd
 
     public function getAll() {
         try {
@@ -149,12 +149,12 @@ class Book_Model extends Model {
             $pdo = null;
         }
 
-    }
+    }//upd
 
     public function getByAutor($idAutor) {
         try {
             $pdo      = $this->db->connect();
-            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible
+            $consulta = $pdo->prepare('select libros.* from libros join escriben on libros.ISBN = escriben.ISBN where escriben.ID_autor =:idAutor'); // consulta a la base de datos no disponible
             $consulta->bindValue(':idAutor', $idAutor);
             $consulta->execute();
             $libros = [];
@@ -174,12 +174,12 @@ class Book_Model extends Model {
             $pdo = null;
         }
 
-    }
+    }//upd
 
     public function getByEditorial($idEditorial) {
         try {
             $pdo      = $this->db->connect();
-            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible
+            $consulta = $pdo->prepare('select libros.* from libros where libros.ID_Editorial =:idEditorial'); // consulta a la base de datos no disponible
             $consulta->bindValue(':idEditorial', $idEditorial);
             $consulta->execute();
             $libros = [];
@@ -199,7 +199,7 @@ class Book_Model extends Model {
             $pdo = null;
         }
 
-    }
+    }//upd
 
     public function update($book) {
         try {
@@ -222,7 +222,7 @@ class Book_Model extends Model {
     public function delete($id) {
         try {
             $pdo      = $this->db->connect();
-            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible
+            $consulta = $pdo->prepare('DELETE FROM libros WHERE (ISBN = :isbn);'); // consulta a la base de datos no disponible
             $consulta->bindValue(':isbn', $id);
             return $consulta->execute();
         } catch (PDOException $e) {
@@ -231,6 +231,8 @@ class Book_Model extends Model {
             $pdo = null;
         }
 
-    }
+    }//upd
+
+    
 
 };?>

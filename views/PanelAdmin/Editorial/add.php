@@ -15,7 +15,7 @@
   <section class="content">
     <?php require 'views/adminPanel.php';?>
     <div class="conten-data">
-            <form action="" method="post" id="Formulario">
+            <form action="<?php echo constant('URL'); ?>editorial/add" method="post" id="Formulario" enctype="multipart/form-data">
                 <h2 id="titulo">Añadir Editorial</h2>
 
                 <div class="data">
@@ -50,23 +50,24 @@
                         </div>
                         <div class="col2 col">
                             <input type="file" name="Logo" id="Logo">
-                            <button type="button" id="btnAddimage">Añadir Imagen</button>
+                            <button type="button" id="btnAddimage" >Añadir Imagen</button>
                         </div>
                     </div>
                     
                 </div>
 
                 <div id="save-div">
-                    <button type="submit">Guardar</button>
+                    <button type="button" onclick="send()">Guardar</button>
                 </div>
             </form>
         </div>
   </section>
 
 
-  <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\AdminPanel\Editorial\editorial.css">
+  <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Editorial/editorial.css">
 </body>
 
-<script src="<?php echo constant('URL'); ?>public\js\AdminPanel\Editorial\Editorial.js"></script>
-
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Editorial/Editorial.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Editorial/add.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/AdminPanel.js"></script>
 </html>

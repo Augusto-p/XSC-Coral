@@ -41,6 +41,7 @@ class Usuario_Controller extends Controller
         $this->view->render("PanelAdmin\Usuario\del");
     }
 
+    
 
     
     
@@ -107,10 +108,10 @@ class Usuario_Controller extends Controller
         }
            
     }
-    public function signUpAdmin(){ //la pagina de registro Para el uso del administradores Y los Vendeores
+    public function signupAdmin(){ //la pagina de registro Para el uso del administradores Y los Vendeores
         $user = new Usuario();
-        $user->nombrecompleto = $_POST['Nombre']. " " . $_POST['Apellido'];
-        $user->email = $_POST['Email'];
+        $user->nombrecompleto = $_POST['nombre']. " " . $_POST['apellido'];
+        $user->email = $_POST['email'];
         
         $user->Fnacimento = $_POST['FNacimiento'];
         if ($_POST['Genero'] == "M") {
@@ -120,10 +121,10 @@ class Usuario_Controller extends Controller
         } else {
             $user->Genero = $_POST['GPersonalizado'];
         }
-        $user->numero = $_POST['Numero'];
-        $user->calle = $_POST['Calle'];
-        $user->ciudad = $_POST['Ciudad'];
-        $user->codigoPostal = $_POST['Codigo'];
+        $user->numero = $_POST['numero'];
+        $user->calle = $_POST['calle'];
+        $user->ciudad = $_POST['ciudad'];
+        $user->codigoPostal =$_POST["codigo"];
         $user->departamento = $_POST['Departamento'];
         $user->rol = $_POST['Rol'];
         $user->password = password_hash($_POST['Password'], PASSWORD_BCRYPT , ['cost' => 10]);

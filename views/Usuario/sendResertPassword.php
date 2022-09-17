@@ -27,7 +27,7 @@
                     <button id="entrar" type="submit" class="btn">Entrar</button>
 
                     <span class="span-cam">
-                        No teners cuenta? <a href="#">Registrate</a>
+                        No teners cuenta? <a href="<?php echo constant('URL'); ?>Usuario/registrarse">Registrate</a>
                     </span>
                 </form>
             </section>

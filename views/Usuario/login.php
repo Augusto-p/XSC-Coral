@@ -24,10 +24,10 @@
                 <input type="email" name="Email" id="email" placeholder="Email" class="inputs">
                 <input type="password" name="Password" id="password" placeholder="Password" class="inputs">
                 <button id="entrar" class="btn">Entrar</button>
-                <span id="span-olv">¿<a href="">Olvidaste tu contraseña</a>?</span>
+                <span id="span-olv">¿<a href="<?php echo constant('URL'); ?>Usuario/resertPassword">Olvidaste tu contraseña</a>?</span>
                 
                 <span class="span-cam">
-                    No tenes cuenta? <a href="#">Registrate</a>
+                    No tenes cuenta? <a href="<?php echo constant('URL'); ?>Usuario/registrarse">Registrate</a>
                 </span>
             </form>
         </section>

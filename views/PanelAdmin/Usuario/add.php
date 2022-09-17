@@ -108,15 +108,17 @@
                 </div>
 
                 <div id="save-div">
-                    <button type="submit">Guardar</button>
+                    <button type="button" onclick="Send()">Guardar</button>
                 </div>
             </form>
         </div>
     </section>
 
 
-<link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\AdminPanel\Usuario\adduser.css">
+<link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Usuario/adduser.css">
 </body>
-<script src="<?php echo constant('URL'); ?>public\js\AdminPanel\Usuario\main.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Usuario/main.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Usuario/add.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/AdminPanel.js"></script>
 
 </html>

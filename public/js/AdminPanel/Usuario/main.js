@@ -1,12 +1,21 @@
-let input = document.getElementsByClassName("inputs")[2];
 let rol = document.getElementById("Rol")
 let genero = document.getElementById("genero")
 let gp = document.getElementById("GP")
 let deparamentos = document.getElementById("departamento")
 let fn = document.getElementById("fecha")
+let nombre = document.getElementById("Nombre");
+let apellido = document.getElementById("Apellido");
+let email = document.getElementById("Email");
+let pass = document.getElementById("password");
+let numero = document.getElementById("Numero");
+let calle = document.getElementById("Calle");
+let ciudad = document.getElementById("Ciudad");
+let Codigo = document.getElementById("CPostal");
+let EmailValue;
+
 
 function setSize() {
-    let wi = (input.offsetWidth-11) + 'px'
+    let wi = (nombre.offsetWidth-11) + 'px'
     rol.style.width = wi;
     genero.style.width = wi;
     deparamentos.style.width = wi;
@@ -23,4 +32,45 @@ genero.addEventListener('change', (e) => {
 });
 
 
+
+async function Seach() {
+    let response = await fetch(URL + "api/usuario/get?Email=" + email.value , {
+        method: "GET",
+        headers: headersList
+    });
+
+    let data = await response.json().then((data) =>{
+        nombre.value = data.User.nombrecompleto
+        
+        EmailValue = data.User.email;
+        fn.value = data.User.Fnacimento
+        if (data.User.Genero == "Masculino"){
+            genero.value = "M";
+        } else if (data.User.Genero == "Femenino") {
+            genero.value = "F";
+        } else {
+            genero.value = "P";
+            gp.value = data.User.Genero;
+            gp.style.display = 'inline-block';
+        }
+            
+        pass.value = "Dafatult"
+        rol.value = data.User.rol
+        numero.value = data.User.numero
+        calle.value = data.User.calle
+        ciudad.value = data.User.ciudad
+        Codigo.value = data.User.codigoPostal
+        deparamentos.value = data.User.departamento
+        console.log(data);
+    });
+    
+    
+
+}
+
+
+
+
 setSize();
+
+

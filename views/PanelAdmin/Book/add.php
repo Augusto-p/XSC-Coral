@@ -23,7 +23,7 @@
               <div class="row-in-col">
                 <input type="number" name="ISBN" id="ISBN" placeholder="ISBN" class="inputs">
                 <Button class="btnSeach" type="button" onclick="SeachISBN()"><img
-                    src="<?php echo constant('URL'); ?>public\Recursos\icons\lupa.svg"></Button>
+                    src="<?php echo constant('URL'); ?>public/Recursos/icons/lupa.svg"></Button>
               </div>
 
             </div>
@@ -44,7 +44,7 @@
 
                 </select>
                 <Button class="btnRefresh" type="button" onclick="refresheditoriales()"><img
-                    src="<?php echo constant('URL'); ?>public\Recursos\icons\refresh.svg"></Button>
+                    src="<?php echo constant('URL'); ?>public/Recursos/icons/refresh.svg"></Button>
               </div>
             </div>
           </div>
@@ -53,7 +53,7 @@
               <div class="row-in-col">
                 <input type="text" name="Categoriain" id="Categoriain" placeholder="Categorias" class="inputs">
                 <Button type="button" class="btnadd" onclick="addCat()"><img
-                    src="<?php echo constant('URL'); ?>public\Recursos\icons\add.svg"></Button>
+                    src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
               </div>
             </div>
             <div class="col2 col">
@@ -63,9 +63,9 @@
 
                 </select>
                 <Button class="btnRefresh" type="button" onclick="refreshAutores()"><img
-                    src="<?php echo constant('URL'); ?>public\Recursos\icons\refresh.svg"></Button>
+                    src="<?php echo constant('URL'); ?>public/Recursos/icons/refresh.svg"></Button>
                 <Button type="button" class="btnadd" onclick="addAutor()"><img
-                    src="<?php echo constant('URL'); ?>public\Recursos\icons\add.svg"></Button>
+                    src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
               </div>
             </div>
           </div>
@@ -125,16 +125,17 @@
 
 
         <div id="save-div">
-          <button type="submit">Guardar</button>
+          <button type="button" onclick="Send()">Guardar</button>
         </div>
       </form>
     </div>
   </section>
 
 
-  <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\AdminPanel\Book\style.css">
+  <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Book/style.css">
 </body>
-<script src="<?php echo constant('URL'); ?>public\js\AdminPanel\Book\main.js"></script>
-<script src="<?php echo constant('URL'); ?>public\js\AdminPanel\Book\add.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/AdminPanel.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Book/main.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Book/add.js"></script>
 
 </html>

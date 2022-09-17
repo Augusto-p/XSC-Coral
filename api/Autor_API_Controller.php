@@ -1,6 +1,8 @@
 <?php
 
 require_once 'DTO/autor.php';
+require_once 'models\Usuario_model.php';
+require_once 'utilidades\Imagenes.php';
 
 
 class Autor_API_Controller extends Controller {
@@ -33,4 +35,36 @@ class Autor_API_Controller extends Controller {
         $this->view->render("API\Autor\get");
         
     }
+    public function add(){
+        //add author
+        $userModel = new Usuario_Model();
+        $data      = json_decode(file_get_contents('php://input'));
+        $token     = $data->Token;
+        $email     = $token; //probiconal JWT
+        if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
+            $autor            = new Autor();
+            $autor->nombre = $data->Autor->Nombre;
+            $autor->nacionalidad = $data->Autor->Nacionalidad;
+            $autor->biografia = $data->Autor->Biografia;
+            $autor->Fnacimento = $data->Autor->Fnacimento;
+            $autor->foto = $data->Autor->foto;
+
+            //$id=5;
+            $id = $this->model->add($autor);
+
+            if ($id >= 0) {
+                $ImagenAutor = new Imagenes("public/imgs/Autores/" . $id);
+                $path            = $ImagenAutor->Upload64($autor->foto);
+                $status          = $this->model->updateImge($id, $path);
+            }
+            $res             = ["mensaje" => "Hey Autor Ingresado"];
+            $this->view->res = json_encode($res);
+            $this->view->render("API\Autor\add");
+
+        } else {
+            echo "error";
+        }
+
+    }
+        
 }

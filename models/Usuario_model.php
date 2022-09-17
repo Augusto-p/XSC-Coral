@@ -113,7 +113,7 @@ class Usuario_Model extends Model {
             $pdo = null;
         }
 
-    }
+    }//upd
 
     public function remplacePassWordBYEmailSystem($token, $password) {
         try {
@@ -127,7 +127,7 @@ class Usuario_Model extends Model {
         } finally {
             $pdo = null;
         }
-    }
+    }//upd
 
     public function setTokenOfForgetPasswordByEmailSystem($email, $token, $date) {
         try {
@@ -143,6 +143,64 @@ class Usuario_Model extends Model {
             $pdo = null;
         }
 
+    }//upd
+    
+
+    public function update($user) {
+        try {
+            $pdo      = $this->db->connect();
+            $consulta = $pdo->prepare(""); // consulta a la base de datos no disponible
+            $consulta->bindParam(':email', $user->email);
+            $consulta->bindParam(':Nombre', $user->nombrecompleto);
+            $consulta->bindParam(':FNacim', $user->Fnacimento);
+            $consulta->bindParam(':Genero', $user->Genero);
+            $consulta->bindParam(':pass', $user->password);
+            $consulta->bindParam(':img', $user->Iuser);
+            $consulta->bindParam(':Rol', $user->rol);
+            $consulta->bindParam(':Numero', $user->numero);
+            $consulta->bindParam(':Calle', $user->calle);
+            $consulta->bindParam(':Ciudad', $user->ciudad);
+            $consulta->bindParam(':Departamento', $user->departamento);
+            $consulta->bindParam(':CodigoPostal', $user->codigoPostal);
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            var_dump($e);
+        } finally {
+            $pdo = null;
+        }
     }
+
+    public function delete($email) {
+        try {
+            $pdo      = $this->db->connect();
+            $consulta = $pdo->prepare('DELETE FROM usuarios WHERE (Email = :email);'); // consulta a la base de datos no disponible
+            $consulta->bindValue(':email', $email);
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            var_dump($e);
+        } finally {
+            $pdo = null;
+        }
+    }//upd
+
+    public function getRol($email) {
+        try {
+            $pdo      = $this->db->connect();
+            $consulta = $pdo->prepare('select Rol from usuarios where usuarios.Email = :email'); // consulta a la base de datos no disponible
+            $consulta->bindValue(':email', $email);
+            $consulta->execute();
+            $rol = "";
+            while ($row = $consulta->fetch()) {
+                $rol = $row["Rol"];
+            }
+            return $rol;
+        } catch (PDOException $e) {
+            var_dump($e);
+        } finally {
+            $pdo = null;
+        }
+
+    } //upd
+
 
 };?>

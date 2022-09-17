@@ -15,15 +15,15 @@
   <section class="content">
     <?php require 'views/adminPanel.php';?>
     <div class="conten-data">
-            <form action="" method="post" id="Formulario">
+            <div id="Formulario">
                 <h2 id="titulo">Modificar Editorial</h2>
 
                 <div class="data">
                     <div class="row">
                         <div class="col1 col">
                             <div class="row-in-col">
-                                <input type="number" name="ID" id="ID" placeholder="ID" class="inputs">
-                                <Button class="btnSeach" onclick="SeachEdi()"><img src="<?php echo constant('URL'); ?>public\Recursos\icons\lupa.svg"></Button>
+                                <input type="number" onkeyup="IDonKeyUp(event)" name="ID" id="ID" placeholder="ID" class="inputs">
+                                <Button class="btnSeach" onclick="Seach()"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/lupa.svg"></Button>
                             </div>
                         </div>
                         <div class="col2 col">
@@ -67,14 +67,15 @@
                 <div id="save-div">
                     <button type="submit">Guardar</button>
                 </div>
-            </form>
+</div>
         </div>
   </section>
 
 
-  <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\AdminPanel\Editorial\editorial.css">
+  <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Editorial/editorial.css">
 </body>
 
-<script src="<?php echo constant('URL'); ?>public\js\AdminPanel\Editorial\Editorial.js"></script>
-
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Editorial/Editorial.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Editorial/mod.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/AdminPanel.js"></script>
 </html>

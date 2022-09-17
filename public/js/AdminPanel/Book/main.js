@@ -9,7 +9,10 @@ let nvCategoriasIn = document.getElementById("not-view-Categorias")
 let nvImagesIn = document.getElementById("not-view-images")
 let btnAddImge = document.getElementById("addImage")
 let ImagenesDiv = document.getElementById("ImagenesDiv")
-let URL = document.getElementById("URL").value
+let ISBN = document.getElementById("ISBN");
+let Titulo = document.getElementById("Titulo");
+let Sipnosis = document.getElementById("Sipnosis");
+let Precio = document.getElementById("Precio")
 let Categorias = new Map();
 let Autores = new Map();
 
@@ -75,9 +78,10 @@ function NewImage() {
     element.addEventListener("change", (e) => {
         let file = e.target.files[0];
         if (file) {
-            let url = URL.createObjectURL(file);
+            let url = window.URL.createObjectURL(file);
             ImagenesDiv.innerHTML += '<div class="Imagene-item" id="IIID-' + imgcont + '"><img src = "' + url +'" ><Button type="button" onclick="delImage('+imgcont+')">Eliminar</Button></div>'
             element.id = "inID-"+imgcont
+            element.name = "Imgs[]"
             nvImagesIn.insertBefore(element, null);
             NewImage()
         }

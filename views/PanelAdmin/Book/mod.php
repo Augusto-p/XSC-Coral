@@ -18,14 +18,14 @@
     <section class="content">
         <?php require 'views/adminPanel.php';?>
          <div class="conten-data">
-            <form action="" method="post" id="Formulario">
+            <div id="Formulario">
                 <h2 id="titulo">Modificar Libro</h2>
                 <div class="data">
                     <div class="row">
                         <div class="col1 col">
                             <div class="row-in-col">
-                                <input type="number" name="ISBN" id="ISBN" placeholder="ISBN" class="inputs">
-                                <Button class="btnSeach" type="button" onclick="cargar()"><img src="<?php echo constant('URL'); ?>public\Recursos\icons\lupa.svg"></Button>
+                                <input type="number" name="ISBN" id="ISBN" placeholder="ISBN" class="inputs" onkeyup="IDonKeyUp(event)">
+                                <Button class="btnSeach" type="button" onclick="Seach()"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/lupa.svg"></Button>
                             </div>
                             
                         </div>
@@ -45,7 +45,7 @@
 
 
                                 </select>
-                                <Button class="btnRefresh" type="button" onclick="refresheditoriales()"><img src="<?php echo constant('URL'); ?>public\Recursos\icons\refresh.svg"></Button>
+                                <Button class="btnRefresh" type="button" onclick="refresheditoriales()"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/refresh.svg"></Button>
                             </div>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                                 <input type="text" name="Categoriain" id="Categoriain" placeholder="Categorias"
                                     class="inputs">
                                 <Button type="button" class="btnadd" onclick="addCat()"><img
-                                        src="<?php echo constant('URL'); ?>public\Recursos\icons\add.svg"></Button>
+                                        src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
                             </div>
                         </div>
                         <div class="col2 col">
@@ -64,9 +64,9 @@
                                     <option value="" selected disabled>Autor</option>
 
                                 </select>
-                                <Button class="btnRefresh" type="button" onclick="refreshAutores()"><img src="<?php echo constant('URL'); ?>public\Recursos\icons\refresh.svg"></Button>
+                                <Button class="btnRefresh" type="button" onclick="refreshAutores()"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/refresh.svg"></Button>
                                 <Button type="button" class="btnadd" onclick="addAutor()"><img
-                                        src="<?php echo constant('URL'); ?>public\Recursos\icons\add.svg"></Button>
+                                        src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
                             </div>
                         </div>
                     </div>
@@ -128,15 +128,16 @@
                 <div id="save-div">
                     <button type="submit">Guardar</button>
                 </div>
-            </form>
+</div>
         </div>
     </section>
 
 
-<link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\AdminPanel\Book\style.css">
-<link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\AdminPanel\Book\modbook.css">
+<link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Book/style.css">
+<link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Book/modbook.css">
 </body>
-<script src="<?php echo constant('URL'); ?>public\js\AdminPanel\Book\main.js"></script>
-<script src="<?php echo constant('URL'); ?>public\js\AdminPanel\Book\mod.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/AdminPanel.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Book/main.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Book/mod.js"></script>
 
 </html>

@@ -9,21 +9,25 @@ class Editorial_Model extends Model {
     public function add($editorial) {
         try {
             $pdo      = $this->db->connect();
-            $consulta = $pdo->prepare('INSERT INTO editoriales (Nombre, Web, Logo, Direccion, Telefono, Email) VALUES (:nombre, :web, :logo, :direccion, :telefono, :email);'); // consulta a la base de datos no disponible
+            $consulta = $pdo->prepare('INSERT INTO editoriales (Nombre, Web, Direccion, Telefono, Email) VALUES (:nombre, :web, :direccion, :telefono, :email);'); // consulta a la base de datos no disponible
                     
             $consulta->bindValue(':nombre', $editorial->nombre);
             $consulta->bindValue(':direccion', $editorial->direccion);
             $consulta->bindValue(':telefono', $editorial->telefono);
             $consulta->bindValue(':email', $editorial->email);
             $consulta->bindValue(':web', $editorial->web);
-            $consulta->bindValue(':logo', $editorial->logo);
-            return $consulta->execute();
+            
+            if ($consulta->execute()) {
+    return $pdo->lastInsertId();
+} else {
+    return -1;
+}
         } catch (PDOException $e) {
             var_dump($e);
         } finally {
             $pdo = null;
         }
-    }
+    }//upd
 
     public function getAll() {
         try {
@@ -48,7 +52,7 @@ class Editorial_Model extends Model {
         } finally {
             $pdo = null;
         }
-    }
+    }//upd
 
     public function get($id) {
         try {
@@ -72,7 +76,7 @@ class Editorial_Model extends Model {
         } finally {
             $pdo = null;
         }
-    }
+    }//upd
 
     public function update($editorial) {
         try {
@@ -96,7 +100,7 @@ class Editorial_Model extends Model {
     public function delete($id) {
         try {
             $pdo      = $this->db->connect();
-            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible
+            $consulta = $pdo->prepare('DELETE FROM editoriales WHERE (ID = :id);'); // consulta a la base de datos no disponible
             $consulta->bindValue(':id', $id);
             return $consulta->execute();
         } catch (PDOException $e) {
@@ -104,5 +108,13 @@ class Editorial_Model extends Model {
         } finally {
             $pdo = null;
         }
-    }
+    }//upd
+
+     public function updateImge($id, $path){
+        $pdo = $this->db->connect();
+        $consulta = $pdo->prepare("UPDATE editoriales SET Logo = :img WHERE (editoriales.ID = :id);"); // consulta a la base de datos no disponible 
+        $consulta->bindValue(':id', $id);
+        $consulta->bindValue(':img', $path);    
+        return $consulta->execute();
+    } //upd
 };?>

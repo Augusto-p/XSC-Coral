@@ -58,16 +58,18 @@
                 </div>
 
                 <div id="save-div">
-                    <button type="submit">Guardar</button>
+                    <button type="button" onclick="send()">Guardar</button>
                 </div>
             </form>
         </div>
   </section>
 
 
-  <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\AdminPanel\Autor\autor.css">
+  <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Autor/autor.css">
 </body>
 
-<script src="<?php echo constant('URL'); ?>public\js\AdminPanel\Autor\Autor.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Autor/Autor.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Autor/add.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/AdminPanel.js"></script>
 
 </html>
