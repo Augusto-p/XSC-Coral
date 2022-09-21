@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\Usuario\style.css">
-    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\Usuario\login.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Usuario/style.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Usuario/login.css">
     <title>Document</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
             <div id="g-izq-content">
                 
                 <div id="g-izq-content-in">
-                    <img src="<?php echo constant('URL'); ?>public\Recursos\imgs\LogoMimundo.svg" alt="">
+                    <img src="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.svg" alt="">
                 </div>
             </div>
         </section>
@@ -35,6 +35,6 @@
 
     </section>
 </body>
-<script src="<?php echo constant('URL'); ?>public\js\Usuario\main.js"></script>
-<script src="<?php echo constant('URL'); ?>public\js\Usuario\login.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/Usuario/main.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/Usuario/login.js"></script>
 </html>

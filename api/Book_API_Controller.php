@@ -2,11 +2,11 @@
 
 require_once 'DTO/book.php';
 require_once 'DTO/autor.php';
-require_once 'utilidades\Archivos.php';
-require_once 'models\Autor_Model.php';
-require_once 'models\Editorial_Model.php';
-require_once 'models\Usuario_model.php';
-require_once 'utilidades\Imagenes.php';
+require_once 'utilidades/Archivos.php';
+require_once 'models/Autor_Model.php';
+require_once 'models/Editorial_Model.php';
+require_once 'models/Usuario_model.php';
+require_once 'utilidades/Imagenes.php';
 
 class Book_API_Controller extends Controller {
     public function __construct() {
@@ -123,13 +123,39 @@ class Book_API_Controller extends Controller {
             $book->imagenes = $paths;
             $this->model->add($book);
             
-            $res             = ["mensaje" => "Hey Libro Ingresado"];
-            $this->view->res = json_encode($res);
-            $this->view->render("API\Book\add");
+            $res = ["mensaje" => "Libro Ingresado", "code" => 200];
+            
 
         } else {
-            echo "error";
+            $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
         }
+        $this->view->res = json_encode($res);
+        $this->view->render("API/Book/add");
+
+    }
+
+    public function delete() {
+        //add author
+        $userModel = new Usuario_Model();
+        $data      = json_decode(file_get_contents('php://input'));
+        $token     = $data->Token;
+        $email     = $token; //probiconal JWT
+        if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
+            $book        = $this->model->get($data->Libro->ISBN);
+            unlink($book->sipnosis); // delete Sipnosis
+            foreach ($book->imagenes as $key => $value) {
+                unlink($value); // delete images
+            }
+            rmdir("public/imgs/Books/".$data->Libro->ISBN);
+            
+            if($this->model->delete($data->Libro->ISBN)){
+                $res = ["mensaje" => "Libro Eliminado Correctamente", "code" => 200];
+            }else{
+                $res = ["mensaje" => "Libro No Localizado", "code" => 404];
+            }
+        }
+        $this->view->res = json_encode($res);
+        $this->view->render("API/Book/del");
 
     }
 }

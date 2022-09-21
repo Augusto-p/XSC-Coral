@@ -1,6 +1,6 @@
 <?php
 
-require_once 'DTO\book.php';
+require_once 'DTO/book.php';
 class Book_Model extends Model {
     public function __construct() {
         parent::__construct();
@@ -226,7 +226,7 @@ class Book_Model extends Model {
             $consulta->bindValue(':isbn', $id);
             return $consulta->execute();
         } catch (PDOException $e) {
-            var_dump($e);
+            return false;
         } finally {
             $pdo = null;
         }

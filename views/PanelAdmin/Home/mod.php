@@ -76,13 +76,13 @@
                         <div class="col1 col">
                             <div class="row-in-col">
                                 <input type="number" name="slider1in" id="slider1in" placeholder="ISBN" class="inputs">
-                                <Button type="button" class="btnadd" onclick="addslider1()"><img src="<?php echo constant('URL'); ?>public\Recursos\icons\add.svg"></Button>
+                                <Button type="button" class="btnadd" onclick="addslider1()"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
                             </div>
                         </div>
                         <div class="col2 col">
                             <div class="row-in-col">
                                 <input type="number" name="slider1in" id="slider2in" placeholder="ISBN" class="inputs">
-                                <Button type="button" class="btnadd" onclick="addslider2()"><img src="<?php echo constant('URL'); ?>public\Recursos\icons\add.svg"></Button>
+                                <Button type="button" class="btnadd" onclick="addslider2()"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
                             </div>
                         </div>
                     </div>
@@ -122,9 +122,9 @@
         </div>
         </section>
 
-<link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\AdminPanel\Home\home.css">
+<link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Home/home.css">
 </body>
-    <script src="<?php echo constant('URL'); ?>public\js\AdminPanel\home\main.js"></script>
+    <script src="<?php echo constant('URL'); ?>public/js/AdminPanel/home/main.js"></script>
     <?php 
     foreach ($this->Slider1Isbns as $key => $value) {
         echo '<script>addslider1php('.$value.')</script>';

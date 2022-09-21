@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\Usuario\style.css">
-    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\Usuario\sendResetPassword.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Usuario/style.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Usuario/sendResetPassword.css">
     <title>MiMundo</title>
     
 </head>
@@ -37,6 +37,6 @@
     </body>
     
 
-<script src="public\js\Usuario\main.js"></script>
-<script src="public\js\Usuario\SendResetPassWord.js"></script>
+<script src="public/js/Usuario/main.js"></script>
+<script src="public/js/Usuario/SendResetPassWord.js"></script>
 </html>

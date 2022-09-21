@@ -14,7 +14,7 @@
             <div class="footer-up-column">
                 <div class="footer-up-Column-in">
                     <h3>Redes sociales</h3>
-                    <a href="https://www.facebook.com"><img src="<?php echo constant('URL'); ?>public\Recursos\icons\facebook.svg">Facebook</a>
+                    <a href="https://www.facebook.com"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/facebook.svg">Facebook</a>
                     <a href="https://www.twitter.com"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/twitter.svg">Twitter</a>
                     <a href="https://www.instagram.com"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/instagram.svg">Instagram</a>
                 </div>

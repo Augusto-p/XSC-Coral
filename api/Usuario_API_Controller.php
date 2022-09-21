@@ -23,14 +23,6 @@ class Usuario_API_Controller extends Controller
         $this->view->render("API/Ususario/get");
         
     }
-
-
-
-    // public function test(){
-    //     $Imagenes = new Imagenes();
-    //     $Imagenes->CreateUserImage("Administrador", "Augusto", "Picardo", "auguselo77@gmail.com");
-    // }
-
      public function add(){
         //add author
         
@@ -39,7 +31,7 @@ class Usuario_API_Controller extends Controller
         $email     = $token; //probiconal JWT
         if ($this->model->getRol($email) == "Administrador" || $this->model->getRol($email) == "Empleado") {
             if ($this->model->getRol($email) == "Empleado" && $data->Usuario->Rol != "Cliente") {
-                $res             = ["mensaje" => "Permiso Denegado"];
+                $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
             }else{
                 $user = new Usuario();
                 $user->nombrecompleto = $data->Usuario->Nombre. " " . $data->Usuario->Apellido;
@@ -62,9 +54,10 @@ class Usuario_API_Controller extends Controller
                 
                 $reg = $this->model->registrarse($user);
                 if ($reg != null) {
-                    $res             = ["mensaje" => "Usuario Registrado Existosamente"];
+                    
+                    $res = ["mensaje" => "Usuario Registrado Existosamente", "code" => 200];
                 }else{
-                    $res             = ["mensaje" => "Usuario No se a Registrado Existosamente"];
+                    $res = ["mensaje" => "Usuario No se a Registrado Existosamente", "code" => 404];
                 }
                 
 
@@ -72,12 +65,45 @@ class Usuario_API_Controller extends Controller
             
 
         } else {
-            $res             = ["mensaje" => "Permiso Denegado"];
+            $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
         }
         $this->view->res = json_encode($res);
         $this->view->render("API/Ususario/add");
 
     }
+
+     public function delete(){
+        //add author
+        
+        $data      = json_decode(file_get_contents('php://input'));
+        $token     = $data->Token;
+        $email     = $token; //probiconal JWT
+        if ($this->model->getRol($email) == "Administrador" || $this->model->getRol($email) == "Empleado") {
+            $User = $this->model->get($data->Usuario->Email);
+            if ($this->model->getRol($email) == "Empleado" && $User->rol != "Cliente") {
+                $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
+            }else{
+                
+            unlink($User->Iuser); // delete image
+
+            if($this->model->delete($data->Usuario->Email)){
+                $res = ["mensaje" => "Usuario Eliminado Correctamente", "code" => 200];
+            }else{
+                $res = ["mensaje" => "Usuario No Localizado", "code" => 404];
+            }
+                
+
+            }
+            
+
+        } else {
+            $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
+        }
+        $this->view->res = json_encode($res);
+        $this->view->render("API/Ususario/del");
+
+    }
+
 
     
 }

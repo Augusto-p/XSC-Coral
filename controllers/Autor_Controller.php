@@ -1,7 +1,7 @@
 <?php
 
 require_once 'DTO/autor.php';
-require_once 'utilidades\Imagenes.php';
+require_once 'utilidades/Imagenes.php';
 
 
 class Autor_Controller extends Controller {
@@ -10,13 +10,13 @@ class Autor_Controller extends Controller {
     }
 
     public function render() {
-        $this->view->render('PanelAdmin\Autor\add');
+        $this->view->render('PanelAdmin/Autor/add');
     }
     public function new() {
-        $this->view->render('PanelAdmin\Autor\add');
+        $this->view->render('PanelAdmin/Autor/add');
     }
     public function change() {
-        $this->view->render('PanelAdmin\Autor\mod');
+        $this->view->render('PanelAdmin/Autor/mod');
     }
 
     public function add() {

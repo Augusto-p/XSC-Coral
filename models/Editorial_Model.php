@@ -1,5 +1,5 @@
 <?php
-require_once 'DTO\editorial.php';
+require_once 'DTO/editorial.php';
 
 class Editorial_Model extends Model {
     public function __construct() {

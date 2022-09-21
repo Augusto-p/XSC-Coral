@@ -1,7 +1,7 @@
 <?php
 
-require_once 'DTO\editorial.php';
-require_once 'utilidades\Imagenes.php';
+require_once 'DTO/editorial.php';
+require_once 'utilidades/Imagenes.php';
 
 
 class Editorial_Controller extends Controller {
@@ -10,13 +10,13 @@ class Editorial_Controller extends Controller {
     }
 
     public function render() {
-        $this->view->render('PanelAdmin\Editorial\add');
+        $this->view->render('PanelAdmin/Editorial/add');
     }
     public function new() {
-        $this->view->render('PanelAdmin\Editorial\add');
+        $this->view->render('PanelAdmin/Editorial/add');
     }
     public function change() {
-        $this->view->render('PanelAdmin\Editorial\mod');
+        $this->view->render('PanelAdmin/Editorial/mod');
     }
     public function add(){
         $editorial = new Editorial();

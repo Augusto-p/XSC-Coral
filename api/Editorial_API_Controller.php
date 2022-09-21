@@ -1,8 +1,8 @@
 <?php
 
-require_once 'DTO\editorial.php';
-require_once 'models\Usuario_model.php';
-require_once 'utilidades\Imagenes.php';
+require_once 'DTO/editorial.php';
+require_once 'models/Usuario_model.php';
+require_once 'utilidades/Imagenes.php';
 
 class Editorial_API_Controller extends Controller {
     public function __construct() {
@@ -18,7 +18,7 @@ class Editorial_API_Controller extends Controller {
             "Editoriales"           => $Editoriales,
         ];
         $this->view->res = json_encode($res);
-        $this->view->render("API\Editorial\getall");
+        $this->view->render("API/Editorial/getall");
     }
 
     public function get() {
@@ -30,7 +30,7 @@ class Editorial_API_Controller extends Controller {
             "Editorial" => $editorial,
         ];
         $this->view->res = json_encode($res);
-        $this->view->render("API\Editorial\get");
+        $this->view->render("API/Editorial/get");
 
     }
 
@@ -55,13 +55,42 @@ class Editorial_API_Controller extends Controller {
                 $path            = $ImagenEditorial->Upload64($editorial->logo);
                 $status          = $this->model->updateImge($id, $path);
             }
-            $res             = ["mensaje" => "Hey Editorial Ingresado"];
-            $this->view->res = json_encode($res);
-            $this->view->render("API\Editorial\add");
+            $res = ["mensaje" => "Editorial Ingresado", "code" => 403];
+            
 
         } else {
-            echo "error";
+            $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
         }
+        $this->view->res = json_encode($res);
+        $this->view->render("API/Editorial/add");
 
     }
+
+    public function delete() {
+        //add editor
+        $userModel = new Usuario_Model();
+        $data      = json_decode(file_get_contents('php://input'));
+        $token     = $data->Token;
+        $email     = $token; //probiconal JWT
+        if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
+            $Editorial = $this->model->get($data->Editorial->id);
+            unlink($Editorial->logo); // delete image
+
+            if($this->model->delete($data->Editorial->id)){
+                $res = ["mensaje" => "Editorial Eliminado Correctamente", "code" => 200];
+            }else{
+                $res = ["mensaje" => "Editorial No Localizado", "code" => 404];
+            }
+            
+
+        } else {
+            $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
+        }
+        $this->view->res = json_encode($res);
+        $this->view->render("API/Editorial/del");
+            
+        
+
+    }
+
 }

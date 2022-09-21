@@ -1,11 +1,11 @@
 <?php
 require_once 'DTO/book.php';
 require_once 'DTO/autor.php';
-require_once 'DTO\editorial.php';
-require_once 'utilidades\Archivos.php';
-require_once 'models\Autor_Model.php';
-require_once 'models\Editorial_Model.php';
-require_once 'utilidades\Imagenes.php';
+require_once 'DTO/editorial.php';
+require_once 'utilidades/Archivos.php';
+require_once 'models/Autor_Model.php';
+require_once 'models/Editorial_Model.php';
+require_once 'utilidades/Imagenes.php';
 
 class Book_Controller extends Controller {
     public function __construct() {

@@ -13,8 +13,8 @@
 </head>
 
 <body>
-    <?php require 'views\header.php';?>
-    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\Home\style.css">
+    <?php require 'views/header.php';?>
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Home/style.css">
     <div class="banner1">
         <a href="#" target="_blank"><img class="baner" src="<?=$this->UrlBanerP;?>"></a>
     </div>
@@ -136,9 +136,9 @@
         </div>
     </section>
 
-    <?php require 'views\footer.php';?>
+    <?php require 'views/footer.php';?>
 
 </body>
-<script src="<?php echo constant('URL'); ?>public\js\home\main.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/home/main.js"></script>
 
 </html>

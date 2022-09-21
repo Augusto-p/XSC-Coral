@@ -26,7 +26,7 @@
                         <div class="col">
                             <div class="row-in-col">
                                 <input type="email" name="email" id="Email" placeholder="Email" class="inputs">
-                                <Button class="btnSeach"><img src="<?php echo constant('URL'); ?>public\Recursos\icons\lupa.svg"></Button>
+                                <Button class="btnSeach"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/lupa.svg"></Button>
                             </div>
 
                         </div>
@@ -82,7 +82,7 @@
     </section>
 
 
-<link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\AdminPanel\Usuario\deluser.css">
+<link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Usuario/deluser.css">
 </body>
 <!-- <script src="../js/user.js"></script> -->
 

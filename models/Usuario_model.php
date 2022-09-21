@@ -1,5 +1,5 @@
 <?php
-require_once 'DTO\usuario.php';
+require_once 'DTO/usuario.php';
 class Usuario_Model extends Model {
     public function __construct() {
         parent::__construct();
@@ -189,13 +189,13 @@ class Usuario_Model extends Model {
             $consulta = $pdo->prepare('select Rol from usuarios where usuarios.Email = :email'); // consulta a la base de datos no disponible
             $consulta->bindValue(':email', $email);
             $consulta->execute();
-            $rol = "";
+            $rol = false;
             while ($row = $consulta->fetch()) {
                 $rol = $row["Rol"];
             }
             return $rol;
         } catch (PDOException $e) {
-            var_dump($e);
+            return false;
         } finally {
             $pdo = null;
         }

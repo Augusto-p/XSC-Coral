@@ -30,7 +30,7 @@ class Mail {
         $this->mail->setFrom($this->correo, "Mi mundo web"); // se establece el correo de origen
         $this->mail->addAddress($email, $nombre); // se establece el correo de destino
         $this->mail->Subject = "Recuperar contraseña"; // se establece el asunto
-        $this->mail->AddEmbeddedImage('public\Recursos\imgs\LogoMimundo.png', 'logo'); // se establece la imagen del logo
+        $this->mail->AddEmbeddedImage('public/Recursos/imgs/LogoMimundo.png', 'logo'); // se establece la imagen del logo
         $this->mail->Body = $body; // se establece el cuerpo del mensaje
         $this->mail->isHTML(true); // se establece que el mensaje es HTML
         $this->mail->CharSet = "UTF-8"; // se establece la codificacion del mensaje

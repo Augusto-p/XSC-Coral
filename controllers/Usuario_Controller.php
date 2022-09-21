@@ -1,7 +1,7 @@
 <?php 
 require_once 'DTO/usuario.php';
-require_once 'utilidades\Mails.php';
-require_once 'utilidades\Imagenes.php';
+require_once 'utilidades/Mails.php';
+require_once 'utilidades/Imagenes.php';
 
 class Usuario_Controller extends Controller
 {
@@ -32,13 +32,13 @@ class Usuario_Controller extends Controller
 
     // admin panel paths
     public function apadd(){
-        $this->view->render("PanelAdmin\Usuario\add");
+        $this->view->render("PanelAdmin/Usuario/add");
     }
     public function apmod(){
-        $this->view->render("PanelAdmin\Usuario\mod");
+        $this->view->render("PanelAdmin/Usuario/mod");
     }
     public function apdel(){
-        $this->view->render("PanelAdmin\Usuario\del");
+        $this->view->render("PanelAdmin/Usuario/del");
     }
 
     

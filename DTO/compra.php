@@ -5,4 +5,6 @@ class Compra{
     public $MPago;
     public $IDEditorial;
     public $FechaHora;
+    public $Total;
+    public $Detalles;
 }; ?>

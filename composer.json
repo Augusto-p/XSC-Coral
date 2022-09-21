@@ -1,6 +1,5 @@
 {
     "require": {
-        "phpmailer/phpmailer": "^6.6",
-        "intervention/image": "^2.7"
+        "phpmailer/phpmailer": "^6.6"
     }
 }

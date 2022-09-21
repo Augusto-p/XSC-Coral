@@ -1,5 +1,5 @@
 <?php 
-require_once 'DTO\autor.php';
+require_once 'DTO/autor.php';
 class Autor_Model extends Model
 {
     public function __construct(){
@@ -21,7 +21,7 @@ class Autor_Model extends Model
                 return -1;
             }
         } catch (PDOException $e) {
-            var_dump($e);
+            return -1;
         }finally {
            $pdo = null;
         }
@@ -127,7 +127,7 @@ class Autor_Model extends Model
             $consulta->bindValue(':id', $id);
             return $consulta->execute();
         } catch (PDOException $e) {
-            var_dump($e);
+            return false;
         }finally {
            $pdo = null;
         }

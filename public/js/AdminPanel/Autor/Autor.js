@@ -8,7 +8,7 @@ let ID = document.getElementById("ID")
 let IDValue;
 
 INFoto.addEventListener("change", (e) => {
-    VFoto.style.visibility = "visible";
+    VFoto.style.visibility = "visible !important";
     let file = e.target.files[0];
     if (file) {
         let url = window.URL.createObjectURL(file);

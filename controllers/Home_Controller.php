@@ -1,6 +1,6 @@
 <?php
-require_once 'models\Book_Model.php';
-require_once 'DTO\book.php';
+require_once 'models/Book_Model.php';
+require_once 'DTO/book.php';
 
 class Home_Controller extends Controller
 {
@@ -11,7 +11,7 @@ class Home_Controller extends Controller
 
     public function render()
     {
-        $data = json_decode(file_get_contents('public\Recursos\Jsons\Home.json'), true);
+        $data = json_decode(file_get_contents('public/Recursos/Jsons/Home.json'), true);
         $Slider1list = [];
         $Slider2list = [];
         $bookModel = new Book_Model();
@@ -36,7 +36,7 @@ class Home_Controller extends Controller
     }
 
     public function mod(){
-        $data = json_decode(file_get_contents('public\Recursos\Jsons\Home.json'), true);
+        $data = json_decode(file_get_contents('public/Recursos/Jsons/Home.json'), true);
         $UrlBanerP = constant('URL') . $data["Pagina Principal"]["Baner Principal"]["img"];
         $UrlBanerP1 = constant('URL') . $data["Pagina Principal"]["Baner Publisitario Uno"]["img"];
         $UrlBanerP2 = constant('URL') . $data["Pagina Principal"]["Baner Publisitario Dos"]["img"];
@@ -85,7 +85,7 @@ class Home_Controller extends Controller
             $PathBanerPublisitario2 = null;
         }
 
-        $json = json_decode(file_get_contents('public\Recursos\Jsons\Home.json'), true);
+        $json = json_decode(file_get_contents('public/Recursos/Jsons/Home.json'), true);
 
         if ($pathBanerPrincial != null) {
             $json["Pagina Principal"]["Baner Principal"]["img"] = $pathBanerPrincial;
@@ -105,7 +105,7 @@ class Home_Controller extends Controller
         }
         
 
-        file_put_contents('public\Recursos\Jsons\Home.json', json_encode($json, JSON_PRETTY_PRINT));
+        file_put_contents('public/Recursos/Jsons/Home.json', json_encode($json, JSON_PRETTY_PRINT));
         $this->view->render('PanelAdmin/Home/savemod');
         
         

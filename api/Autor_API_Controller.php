@@ -1,8 +1,8 @@
 <?php
 
 require_once 'DTO/autor.php';
-require_once 'models\Usuario_model.php';
-require_once 'utilidades\Imagenes.php';
+require_once 'models/Usuario_model.php';
+require_once 'utilidades/Imagenes.php';
 
 
 class Autor_API_Controller extends Controller {
@@ -19,7 +19,7 @@ class Autor_API_Controller extends Controller {
             "Autores"   => $autores,
         ];
         $this->view->res = json_encode($res);
-        $this->view->render("API\Autor\getAll");
+        $this->view->render("API/Autor/getAll");
     }
 
 
@@ -32,7 +32,7 @@ class Autor_API_Controller extends Controller {
             "Autor"   => $autor,
         ];
         $this->view->res = json_encode($res);
-        $this->view->render("API\Autor\get");
+        $this->view->render("API/Autor/get");
         
     }
     public function add(){
@@ -56,14 +56,43 @@ class Autor_API_Controller extends Controller {
                 $ImagenAutor = new Imagenes("public/imgs/Autores/" . $id);
                 $path            = $ImagenAutor->Upload64($autor->foto);
                 $status          = $this->model->updateImge($id, $path);
+                $res             = ["mensaje" => "Autor Ingresado", "code" => 200];
+            }else{
+                $res             = ["mensaje" => "Autor No Ingresado", "code" => 404];
             }
-            $res             = ["mensaje" => "Hey Autor Ingresado"];
-            $this->view->res = json_encode($res);
-            $this->view->render("API\Autor\add");
+            
+            
 
         } else {
-            echo "error";
+            $res             = ["mensaje" => "Permisos Insuficientes", "code" => 403];
         }
+        $this->view->res = json_encode($res);
+        $this->view->render("API/Autor/add");
+
+    }
+
+    public function delete(){
+        //add author
+        $userModel = new Usuario_Model();
+        $data      = json_decode(file_get_contents('php://input'));
+        $token     = $data->Token;
+        $email     = $token; //probiconal JWT
+        if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
+            $autor = $this->model->get($data->Autor->id);
+            unlink($autor->foto); // delete image
+
+            if($this->model->delete($data->Autor->id)){
+                $res = ["mensaje" => "Autor Eliminado Correctamente", "code" => 200];
+            }else{
+                $res = ["mensaje" => "Autor N0 Localizado", "code" => 404];
+            }
+            
+
+        } else {
+            $res             = ["mensaje" => "Permisos Insuficientes", "code" => 403];
+        }
+        $this->view->res = json_encode($res);
+        $this->view->render("API/Autor/del");
 
     }
         

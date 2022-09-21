@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\Usuario\style.css">
-    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\Usuario\registro.css">
-    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public\css\Usuario\aminations.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Usuario/style.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Usuario/registro.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Usuario/aminations.css">
     <title>MiMundo</title>
 </head>
 
@@ -18,7 +18,7 @@
             <div id="g-izq-content">
 
                 <div id="g-izq-content-in">
-                    <img src="<?php echo constant('URL'); ?>public\Recursos\imgs\LogoMimundo.svg" alt="">
+                    <img src="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.svg" alt="">
                 </div>
 
             </div>
@@ -75,7 +75,7 @@
                         <div id="i-global">
                             <input type="file" name="PhotoPerfil" id="foto">
                             <div id="not-image">
-                                <img src="<?php echo constant('URL'); ?>public\Recursos\icons\AddPhoto.svg" alt="">
+                                <img src="<?php echo constant('URL'); ?>public/Recursos/icons/AddPhoto.svg" alt="">
                                 <span id="DDTesxt">Seleccione su foto de perfil</span>
                             </div>
                             <div id="yes-image">
@@ -99,7 +99,7 @@
 
     </section>
 </body>
-<script src="<?php echo constant('URL'); ?>public\js\Usuario\main.js"></script>
-<script src="<?php echo constant('URL'); ?>public\js\Usuario\registro.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/Usuario/main.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/Usuario/registro.js"></script>
 
 </html>

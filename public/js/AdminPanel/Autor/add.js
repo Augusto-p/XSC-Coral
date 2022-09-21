@@ -21,13 +21,20 @@ async function send(){
     });
 
     let data = await response.json();
-    alert(data["mensaje"]);
+    if(data["code"] == 200){
+        ITag({"Type": "SUCCESS","Position": "RB","Duration": 5,"Title": "Hecho!","Description": data["mensaje"]});
+    }else if (data["code"] == 403){
+        ITag({ "Type": "ERROR", "Position": "RB", "Duration": 5, "Title": "Error!", "Description": data["mensaje"] });
+    } else if (data["code"] == 404) {
+        ITag({ "Type": "WARNING", "Position": "RB", "Duration": 5, "Title": "Advertencia!", "Description": data["mensaje"] });
+    }
+    // alert(data["mensaje"]);
     Nombre.value = "";
     Nacionlaidad.value = "";
     BIO.value = "";
     FN.value = "";
+    VFoto.src = "";
     INFoto.value = "";
-    VFoto.style.visibility = "none";
     
     
 
