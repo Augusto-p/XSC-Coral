@@ -44,7 +44,7 @@ class Book_Model extends Model {
             $pdo = null;
         }
 
-    }//upd
+    } //upd
 
     public function add($book) {
         try {
@@ -75,14 +75,14 @@ class Book_Model extends Model {
                 $QEscriven->bindValue(':idautor', $value);
                 $QEscriven->execute();
             }
-            
+
             return true;
         } catch (PDOException $e) {
-            var_dump($e);
+            return false;
         } finally {
             $pdo = null;
         }
-    }//upd
+    } //upd
 
     public function seach($Termino) {
         try {
@@ -125,7 +125,7 @@ class Book_Model extends Model {
         } finally {
             $pdo = null;
         }
-    }//upd
+    } //upd
 
     public function getAll() {
         try {
@@ -149,7 +149,7 @@ class Book_Model extends Model {
             $pdo = null;
         }
 
-    }//upd
+    } //upd
 
     public function getByAutor($idAutor) {
         try {
@@ -174,7 +174,7 @@ class Book_Model extends Model {
             $pdo = null;
         }
 
-    }//upd
+    } //upd
 
     public function getByEditorial($idEditorial) {
         try {
@@ -199,20 +199,57 @@ class Book_Model extends Model {
             $pdo = null;
         }
 
-    }//upd
+    } //upd
 
     public function update($book) {
         try {
-            $pdo      = $this->db->connect();
-            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible
-            $consulta->bindValue(':isbn', $book->isbn);
-            $consulta->bindValue(':titulo', $book->titulo);
-            $consulta->bindValue(':precio', $book->precio);
-            $consulta->bindValue(':categoria', $book->categoria);
-            $consulta->bindValue(':sipnosis', $book->sipnosis);
-            return $consulta->execute();
+            $pdo   = $this->db->connect();
+            $QBook = $pdo->prepare('UPDATE libros SET Titulo = :titulo, Precio = :precio, Sinopsis = :sipnosis, ID_Editorial = :idEdirorial WHERE (ISBN = :isbn);'); // consulta a la base de datos no disponible
+            $QBook->bindValue(':isbn', $book->isbn);
+            $QBook->bindValue(':titulo', $book->titulo);
+            $QBook->bindValue(':precio', $book->precio);
+            $QBook->bindValue(':sipnosis', $book->sipnosis);
+            $QBook->bindValue(':idEdirorial', $book->IDEditorial);
+            $QBook->execute();
+
+            $QCategoriaD = $pdo->prepare('DELETE FROM libros_categorias WHERE (ISBN = :isbn);'); // consulta a la base de datos no disponible
+            $QCategoriaD->bindValue(':isbn', $book->isbn);
+            $QCategoriaD->execute();
+
+            $QimagenesD = $pdo->prepare('DELETE FROM libros_imgs WHERE (ISBN = :isbn);'); // consulta a la base de datos no disponible
+            $QimagenesD->bindValue(':isbn', $book->isbn);
+            $QimagenesD->execute();
+
+            foreach ($book->categorias as $key => $value) {
+                $QCategoria = $pdo->prepare('INSERT INTO `libros_categorias` (`Categoria`, `ISBN`) VALUES (:categoria,:isbn )'); // consulta a la base de datos no disponible
+                $QCategoria->bindValue(':isbn', $book->isbn);
+                $QCategoria->bindValue(':categoria', $value);
+                $QCategoria->execute();
+            }
+
+            foreach ($book->imagenes as $key => $value) {
+                $Qimagenes = $pdo->prepare('INSERT INTO `libros_imgs` (`ISBN`, `Img`) VALUES (:isbn, :ruta)'); // consulta a la base de datos no disponible
+                $Qimagenes->bindValue(':isbn', $book->isbn);
+                $Qimagenes->bindValue(':ruta', $value);
+                $Qimagenes->execute();
+            }
+
+            if ($book->idsAutor != null) {
+                $QEscrivenD = $pdo->prepare('DELETE FROM escriben WHERE (ISBN = :isbn);'); // consulta a la base de datos no disponible
+                $QEscrivenD->bindValue(':isbn', $book->isbn);
+                $QEscrivenD->execute();
+
+                foreach ($book->idsAutor as $key => $value) {
+                    $QEscriven = $pdo->prepare('INSERT INTO `escriben` (`ISBN`, `ID_Autor`) VALUES (:isbn, :idautor);'); // consulta a la base de datos no disponible
+                    $QEscriven->bindValue(':isbn', $book->isbn);
+                    $QEscriven->bindValue(':idautor', $value);
+                    $QEscriven->execute();
+                }
+            }
+
+            return true;
         } catch (PDOException $e) {
-            var_dump($e);
+            return false;
         } finally {
             $pdo = null;
         }
@@ -231,8 +268,6 @@ class Book_Model extends Model {
             $pdo = null;
         }
 
-    }//upd
-
-    
+    } //upd
 
 };?>

@@ -30,4 +30,27 @@ class Archivo {
         $this->content = fread($file, filesize($this->path));
         fclose($file);     
     }
+
+    public static function RmDir($path) {
+        if (is_dir($path)){
+            $dir = opendir($path);
+        }else{
+            return false;
+        }
+	    
+        while($file = readdir($dir)) {
+	       if ($file != "." && $file != "..") {
+	            if (!is_dir($path."/".$file)){
+                    unlink($path."/".$file);
+                }else{
+                     RmDir($path.'/'.$file);
+                }
+	                
+	       }
+        }
+         closedir($dir);
+	
+	    rmdir($path);
+	    return true;
+    }
 }

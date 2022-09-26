@@ -55,7 +55,7 @@ class Editorial_API_Controller extends Controller {
                 $path            = $ImagenEditorial->Upload64($editorial->logo);
                 $status          = $this->model->updateImge($id, $path);
             }
-            $res = ["mensaje" => "Editorial Ingresado", "code" => 403];
+            $res = ["mensaje" => "Editorial Ingresado", "code" => 200];
             
 
         } else {
@@ -90,6 +90,44 @@ class Editorial_API_Controller extends Controller {
         $this->view->render("API/Editorial/del");
             
         
+
+    }
+
+    public function mod() {
+        //add editor
+        $userModel = new Usuario_Model();
+        $data      = json_decode(file_get_contents('php://input'));
+        $token     = $data->Token;
+        $email     = $token; //probiconal JWT
+        if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
+            $editorial = $this->model->get($data->Editorial->ID);
+            $editorial->nombre    = $data->Editorial->Nombre != null ? $data->Editorial->Nombre : $editorial->nombre;;
+            $editorial->direccion = $data->Editorial->Direccion != null ? $data->Editorial->Direccion : $editorial->direccion;
+            $editorial->telefono  = $data->Editorial->Telefono != null ? str_replace(" ", "", $data->Editorial->Telefono, $count) : $editorial->telefono;
+            $editorial->email     = $data->Editorial->Email != null ? $data->Editorial->Email : $editorial->email;
+            $editorial->web       = $data->Editorial->Web != null ? $data->Editorial->Web : $editorial->web;
+            
+
+            if ($data->Editorial->Logo != null) {
+                unlink($editorial->logo); // delete image
+                $ImagenEditorial = new Imagenes("public/imgs/Editoriales/" . $data->Editorial->ID);
+                $editorial->logo = $ImagenEditorial->Upload64($data->Editorial->Logo);
+            }
+            
+
+            if ($this->model->update($editorial)) {
+                $res = ["mensaje" => "Editorial Actualizado", "code" => 200];    
+            }else{
+                $res = ["mensaje" => "Editorial No Actualizado", "code" => 404];    
+            }
+            
+            
+
+        } else {
+            $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
+        }
+        $this->view->res = json_encode($res);
+        $this->view->render("API/Editorial/mod");
 
     }
 

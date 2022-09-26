@@ -149,7 +149,7 @@ class Usuario_Model extends Model {
     public function update($user) {
         try {
             $pdo      = $this->db->connect();
-            $consulta = $pdo->prepare(""); // consulta a la base de datos no disponible
+            $consulta = $pdo->prepare("UPDATE usuarios SET Nombre = :Nombre, Fecha_Nacimento = :FNacim, Genero = :Genero, Departamento = :Departamento, Numero = :Numero, Calle = :Numero, Ciudad = :Ciudad, Password = :pass, Foto = :img, Rol = :Rol, Codigo_Postal = :CodigoPostal WHERE (`Email` = :email);"); // consulta a la base de datos no disponible
             $consulta->bindParam(':email', $user->email);
             $consulta->bindParam(':Nombre', $user->nombrecompleto);
             $consulta->bindParam(':FNacim', $user->Fnacimento);
@@ -164,7 +164,7 @@ class Usuario_Model extends Model {
             $consulta->bindParam(':CodigoPostal', $user->codigoPostal);
             return $consulta->execute();
         } catch (PDOException $e) {
-            var_dump($e);
+            return false;
         } finally {
             $pdo = null;
         }

@@ -105,7 +105,7 @@ class Autor_Model extends Model
     public function update($autor){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare(''); // consulta a la base de datos no disponible 
+            $consulta = $pdo->prepare('UPDATE autores SET Nombre = :nombre, Nacionalidad = :nacionalidad, `Biografia` = :biografia, `Fecha_Nacimiento` = :Fnacimento, `Foto` = :foto WHERE (`ID` = :id);'); // consulta a la base de datos no disponible 
             $consulta->bindValue(':id', $autor->id);
             $consulta->bindValue(':nombre', $autor->nombre);
             $consulta->bindValue(':nacionalidad', $autor->nacionalidad);
@@ -114,11 +114,11 @@ class Autor_Model extends Model
             $consulta->bindValue(':foto', $autor->foto);
             return $consulta->execute();
         } catch (PDOException $e) {
-            var_dump($e);
+            return false;
         }finally {
            $pdo = null;
         }
-    }
+    }//upd
 
     public function delete($id){
         try {

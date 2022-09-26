@@ -3,5 +3,6 @@ class DetalleVenta{
     public $id;
     public $ISBN;
     public $Cantidad;
-    public $Descuento;    
+    public $Descuento;
+    public $Book;    
 }; ?>

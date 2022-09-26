@@ -158,4 +158,62 @@ class Book_API_Controller extends Controller {
         $this->view->render("API/Book/del");
 
     }
+
+    public function mod() {
+        //add author
+        $userModel = new Usuario_Model();
+        $data      = json_decode(file_get_contents('php://input'));
+        $token     = $data->Token;
+        $email     = $token; //probiconal JWT
+        if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
+            $book = $this->model->get($data->Libro->ISBN);
+            $book->titulo      = $data->Libro->Titulo != null ? $data->Libro->Titulo : $book->titulo;
+            $book->precio      = $data->Libro->Precio != null ? $data->Libro->Precio : $book->precio;
+            $book->categorias  = $data->Libro->Categorias != null ? $data->Libro->Categorias : $book->categorias;
+            $book->IDEditorial = $data->Libro->IDEditorial != null ? $data->Libro->IDEditorial : $book->IDEditorial;
+            
+            
+
+            //guardado de sipnosis
+            if ($data->Libro->Sipnosis != null) {
+                $file = new Archivo;
+                $file->setPath("public/texts/BookSipnosis/" . $book->isbn . ".txt");
+                $file->setContent($data->Libro->Sipnosis);
+                $file->save();
+                $book->sipnosis = $file->getPath();
+            }
+            // manejo de imagnes
+            if($data->Libro->Imagenes != null){
+                Archivo::RmDir('./public/imgs/Books/' . $book->isbn);
+                mkdir("./public/imgs/Books/" . $book->isbn);
+                $cont  = 0;
+                $paths = [];
+                foreach ($data->Libro->Imagenes as $img) {
+                    $ImagenArticulo = new Imagenes("public/imgs/Books/" . $book->isbn . "/" . $cont);
+                    $paths[] = $ImagenArticulo->Upload64($img);
+                    $cont++;
+                }
+                $book->imagenes = $paths;
+            }
+            
+            if ($data->Libro->IDSAutor != null) {
+                $book->idsAutor = $data->Libro->IDSAutor;    
+            }
+           
+            
+            
+            if ($this->model->update($book)) {
+                $res = ["mensaje" => "Libro Actualizado", "code" => 200];
+            }else {
+                $res = ["mensaje" => "Libro No Actualizado", "code" => 404];
+            }
+                      
+
+        } else {
+            $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
+        }
+        $this->view->res = json_encode($res);
+        $this->view->render("API/Book/add");
+
+    }
 }

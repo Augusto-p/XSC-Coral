@@ -48,15 +48,15 @@ class Imagenes {
         return $this->OutPath;
     }
 
-    public function CreateUserImage($rol, $nombre, $apellido, $email){
-        
+    public static function CreateUserImage($rol, $nombre, $apellido, $email){
         $txt = strtoupper($nombre[0]) . strtoupper($apellido[0]);
-        $font = "C:/Windows/Fonts/arial.ttf"; // ! CHANGE THIS TO YOUR OWN !
+        $font = __DIR__ . "/../public/Recursos/Fonts/Roboto/Roboto-Regular.ttf";  // las fuentes en GD solo funcionan con rutas absolutas __DIR__ debueleve la ruta absoluta de la carpeta padre del archivo donde se ejecuta 
+        $Rol_font = __DIR__ . "/../public/Recursos/Fonts/Pacifico/Pacifico-Regular.ttf";
         $font_size = 114;
+        $font_Rol_size = 18;
         $width = 255;
         $height = 255;
-        $font_angle = 0;
-
+        
         $img = imagecreate($width, $height);
         if ($rol == "Administrador") {
             $bg = imagecolorallocatealpha($img, 255, 215, 00, 0);
@@ -69,7 +69,7 @@ class Imagenes {
         $withe = imagecolorallocate($img, 255, 255, 255);
         imagefilledrectangle($img, 0, 0, $width, $height, $bg);
  
-        $text_size = imagettfbbox($font_size, $font_angle, $font, $txt);
+        $text_size = imagettfbbox($font_size, 0, $font, $txt);
         $text_width = max([$text_size[2], $text_size[4]]) - min([$text_size[0], $text_size[6]]);
         $text_height = max([$text_size[5], $text_size[7]]) - min([$text_size[1], $text_size[3]]);
  
@@ -77,10 +77,28 @@ class Imagenes {
         $centerX = $centerX<0 ? 0 : $centerX;
         $centerY = CEIL(($height - $text_height) / 2);
         $centerY = $centerY<0 ? 0 : $centerY;
-        imagettftext($img, $font_size, $font_angle, $centerX, $centerY, $withe, $font, $txt);
+        imagettftext($img, $font_size, 0, $centerX, $centerY, $withe, $font, $txt);
+
+
+        //roll
+        
+        $text_Rol_size = imagettfbbox($font_Rol_size, 0, $Rol_font, $rol);
+
+        $text_Rol_width = max([$text_Rol_size[2], $text_Rol_size[4]]) - min([$text_Rol_size[0], $text_Rol_size[6]]);
+        $text_Rol_height = max([$text_Rol_size[5], $text_Rol_size[7]]) - min([$text_Rol_size[1], $text_Rol_size[3]]);
+ 
+        $centerRolX = CEIL(($width - $text_Rol_width) / 2);
+        $centerRolX = $centerRolX<0 ? 0 : $centerRolX;
+        $centerRolY = CEIL(($height - $text_Rol_height + 175) / 2);
+        $centerRolY = $centerRolY<0 ? 0 : $centerRolY;
+        imagettftext($img, $font_Rol_size, 0, $centerRolX, $centerRolY, $withe, $Rol_font, $rol);
+
+
+
 
         imagejpeg($img, "public/imgs/Users/".$email.".jpg", 100);
         imagedestroy($img);
+        return "public/imgs/Users/".$email.".jpg";
         
     }
 
