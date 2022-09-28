@@ -121,9 +121,15 @@ class Book_API_Controller extends Controller {
                 $cont++;
             }
             $book->imagenes = $paths;
-            $this->model->add($book);
+            $a =$this->model->add($book);
+            if ($a == true) {
+                $res = ["mensaje" => "Libro Ingresado", "code" => 200];    
+            }else{
+                $res = ["mensaje" => $a, "code" => 404];    
+            }
             
-            $res = ["mensaje" => "Libro Ingresado", "code" => 200];
+            
+            
             
 
         } else {

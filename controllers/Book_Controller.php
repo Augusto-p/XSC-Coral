@@ -12,7 +12,7 @@ class Book_Controller extends Controller {
         parent::__construct();
     }
     public function render() {
-        $this->view->render('usuario/login');
+        $this->view->render('libros/Listar');
     }
     public function view() {
         $id = $_GET['id'];

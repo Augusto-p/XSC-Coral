@@ -126,7 +126,7 @@ body {
     background-color: transparent;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 #Formulario {
@@ -224,16 +224,55 @@ body {
 
 .noselect {
     -webkit-touch-callout: none;
-    /* iOS Safari */
     -webkit-user-select: none;
-    /* Safari */
     -khtml-user-select: none;
-    /* Konqueror HTML */
     -moz-user-select: none;
-    /* Old versions of Firefox */
     -ms-user-select: none;
-    /* Internet Explorer/Edge */
     user-select: none;
-    /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+@media (max-width: 768px) and (min-width: 400px) {
+    #Formulario {
+        height: auto;
+    }
+
+    .conten-data {
+        height: auto;
+    }
+
+    .content {
+        height: 120vh;
+    }
+
+    .optionPanel {
+        width: 19.5vw;
+        height: 180vh;
+    }
+
+    .titulo-Div-OP h3 {
+        margin-left: 1vw;
+        width: 40vw;
+        font-size: 1.3em;
+    }
+
+    .OP-item-titulo img {
+        width: 3vw;
+        height: 3vh;
+    }
+
+    .OP-item-titulo h4 {
+        font-size: 0.6em;
+    }
+
+    .OP-item-titulo {
+        height: 10vh;
+        width: 18vw;
+    }
+
+    .OP-item-content {
+        width: 15vw;
+        height: 30vh;
+        font-size: 0.6em;
+    }
+
 }

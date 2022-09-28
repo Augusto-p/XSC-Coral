@@ -2,11 +2,11 @@
 <div class="banner">
         <div class="marca">
             <img class="logo" src="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.svg">
-            <h2 class="nombre">MiMundo</h2>
+            <a href="<?php echo constant('URL'); ?>" class="nombre">MiMundo</a>
         </div>
     
         <div class="busqueda">
-            <input class="barra" name="barra_de_busqueda" id="BarradeBusqueda type="text" placeholder="buscar libros">
+            <input class="barra" name="barra_de_busqueda" id="BarradeBusqueda" type="text" placeholder="buscar libros">
             <button class="boton-lupa" onclick="opensarch()"><img class="lupa" src="<?php echo constant('URL'); ?>public/Recursos/icons/lupa.svg" alt=""></button>
         </div>
     
@@ -14,7 +14,7 @@
             <ul class="menu-ul">
                 <li class="lista-res"><a href="<?php echo constant('URL'); ?>">Inicio</a></li>
                 <li class="logos-res"><button><img src="<?php echo constant('URL'); ?>public/Recursos/icons/home.svg" alt=""></button></li>
-                <li class="lista-res"><a href="#">Explorar</a></li>
+                <li class="lista-res"><a href="<?php echo constant('URL'); ?>book">Explorar</a></li>
                 <li class="logos-res"><button><img src="<?php echo constant('URL'); ?>public/Recursos/icons/safari.svg" alt=""></button></li>
                 <li class="lista-res"><a href="#">Sobre nosotros</a></li>
                 <li class="logos-res"><button><img src="<?php echo constant('URL'); ?>public/Recursos/icons/info.svg" alt=""></button></li>

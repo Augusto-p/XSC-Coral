@@ -177,9 +177,10 @@ body {
     background-color: transparent;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    /* align-items: center; */
     font-size: 1.2rem;
     margin-bottom: 0;
+    overflow-y: scroll;
 
 }
 
