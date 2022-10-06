@@ -2,6 +2,8 @@
 require_once 'DTO/usuario.php';
 require_once 'utilidades/Mails.php';
 require_once 'utilidades/Imagenes.php';
+// require_once 'utilidades/JWTs.php';
+// require_once 'utilidades/Cookies.php';
 
 class Usuario_Controller extends Controller
 {
@@ -53,18 +55,19 @@ class Usuario_Controller extends Controller
         if (!$usr) {
             $this->view->render('usuario/login');
         } else {
-            $_SESSION['email'] = serialize($usr->email);
-            $_SESSION['nombre'] = serialize($usr->nombrecompleto);
+            // $_SESSION['email'] = serialize($usr->email);
+            // $_SESSION['nombre'] = serialize($usr->nombrecompleto);
             $_SESSION['rol'] = serialize($usr->rol);
-            $_SESSION['genero'] = serialize($usr->Genero);
-            $_SESSION['numero'] = serialize($usr->numero);
-            $_SESSION['calle'] = serialize($usr->calle);
-            $_SESSION['ciudad'] = serialize($usr->ciudad);
-            $_SESSION['codigoPostal'] = serialize($usr->codigoPostal);
-            $_SESSION['departamento'] = serialize($usr->departamento);
-            $_SESSION['Fnacimeto'] = serialize($usr->Fnacimento);
+            // $_SESSION['genero'] = serialize($usr->Genero);
+            // $_SESSION['numero'] = serialize($usr->numero);
+            // $_SESSION['calle'] = serialize($usr->calle);
+            // $_SESSION['ciudad'] = serialize($usr->ciudad);
+            // $_SESSION['codigoPostal'] = serialize($usr->codigoPostal);
+            // $_SESSION['departamento'] = serialize($usr->departamento);
+            // $_SESSION['Fnacimeto'] = serialize($usr->Fnacimento);
             $_SESSION['login'] = true;
-            $this->view->render('home/index');
+            Cookies::newSessionCookie(["name" => "Token", "value" => JWTs::newJWT($user->email, 60 * 60 * 48)]);
+            $this->view->render('home/GoToindex');
         }
 
     }

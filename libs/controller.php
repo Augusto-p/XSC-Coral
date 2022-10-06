@@ -9,11 +9,13 @@ class Controller
     {
         $this->view = new View();
         session_start();
+        require 'utilidades/Cookies.php';
+        require 'utilidades/JWTs.php';
     }
     public function loadModel($model)
     {
         $url = 'models/' . ucfirst($model) . '_Model.php';
-
+        
         if (file_exists($url)) {
             require $url;
 

@@ -1,7 +1,10 @@
 {
     "require": {
         "phpmailer/phpmailer": "^6.6",
-        "dompdf/dompdf": "^2.0"
+        "dompdf/dompdf": "^2.0",
+        "statickidz/php-google-translate-free": "^1.2",
+        "firebase/php-jwt": "^6.3",
+        "vlucas/phpdotenv": "^5.4"
         
     }
 }

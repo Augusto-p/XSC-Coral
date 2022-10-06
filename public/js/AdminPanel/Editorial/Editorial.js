@@ -8,15 +8,6 @@ let Web = document.getElementById("Web")
 let ID = document.getElementById("ID")
 let IDValue;
 
-INLogo.addEventListener("change", (e) => {
-    Vlogo.style.visibility = "visible";
-    let file = e.target.files[0];
-    if (file) {
-        let url = window.URL.createObjectURL(file);
-        Vlogo.src = url;
-        
-    }
-});
 
 
 async function Seach(){
@@ -26,7 +17,8 @@ async function Seach(){
     });
 
     let data = await response.json().then((data) =>{
-        Vlogo.src = URL +data.Editorial.logo
+        IDValue = data.Editorial.id
+        Vlogo.src = URL + data.Editorial.logo
         Nombre.value = data.Editorial.nombre
         Email.value = data.Editorial.email
         Numero.value = data.Editorial.telefono

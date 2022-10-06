@@ -1,5 +1,8 @@
 <?php 
 echo '<script>alert("Canbios Guardados")</script>';
-echo '<script>window.location.replace("'. constant('URL') .'home/mod") </script>';
-
+echo `<script>
+    a = document.createElement("a");
+    a.href =`.constant('URL').` home/mod;
+    a.click()
+    </script>`;
 ; ?>

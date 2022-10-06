@@ -1,4 +1,11 @@
-let user = "auguselo77@gmail.com"
+INFoto.addEventListener("change", (e) => {
+    VFoto.style.visibility = "visible !important";
+    let file = e.target.files[0];
+    if (file) {
+        let url = window.URL.createObjectURL(file);
+        VFoto.src = url;
+    }
+});
 
 
 async function send(){
@@ -13,7 +20,7 @@ async function send(){
         }
     }
 
-    
+    headersList["Authorization"] = "Token " + getCookie("Token");
     let response = await fetch(URL + "api/autor/add", {
         method: "POST",
         body: JSON.stringify(bodyContent),
@@ -33,7 +40,7 @@ async function send(){
     Nacionlaidad.value = "";
     BIO.value = "";
     FN.value = "";
-    VFoto.src = "";
+    VFoto.src = URL + 'public/Recursos/imgs/PXT.png';
     INFoto.value = "";
     
     

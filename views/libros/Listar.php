@@ -12,62 +12,50 @@
     <?php require 'views/header.php';?>
     
     <section class="content">
-        <section class="recomendados">
+        <section class="recomendados noselect">
             <h2>Recomendados</h2>
-            <ul>
-                <li><a href="http://">Hobby</a></li>
-                <li><a href="http://">Deportes</a></li>
-                <li><a href="http://">Aventura</a></li>
-                <li><a href="http://">Ciencia Ficcion</a></li>
-                <li><a href="http://">Accion</a></li>
-                <li><a href="http://">Drama</a></li>
-            </ul>
-            <ul>
-                <li><a href="http://">autor</a></li>
-                <li><a href="http://">autor</a></li>
-                <li><a href="http://">autor</a></li>
-                <li><a href="http://">autor</a></li>
-                <li><a href="http://">autor</a></li>
-                <li><a href="http://">autor</a></li>
-            </ul>
-            <ul>
-                <li><a href="http://">editorial</a></li>
-                <li><a href="http://">editorial</a></li>
-                <li><a href="http://">editorial</a></li>
-                <li><a href="http://">editorial</a></li>
-                <li><a href="http://">editorial</a></li>
-                <li><a href="http://">editorial</a></li>
-            </ul>
+            <hr>
+            <h3>Categorias</h3>
+            <a href="<?php echo constant('URL'); ?>book?Categoria=Autobiografia">Autobiografia</a>
+            <a href="<?php echo constant('URL'); ?>book?Categoria=Biografia">Biografia</a>
+            <a href="<?php echo constant('URL'); ?>book?Categoria=Deportes">Deportes</a>
+            <a href="<?php echo constant('URL'); ?>book?Categoria=Humor">Humor</a>
+            <a href="<?php echo constant('URL'); ?>book?Categoria=F1">F1</a>
+            <hr>
+            <h3>Autores</h3>
+            <a href="<?php echo constant('URL'); ?>book?Autor=1">Lewis Hamilton</a>
+            <a href="<?php echo constant('URL'); ?>book?Autor=2">Jenson Button</a>
+            <a href="<?php echo constant('URL'); ?>book?Autor=4">Ross Brawn</a>
+            <a href="<?php echo constant('URL'); ?>book?Autor=9">Raúl Alvarez Genez</a>
+            <a href="<?php echo constant('URL'); ?>book?Autor=3">Adrian Newey</a>
+            <hr>
+            <h3>Editoriales</h3>
+            <a href="<?php echo constant('URL'); ?>book?Editorial=6">Ediciones Martínez Roca</a>
+            <a href="<?php echo constant('URL'); ?>book?Editorial=8">Planeta</a>
+            <a href="<?php echo constant('URL'); ?>book?Editorial=1">Libros Cúpula</a>
+            <a href="<?php echo constant('URL'); ?>book?Editorial=2">Blink Publishing</a>
+            <a href="<?php echo constant('URL'); ?>book?Editorial=3">Simon & Schuster</a>
+            <hr>
         </section>
         <section class="listado" id="ListaDeDatos">
-            <div class="list-item">
-                <div class="list-item-img">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/81CcoHBs0SL.jpg" alt="">
+            <?php foreach ($this->Books as $key => $Book) {?>
+            <div class="list-item noselect">
+                <div class="list-item-img" >
+                    <img src="<?=$Book->imagenes[0];?>">
                 </div>
                 <div class="list-item-data">
-                    <div class="list-item-data-up">
-                        <h2>Cómo hacer un coche</h2>
+                    <div class="list-item-data-up" onclick="goTo('<?php echo constant('URL');?>book/view?id=<?=$Book->isbn?>')">
+                        <h2><?=$Book->titulo;?></h2>
                     </div>
-                    <div class="list-item-data-center">
-                        <p>
-                            En este emocionante libro descubriremos de manera exhaustiva, fascinante y extraordinariamente
-                            entretenida cómo funciona
-                            un coche de carreras, mientras recorremos la trayectoria de Adrian Newey, el más grande diseñador de
-                            automóviles de la
-                            historia, desde sus comienzos en la IndyCar hasta alcanzar un éxito inigualado en la Fórmula 1 diseñando
-                            coches para
-                            pilotos como Mario Andretti, Nigel Mansell, Alain Prost, Mika Häkkinen, Mark Webber o Sebastian Vettel
-                            entre otros,
-                            siempre con un objetivo inquebrantable: conseguir el coche más rápido.
-                        </p>
+                    <div class="list-item-data-center" onclick="goTo('<?php echo constant('URL');?>book/view?id=<?=$Book->isbn?>')">
+                        <p><?=$Book->sipnosis;?></p>
                     </div>
                     <div class="list-item-data-down">
-                        <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                        <h6>Adrian Newey</h6>
-                        <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                        <h6>Adrian Newey</h6>
-                        <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                        <h6>Adrian Newey</h6>
+                        <?php foreach ($Book->Autores as $key => $Autor) {; ?>
+                        <img src="<?php echo constant('URL'); ?><?=$Autor->foto;?>" onclick="goTo('<?php echo constant('URL');?>book?Autor=<?=$Autor->id?>')">
+                        <h6 onclick="goTo('<?php echo constant('URL');?>book?Autor=<?=$Autor->id?>')"><?=$Autor->nombre;?></h6>
+                        <?php }; ?>
+                        
                     </div>
                 </div>
                 <div class="list-item-sale">
@@ -76,183 +64,25 @@
                         <div class="list-item-sale-ultra-up-pointer"></div>
                         <div class="list-item-sale-ultra-up-pointer"></div>
                         <div class="item-menu">
-                            <button>Ver Libro</button>
-                            <button>Ver Autor</button>
-                            <button>Ver Editorial</button>
+                            <button onclick="goTo('<?php echo constant('URL');?>book/view?id=<?=$Book->isbn?>')">Ver Libro</button>
+                            <!-- <button>Ver Categoria</button> -->
+                            <button onclick="goTo('<?php echo constant('URL');?>book?Editorial=<?=$Book->IDEditorial?>')">Ver Editorial</button>
                             <hr>
-                            <button class="AddCarr">Añadir al Carrito</button>
+                            <button class="AddCarr" onclick="addCarrito(<?=$Book->isbn?>)">Añadir al Carrito</button>
                         </div>
                     </div>
-                    <div class="list-item-sale-up">
-                        <h3>$ 2.900,00</h3>
+                    <div class="list-item-sale-up" onclick="goTo('<?php echo constant('URL');?>book/view?id=<?=$Book->isbn?>')">
+                        <h3>$ <?=$Book->precio;?></h3>
                     </div>
                     <div class="list-item-sale-down">
-                        <button class="AddCarr">Añadir Carrito</button>
-                    </div>
-                </div>
-            
-            
-            </div>
-            <div class="list-item">
-                <div class="list-item-img">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/81CcoHBs0SL.jpg" alt="">
-                </div>
-                <div class="list-item-data">
-                    <div class="list-item-data-up">
-                        <h2>Cómo hacer un coche</h2>
-                    </div>
-                    <div class="list-item-data-center">
-                        <p>
-                            En este emocionante libro descubriremos de manera exhaustiva, fascinante y extraordinariamente
-                            entretenida cómo funciona
-                            un coche de carreras, mientras recorremos la trayectoria de Adrian Newey, el más grande diseñador de
-                            automóviles de la
-                            historia, desde sus comienzos en la IndyCar hasta alcanzar un éxito inigualado en la Fórmula 1 diseñando
-                            coches para
-                            pilotos como Mario Andretti, Nigel Mansell, Alain Prost, Mika Häkkinen, Mark Webber o Sebastian Vettel
-                            entre otros,
-                            siempre con un objetivo inquebrantable: conseguir el coche más rápido.
-                        </p>
-                    </div>
-                    <div class="list-item-data-down">
-                        <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                        <h6>Adrian Newey</h6>
-                        <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                        <h6>Adrian Newey</h6>
-                        <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                        <h6>Adrian Newey</h6>
-                    </div>
-                </div>
-                <div class="list-item-sale">
-                    <div class="list-item-sale-ultra-up">
-                        <div class="list-item-sale-ultra-up-pointer"></div>
-                        <div class="list-item-sale-ultra-up-pointer"></div>
-                        <div class="list-item-sale-ultra-up-pointer"></div>
-                        <div class="item-menu">
-                            <button>Ver Libro</button>
-                            <button>Ver Autor</button>
-                            <button>Ver Editorial</button>
-                            <hr>
-                            <button class="AddCarr">Añadir al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="list-item-sale-up">
-                        <h3>$ 2.900,00</h3>
-                    </div>
-                    <div class="list-item-sale-down">
-                        <button class="AddCarr">Añadir Carrito</button>
-                    </div>
-                </div>
-            
-            
-            </div>
-            <div class="list-item">
-                <div class="list-item-img">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/81CcoHBs0SL.jpg" alt="">
-                </div>
-                <div class="list-item-data">
-                    <div class="list-item-data-up">
-                        <h2>Cómo hacer un coche</h2>
-                    </div>
-                    <div class="list-item-data-center">
-                        <p>
-                            En este emocionante libro descubriremos de manera exhaustiva, fascinante y extraordinariamente
-                            entretenida cómo funciona
-                            un coche de carreras, mientras recorremos la trayectoria de Adrian Newey, el más grande diseñador de
-                            automóviles de la
-                            historia, desde sus comienzos en la IndyCar hasta alcanzar un éxito inigualado en la Fórmula 1 diseñando
-                            coches para
-                            pilotos como Mario Andretti, Nigel Mansell, Alain Prost, Mika Häkkinen, Mark Webber o Sebastian Vettel
-                            entre otros,
-                            siempre con un objetivo inquebrantable: conseguir el coche más rápido.
-                        </p>
-                    </div>
-                    <div class="list-item-data-down">
-                        <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                        <h6>Adrian Newey</h6>
-                        <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                        <h6>Adrian Newey</h6>
-                        <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                        <h6>Adrian Newey</h6>
-                    </div>
-                </div>
-                <div class="list-item-sale">
-                    <div class="list-item-sale-ultra-up">
-                        <div class="list-item-sale-ultra-up-pointer"></div>
-                        <div class="list-item-sale-ultra-up-pointer"></div>
-                        <div class="list-item-sale-ultra-up-pointer"></div>
-                        <div class="item-menu">
-                            <button>Ver Libro</button>
-                            <button>Ver Autor</button>
-                            <button>Ver Editorial</button>
-                            <hr>
-                            <button class="AddCarr">Añadir al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="list-item-sale-up">
-                        <h3>$ 2.900,00</h3>
-                    </div>
-                    <div class="list-item-sale-down">
-                        <button class="AddCarr">Añadir Carrito</button>
-                    </div>
-                </div>
-            
-            
-            </div>
-            <div class="list-item">
-                <div class="list-item-img">
-                    <img src="https://images-na.ssl-images-amazon.com/images/I/81CcoHBs0SL.jpg" alt="">
-                </div>
-                <div class="list-item-data">
-                    <div class="list-item-data-up">
-                        <h2>Cómo hacer un coche</h2>
-                    </div>
-                    <div class="list-item-data-center">
-                        <p>
-                            En este emocionante libro descubriremos de manera exhaustiva, fascinante y extraordinariamente
-                            entretenida cómo funciona
-                            un coche de carreras, mientras recorremos la trayectoria de Adrian Newey, el más grande diseñador de
-                            automóviles de la
-                            historia, desde sus comienzos en la IndyCar hasta alcanzar un éxito inigualado en la Fórmula 1 diseñando
-                            coches para
-                            pilotos como Mario Andretti, Nigel Mansell, Alain Prost, Mika Häkkinen, Mark Webber o Sebastian Vettel
-                            entre otros,
-                            siempre con un objetivo inquebrantable: conseguir el coche más rápido.
-                        </p>
-                    </div>
-                    <div class="list-item-data-down">
-                        <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                        <h6>Adrian Newey</h6>
-                        <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                        <h6>Adrian Newey</h6>
-                        <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                        <h6>Adrian Newey</h6>
-                    </div>
-                </div>
-                <div class="list-item-sale">
-                    <div class="list-item-sale-ultra-up">
-                        <div class="list-item-sale-ultra-up-pointer"></div>
-                        <div class="list-item-sale-ultra-up-pointer"></div>
-                        <div class="list-item-sale-ultra-up-pointer"></div>
-                        <div class="item-menu">
-                            <button>Ver Libro</button>
-                            <button>Ver Autor</button>
-                            <button>Ver Editorial</button>
-                            <hr>
-                            <button class="AddCarr">Añadir al Carrito</button>
-                        </div>
-                    </div>
-                    <div class="list-item-sale-up">
-                        <h3>$ 2.900,00</h3>
-                    </div>
-                    <div class="list-item-sale-down">
-                        <button class="AddCarr">Añadir Carrito</button>
+                        <button class="AddCarr" onclick="addCarrito(<?=$Book->isbn?>)">Añadir Carrito</button>
                     </div>
                 </div>
             
             
             </div>
             
+            <?php }; ?>
             
 
         </section>
@@ -270,5 +100,5 @@
 
     <?php require 'views/footer.php';?>
 </body>
-<script src="js/main2.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/Book/explorer.js"></script>
 </html>

@@ -25,7 +25,7 @@
     width: 10vh;
     height: 10vh;
     border-radius: 5vh;
-    object-fit: scale-down;
+    object-fit: cover;
 }
 
 .btnSeach {

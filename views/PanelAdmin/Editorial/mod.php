@@ -65,7 +65,7 @@
                 </div>
 
                 <div id="save-div">
-                    <button type="submit">Guardar</button>
+                    <button type="button" onclick="send()">Guardar</button>
                 </div>
 </div>
         </div>

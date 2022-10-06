@@ -200,8 +200,11 @@
 }
 
 .Imagene-item img {
-    width: 9vw;
+    /* width: 9vw; */
     grid-row: 1;
+    max-height: 100%;
+    max-width: 95%;
+    transform: translateY(1vh);
 }
 
 .Imagene-item button {

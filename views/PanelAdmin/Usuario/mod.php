@@ -118,7 +118,7 @@
                 </div>
 
                 <div id="save-div">
-                    <button type="submit">Guardar</button>
+                    <button type="button" onclick="Send()">Guardar</button>
                 </div>
 </div>
         </div>

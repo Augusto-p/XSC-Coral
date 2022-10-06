@@ -2,7 +2,7 @@
 
 
 
-let user = "auguselo77@gmail.com";
+
 async function SeachISBN() {
     let response = await fetch("https://www.googleapis.com/books/v1/volumes?q=isbn:" + ISBN.value, {
         method: "GET",
@@ -62,7 +62,13 @@ async function Send(){
         
     }).then((response)=>{
         let data = response.json();
-        alert(data["mensaje"])
+        if (data["code"] == 200) {
+            ITag({ "Type": "SUCCESS", "Position": "RB", "Duration": 5, "Title": "Hecho!", "Description": data["mensaje"] });
+        } else if (data["code"] == 403) {
+            ITag({ "Type": "ERROR", "Position": "RB", "Duration": 5, "Title": "Error!", "Description": data["mensaje"] });
+        } else if (data["code"] == 404) {
+            ITag({ "Type": "WARNING", "Position": "RB", "Duration": 5, "Title": "Advertencia!", "Description": data["mensaje"] });
+        }
         ISBN.value = "";
         Titulo.value = "";
         Precio.value = "";

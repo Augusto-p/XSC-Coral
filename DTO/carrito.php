@@ -3,5 +3,6 @@ class Carrito{
     
     public $FechaHora;
     public $Email;
-    public $ISBN;    
+    public $ISBN;
+    public $Book;   
 }; ?>

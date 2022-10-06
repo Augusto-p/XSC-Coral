@@ -12,6 +12,31 @@ class Book_Controller extends Controller {
         parent::__construct();
     }
     public function render() {
+
+        if (isset($_GET["Categoria"])) {
+            $Books = $this->model->getByCategoria($_GET["Categoria"]);
+        } elseif (isset($_GET["Autor"])) {
+            $Books = $this->model->getByAutor($_GET["Autor"]);
+        }elseif (isset($_GET["Editorial"])){
+            $Books = $this->model->getByEditorial($_GET["Editorial"]);
+        }elseif (isset($_GET["Seach"])) {
+            $Books = $this->model->seach($_GET["Seach"]);
+        }
+        
+        else {
+            $Books = $this->model->getAll();
+        }
+        foreach ($Books as $key => $libro) {
+            $file = new Archivo;
+            $file->setPath($libro->sipnosis);
+            $file->read();
+            $Books[$key]->sipnosis  = $file->getContent();
+            $AutorModel             = new Autor_Model();
+            $Books[$key]->Autores   = $AutorModel->getBybook($libro->isbn);
+            $EditorialModel         = new Editorial_Model();
+            $Books[$key]->Editorial = $EditorialModel->get($libro->IDEditorial);
+        }
+        $this->view->Books = $Books;
         $this->view->render('libros/Listar');
     }
     public function view() {
@@ -33,6 +58,7 @@ class Book_Controller extends Controller {
         $this->view->Book      = $libro;
         $this->view->Autores   = $autores;
         $this->view->Editorial = $editorial;
+        $this->view->Paises = file_get_contents('public/Recursos/Jsons/Paises.json');
 
         $this->view->render('libros/view');
     }
@@ -44,41 +70,32 @@ class Book_Controller extends Controller {
         $this->view->render('PanelAdmin/Book/mod');
     }
 
-    public function add() {
-        $book             = new Book();
-        $book->isbn       = $_POST['ISBN'];
-        $book->titulo     = $_POST['Titulo'];
-        $book->precio     = $_POST['Precio'];
-        $book->categorias = $_POST['Categorias'];
-        $book->idsAutor = $_POST["IDSAutores"];
-        $book->IDEditorial = 1;
-        $imgs              = $_FILES["Img"];
-
-        //guardado de sipnosis
-
-        $file = new Archivo;
-        $file->setPath("public/texts/BookSipnosis/" . $book->isbn . ".txt");
-        $file->setContent($_POST["Sipnosis"]);
-        $file->save();
-        $book->sipnosis = $file->getPath();
-
-        //manego de imagenes
-        if (!file_exists('./public/imgs/Books/'.$book->isbn)) {
-            mkdir("./public/imgs/Books/" . $book->isbn);
-        }
-        $cont  = 0;
-        $paths = [];
-        foreach ($imgs["name"] as $i) {
-            $img["name"] = $imgs["name"][$cont];
-            $img["tmp_name"] =  $imgs['tmp_name'][$cont];
-            $ImagenArticulo = new Imagenes($img, "public/imgs/Books/" . $book->isbn . "/" . $cont);
-            $paths[] = $ImagenArticulo->Upload();
-            $cont++;
-
-        }
-        $book->imagenes = $paths;
-
-        $this->model->add($book);
+    public function remove(){
+        $this->view->render('PanelAdmin/Book/del');
     }
+    
+    // public function explorer(){
+    //     if ($_GET["Categoria"] != null) {
+    //         $Books = $this->model->getAllByCategoria($_GET["Categoria"]);    
+    //     }else {
+    //         $Books = $this->model->getAll();
+    //     }
+
+
+
+    //     foreach ($Books as $key => $libro) {
+    //         $file = new Archivo;
+    //         $file->setPath($libro->sipnosis);
+    //         $file->read();
+    //         $Books[$key]->sipnosis  = $file->getContent();
+    //         $AutorModel             = new Autor_Model();
+    //         $Books[$key]->Autores   = $AutorModel->getBybook($libro->isbn);
+    //         $EditorialModel         = new Editorial_Model();
+    //         $Books[$key]->Editorial = $EditorialModel->get($libro->IDEditorial);
+    //     }
+    //     $this->view->Books = $Books;
+    //     $this->view->render('libros/Listar');
+    // }
+
 
 };?>

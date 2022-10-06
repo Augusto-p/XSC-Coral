@@ -30,11 +30,9 @@
                         Categorias:
                         <?php
                             foreach ($this->Book->categorias as $key => $value) {
-                                echo '<a href="" class="categoria-book">'.$value.'</a>';
+                                echo '<a href="'.constant('URL').'book?Categoria='.$value.'" class="categoria-book">'.$value.'</a>';
                             }
                         ; ?>
-
-
                     </span>
                     <h2 id="titulo-book"><?=$this->Book->titulo;?></h2>
                     <p id="sipnosis-book"><?=$this->Book->sipnosis;?></p>
@@ -127,7 +125,7 @@ foreach ($this->Book->imagenes as $key => $value) {
 <p id="PaisesData"><?=$this->Paises;?></p>
 
 
-
+<script>const Paises = <?=$this->Paises;?>;</script>
 <script>
     run() // se llama a la funcion run que inserta los datos de los autores y las imagenes en la vista
 </script>

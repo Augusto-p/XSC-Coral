@@ -86,12 +86,42 @@ class Book_API_Controller extends Controller {
         $this->view->render("API/Book/get");
     }
 
+    public function getAllByCategoria() {
+        $Categoria = $_GET["Categoria"];
+        //gets Book
+        $libros = $this->model->getByCategoria($Categoria);
+        foreach ($libros as $key => $libro) {
+            $file = new Archivo;
+            $file->setPath($libro->sipnosis);
+            $file->read();
+            $libros[$key]->sipnosis  = $file->getContent();
+            $AutorModel              = new Autor_Model();
+            $libros[$key]->Autores   = $AutorModel->getBybook($libro->isbn);
+            $EditorialModel          = new Editorial_Model();
+            $libros[$key]->Editorial = $EditorialModel->get($libro->IDEditorial);
+        }
+
+        $res = [
+            "mensaje"          => "Hey",
+            "Numero De Libros" => count($libros),
+            "Libros"           => $libros,
+        ];
+        $this->view->res = json_encode($res);
+        $this->view->render("API/Book/get");
+    }
+
+
+
+
+
+
+
     public function add() {
         //add author
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             $book              = new Book();
             $book->isbn        = $data->Libro->ISBN;
@@ -144,8 +174,8 @@ class Book_API_Controller extends Controller {
         //add author
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             $book        = $this->model->get($data->Libro->ISBN);
             unlink($book->sipnosis); // delete Sipnosis
@@ -169,8 +199,8 @@ class Book_API_Controller extends Controller {
         //add author
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             $book = $this->model->get($data->Libro->ISBN);
             $book->titulo      = $data->Libro->Titulo != null ? $data->Libro->Titulo : $book->titulo;

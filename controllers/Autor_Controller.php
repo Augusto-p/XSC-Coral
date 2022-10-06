@@ -17,29 +17,31 @@ class Autor_Controller extends Controller {
     public function change() {
         $this->view->render('PanelAdmin/Autor/mod');
     }
-
-    public function add() {
-        $autor               = new Autor();
-        $autor->nombre       = $_POST['nombre'];
-        $autor->nacionalidad = $_POST['Nacionalidad'];
-        $autor->biografia    = $_POST['Biografia'];
-        $autor->Fnacimento   = $_POST['FNacimiento'];
-        $imgin               = $_FILES["Foto"];
-
-        $id = $this->model->add($autor);
-        if ($id >= 0) {
-            $ImagenAutor = new Imagenes($imgin, "public/imgs/Autores/" . $id);
-            $path        = $ImagenAutor->Upload();
-            $status      = $this->model->updateImge($id, $path);
-            if ($status) {
-                echo "";
-                //mover a pagina de errror
-            }
-        } else {
-            echo "";
-            //mover a pagina de error
-        }
-
+    public function remove() {
+        $this->view->render('PanelAdmin/Autor/del');
     }
+    // public function add() {
+    //     $autor               = new Autor();
+    //     $autor->nombre       = $_POST['nombre'];
+    //     $autor->nacionalidad = $_POST['Nacionalidad'];
+    //     $autor->biografia    = $_POST['Biografia'];
+    //     $autor->Fnacimento   = $_POST['FNacimiento'];
+    //     $imgin               = $_FILES["Foto"];
+
+    //     $id = $this->model->add($autor);
+    //     if ($id >= 0) {
+    //         $ImagenAutor = new Imagenes($imgin, "public/imgs/Autores/" . $id);
+    //         $path        = $ImagenAutor->Upload();
+    //         $status      = $this->model->updateImge($id, $path);
+    //         if ($status) {
+    //             echo "";
+    //             //mover a pagina de errror
+    //         }
+    //     } else {
+    //         echo "";
+    //         //mover a pagina de error
+    //     }
+
+    // }
 
 }

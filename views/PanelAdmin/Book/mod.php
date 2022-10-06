@@ -126,7 +126,7 @@
 
 
                 <div id="save-div">
-                    <button type="submit">Guardar</button>
+                    <button type="button" onclick="Send()">Guardar</button>
                 </div>
 </div>
         </div>
@@ -139,5 +139,6 @@
 <script src="<?php echo constant('URL'); ?>public/js/AdminPanel/AdminPanel.js"></script>
 <script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Book/main.js"></script>
 <script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Book/mod.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/ITag/ITag.js"></script>
 
 </html>

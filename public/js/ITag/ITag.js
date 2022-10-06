@@ -1,3 +1,4 @@
+document.head.innerHTML += `<style>.ITag_btn:hover {fill: #888888 !important;}@keyframes ITagAnimationINUP {0% {top: -320px;}100% {top: 20px;}}@keyframes ITagAnimationINRIGTH {0% {right: -320px;}100% {right: 20px;}}@keyframes ITagAnimationOUTUP {0% {top: 20px;}100% {top: -320px;}}@keyframes ITagAnimationOUTRIGTH {0% {right: 20px;}100% {right: -320px;}}@keyframes ITagAnimationINDOWN {0% {bottom: -320px;}100% {bottom: 20px;}}@keyframes ITagAnimationOUTDOWN {0% {bottom: 20px;}100% {bottom: -320px;}}@keyframes ITagAnimationProgressBar {0% {width: 100%;}100% {width: 0%;}}</style>`
 
 function ITag(params){
     let type = params.Type;
@@ -89,17 +90,16 @@ function ITag(params){
     <svg xmlns="http://www.w3.org/2000/svg" height="9.6" width="9.6"><path d="M2.5,7.5L2.1,7.1l2.3-2.3L2.1,2.5l0.4-0.4l2.3,2.3l2.3-2.3l0.4,0.4L5.2,4.8l2.3,2.3L7.1,7.5L4.8,5.2L2.5,7.5z" />
     </svg></button><div id="ITProgesBarr-${IDInsatance}" style="position: absolute; bottom: -1px; left: 0; width: 100%; height: 4px; border-radius: 0 0 3px 3px; background: rgba(0, 0, 0, 0.3);"></div>
     </div>`;
-    let Body = `<style id="ITStile-${IDInsatance}">.ITag_btn:hover {fill: #888888 !important;}@keyframes ITagAnimationINUP {0% {top: -320px;}100% {top: 20px;}}@keyframes ITagAnimationINRIGTH {0% {right: -320px;}100% {right: 20px;}}@keyframes ITagAnimationOUTUP {0% {top: 20px;}100% {top: -320px;}}@keyframes ITagAnimationOUTRIGTH {0% {right: 20px;}100% {right: -320px;}}@keyframes ITagAnimationINDOWN {0% {bottom: -320px;}100% {bottom: 20px;}}@keyframes ITagAnimationOUTDOWN {0% {bottom: 20px;}100% {bottom: -320px;}}@keyframes ITagAnimationProgressBar {0% {width: 100%;}100% {width: 0%;}}</style>`
-    document.body.innerHTML += Body;
-    document.body.innerHTML += ITag;
+    
+    document.getElementsByClassName("banner")[0].innerHTML += ITag;
     let Tag = document.getElementById(`ITag-${IDInsatance}`);
     let ProgBar = document.getElementById(`ITProgesBarr-${IDInsatance}`);
     Tag.addEventListener("animationend", (event) =>{
         if (event.animationName.includes("ITagAnimationIN")){
             ProgBar.style.animation = `${duracion}s ITagAnimationProgressBar linear forwards`;
         }else{
-            document.body.removeChild(Tag)
-            document.body.removeChild(document.getElementById(`ITStile-${IDInsatance}`))
+            Tag.parentElement.removeChild(Tag)
+            // document.head.removeChild(document.getElementById(`ITStile-${IDInsatance}`))
         }
     })
     ProgBar.addEventListener("animationend", (event) => {
@@ -112,3 +112,4 @@ function ITag_Close(IDInsatance, animationOutName) {
     document.getElementById(`ITag-${IDInsatance}`).style.animation = `1.5s ${animationOutName} linear forwards`;
 
 }
+

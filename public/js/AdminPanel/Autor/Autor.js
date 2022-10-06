@@ -7,14 +7,7 @@ let BIO = document.getElementById("Biografia")
 let ID = document.getElementById("ID")
 let IDValue;
 
-INFoto.addEventListener("change", (e) => {
-    VFoto.style.visibility = "visible !important";
-    let file = e.target.files[0];
-    if (file) {
-        let url = window.URL.createObjectURL(file);
-        VFoto.src = url;
-    }
-});
+
 FN.style.width = Nombre.offsetWidth + "px"
 
 

@@ -1,7 +1,3 @@
-body {
-    margin: 0;
-    background-color: #2692ca;
-}
 
 .content {
     display: grid;
@@ -13,25 +9,30 @@ body {
     grid-column: 1;
     background-color: white;
     border-right: 2px solid #e0e0e0;
+
 }
 
-.recomendados ul {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    padding: 0;
-    padding-inline-start: 10px;
+.recomendados h2 {
+    color: #101010;
+    text-align: center;
 }
 
-.recomendados li {
-    list-style: none;
+.recomendados h3 {
 
+    color: #101010;
+    font-size: 1.6rem;
+    margin-bottom: 0;
+    padding-left: 1vw;
+    /* background-color: #71eba1; */
 }
 
 .recomendados a {
     text-decoration: none;
     color: #101010;
     font-size: 1.3rem;
+    display: block;
+    padding-left: 2vw;
+    /* background-color: #71eba1; */
 }
 
 .recomendados a:hover {
@@ -102,8 +103,6 @@ body {
     align-items: center;
 }
 
-
-
 .list-item-data {
     grid-column: 2;
     width: 100%;
@@ -127,7 +126,7 @@ body {
 .list-item-data-center {
     grid-row: 2;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     overflow: hidden;
 }
 
@@ -146,6 +145,8 @@ body {
 .list-item-data-down h6 {
     margin: 0;
     font-size: .8rem;
+    cursor: pointer;
+    user-select: none;
 }
 
 .list-item-data-down img {
@@ -154,6 +155,7 @@ body {
     border-radius: 2vh;
     margin-right: .5vw;
     margin-left: .5vw;
+    cursor: pointer;
 }
 
 footer {
@@ -206,9 +208,9 @@ footer {
 .item-menu {
     background-color: #fff;
     width: 15vw;
-    height: 30vh;
+    height: 20vh;
     position: absolute;
-    transform: translateY(15vh);
+    transform: translateY(12vh);
     border: 2px solid #e0e0e0;
     border-radius: 2vh;
     border-top-right-radius: 0;
@@ -274,8 +276,43 @@ footer {
 }
 
 
-.titulo {
+/* .titulo {
     height: 10vh;
     display: flex;
     justify-content: center;
+} */
+
+footer {
+    margin-top: 0 !important;
+}
+
+.data-view {
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 15vh calc(100% - 15vh);
+}
+
+.data-titulo {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.data-titulo h2 {
+    width: 90%;
+    height: 10vh;
+    background-color: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 3rem;
+    text-decoration: underline;
+
 }

@@ -1,4 +1,4 @@
-let URL = document.getElementById("URL").value
+
 let btnSliderS = document.getElementById("btn-slider-s");
 let btnSliderA = document.getElementById("btn-slider-a");
 let sliderimg = document.getElementById("slider-book-image");
@@ -144,6 +144,7 @@ function uploadAutor() {
     document.getElementById("data-autor-book-na-in").textContent = autor.Nacionalidad;
     document.getElementById("bio-autor-book").textContent = autor.Biografia;
     document.getElementById("data-autor-book-fn-in").textContent = getdate(autor.FNacimento);
+    document.getElementById("autor-image-country").src = getFlag(autor.Nacionalidad);
     for (let index = 0; index < bookAutores.size; index++) {
         autorPointers.innerHTML += `<div class="slider-autor-pointer"></div>`;
     }
@@ -158,6 +159,7 @@ function uploadAutor() {
             document.getElementById("data-autor-book-na-in").textContent = autor.Nacionalidad;
             document.getElementById("bio-autor-book").textContent = autor.Biografia;
             document.getElementById("data-autor-book-fn-in").textContent = getdate(autor.FNacimento);
+            document.getElementById("autor-image-country").src = getFlag(autor.Nacionalidad);
             autorPointers.children[acont].style.backgroundColor = "#145075";
         })
     });
@@ -178,6 +180,7 @@ autorbtns.addEventListener("click", function () {
     document.getElementById("data-autor-book-na-in").textContent = autor.Nacionalidad;
     document.getElementById("bio-autor-book").textContent = autor.Biografia;
     document.getElementById("data-autor-book-fn-in").textContent = getdate(autor.FNacimento);
+    document.getElementById("autor-image-country").src = getFlag(autor.Nacionalidad);
     autorPointers.children[acont].style.backgroundColor = "#145075";
 });
 
@@ -195,9 +198,12 @@ autorbtna.addEventListener("click", function () {
     document.getElementById("data-autor-book-na-in").textContent = autor.Nacionalidad;
     document.getElementById("bio-autor-book").textContent = autor.Biografia;
     document.getElementById("data-autor-book-fn-in").textContent = getdate(autor.FNacimento);
+    document.getElementById("autor-image-country").src = getFlag(autor.Nacionalidad);
     autorPointers.children[acont].style.backgroundColor = "#145075";
 });
 
 
-
+function getFlag(Country) {
+    return URL + "public/Recursos/icons/flags/" + Paises.filter(pais => pais["nombre"].toLowerCase() == Country.toLowerCase())[0].iso2.toLowerCase() + ".svg";
+}
 

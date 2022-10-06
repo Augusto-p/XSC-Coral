@@ -37,8 +37,8 @@ class Autor_API_Controller extends Controller {
         //add author
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token     = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email     = $token != false ? $token: null ; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             $autor               = new Autor();
             $autor->nombre       = $data->Autor->Nombre;
@@ -71,8 +71,8 @@ class Autor_API_Controller extends Controller {
         //add author
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token     = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email     = $token != false ? $token: null ; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             $autor = $this->model->get($data->Autor->id);
             unlink($autor->foto); // delete image
@@ -95,8 +95,8 @@ class Autor_API_Controller extends Controller {
         //add author
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+$email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             $autor = $this->model->get($data->Autor->ID);
             $autor->nombre       = $data->Autor->Nombre != null ? $data->Autor->Nombre : $autor->nombre;

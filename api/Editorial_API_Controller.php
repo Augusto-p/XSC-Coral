@@ -38,8 +38,8 @@ class Editorial_API_Controller extends Controller {
         //add editor
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             $editorial            = new Editorial();
             $editorial->nombre    = $data->Editorial->Nombre;
@@ -70,8 +70,8 @@ class Editorial_API_Controller extends Controller {
         //add editor
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             $Editorial = $this->model->get($data->Editorial->id);
             unlink($Editorial->logo); // delete image
@@ -97,8 +97,8 @@ class Editorial_API_Controller extends Controller {
         //add editor
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             $editorial = $this->model->get($data->Editorial->ID);
             $editorial->nombre    = $data->Editorial->Nombre != null ? $data->Editorial->Nombre : $editorial->nombre;;

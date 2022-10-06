@@ -11,3 +11,4 @@ define('CHARSET', 'utf8mb4');
 
 define("EMAIL", ""); // Email de la empresa
 define("SEED_PHRASE", ""); // Contraceña de acceso a la aplicacion para el envio de correos
+define("JWT_KEY",""); //Key of JWT

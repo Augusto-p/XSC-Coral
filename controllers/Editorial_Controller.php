@@ -18,24 +18,27 @@ class Editorial_Controller extends Controller {
     public function change() {
         $this->view->render('PanelAdmin/Editorial/mod');
     }
-    public function add(){
-        $editorial = new Editorial();
-        $editorial->nombre = $_POST["nombre"];
-        $editorial->direccion = $_POST["Direccion"];
-        $editorial->telefono = str_replace(" ", "", $_POST["Numero"], $count);
-        $editorial->email = $_POST["email"];  
-        $editorial->web = $_POST["Web"];
-        $editorial->logo = $_FILES["Logo"];
+    // public function add(){
+    //     $editorial = new Editorial();
+    //     $editorial->nombre = $_POST["nombre"];
+    //     $editorial->direccion = $_POST["Direccion"];
+    //     $editorial->telefono = str_replace(" ", "", $_POST["Numero"], $count);
+    //     $editorial->email = $_POST["email"];  
+    //     $editorial->web = $_POST["Web"];
+    //     $editorial->logo = $_FILES["Logo"];
 
-        $id = $this->model->add($editorial);
+    //     $id = $this->model->add($editorial);
         
-        if ($id >=0) {
-            $ImagenEditorial = new Imagenes($editorial->logo, "public/imgs/Editoriales/".$id);
-            $path = $ImagenEditorial->Upload();
-            $status = $this->model->updateImge($id, $path);
-        }
+    //     if ($id >=0) {
+    //         $ImagenEditorial = new Imagenes($editorial->logo, "public/imgs/Editoriales/".$id);
+    //         $path = $ImagenEditorial->Upload();
+    //         $status = $this->model->updateImge($id, $path);
+    //     }
 
         
+    // }
+     public function remove() {
+        $this->view->render('PanelAdmin/Editorial/del');
     }
     
 }

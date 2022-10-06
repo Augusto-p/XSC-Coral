@@ -1,9 +1,3 @@
-
-let user = "auguselo77@gmail.com";
-
-
-
-
 async function Send(){
 
     let bodyContent = JSON.stringify({
@@ -33,7 +27,13 @@ async function Send(){
     });
 
     let data = await response.json();
-    alert(data["mensaje"]);
+    if (data["code"] == 200) {
+        ITag({ "Type": "SUCCESS", "Position": "RB", "Duration": 5, "Title": "Hecho!", "Description": data["mensaje"] });
+    } else if (data["code"] == 403) {
+        ITag({ "Type": "ERROR", "Position": "RB", "Duration": 5, "Title": "Error!", "Description": data["mensaje"] });
+    } else if (data["code"] == 404) {
+        ITag({ "Type": "WARNING", "Position": "RB", "Duration": 5, "Title": "Advertencia!", "Description": data["mensaje"] });
+    }
     nombre.value = ""
     apellido.value = ""
     email.value = ""

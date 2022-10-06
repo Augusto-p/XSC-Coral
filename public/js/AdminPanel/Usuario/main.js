@@ -61,7 +61,6 @@ async function Seach() {
         ciudad.value = data.User.ciudad
         Codigo.value = data.User.codigoPostal
         deparamentos.value = data.User.departamento
-        console.log(data);
     });
     
     

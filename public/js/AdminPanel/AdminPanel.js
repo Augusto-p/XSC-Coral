@@ -1,4 +1,4 @@
-const URL = document.getElementById("URL").value
+
 const headersList = {
     "Accept": "*/*",
     "User-Agent": "Thunder Client (https://www.thunderclient.com)",

@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once 'DTO/usuario.php';
 require_once 'utilidades/Imagenes.php';
 //test
@@ -7,6 +7,9 @@ require_once 'models/Book_Model.php';
 require_once 'models/DetalleVenta_Model.php';
 require_once 'models/Venta_Model.php';
 require_once 'models/Pedido_Model.php';
+
+
+
 
 
 
@@ -34,8 +37,14 @@ class Usuario_API_Controller extends Controller
         echo $pdfs->Facturar($venta, $user);
     }
 
+    // public function test2(){
+    //     print_r();
+
+    // }
+
+
     public function get(){
-        
+
         $email = $_GET["Email"];
         $user = $this->model->get($email);
         $user->password ="";
@@ -45,14 +54,14 @@ class Usuario_API_Controller extends Controller
         ];
         $this->view->res = json_encode($res);
         $this->view->render("API/Ususario/get");
-        
+
     }
     public function add(){
         //add author
-        
+
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
         if ($this->model->getRol($email) == "Administrador" || $this->model->getRol($email) == "Empleado") {
             if ($this->model->getRol($email) == "Empleado" && $data->Usuario->Rol != "Cliente") {
                 $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
@@ -76,18 +85,18 @@ class Usuario_API_Controller extends Controller
                 $user->departamento = $data->Usuario->Departamento;
                 $user->rol = $data->Usuario->Rol;
                 $user->password = password_hash($data->Usuario->Password, PASSWORD_BCRYPT , ['cost' => 10]);
-                
+
                 $reg = $this->model->registrarse($user);
                 if ($reg != null) {
-                    
+
                     $res = ["mensaje" => "Usuario Registrado Existosamente", "code" => 200];
                 }else{
                     $res = ["mensaje" => "Usuario No se a Registrado Existosamente", "code" => 404];
                 }
-                
+
 
             }
-            
+
 
         } else {
             $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
@@ -99,16 +108,16 @@ class Usuario_API_Controller extends Controller
 
     public function delete(){
         //add author
-        
+
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token     = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email     = $token != false ? $token: null ; //JWT
         if ($this->model->getRol($email) == "Administrador" || $this->model->getRol($email) == "Empleado") {
             $User = $this->model->get($data->Usuario->Email);
             if ($this->model->getRol($email) == "Empleado" && $User->rol != "Cliente") {
                 $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
             }else{
-                
+
             unlink($User->Iuser); // delete image
 
             if($this->model->delete($data->Usuario->Email)){
@@ -116,10 +125,10 @@ class Usuario_API_Controller extends Controller
             }else{
                 $res = ["mensaje" => "Usuario No Localizado", "code" => 404];
             }
-                
+
 
             }
-            
+
 
         } else {
             $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
@@ -131,14 +140,14 @@ class Usuario_API_Controller extends Controller
 
     public function mod(){
         $data = json_decode(file_get_contents('php://input'));
-        $token = $data->Token;
-        $email = $token; //probiconal JWT
+        $token     = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email     = $token != false ? $token: null ; //JWT
         if ($this->model->getRol($email) == "Administrador" || $this->model->getRol($email) == "Empleado" || ($data->Usuario->Email == $email && $data->Usuario->Rol == $this->model->getRol($email))) {
             if ($this->model->getRol($email) == "Empleado" && $data->Usuario->Rol != "Cliente" && $data->Usuario->Email != $email) {
                 $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
             }else{
                 $user = $this->model->get($data->Usuario->Email);
-                $user->nombrecompleto = $data->Usuario->Nombre != null || $data->Usuario->Apellido != null ? $data->Usuario->Nombre ." ". $data->Usuario->Apellido : $user->nombrecompleto;
+                $user->nombrecompleto = $data->Usuario->Nombre != null || $data->Usuario->Apellido != null ? $data->Usuario->Nombre: $user->nombrecompleto;
                 $user->email = $data->Usuario->Email != null ? $data->Usuario->Email : $user->email;
                 $user->Fnacimento = $data->Usuario->Fecha_Nacimento != null ? $data->Usuario->Fecha_Nacimento : $user->Fnacimento;
                 $user->numero = $data->Usuario->Numero != null ? $data->Usuario->Numero : $user->numero;
@@ -156,17 +165,17 @@ class Usuario_API_Controller extends Controller
                 } else {
                     $user->Genero = $data->Usuario->Genero_Personalisado != null ? $data->Usuario->Genero_Personalisado : $user->Genero;
                 }
-                
-                
-                if ($this->model->update($user)) {    
+
+
+                if ($this->model->update($user)) {
                     $res = ["mensaje" => "Usuario Actualizado Existosamente", "code" => 200];
                 }else{
                     $res = ["mensaje" => "Usuario No Actualizado Existosamente", "code" => 404];
                 }
-                
+
 
             }
-            
+
 
         } else {
             $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
@@ -175,5 +184,5 @@ class Usuario_API_Controller extends Controller
         $this->view->render("API/Ususario/mod");
 
     }
-    
+
 }

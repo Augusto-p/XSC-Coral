@@ -28,6 +28,7 @@ function addCat(){
     Categorias.set(cont, dato)
     Categoriain.value = "";
     refreshCategoriasDiv()
+    
 }
 
 
@@ -135,6 +136,9 @@ async function refresheditoriales(){
 
 
 }
+
+
+
 
 setSize()
 NewImage() 
