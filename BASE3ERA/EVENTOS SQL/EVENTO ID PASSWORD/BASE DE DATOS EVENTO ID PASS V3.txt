@@ -1,0 +1,9 @@
+-- EVENTO DE ID PASSWORD
+
+ DELIMITER |
+ USE mimundo;
+ CREATE EVENT IF NOT EXISTS id_pass 
+ ON SCHEDULE EVERY 1 MINUTE
+ COMMENT 'Si la fecha de creación de id password es mayor a 24 horas se cambia el valor de id_password_reset a vacio.'
+ DO
+ UPDATE `mimundo`.`usuarios` SET `usr_tokpass` = '', `usr_tokfec` = '' WHERE  usr_tokfec < DATE_SUB(NOW(),INTERVAL 72 HOUR);

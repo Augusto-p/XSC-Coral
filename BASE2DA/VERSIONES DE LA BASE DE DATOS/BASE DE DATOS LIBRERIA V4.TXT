@@ -1,4 +1,4 @@
- DROP DATABASE IF EXISTS Libreria;
+	DROP DATABASE IF EXISTS Libreria;
 	CREATE DATABASE IF NOT EXISTS Libreria;
 	USE Libreria;
 
@@ -30,7 +30,7 @@
 	);
 
 CREATE TABLE Libros (
-isbn INT (30) NOT NULL,
+isbn INT (0) AUTO_INCREMENT,
 titulo_libro VARCHAR (255)  NOT NULL,
 precio_libro DECIMAL UNSIGNED NOT NULL,
 id_autor INT (13) UNSIGNED,
@@ -41,14 +41,14 @@ FOREIGN KEY (id_autor) REFERENCES Autores (ident_autor)
 );
 
 CREATE TABLE Imagenes_Libros (
-ISbn_Libros INT (30) NOT NULL,
+ISbn_Libros INT (0) AUTO_INCREMENT,
 img_libro BLOB (25) NOT NULL,
 PRIMARY KEY (ISbn_Libros),
 FOREIGN KEY (ISbn_Libros) REFERENCES Libros (isbn)
 );
 
 CREATE TABLE Generos_Libs (
-isbn_libs INT (30) NOT NULL,
+isbn_libs INT (0) AUTO_INCREMENT,
 id_autor INT (13) UNSIGNED,
 genero_libs VARCHAR (50) NOT NULL,
 PRIMARY KEY (isbn_libs,id_autor),
@@ -58,11 +58,10 @@ FOREIGN KEY (isbn_libs) REFERENCES Libros (isbn)
 	CREATE TABLE Carrito_Compras (
 	email_client VARCHAR (255) NOT NULL,
 	codigo_carrito INT (100) UNSIGNED,
-    isbbn_Libros INT (30) NOT NULL,
+    isbbn_Libros INT (55) UNSIGNED,
 	fecha_hora DATETIME (6) NOT NULL,
 	PRIMARY KEY (email_client,codigo_carrito),
-	FOREIGN KEY (email_client) REFERENCES Clientes (email),
-    FOREIGN KEY (isbbn_Libros) REFERENCES Libros (isbn)
+	FOREIGN KEY (email_client) REFERENCES Clientes (email)
 	);
 
 	CREATE TABLE Editoriales (
@@ -99,7 +98,7 @@ FOREIGN KEY (isbn_libs) REFERENCES Libros (isbn)
     
     CREATE TABLE Detalle_Compras (
     id_compras INT (0) AUTO_INCREMENT,
-    isbn_books INT (30) NOT NULL,
+    isbn_books INT (20) NOT NULL,
     codigoEditorial INT (20) NOT NULL,
 	metodo_pago_compra VARCHAR (255) NOT NULL,
     precio_compra DECIMAL UNSIGNED NOT NULL,
@@ -132,7 +131,7 @@ FOREIGN KEY (isbn_libs) REFERENCES Libros (isbn)
         
     CREATE TABLE Detalle_Ventas (
     codigo_ventass INT (0) AUTO_INCREMENT,
-    Isbn_Book INT (30) NOT NULL,
+    Isbn_Book INT (20) NOT NULL,
     cant_libros_comprados INT (25) UNSIGNED NOT NULL,
     costo_Venta DECIMAL UNSIGNED NOT NULL,
 	metodo_pago VARCHAR (255) NOT NULL,
@@ -168,34 +167,34 @@ INSERT INTO Autores VALUES ('411','Lorenzo Silva','España','Creador de Libros c
 
 -- DATOS DE LIBROS -- 
 
-INSERT INTO Libros (isbn,titulo_libro,precio_libro,id_autor,sinopsis,codigs_editorial) VALUES ('98501','Jurassic Park','850','333','Un parque de dinosaurios','5178');
-INSERT INTO Libros (isbn,titulo_libro,precio_libro,id_autor,sinopsis,codigs_editorial) VALUES ('51565','IT','900','555','Un payaso que usa los miedos en tu contra','6199');
-INSERT INTO Libros (isbn,titulo_libro,precio_libro,id_autor,sinopsis,codigs_editorial) VALUES ('12468','Harry Potter y la piedra filosofal','750','433','Acompaña a harry en otra aventura','7115');
-INSERT INTO Libros (isbn,titulo_libro,precio_libro,id_autor,sinopsis,codigs_editorial) VALUES ('75819','le pianiste afghan: le','500','777','¿Que pasa por la mente de una niña en la guerra?','4555');
-INSERT INTO Libros (isbn,titulo_libro,precio_libro,id_autor,sinopsis,codigs_editorial) VALUES ('97812','Nadie por Delante','250','411','Dice Heráclito que la guerra es el padre de todas las cosas','7891');
+INSERT INTO Libros (titulo_libro,precio_libro,id_autor,sinopsis,codigs_editorial) VALUES ('Jurassic Park','850','333','Un parque de dinosaurios','5178');
+INSERT INTO Libros (titulo_libro,precio_libro,id_autor,sinopsis,codigs_editorial) VALUES ('IT','900','555','Un payaso que usa los miedos en tu contra','6199');
+INSERT INTO Libros (titulo_libro,precio_libro,id_autor,sinopsis,codigs_editorial) VALUES ('Harry Potter y la piedra filosofal','750','433','Acompaña a harry en otra aventura','7115');
+INSERT INTO Libros (titulo_libro,precio_libro,id_autor,sinopsis,codigs_editorial) VALUES ('le pianiste afghan: le','500','777','¿Que pasa por la mente de una niña en la guerra?','4555');
+INSERT INTO Libros (titulo_libro,precio_libro,id_autor,sinopsis,codigs_editorial) VALUES ('Nadie por Delante','250','411','Dice Heráclito que la guerra es el padre de todas las cosas','7891');
 
 -- DATOS DE IMAGENES_LIBROS --
-INSERT INTO Imagenes_Libros (ISbn_Libros,img_libro) VALUES ('98501','Public/img/Imagenes_Libros/1.jpg');
-INSERT INTO Imagenes_Libros (ISbn_Libros,img_libro) VALUES ('51565','Public/img/Imagenes_Libros/2.jpg');
-INSERT INTO Imagenes_Libros (ISbn_Libros,img_libro) VALUES ('12468','Public/img/Imagenes_Libros/3.jpg');
-INSERT INTO Imagenes_Libros (ISbn_Libros,img_libro) VALUES ('75819','Public/img/Imagenes_Libros/4.jpg');
-INSERT INTO Imagenes_Libros (ISbn_Libros,img_libro) VALUES ('97812','Public/img/Imagenes_Libros/5.jpg');
+INSERT INTO Imagenes_Libros (img_libro) VALUES ('Public/img/Imagenes_Libros/1.jpg');
+INSERT INTO Imagenes_Libros (img_libro) VALUES ('Public/img/Imagenes_Libros/2.jpg');
+INSERT INTO Imagenes_Libros (img_libro) VALUES ('Public/img/Imagenes_Libros/3.jpg');
+INSERT INTO Imagenes_Libros (img_libro) VALUES ('Public/img/Imagenes_Libros/4.jpg');
+INSERT INTO Imagenes_Libros (img_libro) VALUES ('Public/img/Imagenes_Libros/5.jpg');
 
 -- DATOS DE GENERO_LIBROS --
 
-INSERT INTO  Generos_Libs (isbn_libs,id_autor,genero_libs) VALUES ('98501','333','Accion,Aventura,Horror');
-INSERT INTO  Generos_Libs (isbn_libs,id_autor,genero_libs) VALUES ('51565','555','Horror,Horror Pisiologico,Aventura');
-INSERT INTO  Generos_Libs (isbn_libs,id_autor,genero_libs) VALUES ('12468','433','Aventura,Fantasia,Accion,Terror');
-INSERT INTO  Generos_Libs (isbn_libs,id_autor,genero_libs) VALUES ('75819','777','Aventura');
-INSERT INTO  Generos_Libs (isbn_libs,id_autor,genero_libs) VALUES ('97812','411','Historico');
+INSERT INTO  Generos_Libs (id_autor,genero_libs) VALUES ('333','Accion,Aventura,Horror');
+INSERT INTO  Generos_Libs (id_autor,genero_libs) VALUES ('555','Horror,Horror Pisiologico,Aventura');
+INSERT INTO  Generos_Libs (id_autor,genero_libs) VALUES ('433','Aventura,Fantasia,Accion,Terror');
+INSERT INTO  Generos_Libs (id_autor,genero_libs) VALUES ('777','Aventura');
+INSERT INTO  Generos_Libs (id_autor,genero_libs) VALUES ('411','Historico');
 
 -- DATOS DE CARRITO_COMPRAS --
 
-INSERT INTO Carrito_Compras (email_client,codigo_carrito,isbbn_Libros,fecha_hora) VALUES ('lucassyt@gmail.com','9824','98501','2022-11-24 17:15:10');
-INSERT INTO Carrito_Compras (email_client,codigo_carrito,isbbn_Libros,fecha_hora) VALUES ('lucia@gmail.com','6721','51565','2022-11-25 18:25:05');
-INSERT INTO Carrito_Compras (email_client,codigo_carrito,isbbn_Libros,fecha_hora) VALUES ('David@gmail.com','1289','12468','2022-07-11 13:30:37');
-INSERT INTO Carrito_Compras (email_client,codigo_carrito,isbbn_Libros,fecha_hora) VALUES ('Augusto@gmail.com','3679','75819','2022-09-12 14:27:40');
-INSERT INTO Carrito_Compras (email_client,codigo_carrito,isbbn_Libros,fecha_hora) VALUES ('Zoeyamigos@gmail.com','7891','97812','2022-05-15 15:46:02');
+INSERT INTO Carrito_Compras VALUES ('lucassyt@gmail.com','9824','5412','2022-11-24 17:15:10');
+INSERT INTO Carrito_Compras VALUES ('lucia@gmail.com','6721','2333','2022-11-25 18:25:05');
+INSERT INTO Carrito_Compras VALUES ('David@gmail.com','1289','7439','2022-07-11 13:30:37');
+INSERT INTO Carrito_Compras VALUES ('Augusto@gmail.com','3679','8955','2022-09-12 14:27:40');
+INSERT INTO Carrito_Compras VALUES ('Zoeyamigos@gmail.com','7891','5669','2022-05-15 15:46:02');
 
 -- DATOS DE EDITORIALES --
 
@@ -231,11 +230,11 @@ INSERT INTO Compras (estado_compra,fecha_hora_compra) VALUES ('Rechazado','2022-
 
 --  DATOS DE Detalle_Compra
 
-INSERT INTO Detalle_Compras (isbn_books,codigoEditorial,metodo_pago_compra,precio_compra,cant_compra) VALUES ('98501','1','Debito','1500','15');
-INSERT INTO Detalle_Compras (isbn_books,codigoEditorial,metodo_pago_compra,precio_compra,cant_compra) VALUES ('51565','2','Tarjeta Prepago','3500','0');
-INSERT INTO Detalle_Compras (isbn_books,codigoEditorial,metodo_pago_compra,precio_compra,cant_compra) VALUES ('12468','3','Tarjeta de Comercio','5500','5');
-INSERT INTO Detalle_Compras (isbn_books,codigoEditorial,metodo_pago_compra,precio_compra,cant_compra) VALUES ('75819','4','Debito','1320','4');
-INSERT INTO Detalle_Compras (isbn_books,codigoEditorial,metodo_pago_compra,precio_compra,cant_compra) VALUES ('97812','5','Contra Rembolso','2222','0');
+INSERT INTO Detalle_Compras (isbn_books,codigoEditorial,metodo_pago_compra,precio_compra,cant_compra) VALUES ('1','1','Debito','1500','15');
+INSERT INTO Detalle_Compras (isbn_books,codigoEditorial,metodo_pago_compra,precio_compra,cant_compra) VALUES ('2','2','Tarjeta Prepago','3500','0');
+INSERT INTO Detalle_Compras (isbn_books,codigoEditorial,metodo_pago_compra,precio_compra,cant_compra) VALUES ('3','3','Tarjeta de Comercio','5500','5');
+INSERT INTO Detalle_Compras (isbn_books,codigoEditorial,metodo_pago_compra,precio_compra,cant_compra) VALUES ('4','4','Debito','1320','4');
+INSERT INTO Detalle_Compras (isbn_books,codigoEditorial,metodo_pago_compra,precio_compra,cant_compra) VALUES ('5','5','Contra Rembolso','2222','0');
 
 -- DATOS DE Ventas
 
@@ -255,8 +254,8 @@ INSERT INTO Pedidos (EMail_clientss,id_venta,descrip_pedidos,sistema_envio) VALU
 
 -- DATOS DE Detalle_Venta
 
-INSERT INTO Detalle_Ventas (Isbn_Book,cant_libros_comprados,costo_venta,metodo_pago,descuento_venta) VALUES ('98501','1','500','Debito','25');
-INSERT INTO Detalle_Ventas (Isbn_Book,cant_libros_comprados,costo_venta,metodo_pago,descuento_venta) VALUES ('51565','2','1000','Efectivo','5');
-INSERT INTO Detalle_Ventas (Isbn_Book,cant_libros_comprados,costo_venta,metodo_pago,descuento_venta) VALUES ('12468','3','1500','Debito','2');
-INSERT INTO Detalle_Ventas (Isbn_Book,cant_libros_comprados,costo_venta,metodo_pago,descuento_venta) VALUES ('75819','4','278','Efectivo','0');
-INSERT INTO Detalle_Ventas (Isbn_Book,cant_libros_comprados,costo_venta,metodo_pago,descuento_venta) VALUES ('97812','5','580','Debito','10');
+INSERT INTO Detalle_Ventas (Isbn_Book,cant_libros_comprados,costo_venta,metodo_pago,descuento_venta) VALUES ('1','1','500','Debito','25');
+INSERT INTO Detalle_Ventas (Isbn_Book,cant_libros_comprados,costo_venta,metodo_pago,descuento_venta) VALUES ('2','1','1000','Efectivo','5');
+INSERT INTO Detalle_Ventas (Isbn_Book,cant_libros_comprados,costo_venta,metodo_pago,descuento_venta) VALUES ('3','1','1500','Debito','2');
+INSERT INTO Detalle_Ventas (Isbn_Book,cant_libros_comprados,costo_venta,metodo_pago,descuento_venta) VALUES ('4','1','278','Efectivo','0');
+INSERT INTO Detalle_Ventas (Isbn_Book,cant_libros_comprados,costo_venta,metodo_pago,descuento_venta) VALUES ('5','3','580','Debito','10');

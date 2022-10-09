@@ -1,0 +1,14 @@
+-- EVENTO DE ID PASSWORD
+
+-- DELIMITER |
+-- USE mimundo;
+-- CREATE EVENT IF NOT EXISTS id_pass 
+-- ON SCHEDULE EVERY 5  MINUTE
+-- COMMENT 'Si la fecha de creación de id password es mayor a 24 horas se cambia el valor de id_password_reset a vacio.'
+-- DO
+-- BEGIN
+-- IF usuarios.usr_pass  >  24 HOUR THEN 
+-- UPDATE usuarios.usr_pass  SET  usr_pass  ='';
+-- END IF;
+-- END |
+-- DELIMITER ;

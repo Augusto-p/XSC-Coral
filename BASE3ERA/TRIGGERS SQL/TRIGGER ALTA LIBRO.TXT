@@ -1,0 +1,6 @@
+USE libreria;
+
+CREATE  TRIGGER  new_alta_book
+BEFORE INSERT ON  compras_detalle  FOR EACH ROW
+UPDATE  libros SET Stock
+= libros.Stock + new.Cantidad WHERE isbn = new.ISBN;

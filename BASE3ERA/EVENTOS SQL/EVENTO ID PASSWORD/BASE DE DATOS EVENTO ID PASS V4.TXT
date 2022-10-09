@@ -1,0 +1,5 @@
+ CREATE EVENT IF NOT EXISTS token_pass 
+ ON SCHEDULE EVERY 1 MINUTE
+ COMMENT 'Si la fecha de creación del token pass es mayor a 48 horas se cambia el valor de Token_Password y Fecha_Token a vacío.'
+ DO
+ UPDATE usuarios SET Token_Password = “”, Fecha_Token = “” WHERE  Fecha_Token < DATE_SUB(NOW(),INTERVAL 48 HOUR);

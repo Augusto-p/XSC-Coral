@@ -1,0 +1,5 @@
+USE libreria;
+ CREATE TRIGGER new_baja_book BEFORE INSERT ON 
+ ventas_detalle  for each row
+ update libros set Stock
+ = libros.Stock - new.Cantidad where isbn = new.ISBN;

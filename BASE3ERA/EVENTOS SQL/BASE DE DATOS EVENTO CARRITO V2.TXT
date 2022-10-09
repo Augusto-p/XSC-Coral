@@ -1,0 +1,7 @@
+-- EVENTO DE ELIMINACIÓN DE  PRODUCTOS DEL CARRITO --
+-- USE mimundo;
+-- CREATE EVENT IF NOT EXISTS borrar_carrito
+-- ON SCHEDULE EVERY 1 minute
+-- COMMENT 'Elimina todo el contenido del carrito pasado 3 dias despúes de que el cliente añadio sus producto al carrito.'
+-- DO
+-- DELETE FROM carrito WHERE fechor_car > 72;

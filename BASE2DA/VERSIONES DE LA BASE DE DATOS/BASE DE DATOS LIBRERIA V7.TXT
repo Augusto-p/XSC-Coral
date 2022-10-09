@@ -1,0 +1,303 @@
+ DROP DATABASE IF EXISTS Libreria;
+	CREATE DATABASE IF NOT EXISTS Libreria;
+	USE Libreria;
+
+	CREATE TABLE Usuarios (
+	nom_completo_user VARCHAR (255) NOT NULL,
+	email VARCHAR (255),
+    recuperacion_password VARCHAR (45) NULL,
+    fecha_creacion_id_password_reset VARCHAR (0)   NULL,
+	fecha_nac_user DATETIME (6) NOT NULL,
+	genero VARCHAR (23) NOT NULL,
+    direccion VARCHAR (255) NOT NULL,
+    numero    INT (30) NOT NULL,
+    calle VARCHAR (255) NOT NULL,
+    ciudad VARCHAR (255) NOT NULL,
+	contraseña VARCHAR (255)  NOT NULL,
+	foto_usuario VARCHAR (255)  NOT NULL,
+    rol_usuario ENUM ('Cliente','Visitante','Administrador XSC') NOT NULL,
+	PRIMARY KEY (email)
+	);
+    
+CREATE TABLE Libros (
+isbn BIGINT (15) NOT NULL,
+titulo_libro VARCHAR (255)  NOT NULL,
+precio_libro DECIMAL UNSIGNED NOT NULL,
+sinopsis VARCHAR (255) NOT NULL,
+codigs_editorial INT (35) UNSIGNED,
+img_libro VARCHAR (255)  NULL,
+PRIMARY KEY (isbn,codigs_editorial)
+);
+
+CREATE TABLE Autores (
+	ident_autor INT (10) AUTO_INCREMENT,
+	nom_completo_autor VARCHAR (255)  NOT NULL,
+	nacionalidad_autor VARCHAR (255)  NOT NULL,
+	biografia_autor    VARCHAR (500)  NOT NULL,
+	fecha_nac DATE NOT NULL,
+    foto_autor VARCHAR (255) NULL,
+	PRIMARY KEY (ident_autor)
+	);
+    
+    CREATE TABLE Tienen (
+    isbn_lib BIGINT (15) NOT NULL,
+    id_autor INT (10) NOT NULL,
+    PRIMARY KEY (isbn_lib,id_Autor),
+    FOREIGN KEY (isbn_lib) REFERENCES Libros (isbn),
+    FOREIGN KEY (id_autor) REFERENCES Autores (ident_autor)
+    );
+
+CREATE TABLE Adquieren (
+email_users VARCHAR (255),
+isbn_libsss BIGINT (15),
+PRIMARY KEY (email_users,isbn_libsss),
+FOREIGN KEY (email_users) REFERENCES Usuarios (email),
+FOREIGN KEY (isbn_libsss) REFERENCES Libros   (isbn)
+);
+
+CREATE TABLE Imagenes_Libros (
+isbn_Libros BIGINT (15) NOT NULL,
+img_libro BLOB (255) NOT NULL,
+PRIMARY KEY (isbn_libros),
+FOREIGN KEY (isbn_libros) REFERENCES Libros (isbn)
+);
+
+CREATE TABLE Generos_Libs (
+isbn_libros BIGINT (15) NOT NULL,
+genero_libs VARCHAR (255) NOT NULL,
+PRIMARY KEY (isbn_libs),
+FOREIGN KEY (isbn_libs) REFERENCES Libros (isbn)
+);
+
+	CREATE TABLE Carrito_Compras (
+	codigo_carrito INT (10) AUTO_INCREMENT,
+	email_client VARCHAR (255) NOT NULL,
+    isbbn_libros BIGINT (23) NOT NULL,
+	fecha_hora DATETIME (0) NOT NULL,
+	PRIMARY KEY (codigo_carrito,email_client,isbbn_libros),
+	FOREIGN KEY (email_client) REFERENCES Usuarios (email),
+    FOREIGN KEY (isbbn_Libros) REFERENCES Libros (isbn)
+	);
+
+	CREATE TABLE Editoriales (
+	codigo_editorial INT (10) AUTO_INCREMENT,
+	nombre_editorial VARCHAR (255) NOT NULL,
+	web_editorial VARCHAR (255) NOT NULL,
+    logo_editorial VARCHAR (255)  NULL,
+    direccion_editorial VARCHAR (255) NOT NULL,
+    tele_editorial VARCHAR (10) NOT NULL,
+	PRIMARY KEY (codigo_editorial)
+    -- FOREIGN KEY (codigo_editorial) REFERENCES Libros (codigs_editorial) Esta clave me hace explotar la base de datos.
+	);
+    
+    CREATE TABLE Compras (
+    id_compra INT (10) AUTO_INCREMENT,
+    cods_editorials INT (10) NOT NULL,
+    estado_compra VARCHAR (255) NOT NULL,
+    fecha_hora_compra DATE   NOT NULL,
+    metodo_pago_compra VARCHAR (255) NOT NULL,
+    PRIMARY KEY (id_compra,cods_editorials)
+    );
+    
+    CREATE TABLE Hacen (
+    codis_editorial INT (10) NOT NULL,
+    codigo_compra INT (10) NOT NULL,
+    PRIMARY KEY (codis_editorial,codigo_Compra),
+    FOREIGN KEY (codis_editorial)  REFERENCES Editoriales (codigo_editorial),
+    FOREIGN KEY (codigo_Compra) REFERENCES Compras (id_compra)
+    );
+    
+    CREATE TABLE Detalle_Compras (
+    id_detalle_compras INT (10) AUTO_INCREMENT,
+    isbn_books BIGINT (15) NOT NULL,
+    precio_compra DECIMAL (10,2) NOT NULL,
+    cant_compra INT (10) UNSIGNED NOT NULL,
+    PRIMARY KEY(id_detalle_compras),
+    FOREIGN KEY (id_detalle_compras) REFERENCES Compras (id_compra),
+    FOREIGN KEY (isbn_books) REFERENCES LIBROS (isbn)
+    );
+
+	CREATE TABLE Ventas (
+    cod_ventas INT (16) AUTO_INCREMENT,
+    emailsS_clients VARCHAR (255) NOT NULL,
+    estado_venta VARCHAR (12) NOT NULL,
+    metodo_pago VARCHAR (255) NOT NULL,
+    fecha_hora_venta DATETIME  NOT NULL,
+    PRIMARY KEY (cod_ventas,emailsS_clients)
+    );
+    
+    CREATE TABLE Genera (
+    cod_ventas INT (16),
+    emailusuario VARCHAR (255),
+    PRIMARY KEY (COd_VEntas,emailUsuario),
+    FOREIGN KEY (COd_VEntas)   REFERENCES Ventas (cod_ventas),
+    FOREIGN KEY (emailUsuario) REFERENCES Usuarios (email)
+    );
+    
+	CREATE TABLE Pedidos (
+    codi_venta INT (16) AUTO_INCREMENT,
+    descrip_pedidos VARCHAR (255) NOT NULL,
+	sistema_envio VARCHAR (255) NOT NULL,
+    PRIMARY KEY (codi_venta)
+    );
+    
+    CREATE TABLE Contienen (
+    cod_ventas INT (16) NOT NULL,
+    codi_venta INT (16) NOT NULL,
+    PRIMARY KEY (cod_ventas,codi_venta),
+    FOREIGN KEY (cod_ventas) REFERENCES Ventas  (cod_ventas),
+    FOREIGN KEY (codi_venta) REFERENCES Pedidos (codi_venta)
+    );
+        
+    CREATE TABLE Detalle_Ventas (
+    codigo_ventass INT (0) AUTO_INCREMENT,
+    isbn_book BIGINT (15) NOT NULL,
+    cant_libros_comprados INT (255) UNSIGNED NOT NULL,
+    costo_venta DECIMAL UNSIGNED NOT NULL,
+    descuento_venta INT (255) UNSIGNED NOT NULL,
+    PRIMARY KEY (codigo_ventass,Isbn_Book)
+    );
+    
+    CREATE TABLE Generan (
+    codigoVenta INT (16)  NOT NULL,
+    isbnLibro   BIGINT (15) NOT NULL,
+    PRIMARY KEY (codigoVenta,isbnLibro),
+    FOREIGN KEY (codigoVenta) REFERENCES Detalle_Ventas (codigo_ventass),
+    FOREIGN KEY (isbnLibro)   REFERENCES Libros (isbn)
+    );
+    
+    --  DATOS DE CLIENTES --
+
+INSERT INTO Usuarios VALUES ('Lucas Hernandez','lucassyt@gmail.com','','','2001/07/10','Masculino','Hospital Canelones','96333','Crami Las Piedras','Canelones','lucasLOCO','Public/img/Clientes/1.jpg','Cliente');
+INSERT INTO Usuarios VALUES ('Lucia Lopez','lucia@gmail.com','','','2000/06/04','Femenino','Intendencia de Canelones','95123','PoliDeporitvo Las Piedras','Canelones','corazónluci','Public/img/Clientes/2.jpg','Visitante');
+INSERT INTO Usuarios VALUES ('David Dos Santos','David@gmail.com','','','1999/05/02','Masculino','Estación Canelones','91367','Rivera','Canelones','MarSanchez','Public/img/Clientes/3.jpg','Cliente');
+INSERT INTO Usuarios VALUES ('Augusto Picardo','Augusto@gmail.com','','','2005/03/08','Masculino','Barrio Sur','45612','Maldonado','Montevideo','GUstavinlol','Public/img/Clientes/4.jpg','Administrador XSC');
+INSERT INTO Usuarios VALUES ('Zoey Carrasco','Zoeyamigos@gmail.com','','','1997/07/03','Femenino','Bar Tinkal','48444','Yaro','Montevideo','ZoasCarras','Public/img/Clientes/5.jpg','Administrador XSC');
+
+-- DATOS DE LIBROS -- 
+
+INSERT INTO Libros (isbn,titulo_libro,precio_libro,id_autor,sinopsis,codigs_editorial) VALUES ('9855168912456','Jurassic Park','850','333','Un parque de dinosaurios','5178');
+INSERT INTO Libros (isbn,titulo_libro,precio_libro,id_autor,sinopsis,codigs_editorial) VALUES ('9121248889455','IT','900','555','Un payaso que usa los miedos en tu contra','6199');
+INSERT INTO Libros (isbn,titulo_libro,precio_libro,id_autor,sinopsis,codigs_editorial) VALUES ('9994412564459','Harry Potter y la piedra filosofal','750','433','Acompaña a harry en otra aventura','7115');
+INSERT INTO Libros (isbn,titulo_libro,precio_libro,id_autor,sinopsis,codigs_editorial) VALUES ('9721562233444','le pianiste afghan: le','500','777','¿Que pasa por la mente de una niña en la guerra?','4555');
+INSERT INTO Libros (isbn,titulo_libro,precio_libro,id_autor,sinopsis,codigs_editorial) VALUES ('9148855554321','Nadie por Delante','250','411','Dice Heráclito que la guerra es el padre de todas las cosas','7891');
+
+-- DATOS DE AUTORES --
+
+INSERT INTO Autores VALUES ('333','Michael Crichton','EE.UU','Creador del libro Jurassic Park','1942/04/10','Public/img/Autores/1.jpg');
+INSERT INTO Autores VALUES ('555','Stephen King','EE.UU','Creador de libros de terror como IT','1947/09/09','Public/img/Autores/2.jpg');
+INSERT INTO Autores VALUES ('433','Joanne Rowling​','Reino Unido','Creadora de la iconica saga de Harry Potter','1965/04/03','Public/img/Autores/3.jpg');
+INSERT INTO Autores VALUES ('777','Chabname Zariab','Afganistan','Creadora de Libros como  Le pianiste afghan: roman','1982/03/08','Public/img/Autores/4.jpg');
+INSERT INTO Autores VALUES ('411','Lorenzo Silva','España','Creador de Libros como Nadie por Delante','1966/06/05','Public/img/Autores/5.jpg');
+
+-- DATOS DE Tienen --
+
+INSERT INTO Tienen (isbn_lib,id_autor) VALUES ('9855168912456','333');
+INSERT INTO Tienen (isbn_lib,id_autor) VALUES ('9121248889455','555');
+INSERT INTO Tienen (isbn_lib,id_autor) VALUES ('9994412564459','433');
+INSERT INTO Tienen (isbn_lib,id_autor) VALUES ('9721562233444','777');
+INSERT INTO Tienen (isbn_lib,id_autor) VALUES ('9148855554321','411');
+
+-- DATOS DE Adquieren --
+
+INSERT INTO Adquieren (email_users,isbn_libsss) VALUES ('lucassyt@gmail.com',  '9855168912456');
+INSERT INTO Adquieren (email_users,isbn_libsss) VALUES ('lucia@gmail.com',     '9121248889455');
+INSERT INTO Adquieren (email_users,isbn_libsss) VALUES ('David@gmail.com',     '9994412564459');
+INSERT INTO Adquieren (email_users,isbn_libsss) VALUES ('Augusto@gmail.com',   '9721562233444');
+INSERT INTO Adquieren (email_users,isbn_libsss) VALUES ('Zoeyamigos@gmail.com','9148855554321');
+
+-- DATOS DE IMAGENES_LIBROS --
+INSERT INTO Imagenes_Libros (isbn_libros,img_libro) VALUES ('9855168912456','Public/img/Imagenes_Libros/1.jpg');
+INSERT INTO Imagenes_Libros (isbn_libros,img_libro) VALUES ('9121248889455','Public/img/Imagenes_libros/2.jpg');
+INSERT INTO Imagenes_Libros (isbn_libros,img_libro) VALUES ('9994412564459','Public/img/Imagenes_libros/3.jpg');
+INSERT INTO Imagenes_Libros (isbn_libros,img_libro) VALUES ('9721562233444','Public/img/Imagenes_libros/4.jpg');
+INSERT INTO Imagenes_Libros (isbn_libros,img_libro) VALUES ('9148855554321','Public/img/Imagenes_libros/5.jpg');
+
+-- DATOS DE GENERO_LIBROS --
+
+INSERT INTO  Generos_Libs (isbn_libs,genero_libs) VALUES ('9855168912456','Accion,Aventura,Horror');
+INSERT INTO  Generos_Libs (isbn_libs,genero_libs) VALUES ('9121248889455','Horror,Horror Pisiologico,Aventura');
+INSERT INTO  Generos_Libs (isbn_libs,genero_libs) VALUES ('9994412564459','Aventura,Fantasia,Accion,Terror');
+INSERT INTO  Generos_Libs (isbn_libs,genero_libs) VALUES ('9721562233444','Aventura');
+INSERT INTO  Generos_Libs (isbn_libs,genero_libs) VALUES ('9148855554321','Historico');
+
+-- DATOS DE CARRITO_COMPRAS --
+
+INSERT INTO Carrito_Compras (email_client,isbbn_Libros,fecha_hora) VALUES ('lucassyt@gmail.com','9855168912456','2022-11-24 17:15:10');
+INSERT INTO Carrito_Compras (email_client,isbbn_Libros,fecha_hora) VALUES ('lucia@gmail.com','9121248889455','2022-11-25 18:25:05');
+INSERT INTO Carrito_Compras (email_client,isbbn_Libros,fecha_hora) VALUES ('David@gmail.com','9994412564459','2022-07-11 13:30:37');
+INSERT INTO Carrito_Compras (email_client,isbbn_Libros,fecha_hora) VALUES ('Augusto@gmail.com','9721562233444','2022-09-12 14:27:40');
+INSERT INTO Carrito_Compras (email_client,isbbn_Libros,fecha_hora) VALUES ('Zoeyamigos@gmail.com','9148855554321','2022-05-15 15:46:02');
+
+-- DATOS DE EDITORIALES --
+
+INSERT INTO Editoriales (nombre_editorial,web_editorial,Logo_Editorial,Direccion_Editorial,Tele_Editorial) VALUES ('Editorial Manolo','Pagina Web Manolo','Public/imgs/editorial1.jpg','Estados Unidos','+1689512');
+INSERT INTO Editoriales (nombre_editorial,web_editorial,Logo_Editorial,Direccion_Editorial,Tele_Editorial) VALUES ('Editorial Japonesa','Pagina Web Japon','Public/imgs/editorial2.jpg','Japon',' +83125678');
+INSERT INTO Editoriales (nombre_editorial,web_editorial,Logo_Editorial,Direccion_Editorial,Tele_Editorial) VALUES ('Editorial Los','Pagina Web Los','Public/imgs/editorial3.jpg','Alemania','+492408245');
+INSERT INTO Editoriales (nombre_editorial,web_editorial,Logo_Editorial,Direccion_Editorial,Tele_Editorial) VALUES ('Editorial AgusMils','Pagina Web Agus','Public/imgs/editorial4','Uruguay','+59851267');
+INSERT INTO Editoriales (nombre_editorial,web_editorial,Logo_Editorial,Direccion_Editorial,Tele_Editorial) VALUES ('Editorial Marcelo','Pagina Web Marcelo','Public/imgs/editorial5','Venezuela','+58718204');
+
+-- DATOS DE Compras --
+
+INSERT INTO Compras (cods_editorials,estado_compra,fecha_hora_compra,metodo_pago_compra) VALUES ('1','Aceptado','2022-11-12 ','Debito');
+INSERT INTO Compras (cods_editorials,estado_compra,fecha_hora_compra,metodo_pago_compra) VALUES ('2','Rechazado','2022-11-11 ','Efectivo');
+INSERT INTO Compras (cods_editorials,estado_compra,fecha_hora_compra,metodo_pago_compra) VALUES ('3','Aceptado','2022-11-05 ','Debito');
+INSERT INTO Compras (cods_editorials,estado_compra,fecha_hora_compra,metodo_pago_compra) VALUES ('4','Aceptado','2022-11-01 ','Efectivo');
+INSERT INTO Compras (cods_editorials,estado_compra,fecha_hora_compra,metodo_pago_compra) VALUES ('5','Rechazado','2022-10-12 ','Debito');
+
+-- DATOS DE Hacen --
+
+INSERT INTO Hacen VALUES ('1','1');
+INSERT INTO Hacen VALUES ('2','2');
+INSERT INTO Hacen VALUES ('3','3');
+INSERT INTO Hacen VALUES ('4','4');
+INSERT INTO Hacen VALUES ('5','5');
+
+
+--  DATOS DE Detalle_Compra --
+
+INSERT INTO Detalle_Compras (isbn_books,precio_compra,cant_compra) VALUES ('9855168912456','1500','15');
+INSERT INTO Detalle_Compras (isbn_books,precio_compra,cant_compra) VALUES ('9121248889455','3500','0');
+INSERT INTO Detalle_Compras (isbn_books,precio_compra,cant_compra) VALUES ('9994412564459','5500','5');
+INSERT INTO Detalle_Compras (isbn_books,precio_compra,cant_compra) VALUES ('9721562233444','1320','4');
+INSERT INTO Detalle_Compras (isbn_books,precio_compra,cant_compra) VALUES ('9148855554321','2222','0');
+
+-- DATOS DE Ventas --
+
+INSERT INTO Ventas (emailsS_Clients,estado_venta,metodo_pago,fecha_hora_venta)  VALUES ('lucassyt@gmail.com','Aceptado','Debito','2022-12-08 13:55:48');
+INSERT INTO Ventas (emailsS_Clients,estado_venta,metodo_pago,fecha_hora_venta)  VALUES ('lucia@gmail.com','Aceptado','Efectivo','2022-10-04 10:30:02');
+INSERT INTO Ventas (emailsS_Clients,estado_venta,metodo_pago,fecha_hora_venta)  VALUES ('David@gmail.com','Rechazado','Debito','2022-10-25 15:47:22');
+INSERT INTO Ventas (emailsS_Clients,estado_venta,metodo_pago,fecha_hora_venta)  VALUES ('Augusto@gmail.com','Aceptado','Efectivo','2022-11-15 18:25:59');
+INSERT INTO Ventas (emailsS_Clients,estado_venta,metodo_pago,fecha_hora_venta)  VALUES ('Zoeyamigos@gmail.com','Rechazado','Debito','2022-11-27 19:18:36');
+
+-- DATOS DE Genera --
+
+INSERT INTO Genera (COd_VEntas,emailUsuario) VALUES ('1','lucassyt@gmail.com');
+INSERT INTO Genera (COd_VEntas,emailUsuario) VALUES ('2','lucia@gmail.com');
+INSERT INTO Genera (COd_VEntas,emailUsuario) VALUES ('3','David@gmail.com');
+INSERT INTO Genera (COd_VEntas,emailUsuario) VALUES ('4','Augusto@gmail.com');
+INSERT INTO Genera (COd_VEntas,emailUsuario) VALUES ('5','Zoeyamigos@gmail.com');
+
+-- DATOS DE PEDIDOS  -- 
+
+INSERT INTO Pedidos (descrip_pedidos,sistema_envio) VALUES ('Pidio un libro de Jurassic Park','Envio a Domilicio');
+INSERT INTO Pedidos (descrip_pedidos,sistema_envio) VALUES ('Pidio un libro de IT','Sera entregado de forma virtual');
+INSERT INTO Pedidos (descrip_pedidos,sistema_envio) VALUES ('Pidio un libro de la actora Chabname Le pianiste afghan: roman','Retiro en el local mas cercano');
+INSERT INTO Pedidos (descrip_pedidos,sistema_envio) VALUES ('Pidio un libro de Harry Potter','Envio a confirmar...');
+INSERT INTO Pedidos (descrip_pedidos,sistema_envio) VALUES ('Pidio 3 libros de Jurassic Park','Entrega a Domilicio');
+
+-- DATOS DE Detalle_Venta --
+
+INSERT INTO Detalle_Ventas (Isbn_Book,cant_libros_comprados,costo_venta,descuento_venta) VALUES ('9855168912456','1','500','25');
+INSERT INTO Detalle_Ventas (Isbn_Book,cant_libros_comprados,costo_venta,descuento_venta) VALUES ('9121248889455','2','1000','5');
+INSERT INTO Detalle_Ventas (Isbn_Book,cant_libros_comprados,costo_venta,descuento_venta) VALUES ('9994412564459','3','1500','2');
+INSERT INTO Detalle_Ventas (Isbn_Book,cant_libros_comprados,costo_venta,descuento_venta) VALUES ('9721562233444','4','278','0');
+INSERT INTO Detalle_Ventas (Isbn_Book,cant_libros_comprados,costo_venta,descuento_venta) VALUES ('9148855554321','5','580','10');
+
+-- DATOS DE Generan --
+
+INSERT INTO Generan (codigoVenta,isbnLibro) VALUES ('1','9855168912456');
+INSERT INTO Generan (codigoVenta,isbnLibro) VALUES ('2','9121248889455');
+INSERT INTO Generan (codigoVenta,isbnLibro) VALUES ('3','9994412564459');
+INSERT INTO Generan (codigoVenta,isbnLibro) VALUES ('4','9721562233444');
+INSERT INTO Generan (codigoVenta,isbnLibro) VALUES ('5','9148855554321');

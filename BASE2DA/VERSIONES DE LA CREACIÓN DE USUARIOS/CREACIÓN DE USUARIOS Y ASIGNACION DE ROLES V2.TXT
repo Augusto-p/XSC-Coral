@@ -1,0 +1,70 @@
+USE Libreria;
+
+-- -- -- -- --  CREACIÓN DE USUARIOS -- -- -- -- -- -- -- --
+ 
+CREATE USER thomas            IDENTIFIED BY 'waifus2d'; -- Contraseña
+
+CREATE USER augusto           IDENTIFIED BY 'ferrari';  -- Contraseña
+
+CREATE USER david             IDENTIFIED BY 'lol';      -- Contraseña
+
+CREATE USER cancela           IDENTIFIED BY 'mira';     -- Contraseña
+
+CREATE USER bautiz            IDENTIFIED BY 'tarde';    -- Contraseña
+
+CREATE USER programa          IDENTIFIED BY 'familia';  -- Contraseña
+
+CREATE USER usuariobackup     IDENTIFIED BY 'respaldos'; -- Contraseña
+
+CREATE USER cliente   IDENTIFIED BY 'musica';   -- Contraseña
+
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+-- -- -- -- -- -- CREACIÓN DE ROLES -- -- -- -- -- --
+ 
+CREATE ROLE supervisor;
+
+CREATE ROLE mimundoadmin;
+
+CREATE ROLE administradorxsc;
+
+CREATE ROLE visitante;
+
+CREATE ROLE baserespaldo;
+
+CREATE ROLE svcoral;
+ 
+-- -- -- -- -- --  ASIGNACIÓN DE PERMISOS A LOS ROLES -- -- 
+
+GRANT ALL PRIVILEGES ON Libreria.* TO supervisor;
+
+GRANT ALL PRIVILEGES ON Libreria.* TO administradorxsc;
+
+GRANT SELECT,INSERT ON Libreria.* TO mimundoadmin;
+
+GRANT SELECT ON Libreria.* TO  visitante;
+
+GRANT INSERT,SELECT,UPDATE ON  Libreria.* TO  svcoral;
+
+GRANT ALL PRIVILEGES ON Libreria.* TO baserespaldo;
+
+-- -- -- -- -- -- ASIGNACIÓN DE ROLES A LOS USUARIOS -- --
+
+GRANT supervisor TO thomas;
+
+GRANT administradorxsc TO augusto;
+
+GRANT administradorxsc TO david;
+
+GRANT mimundoadmin TO cliente;
+
+GRANT visitante TO cancela;
+
+GRANT visitante TO bautiz;
+
+GRANT svcoral TO programa;
+
+GRANT baserespaldo TO usuariobackup;
+
+-- -- -- -- -- -- LISTADO DE LOS USUARIOS -- --
+SELECT USER FROM mysql.user;
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 

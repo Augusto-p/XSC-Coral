@@ -1,0 +1,7 @@
+USE mimundo;
+CREATE EVENT borrar_carrito
+ON SCHEDULE
+EVERY 72 HOUR
+COMMENT 'Elimina todo el contenido del carrito pasado 3 dias despúes de que el cliente añadio sus producto al carrito.'
+DO
+DELETE FROM carrito WHERE fechor_car > 72;

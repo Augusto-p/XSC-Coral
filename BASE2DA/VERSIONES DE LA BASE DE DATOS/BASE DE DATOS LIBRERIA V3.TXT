@@ -1,11 +1,11 @@
-DROP DATABASE IF EXISTS Libreria;
+	DROP DATABASE IF EXISTS Libreria;
 	CREATE DATABASE IF NOT EXISTS Libreria;
 	USE Libreria;
 
 	CREATE TABLE Clientes (
 	nom_completo_user VARCHAR (35) NOT NULL,
 	email VARCHAR (35),
-    recuperacion_password VARCHAR (45) NULL,
+    recuperacion_password VARCHAR (255) NULL,
 	fecha_nac_user DATETIME NOT NULL,
 	genero VARCHAR (23) NOT NULL,
 	contraseña VARCHAR (15)  NOT NULL,
