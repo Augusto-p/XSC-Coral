@@ -32,8 +32,12 @@ read -p "Presione cualquier tecla para continuar..." ne
 # ne significa: No Existe
 # Lo que quiere decir que esa variable no va a ser utilizada nunca
 git clone https://github.com/Augusto-p/GX.git
-chmod 777 ./GX/main
-let link=$(./GX/main)
+cd ./GX
+sudo chmod 777 ./main
+let link=$(./main)
+wget -O xampp $link
+sudo chmod 700 ./xampp
+sudo ./xampp
 sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
 sudo chmod 666 /opt/lampp/etc/php.ini
 sudo echo -e "\n[Date]\ndate.imezone=UTC" >> /opt/lampp/etc/php.ini
@@ -41,9 +45,10 @@ sudo chmod 644 /opt/lampp/etc/php.ini
 sudo chmod 666 /etc/mysql/mysql.cnf
 sudo echo -e "\n[mysqld]\ndefault-time-zone = '+00:00'" >> /etc/mysql/mysql.cnf
 sudo chmod 644 /etc/mysql/mysql.cnf
-/etc/init.d/mysql restart
-
-
+sudo /etc/init.d/mysql restart
+sudo chmod 777 startup.sh
+sudo mv startup.sh /etc/init.d/startup
+sudo update-rc.d startup defaults
 
 
 
