@@ -1,10 +1,5 @@
 #!/bin/bash
 #Programa hecho por XSC Software Company
-
-#systemctl ó systemctl list-units Este comando nos muestra los servicios cargados en el sistema mostrando información de cada servicio. Usar q para salir.
-##systemctl list-unit-files. Muestra los servicios instalados en el sistema, es decir, listará los cargados y los que no. Este comando nos vendrá muy bien pasa saber como se llama el servicio que queremos ejecutar al inicio. Usar q para salir.
-#systemctl start  Ejecuta en ese momento el servicio en cuestión. Si reiniciáramos el equipo no se ejecutaría ya que es una ejecución temporal.
-#systemctl stop <servicio> Para temporalmente un servicio ya ejecutado.
 #systemctl enable <servicio> Prepara el servicio para la ejecución desde el arranque.
 #systemctl disable <servicio> Elimina del inicio un servicio para que no vuelva a ejecutarse al arrancar el sistema.
 #systemctl status <servicio> Muestra la información y el estado de un servicio.
@@ -15,28 +10,68 @@ menuserv(){
     echo ""
     echo ""
     echo "Elija una de las opciones"
-    echo "1-Visualizar los procesos"
-    echo ""
+    echo "1-Ejecutar o Detener un proceso"
+    echo "2-Habilitar o Deshabilitar un servicio para su ejecución al arranque"
     echo ""
     echo ""
     echo ""
     echo "9-Salir al menú principal"
     read -p "Ingrese la opción aquí" opc
     case $opc in
-        1)echo "¿Desea ver los servicios instalados(tanto en uso como apagados) o solo los cargados?"
+        1)clear
+        echo "Aquí se va a poder iniciar o detener un servicio"
+        echo "¿Desea ver los servicios instalados(tanto en uso como apagados) o solo los cargados?"
             read -p "Instalados=I   Cargados=C" $carg
             case $carg in
-                I,i) systemctl list-unit-files
-                    menuserv
+                I | i) systemctl list-unit-files
                 ;;
-                C,c) systemctl
+                C | c) systemctl
                 ;;
             esac
+            echo "¿Desea iniciar o detener un servicio?"
+            read -p "Iniciar=I  Detener=D" $stst
+            case $stst in
+            I | i)echo "Ingrese el código del servicio a iniciar"
+            read $cod
+            systemctl start $cod
+            systemctl status $cod
+            ;;
+            D | d)echo "Ingrese el código del servicio a detener"
+            read $cod
+            systemctl stop $cod
+            systemctl status $cod
+            ;;
+            esac
         ;;
-        2);;
-        3);;
-        9)clear
-            ./main.sh
+        3)clear
+        echo "Aquí se va a poder habilitar o deshabilitar un servicio"
+        echo "¿Desea ver los servicios instalados(tanto en uso como apagados) o solo los cargados?"
+            read -p "Instalados=I   Cargados=C" $carg
+            case $carg in
+                I | i) systemctl list-unit-files
+                ;;
+                C | c) systemctl
+                ;;
+            esac
+        echo "¿Usted desea habilitar o deshabilitar un servicio?"
+        read -p "Habilitar=H Deshabilitar=D" $hades
+        case $hades in
+        H | h) ;;
+        D | d) ;;
+        *) echo "La opción $opc no es válida, por favor, intente nuevamente"
+        menuserv
+        ;;
+        esac
+        ;;
+        9) echo "¿Está seguro que desea volver al menú principal?"
+        read -p "Si=S No=N" $sal
+        case $sal in
+        S | s)
+        clear
+        ./main.sh;;
+        N | n) clear
+        menuserv;;
+        esac
         ;;
         *)
             echo "La opción $opc no es válida, por favor, intente nuevamente"
