@@ -41,11 +41,11 @@ async function Seach() {
 
 async function Send() {
     let bodyContent = JSON.stringify({
-        "Token": user,
         "Libro": {
             "ISBN": ISBN.value
         }
     });
+    headersList["Authorization"] = "Token " + getCookie("Token");
     let response = await fetch("http://localhost/xsc/api/book/delete", {
         method: "POST",
         body: bodyContent,

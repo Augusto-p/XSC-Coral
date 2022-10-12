@@ -57,7 +57,6 @@ async function Send() {
     });
     Promise.all(promesas).then((imgs) => {
         let bodyContent = JSON.stringify({
-            "Token": user,
             "Libro": {
                 "ISBN": ISBN.value,
                 "Titulo": Titulo.value,
@@ -69,6 +68,7 @@ async function Send() {
                 "Imagenes": imgs
             }
         });
+        headersList["Authorization"] = "Token " + getCookie("Token");
         let response = fetch("http://localhost/xsc/api/book/mod", {
             method: "POST",
             body: bodyContent,

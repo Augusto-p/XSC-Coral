@@ -10,7 +10,7 @@ class App {
 
         if (empty($url[0])) {
             $archivoController = 'controllers/Home_Controller.php';
-            require $archivoController;
+            require_once $archivoController;
             $controller = new Home_Controller();
             $controller->loadModel('index');
             $controller->render();
@@ -20,7 +20,7 @@ class App {
             if ($nparam > 1) {
                 $archivoController = 'api/' . ucfirst($url[1]) . '_API_Controller.php';
                 if (file_exists($archivoController)) {
-                    require $archivoController;
+                    require_once $archivoController;
                     $controllerName = ucfirst($url[1]) . '_API_Controller';
                     
                     if ($nparam > 2) {
@@ -58,7 +58,7 @@ class App {
             $archivoController = 'controllers/' . ucfirst($url[0]) . '_Controller.php';
 
             if (file_exists($archivoController)) {
-                require $archivoController;
+                require_once $archivoController;
                 $controllerName = ucfirst($url[0]) . '_Controller';
                 $nparam         = sizeof($url);
                 if ($nparam > 1) {

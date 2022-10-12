@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/fonts.css">
 <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/baner.css">
 <div class="banner">
         <div class="marca">
@@ -6,8 +7,8 @@
         </div>
     
         <div class="busqueda">
-            <input class="barra" name="barra_de_busqueda" id="BarradeBusqueda" type="text" placeholder="buscar libros">
-            <button class="boton-lupa" onclick="Seach()"><img class="lupa" src="<?php echo constant('URL'); ?>public/Recursos/icons/lupa.svg" alt=""></button>
+            <input class="barra" name="barra_de_busqueda" onkeyup="enterSach(event)" id="BarradeBusqueda" type="text" placeholder="buscar libros">
+            <button class="boton-lupa" onclick="SeachBar()" ><img class="lupa" src="<?php echo constant('URL'); ?>public/Recursos/icons/lupa.svg" alt=""></button>
         </div>
     
         <div class="menu">
@@ -20,12 +21,21 @@
                 <li class="logos-res"><button><img src="<?php echo constant('URL'); ?>public/Recursos/icons/info.svg" alt=""></button></li>
                 <li><img class="user" src="<?php echo constant('URL'); ?>public/Recursos/icons/user.svg" alt="">
                     <ul class="submenu">
-                        <li class="noselect"><a href="#">Ingresar</a></li>
-                        <li class="noselect"><a href="#">Registro</a></li>
-                        <li class="noselect"><a href="<?php echo constant('URL'); ?>home/mod">Panel Admin</a></li>
+                        <?php if (!$_SESSION["login"]) {; ?>
+                            <li class="noselect"><a href="<?php echo constant('URL'); ?>Usuario">Ingresar</a></li>
+                            <li class="noselect"><a href="<?php echo constant('URL'); ?>Usuario/registrarse">Registro</a></li>
+                        <?php 
+                        }
+                        // if (str_contains($_SESSION["rol"], "Administrador") || str_contains($_SESSION["rol"], "Empleado")) {;?>
+                            <li class="noselect"><a href="<?php echo constant('URL'); ?>home/mod">Panel Admin</a></li>
+                        <?php 
+                        // }
+                        if ($_SESSION["login"]) {;
+                        ; ?>
                         <li class="noselect"><a href="#">Configuracion</a></li>
                         <hr>
-                        <li class="noselect"><a href="#">salir</a></li>
+                        <li class="noselect"><a href="<?php echo constant('URL'); ?>Usuario/Salir?From=<?php echo isset($_GET["url"]) ? $_GET["url"]: "";?>">salir</a></li>
+                        <?php }; ?>
                     </ul>
                 </li>
             </ul>
@@ -36,26 +46,8 @@
         </div>
     </div>
     <input type="hidden" name="url" id="URL" value="<?php echo constant('URL'); ?>">
-    <script>
-        const URL = document.getElementById("URL").value;
-        const Buscar = document.getElementById("BarradeBusqueda")
-        function Seach() {
-            goTo(`${URL}book?Seach=${Buscar.value}`)
-        }
-        Buscar.value = new URLSearchParams(window.location.search).get("Seach");
-        function goTo(url) {
-            a = document.createElement("a");
-            a.href = url;
-            a.click()
-        }
-    </script>
-<script src="<?php echo constant('URL'); ?>public/js/ITag/ITag.js"></script>
-<script>let user = "auguselo77@gmail.com";</script>
+    <script src="<?php echo constant('URL'); ?>public/js/main.js"></script>
+    <script src="<?php echo constant('URL'); ?>public/js/ITag/ITag.js"></script>
 
-<script>
-    function getCookie(name) {
-        return document.cookie.split('; ').filter(Cookie => Cookie.includes(name+"="))[0].replace(name+"=", "");
-    }
-</script>
 
     

@@ -15,8 +15,8 @@ class Carrito_API_Controller extends Controller {
         //get Carrito by user
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) != false) {
             $Carrito = $this->model->getByUser($email);
             $Book_Model = new Book_Model();

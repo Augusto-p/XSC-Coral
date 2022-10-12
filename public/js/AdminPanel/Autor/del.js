@@ -1,12 +1,9 @@
 
 async function send() {
     let bodyContent = {
-        "Token": user,
-        "Autor": {
-            "id": IDValue
-        }
+        "Autor": {"id": IDValue}
     }
-    
+    headersList["Authorization"] = "Token " + getCookie("Token");
     let response = await fetch(URL + "api/autor/delete", {
         method: "POST",
         body: JSON.stringify(bodyContent),

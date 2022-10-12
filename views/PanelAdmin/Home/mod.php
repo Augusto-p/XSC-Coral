@@ -9,7 +9,7 @@
 
     
 
-    <title>Document</title>
+    <title>Libreria MiMundo</title>
 </head>
 
 <body>

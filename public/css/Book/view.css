@@ -1,7 +1,7 @@
 body {
     margin: 0;
     background-color: #2692CA;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .big-contenedor {
@@ -468,7 +468,7 @@ body {
     align-items: center;
     color: #000;
     font-size: 1.2em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
     text-decoration: none;
 }
 

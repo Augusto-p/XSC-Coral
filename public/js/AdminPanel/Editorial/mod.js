@@ -9,7 +9,6 @@ INLogo.addEventListener("change", (e) => {
 
 async function send() {
     let bodyContent = {
-        "Token": user,
         "Editorial": {
             "ID": IDValue,
             "Nombre": Nombre.value,
@@ -19,6 +18,7 @@ async function send() {
             "Web": Web.value,
         }
     }
+    headersList["Authorization"] = "Token " + getCookie("Token");
     bodyContent["Editorial"]["Logo"] = INLogo['files'].length > 0 ? await ImgToB64(await INLogo['files'][0]) : null
 
 

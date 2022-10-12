@@ -7,9 +7,8 @@ let headersList = {
 let Listado = document.getElementById("ListaDeDatos");
 
 async function delCarrito(ISBN){
-    console.log("hola");
+    headersList["Authorization"] = "Token " + getCookie("Token");
     let bodyContent = JSON.stringify({
-        "Token": user,
         "Book": ISBN
     });
 
@@ -35,13 +34,13 @@ async function delCarrito(ISBN){
 
 async function getCarrito() {
     
-    let bodyContent = JSON.stringify({
-        "Token": user
-    });
-
+    // let bodyContent = JSON.stringify({
+    //     "Token": user
+    // });
+    headersList["Authorization"] = "Token " + getCookie("Token");
     let response = await fetch(URL +"api/carrito/get", {
         method: "POST",
-        body: bodyContent,
+        // body: bodyContent,
         headers: headersList
     });
 

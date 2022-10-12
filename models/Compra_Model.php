@@ -9,6 +9,7 @@ class Compra_Model extends Model
     public function add($compra){
         try {
             $pdo = $this->db->connect();
+            $pdo->beginTransaction();
             $consulta = $pdo->prepare("INSERT INTO compras (`ID_Editorial`, `Estado`, `Fecha_Hora`, `Metodo_Pago`, `Total`) VALUES (:edi, :estado, :date, :mp, :total);"); // consulta a la base de datos no disponible                                                      
             $consulta->bindValue(':edi', $compra->IDEditorial);
             $consulta->bindValue(':mp', $compra->MPago);
@@ -16,11 +17,25 @@ class Compra_Model extends Model
             $consulta->bindValue(':date', $compra->FechaHora);
             $consulta->bindValue(':estado', $compra->estado);            
             if ($consulta->execute()) {
-                return $pdo->lastInsertId();
+                $id =  $pdo->lastInsertId();
             } else {
-                return -1;
+                $id = -1;
             }
+            if ($id > 0) {
+                foreach ($compra->Detalles as $key => $DetalleCompra) {
+                    
+                    $consulta2 = $pdo->prepare("INSERT INTO compras_detalle (`ID_Compra`, `ISBN`, `Precio`, `Cantidad`) VALUES (:id, :isbn, :PU, :cant);"); // consulta a la base de datos no disponible                                                      
+                    $consulta2->bindValue(':id', $id);
+                    $consulta2->bindValue(':isbn', $DetalleCompra->ISBN);
+                    $consulta2->bindValue(':PU', $DetalleCompra->PUnitario);
+                    $consulta2->bindValue(':cant', $DetalleCompra->Cantidad);
+                    $consulta2->execute();
+                }
+            }
+            $pdo->commit();
+            return $id;
         } catch (PDOException $e) {
+            $pdo->rollBack();
             return -1;
         }finally {
            $pdo = null;
@@ -42,6 +57,21 @@ class Compra_Model extends Model
                 $Compra->FechaHora = $row['Fecha_Hora'];
                 $Compra->Total = $row['Total'];
                 array_push($Compras, $Compra);
+            }
+            foreach ($Compras as $key => $Compra) {
+                $consulta2 = $pdo->prepare('SELECT * FROM libreria.compras_detalle where compras_detalle.ID_Compra = :id;'); // consulta a la base de datos no disponible 
+                $consulta2->bindValue(':id', $Compra->id);
+                $consulta2->execute();
+                $Detalles = [];
+                while ($row = $consulta2->fetch()) {
+                    $Detalle = new DetalleCompra();
+                    $Detalle->id = $row['ID_Compra'];
+                    $Detalle->ISBN = $row['ISBN'];
+                    $Detalle->PUnitario = $row['Precio'];
+                    $Detalle->Cantidad = $row['Cantidad'];
+                    array_push($Detalles , $Detalle);
+                }
+                $Compras[$key]->Detalles = $Detalles;
             }
             return $Compras;
         } catch (PDOException $e) {
@@ -70,6 +100,21 @@ class Compra_Model extends Model
                 $Compra->Total = $row['Total'];
                 array_push($Compras, $Compra);
             }
+            foreach ($Compras as $key => $Compra) {
+                $consulta2 = $pdo->prepare('SELECT * FROM libreria.compras_detalle where compras_detalle.ID_Compra = :id;'); // consulta a la base de datos no disponible 
+                $consulta2->bindValue(':id', $Compra->id);
+                $consulta2->execute();
+                $Detalles = [];
+                while ($row = $consulta2->fetch()) {
+                    $Detalle = new DetalleCompra();
+                    $Detalle->id = $row['ID_Compra'];
+                    $Detalle->ISBN = $row['ISBN'];
+                    $Detalle->PUnitario = $row['Precio'];
+                    $Detalle->Cantidad = $row['Cantidad'];
+                    array_push($Detalles , $Detalle);
+                }
+                $Compras[$key]->Detalles = $Detalles;
+            }
             return $Compras;
         } catch (PDOException $e) {
             return null;
@@ -97,6 +142,21 @@ class Compra_Model extends Model
                 $Compra->Total = $row['Total'];
                 array_push($Compras, $Compra);
             }
+            foreach ($Compras as $key => $Compra) {
+                $consulta2 = $pdo->prepare('SELECT * FROM libreria.compras_detalle where compras_detalle.ID_Compra = :id;'); // consulta a la base de datos no disponible 
+                $consulta2->bindValue(':id', $Compra->id);
+                $consulta2->execute();
+                $Detalles = [];
+                while ($row = $consulta2->fetch()) {
+                    $Detalle = new DetalleCompra();
+                    $Detalle->id = $row['ID_Compra'];
+                    $Detalle->ISBN = $row['ISBN'];
+                    $Detalle->PUnitario = $row['Precio'];
+                    $Detalle->Cantidad = $row['Cantidad'];
+                    array_push($Detalles , $Detalle);
+                }
+                $Compras[$key]->Detalles = $Detalles;
+            }
             return $Compras;
         } catch (PDOException $e) {
             return null;
@@ -123,6 +183,20 @@ class Compra_Model extends Model
                 $Compra->FechaHora = $row['Fecha_Hora'];
                 $Compra->Total = $row['Total'];
                 array_push($Compras, $Compra);
+            } foreach ($Compras as $key => $Compra) {
+                $consulta2 = $pdo->prepare('SELECT * FROM libreria.compras_detalle where compras_detalle.ID_Compra = :id;'); // consulta a la base de datos no disponible 
+                $consulta2->bindValue(':id', $Compra->id);
+                $consulta2->execute();
+                $Detalles = [];
+                while ($row = $consulta2->fetch()) {
+                    $Detalle = new DetalleCompra();
+                    $Detalle->id = $row['ID_Compra'];
+                    $Detalle->ISBN = $row['ISBN'];
+                    $Detalle->PUnitario = $row['Precio'];
+                    $Detalle->Cantidad = $row['Cantidad'];
+                    array_push($Detalles , $Detalle);
+                }
+                $Compras[$key]->Detalles = $Detalles;
             }
             return $Compras;
         } catch (PDOException $e) {
@@ -152,6 +226,21 @@ class Compra_Model extends Model
                 $Compra->Total = $row['Total'];
                 array_push($Compras, $Compra);
             }
+             foreach ($Compras as $key => $Compra) {
+                $consulta2 = $pdo->prepare('SELECT * FROM libreria.compras_detalle where compras_detalle.ID_Compra = :id;'); // consulta a la base de datos no disponible 
+                $consulta2->bindValue(':id', $Compra->id);
+                $consulta2->execute();
+                $Detalles = [];
+                while ($row = $consulta2->fetch()) {
+                    $Detalle = new DetalleCompra();
+                    $Detalle->id = $row['ID_Compra'];
+                    $Detalle->ISBN = $row['ISBN'];
+                    $Detalle->PUnitario = $row['Precio'];
+                    $Detalle->Cantidad = $row['Cantidad'];
+                    array_push($Detalles , $Detalle);
+                }
+                $Compras[$key]->Detalles = $Detalles;
+            }
             return $Compras;
         } catch (PDOException $e) {
             return null;
@@ -176,7 +265,20 @@ class Compra_Model extends Model
             $Compra->IDEditorial = $row['ID_Editorial'];
             $Compra->FechaHora = $row['Fecha_Hora'];
             $Compra->Total = $row['Total'];
-
+            $consulta2 = $pdo->prepare('SELECT * FROM libreria.compras_detalle where compras_detalle.ID_Compra = :id;'); // consulta a la base de datos no disponible 
+            $consulta2->bindValue(':id', $Compra->id);
+            $consulta2->execute();
+            $Detalles = [];
+            while ($row = $consulta2->fetch()) {
+                $Detalle = new DetalleCompra();
+                $Detalle->id = $row['ID_Compra'];
+                $Detalle->ISBN = $row['ISBN'];
+                $Detalle->PUnitario = $row['Precio'];
+                $Detalle->Cantidad = $row['Cantidad'];
+                array_push($Detalles , $Detalle);
+            }
+            $Compra->Detalles = $Detalles;
+            
             return $Compra;
         } catch (PDOException $e) {
             return null;

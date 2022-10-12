@@ -1,7 +1,6 @@
 async function Send(){
 
     let bodyContent = JSON.stringify({
-        "Token": user,
         "Usuario": {
             "Nombre": nombre.value,
             "Apellido": apellido.value,
@@ -19,6 +18,7 @@ async function Send(){
 
         }
     });
+    headersList["Authorization"] = "Token " + getCookie("Token");
 
     let response = await fetch(URL+"api/usuario/add", {
         method: "POST",

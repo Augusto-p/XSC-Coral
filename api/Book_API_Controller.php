@@ -8,6 +8,7 @@ require_once 'models/Editorial_Model.php';
 require_once 'models/Usuario_model.php';
 require_once 'utilidades/Imagenes.php';
 
+
 class Book_API_Controller extends Controller {
     public function __construct() {
         parent::__construct();

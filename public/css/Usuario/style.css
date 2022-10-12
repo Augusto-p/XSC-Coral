@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
 
 html {
     width: 100vw;
@@ -60,7 +60,7 @@ body {
 
 .inputs {
     font-size: 1.3em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
     background-color: transparent;
     min-width: 45%;
     max-width: 80%;
@@ -74,14 +74,14 @@ body {
 
 #titulo {
     font-size: 3em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
     color: #145075;
     text-align: center;
 }
 
 .span-cam {
     font-size: 0.8em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .span-cam a {

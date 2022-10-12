@@ -41,11 +41,7 @@ class Usuario_Controller extends Controller
     }
     public function apdel(){
         $this->view->render("PanelAdmin/Usuario/del");
-    }
-
-    
-
-    
+    }  
     
     public function signin(){
         $user = new Usuario(); //creamos un objeto de tipo usuario
@@ -150,7 +146,7 @@ class Usuario_Controller extends Controller
         $nombre = $this->model->getNombrebyEmail($email); //obtiene el nombre del usuario
         if ($nombre) {
             $ID_Password_Reset = sha1(uniqid(mt_rand(), true)); // se genera una cadena unica
-            $date = date("Y-m-d"); // se obtiene la fecha actual
+            $date = date("Y-m-d H:i:s"); // se obtiene la fecha actual
             $this->model->setTokenOfForgetPasswordByEmailSystem( $email,$ID_Password_Reset, $date); //se guarda la cadena unica en la base de datos
             $send = new Mail(); // se crea una nueva instancia de la clase mails
             $sending = $send->SendMailForgetPassword($email, $ID_Password_Reset , $nombre);
@@ -180,5 +176,14 @@ class Usuario_Controller extends Controller
 
 
         
+    }
+
+    public function Salir(){
+
+        $_SESSION["rol"] = null;
+        $_SESSION["login"] = null;
+        Cookies::delCookie(["name" => "Token"]);
+        $this->view->from = constant('URL') . $_GET["From"];
+        $this->view->render('usuario/Salir');
     }
 }; ?>

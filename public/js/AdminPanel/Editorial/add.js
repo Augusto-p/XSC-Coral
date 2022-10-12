@@ -11,7 +11,6 @@ INLogo.addEventListener("change", (e) => {
 
 async function send() {
     let bodyContent = {
-        "Token": user,
         "Editorial": {
             "Nombre": Nombre.value,
             "Telefono": Numero.value,
@@ -21,7 +20,7 @@ async function send() {
             "Logo": await ImgToB64(await INLogo['files'][0])
         }
     }
-    
+    headersList["Authorization"] = "Token " + getCookie("Token");
 
 
     let response = await fetch(URL + "api/editorial/add", {

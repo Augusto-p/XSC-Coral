@@ -1,10 +1,10 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); */
+
 
 /* baner principal */
 body {
     margin: 0;
     background-color: #2692CA;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .banner {
@@ -25,7 +25,7 @@ body {
 
 .nombre {
     font-size: 1.8em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
     color: black;
     text-decoration: none;
 }
@@ -50,7 +50,7 @@ body {
     width: 37vw;
     height: 3vh;
     border-radius: 5px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
     border: none;
 }
 
@@ -76,15 +76,16 @@ body {
     align-items: center;
     background-color: #E0E0E0;
     justify-content: space-around;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .menu-ul a {
     color: black;
-    font-size: 1.8em;
+    font-size: 1.5em;
     text-decoration: none;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
+
 
 .submenu {
     display: none;
@@ -94,7 +95,35 @@ body {
     background-color: #E0E0E0;
     width: 12vw;
     list-style: none;
-    right: 11.9vh;
+    right: 10.9vh;
+    border-radius: 1vh;
+    border: #71EBA1 3px solid;
+    transform: translateY(2vh);
+}
+
+.submenu::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-right-width: 14px;
+    border-left-width: 14px;
+    border-bottom: 14px solid #71EBA1;
+    left: calc(6vw - 14px);
+    top: -15px;
+    position: absolute;
+    display: block;
+
+}
+
+.submenu li:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+
+}
+.submenu hr {
+    border: #71EBA1 1px solid;
+    background-color: #71EBA1;
+    margin-inline: 0;
 }
 
 .menu-ul li:hover .submenu {
@@ -168,7 +197,7 @@ footer {
     align-items: center;
     color: white;
     font-size: 1.2em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
     text-decoration: none;
 }
 
@@ -192,12 +221,12 @@ footer {
 
 .footer-up-column p {
     font-size: 1.2em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .footer-up-column h3 {
     font-size: 1.8em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .footer-down {
@@ -218,7 +247,7 @@ footer {
 
 .copyright h2 {
     font-size: 1em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .logos-res {

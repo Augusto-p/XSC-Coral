@@ -1,7 +1,7 @@
 body {
     margin: 0;
     background-color: #2692CA;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .content {
@@ -216,7 +216,7 @@ body {
 
 .inputs {
     font-size: 1.3em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
     background-color: transparent;
     min-width: 45%;
     max-width: 80%;

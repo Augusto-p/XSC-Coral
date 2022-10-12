@@ -1,18 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
 <style>
      @page {
             margin: 0px 0px 0px 0px !important;
             padding: 0px 0px 0px 0px !important;
         }
-</style>
-
-
-    <style>
-        /* @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); */
 
         body {
             background-color: aliceblue;
@@ -27,7 +20,6 @@
             margin: 8px 8px 0px 8px;
             height: 25%;
             display: flex;
-
         }
 
         .Hedder-l {
@@ -44,7 +36,7 @@
             top:8px;
             right:8px;
             position: absolute;
-            
+
         }
 
 
@@ -156,7 +148,7 @@
 	        vertical-align: middle;
             font-family: "Roboto-900";
             font-weight: normal;
-            
+
 
         }
 
@@ -165,7 +157,7 @@
             height:100%;
             top: 0;
             right: 0;
-            border-spacing: 5px; 
+            border-spacing: 5px;
         }
 
         .Cliente tr {
@@ -173,7 +165,7 @@
             line-height: 80px;
         }
 
-        
+
         .Cliente td {
             background-color: #2692ca;
             color: aliceblue;
@@ -186,10 +178,10 @@
             font-family: 'Roboto-900'!important;
 
         }
-        
-        
 
-        
+
+
+
 
         .Body {
             /* background:blue; */
@@ -213,7 +205,7 @@
             top:5%;
             left: 5%;
             position: absolute;
-            border-collapse: collapse;            
+            border-collapse: collapse;
         }
 
         .Body tr {
@@ -318,7 +310,7 @@
             position: absolute;
             right: 5%;
             top: 5%;
-            
+
         }
 
         .E-Tiket span {
@@ -352,7 +344,7 @@
             color: aliceblue;
             font-weight: normal;
             font-family:"Roboto-700";
-            
+
         }
 
         .Totales td {
@@ -508,7 +500,7 @@
                 <div class="E-Tiket-down">
                     <span>Puede verificar comprobante en www.dgi.gub.uy</span>
                 </div>
-                
+
             </div>
         </div>
         <div class="Footer-r">
@@ -517,11 +509,11 @@
                 <tbody>
                     <tr>
                         <th>SubTotal</th>
-                        <td>$<?=Formatos::moneyFormat($venta->Total - (((1100/61)* $venta->Total)/100));?></td>
+                        <td>$<?=Formatos::moneyFormat($venta->Total - (((1100 / 61) * $venta->Total) / 100));?></td>
                     </tr>
                     <tr>
                         <th>IVA 22%</th>
-                        <td>$<?=Formatos::moneyFormat(((1100/61)* $venta->Total)/100);?></td>
+                        <td>$<?=Formatos::moneyFormat(((1100 / 61) * $venta->Total) / 100);?></td>
                     </tr>
                     <tr>
                         <th>Total</th>

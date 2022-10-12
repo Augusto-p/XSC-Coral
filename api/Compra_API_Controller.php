@@ -2,9 +2,8 @@
 
 require_once 'DTO/compra.php';
 require_once 'DTO/detalleCompra.php';
-
 require_once 'models/Usuario_model.php';
-require_once 'models/DetalleCompra_Model.php';
+// require_once 'models/DetalleCompra_Model.php';
 
 
 
@@ -17,14 +16,11 @@ class Compra_API_Controller extends Controller {
         //get all compras
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             $Compras = $this->model->getAll();
-            $Detalles_Model = new DetalleCompra_Model();
-            foreach ($Compras as $key => $compra) {
-                $Compras[$key]->Detalles = $Detalles_Model->getAllByIdCompra($compra->id);
-            }
+            
             $res = [
             "mensaje"   => "Hey",
             "Compras"   => $Compras,
@@ -42,14 +38,11 @@ class Compra_API_Controller extends Controller {
         //get all compras
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             $Compras = $this->model->getAllByEditorial($data->IDEditorial);
-            $Detalles_Model = new DetalleCompra_Model();
-            foreach ($Compras as $key => $compra) {
-                $Compras[$key]->Detalles = $Detalles_Model->getAllByIdCompra($compra->id);
-            }
+            
             $res = [
             "mensaje"   => "Hey",
             "Compras"   => $Compras,
@@ -66,14 +59,11 @@ class Compra_API_Controller extends Controller {
         //get all compras
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             $Compras = $this->model->getAllByMPago($data->Metodo_Pago);
-            $Detalles_Model = new DetalleCompra_Model();
-            foreach ($Compras as $key => $compra) {
-                $Compras[$key]->Detalles = $Detalles_Model->getAllByIdCompra($compra->id);
-            }
+            
             $res = [
             "mensaje"   => "Hey",
             "Compras"   => $Compras,
@@ -91,14 +81,11 @@ class Compra_API_Controller extends Controller {
         //get all compras
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             $Compras = $this->model->getAllByEstado($data->Estado);
-            $Detalles_Model = new DetalleCompra_Model();
-            foreach ($Compras as $key => $compra) {
-                $Compras[$key]->Detalles = $Detalles_Model->getAllByIdCompra($compra->id);
-            }
+            
             $res = [
             "mensaje"   => "Hey",
             "Compras"   => $Compras,
@@ -116,14 +103,11 @@ class Compra_API_Controller extends Controller {
         //get all compras
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             $Compras = $this->model->getAllByFecha($data->From, $data->To);
-            $Detalles_Model = new DetalleCompra_Model();
-            foreach ($Compras as $key => $compra) {
-                $Compras[$key]->Detalles = $Detalles_Model->getAllByIdCompra($compra->id);
-            }
+            
             $res = [
             "mensaje"   => "Hey",
             "Compras"   => $Compras,
@@ -141,13 +125,10 @@ class Compra_API_Controller extends Controller {
     public function get(){
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             $Compra = $this->model->get($data->Compra);
-            $Detalles_Model = new DetalleCompra_Model();
-            $Detalles = $Detalles_Model->getAllByIdCompra($data->Compra);
-            $Compra->Detalles  = $Detalles;
             $res = [
             "mensaje"   => "Hey",
             "Compra"   => $Compra,
@@ -163,8 +144,8 @@ class Compra_API_Controller extends Controller {
         //add Compra
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             $compra = new Compra;
             $compra->estado = $data->Compra->Estado;
@@ -184,15 +165,9 @@ class Compra_API_Controller extends Controller {
             }
         
             $compra->Total = $Total;
-       
+            $compra->Detalles = $Detalles;
             $id = $this->model->add($compra);
             if ($id >= 0) {
-                $Detalles_Model = new DetalleCompra_Model();
-                foreach ($Detalles as $key => $detalle) {
-                    $detalle->id = $id;
-                    $Detalles_Model->add($detalle);
-                }
-
                 $res = ["mensaje" => "Compra Ingresado", "code" => 200];
             }else{
                 $res = ["mensaje" => "Compra No Ingresado", "code" => 404];
@@ -212,11 +187,10 @@ class Compra_API_Controller extends Controller {
         //del Compra
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador") {
-            $Detalles_Model = new DetalleCompra_Model();
-            if($this->model->delete($data->ID) && $Detalles_Model->deleteByIdCompra($data->ID)){
+            if($this->model->delete($data->ID)){
                 $res = ["mensaje" => "Compra Eliminado Correctamente", "code" => 200];
             }else{
                 $res = ["mensaje" => "Compra No Localizado", "code" => 404];
@@ -232,8 +206,8 @@ class Compra_API_Controller extends Controller {
         //add Compra
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
-        $token     = $data->Token;
-        $email     = $token; //probiconal JWT
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             
             if($this->model->NewStatus($data->ID, $data->New_Status)){

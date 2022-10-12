@@ -10,7 +10,6 @@ INFoto.addEventListener("change", (e) => {
 
 async function send(){
     let bodyContent = {
-        "Token": user,
         "Autor": {
             "Nombre": Nombre.value,
             "Nacionalidad": Nacionlaidad.value,

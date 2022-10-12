@@ -17,11 +17,28 @@ class Venta_Model extends Model
             $consulta->bindValue(':estado', $venta->Estado);  
             
             if ($consulta->execute()) {
-                return $pdo->lastInsertId();
+                $id =  $pdo->lastInsertId();
             } else {
-                return -1;
+                $id = -1;
             }
+            if ($id > 0) {
+                $consulta2 = $pdo->prepare("INSERT INTO pedidos (`ID_Venta`, `Descripcion`, `Sistema_Envio`) VALUES (:id, :desc, :envio);"); // consulta a la base de datos no disponible                                                      
+                $consulta2->bindValue(':id', $id);
+                $consulta2->bindValue(':envio', $Pedido->SEnvio);
+                $consulta2->bindValue(':desc', $Pedido->Descripcion);
+                $consulta2->execute();
+                foreach ($venta->Detalles as $key => $DetalleVenta) {
+                    $consulta3 = $pdo->prepare("INSERT INTO ventas_detalle (ID_Venta, ISBN, Cantidad, Descuento) VALUES (:id, :isbn, :cant, :descu);"); // consulta a la base de datos no disponible                                                      
+                    $consulta3->bindValue(':id', $id);
+                    $consulta3->bindValue(':isbn', $DetalleVenta->ISBN);
+                    $consulta3->bindValue(':descu', $DetalleVenta->Descuento);
+                    $consulta3->bindValue(':cant', $DetalleVenta->Cantidad);
+                    $consulta3->execute();
+                }
+            }
+            $pdo->commit();
         } catch (PDOException $e) {
+            $pdo->rollBack();
             return -1;
         }finally {
            $pdo = null;
@@ -44,6 +61,34 @@ class Venta_Model extends Model
                 $venta->Total = $row['Total'];
                 array_push($ventas, $venta);
             }
+            foreach ($ventas as $key => $venta) {
+                $consulta2 = $pdo->prepare('SELECT * FROM pedidos where pedidos.ID_Venta = :id'); // consulta a la base de datos no disponible 
+                $consulta2->bindValue(':id', $venta->id);
+                $consulta2->execute();
+                while ($row = $consulta2->fetch()) {
+                    $Pedido = new Pedido();
+                    $Pedido->id           = $row['ID_Venta'];
+                    $Pedido->SEnvio       = $row['Sistema_Envio'];
+                    $Pedido->Descripcion = $row['Descripcion'];
+                }
+                $ventas[$key]->Pedido = $Pedido;
+                $consulta3 = $pdo->prepare('SELECT * FROM ventas_detalle where ventas_detalle.ID_Venta = :id;'); // consulta a la base de datos no disponible 
+                $consulta3->bindValue(':id', $venta->id);
+                $consulta3->execute();
+                $Detalles = [];
+                while ($row = $consulta3->fetch()) {
+                    $Detalle = new DetalleVenta();
+                    $Detalle->id = $row['ID_Venta'];
+                    $Detalle->ISBN = $row['ISBN'];
+                    $Detalle->Descuento = $row['Descuento'];
+                    $Detalle->Cantidad = $row['Cantidad'];
+                    array_push($Detalles , $Detalle);
+                }
+                $ventas[$key]->Detalles = $Detalles;
+            
+            }
+
+
             return $ventas;
         } catch (PDOException $e) {
             return null;
@@ -70,6 +115,32 @@ class Venta_Model extends Model
                 $venta->FechaHora = $row['Fecha_Hora'];
                 $venta->Total = $row['Total'];
                 array_push($ventas, $venta);
+            }
+            foreach ($ventas as $key => $venta) {
+                $consulta2 = $pdo->prepare('SELECT * FROM pedidos where pedidos.ID_Venta = :id'); // consulta a la base de datos no disponible
+                $consulta2->bindValue(':id', $venta->id);
+                $consulta2->execute();
+                while ($row = $consulta2->fetch()) {
+                    $Pedido              = new Pedido();
+                    $Pedido->id          = $row['ID_Venta'];
+                    $Pedido->SEnvio      = $row['Sistema_Envio'];
+                    $Pedido->Descripcion = $row['Descripcion'];
+                }
+                $ventas[$key]->Pedido = $Pedido;
+                $consulta3            = $pdo->prepare('SELECT * FROM ventas_detalle where ventas_detalle.ID_Venta = :id;'); // consulta a la base de datos no disponible
+                $consulta3->bindValue(':id', $venta->id);
+                $consulta3->execute();
+                $Detalles = [];
+                while ($row = $consulta3->fetch()) {
+                    $Detalle            = new DetalleVenta();
+                    $Detalle->id        = $row['ID_Venta'];
+                    $Detalle->ISBN      = $row['ISBN'];
+                    $Detalle->Descuento = $row['Descuento'];
+                    $Detalle->Cantidad  = $row['Cantidad'];
+                    array_push($Detalles, $Detalle);
+                }
+                $ventas[$key]->Detalles = $Detalles;
+
             }
             return $ventas;
         } catch (PDOException $e) {
@@ -98,6 +169,32 @@ class Venta_Model extends Model
                 $venta->Total = $row['Total'];
                 array_push($ventas, $venta);
             }
+            foreach ($ventas as $key => $venta) {
+                $consulta2 = $pdo->prepare('SELECT * FROM pedidos where pedidos.ID_Venta = :id'); // consulta a la base de datos no disponible 
+                $consulta2->bindValue(':id', $venta->id);
+                $consulta2->execute();
+                while ($row = $consulta2->fetch()) {
+                    $Pedido = new Pedido();
+                    $Pedido->id           = $row['ID_Venta'];
+                    $Pedido->SEnvio       = $row['Sistema_Envio'];
+                    $Pedido->Descripcion = $row['Descripcion'];
+                }
+                $ventas[$key]->Pedido = $Pedido;
+                $consulta3 = $pdo->prepare('SELECT * FROM ventas_detalle where ventas_detalle.ID_Venta = :id;'); // consulta a la base de datos no disponible 
+                $consulta3->bindValue(':id', $venta->id);
+                $consulta3->execute();
+                $Detalles = [];
+                while ($row = $consulta3->fetch()) {
+                    $Detalle = new DetalleVenta();
+                    $Detalle->id = $row['ID_Venta'];
+                    $Detalle->ISBN = $row['ISBN'];
+                    $Detalle->Descuento = $row['Descuento'];
+                    $Detalle->Cantidad = $row['Cantidad'];
+                    array_push($Detalles , $Detalle);
+                }
+                $ventas[$key]->Detalles = $Detalles;
+            
+            }
             return $ventas;
         } catch (PDOException $e) {
             return null;
@@ -124,6 +221,32 @@ class Venta_Model extends Model
                 $venta->FechaHora = $row['Fecha_Hora'];
                 $venta->Total = $row['Total'];
                 array_push($ventas, $venta);
+            }
+            foreach ($ventas as $key => $venta) {
+                $consulta2 = $pdo->prepare('SELECT * FROM pedidos where pedidos.ID_Venta = :id'); // consulta a la base de datos no disponible 
+                $consulta2->bindValue(':id', $venta->id);
+                $consulta2->execute();
+                while ($row = $consulta2->fetch()) {
+                    $Pedido = new Pedido();
+                    $Pedido->id           = $row['ID_Venta'];
+                    $Pedido->SEnvio       = $row['Sistema_Envio'];
+                    $Pedido->Descripcion = $row['Descripcion'];
+                }
+                $ventas[$key]->Pedido = $Pedido;
+                $consulta3 = $pdo->prepare('SELECT * FROM ventas_detalle where ventas_detalle.ID_Venta = :id;'); // consulta a la base de datos no disponible 
+                $consulta3->bindValue(':id', $venta->id);
+                $consulta3->execute();
+                $Detalles = [];
+                while ($row = $consulta3->fetch()) {
+                    $Detalle = new DetalleVenta();
+                    $Detalle->id = $row['ID_Venta'];
+                    $Detalle->ISBN = $row['ISBN'];
+                    $Detalle->Descuento = $row['Descuento'];
+                    $Detalle->Cantidad = $row['Cantidad'];
+                    array_push($Detalles , $Detalle);
+                }
+                $ventas[$key]->Detalles = $Detalles;
+            
             }
             return $ventas;
         } catch (PDOException $e) {
@@ -153,6 +276,32 @@ class Venta_Model extends Model
                 $venta->Total = $row['Total'];
                 array_push($ventas, $venta);
             }
+            foreach ($ventas as $key => $venta) {
+                $consulta2 = $pdo->prepare('SELECT * FROM pedidos where pedidos.ID_Venta = :id'); // consulta a la base de datos no disponible 
+                $consulta2->bindValue(':id', $venta->id);
+                $consulta2->execute();
+                while ($row = $consulta2->fetch()) {
+                    $Pedido = new Pedido();
+                    $Pedido->id           = $row['ID_Venta'];
+                    $Pedido->SEnvio       = $row['Sistema_Envio'];
+                    $Pedido->Descripcion = $row['Descripcion'];
+                }
+                $ventas[$key]->Pedido = $Pedido;
+                $consulta3 = $pdo->prepare('SELECT * FROM ventas_detalle where ventas_detalle.ID_Venta = :id;'); // consulta a la base de datos no disponible 
+                $consulta3->bindValue(':id', $venta->id);
+                $consulta3->execute();
+                $Detalles = [];
+                while ($row = $consulta3->fetch()) {
+                    $Detalle = new DetalleVenta();
+                    $Detalle->id = $row['ID_Venta'];
+                    $Detalle->ISBN = $row['ISBN'];
+                    $Detalle->Descuento = $row['Descuento'];
+                    $Detalle->Cantidad = $row['Cantidad'];
+                    array_push($Detalles , $Detalle);
+                }
+                $ventas[$key]->Detalles = $Detalles;
+            
+            }
             return $ventas;
         } catch (PDOException $e) {
             return null;
@@ -177,6 +326,30 @@ class Venta_Model extends Model
             $venta->Email = $row['Email'];
             $venta->FechaHora = $row['Fecha_Hora'];
             $venta->Total = $row['Total'];
+            $consulta2 = $pdo->prepare('SELECT * FROM pedidos where pedidos.ID_Venta = :id'); // consulta a la base de datos no disponible 
+            $consulta2->bindValue(':id', $venta->id);
+            $consulta2->execute();
+            while ($row = $consulta2->fetch()) {
+                $Pedido = new Pedido();
+                $Pedido->id           = $row['ID_Venta'];
+                $Pedido->SEnvio       = $row['Sistema_Envio'];
+                $Pedido->Descripcion = $row['Descripcion'];
+            }
+            $venta->Pedido = $Pedido;
+            $consulta3 = $pdo->prepare('SELECT * FROM ventas_detalle where ventas_detalle.ID_Venta = :id;'); // consulta a la base de datos no disponible 
+            $consulta3->bindValue(':id', $venta->id);
+            $consulta3->execute();
+            $Detalles = [];
+            while ($row = $consulta3->fetch()) {
+                $Detalle = new DetalleVenta();
+                $Detalle->id = $row['ID_Venta'];
+                $Detalle->ISBN = $row['ISBN'];
+                $Detalle->Descuento = $row['Descuento'];
+                $Detalle->Cantidad = $row['Cantidad'];
+                array_push($Detalles , $Detalle);
+            }
+            $venta->Detalles = $Detalles;
+            
 
             return $venta;
         } catch (PDOException $e) {

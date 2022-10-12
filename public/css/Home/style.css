@@ -23,7 +23,7 @@ body {
 
 .nombre {
     font-size: 1.8em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .marca {
@@ -46,7 +46,7 @@ body {
     width: 37vw;
     height: 3vh;
     border-radius: 5px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .busqueda {
@@ -71,14 +71,14 @@ body {
     align-items: center;
     background-color: #E0E0E0;
     justify-content: space-around;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .menu-ul a {
     color: black;
     font-size: 1.8em;
     text-decoration: none;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .submenu {
@@ -196,7 +196,7 @@ footer {
     align-items: center;
     color: white;
     font-size: 1.2em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
     text-decoration: none;
 }
 
@@ -220,12 +220,12 @@ footer {
 
 .footer-up-column p {
     font-size: 1.2em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .footer-up-column h3 {
     font-size: 1.8em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .footer-down {
@@ -246,7 +246,7 @@ footer {
 
 .copyright h2 {
     font-size: 1em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 /* slider */
@@ -265,7 +265,7 @@ footer {
     padding: 0;
     font-size: 30px;
     font-weight: 500;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
     margin-top: 0;
 }
 
@@ -329,11 +329,14 @@ footer {
 
 .slider-item-up {
     height: 50vh;
-    background-size: contain;
+    
     width: 15vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .slider-caratula-book {
@@ -356,7 +359,7 @@ footer {
     margin: 0;
     padding-left: 10px;
     font-size: 0.9em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .slider a {
@@ -406,12 +409,12 @@ footer {
     border-radius: 5px;
     color: rgb(0, 0, 0);
 
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .slider-item-addCarito {
     padding: 10px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
     border: none;
     outline: none;
     background: #ffffff;
@@ -649,7 +652,7 @@ footer {
 
 .nombre {
     font-size: 2.5em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .marca {
@@ -672,7 +675,7 @@ footer {
     width: 37vw;
     height: 5vh;
     border-radius: 5px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .busqueda {
@@ -697,14 +700,14 @@ footer {
     align-items: center;
     background-color: #E0E0E0;
     justify-content: space-around;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .menu-ul a {
     color: black;
     font-size: 1.8em;
     text-decoration: none;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .submenu {
@@ -822,7 +825,7 @@ footer {
     align-items: center;
     color: white;
     font-size: 1.2em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
     text-decoration: none;
 }
 
@@ -846,12 +849,12 @@ footer {
 
 .footer-up-column p {
     font-size: 1.2em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .footer-up-column h3 {
     font-size: 1.8em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .footer-down {
@@ -872,7 +875,7 @@ footer {
 
 .copyright h2 {
     font-size: 1em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 /* slider 
@@ -891,7 +894,7 @@ footer {
     padding: 0;
     font-size: 30px;
     font-weight: 500;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
     margin-top: 0;
 }
 
@@ -982,7 +985,7 @@ footer {
     margin: 0;
     padding-left: 10px;
     font-size: 0.9em;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .slider a {
@@ -1032,12 +1035,12 @@ footer {
     border-radius: 5px;
     color: rgb(0, 0, 0);
 
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
 }
 
 .slider-item-addCarito {
     padding: 10px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto';
     border: none;
     outline: none;
     background: #ffffff;

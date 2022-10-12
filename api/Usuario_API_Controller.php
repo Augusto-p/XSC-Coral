@@ -4,10 +4,11 @@ require_once 'utilidades/Imagenes.php';
 //test
 require_once 'utilidades/PDFs.php';
 require_once 'models/Book_Model.php';
-require_once 'models/DetalleVenta_Model.php';
+// require_once 'models/DetalleVenta_Model.php';
 require_once 'models/Venta_Model.php';
-require_once 'models/Pedido_Model.php';
-
+// require_once 'models/Pedido_Model.php';
+require_once 'utilidades/Mails.php';
+require_once 'utilidades/Errors.php';
 
 
 
@@ -37,10 +38,9 @@ class Usuario_API_Controller extends Controller
         echo $pdfs->Facturar($venta, $user);
     }
 
-    // public function test2(){
-    //     print_r();
-
-    // }
+    public function test2(){
+        Errors::NewError("PDO", __File__, __Line__, "Max Verstapen is champion");
+    }
 
 
     public function get(){
