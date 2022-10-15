@@ -14,7 +14,7 @@ menuprin(){
     echo "9-Salir"
     read -p "Ingrese la opción aquí" opc
     case $opc in
-        1);;
+        1)source ./ADMServices/main.sh;;
         2);;
         3);;
         4)source ./ADMUsers/main.sh;;

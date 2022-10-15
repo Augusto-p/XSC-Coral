@@ -7,7 +7,11 @@ if grep -qi "xscadmin" /etc/passwd; then
 else
     echo "El usuario no pudo ser creado"
 fi
-
+sudo apt install net-tools
+if dpkg -l | grep -qi net-tools;then
+    echo "Instalado correctamente"
+fi
+sudo apt update && apt upgrade
 sudo apt update && apt upgrade
 sudo apt install openssh-server
 if dpkg -l | grep -qi openssh-server;then
@@ -25,7 +29,7 @@ if dpkg -l | grep -qi git;then
     echo "Instalado correctamente"
 fi
 sudo apt update && apt upgrade
-ipconfig
+ifconfig
 echo "Escribir la dirección ip del dispositivo"
 echo "Debajo de la línea que dice: bind-address:127.0.0.0"
 read -p "Presione cualquier tecla para continuar..." ne

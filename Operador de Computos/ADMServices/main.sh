@@ -12,7 +12,7 @@ menuserv(){
     echo "Elija una de las opciones"
     echo "1-Ejecutar o Detener un proceso"
     echo "2-Habilitar o Deshabilitar un servicio para su ejecución al arranque"
-    echo ""
+    echo "3-Verificar el estado de un servicio"
     echo ""
     echo ""
     echo "9-Salir al menú principal"
@@ -43,7 +43,7 @@ menuserv(){
             ;;
             esac
         ;;
-        3)clear
+        2)clear
         echo "Aquí se va a poder habilitar o deshabilitar un servicio"
         echo "¿Desea ver los servicios instalados(tanto en uso como apagados) o solo los cargados?"
             read -p "Instalados=I   Cargados=C" $carg
@@ -58,6 +58,22 @@ menuserv(){
         case $hades in
         H | h) ;;
         D | d) ;;
+        esac
+        ;;
+        3)clear
+        echo "Aquí se podrán verificar el estado de un proceso"
+        echo "¿Desea ver los servicios instalados(tanto en uso como apagados) o solo los cargados?"
+            read -p "Instalados=I   Cargados=C" $carg
+            case $carg in
+                I | i) systemctl list-unit-files
+                ;;
+                C | c) systemctl
+                ;;
+            esac
+        
+        
+        
+        ;;
         *) echo "La opción $opc no es válida, por favor, intente nuevamente"
         menuserv
         ;;
