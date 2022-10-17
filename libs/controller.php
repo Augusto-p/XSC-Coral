@@ -11,6 +11,8 @@ class Controller
         session_start();
         require 'utilidades/Cookies.php';
         require 'utilidades/JWTs.php';
+        require 'utilidades\SessionStorage.php';
+
     }
     public function loadModel($model)
     {

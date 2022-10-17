@@ -18,23 +18,30 @@ class Book_API_Controller extends Controller {
         $id = $_GET['ISBN'];
         //get Book
         $libro = $this->model->get($id);
-        $file  = new Archivo;
-        $file->setPath($libro->sipnosis);
-        $file->read();
-        $libro->sipnosis = $file->getContent();
-        //get author
-        $AutorModel = new Autor_Model();
-        $autores    = $AutorModel->getBybook($id);
-        //get Editor
-        $EditorialModel = new Editorial_Model();
-        $editorial      = $EditorialModel->get($libro->IDEditorial);
-
-        $res = [
+        if ($libro != null) {
+            # code...
+            $file  = new Archivo;
+            $file->setPath($libro->sipnosis);
+            $file->read();
+            $libro->sipnosis = $file->getContent();
+            //get author
+            $AutorModel = new Autor_Model();
+            $autores    = $AutorModel->getBybook($id);
+            //get Editor
+            $EditorialModel = new Editorial_Model();
+            $editorial      = $EditorialModel->get($libro->IDEditorial);
+            
+            $res = [
             "mensaje"   => "Hey",
             "Libro"     => $libro,
             "Editorial" => $editorial,
             "Autores"   => $autores,
         ];
+        }else{
+            $res = [
+            "mensaje"   => "Error"
+        ];
+        }
         $this->view->res = json_encode($res);
         $this->view->render("API/Book/get");
     }

@@ -36,6 +36,8 @@ class Compra_Model extends Model
             return $id;
         } catch (PDOException $e) {
             $pdo->rollBack();
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return -1;
         }finally {
            $pdo = null;
@@ -75,6 +77,8 @@ class Compra_Model extends Model
             }
             return $Compras;
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return null;
         }finally {
            $pdo = null;
@@ -117,6 +121,8 @@ class Compra_Model extends Model
             }
             return $Compras;
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return null;
         }finally {
            $pdo = null;
@@ -159,6 +165,8 @@ class Compra_Model extends Model
             }
             return $Compras;
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return null;
         }finally {
            $pdo = null;
@@ -200,6 +208,8 @@ class Compra_Model extends Model
             }
             return $Compras;
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return null;
         }finally {
            $pdo = null;
@@ -243,6 +253,8 @@ class Compra_Model extends Model
             }
             return $Compras;
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return null;
         }finally {
            $pdo = null;
@@ -281,6 +293,8 @@ class Compra_Model extends Model
             
             return $Compra;
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return null;
         }finally {
            $pdo = null;
@@ -297,7 +311,8 @@ class Compra_Model extends Model
             $consulta->bindValue(':status', $status);
             return $consulta->execute();
         } catch (PDOException $e) {
-            var_dump($e);
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+            return false;
         }finally {
            $pdo = null;
         }
@@ -310,6 +325,8 @@ class Compra_Model extends Model
             $consulta->bindValue(':id', $id);
             return $consulta->execute();
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return false;
         }finally {
            $pdo = null;

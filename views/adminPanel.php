@@ -57,8 +57,8 @@
                     <h4 class="noselect"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/buys.svg">Compras</h4>
                 </div>
                 <div class="OP-item-content">
-                    <a class="noselect">Ver</a>
-                    <a class="noselect">Añadir</a>
+                    <a class="noselect" href="<?php echo constant('URL'); ?>Compra/list">Ver</a>
+                    <a class="noselect" href="<?php echo constant('URL'); ?>Compra/new">Añadir</a>
                     <a class="OP-item-content-end noselect">Eliminar</a>
                 </div>
             </div>

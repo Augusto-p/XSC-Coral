@@ -1,0 +1,50 @@
+.Tabla-Detalles-tr {
+    grid-template-columns: 10% 25% 20% 15% 10% 10% 10%;
+}
+
+.Tabla-Detalles-Tbody .Tabla-Detalles-tr .Tabla-Detalles-td:nth-child(6) {
+    cursor: pointer;
+}
+
+.Tabla-Detalles-Tbody .Tabla-Detalles-tr .Tabla-Detalles-td:nth-child(7) {
+    cursor: pointer;
+    background-color: crimson;
+    height: 5vh;
+    width: 5vh;
+    border: 2px solid transparent;
+    border-radius: 5px;
+}
+
+.Tabla-Detalles-Tbody .Tabla-Detalles-tr .Tabla-Detalles-td:nth-child(7):hover {
+    background-color: rgb(176, 16, 48);
+}
+
+.Tabla-Detalles-Tbody .Tabla-Detalles-tr .Tabla-Detalles-td:nth-child(7) img {
+    height: 100%;
+    filter: invert(1);
+}
+
+.Tabla-Detalles-Tbody .Tabla-Detalles-tr .Tabla-Detalles-td:nth-child(6) {
+    cursor: pointer;
+    background-color: #145075;
+    height: 5vh;
+    width: 5vh;
+    border: 2px solid transparent;
+    border-radius: 5px;
+}
+
+.Tabla-Detalles-Tbody .Tabla-Detalles-tr .Tabla-Detalles-td:nth-child(6):hover {
+    background-color: #37bee2;
+}
+
+.Tabla-Detalles-Tbody .Tabla-Detalles-tr .Tabla-Detalles-td:nth-child(6) img {
+    height: 100%;
+    filter: invert(1);
+}
+
+#Formulario {
+    grid-template-rows: 10vh 10vh 1fr;
+}
+.data{
+    grid-row: 3;
+}

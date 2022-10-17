@@ -68,7 +68,7 @@ async function Send() {
                 "Imagenes": imgs
             }
         });
-        headersList["Authorization"] = "Token " + getCookie("Token");
+        headersList["Authorization"] = "Token " + sessionStorage.getItem("Token");
         let response = fetch("http://localhost/xsc/api/book/mod", {
             method: "POST",
             body: bodyContent,

@@ -45,7 +45,7 @@ async function Send() {
             "ISBN": ISBN.value
         }
     });
-    headersList["Authorization"] = "Token " + getCookie("Token");
+    headersList["Authorization"] = "Token " + sessionStorage.getItem("Token");
     let response = await fetch("http://localhost/xsc/api/book/delete", {
         method: "POST",
         body: bodyContent,

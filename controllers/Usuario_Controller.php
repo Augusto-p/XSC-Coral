@@ -2,8 +2,8 @@
 require_once 'DTO/usuario.php';
 require_once 'utilidades/Mails.php';
 require_once 'utilidades/Imagenes.php';
-// require_once 'utilidades/JWTs.php';
-// require_once 'utilidades/Cookies.php';
+
+
 
 class Usuario_Controller extends Controller
 {
@@ -62,7 +62,7 @@ class Usuario_Controller extends Controller
             // $_SESSION['departamento'] = serialize($usr->departamento);
             // $_SESSION['Fnacimeto'] = serialize($usr->Fnacimento);
             $_SESSION['login'] = true;
-            Cookies::newSessionCookie(["name" => "Token", "value" => JWTs::newJWT($user->email, 60 * 60 * 48)]);
+            SessionStorage::newSS(["name" => "Token", "value" => JWTs::newJWT($user->email, 60 * 60 * 48)]);
             $this->view->render('home/GoToindex');
         }
 

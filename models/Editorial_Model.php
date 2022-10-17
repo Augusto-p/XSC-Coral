@@ -23,7 +23,8 @@ class Editorial_Model extends Model {
                 return -1;
             }
         } catch (PDOException $e) {
-            var_dump($e);
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+            return -1;
         } finally {
             $pdo = null;
         }
@@ -48,7 +49,9 @@ class Editorial_Model extends Model {
             }
             return $editoriales;
         } catch (PDOException $e) {
-            var_dump($e);
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+            return null;
+            
         } finally {
             $pdo = null;
         }
@@ -72,7 +75,8 @@ class Editorial_Model extends Model {
             }
             return $editorial;
         } catch (PDOException $e) {
-            var_dump($e);
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+            return null;
         } finally {
             $pdo = null;
         }
@@ -91,6 +95,8 @@ class Editorial_Model extends Model {
             $consulta->bindValue(':logo', $editorial->logo);
             return $consulta->execute();
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return false;
         } finally {
             $pdo = null;
@@ -104,7 +110,8 @@ class Editorial_Model extends Model {
             $consulta->bindValue(':id', $id);
             return $consulta->execute();
         } catch (PDOException $e) {
-            var_dump($e);
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+            return false;
         } finally {
             $pdo = null;
         }

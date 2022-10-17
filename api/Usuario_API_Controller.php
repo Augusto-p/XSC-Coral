@@ -6,9 +6,10 @@ require_once 'utilidades/PDFs.php';
 require_once 'models/Book_Model.php';
 // require_once 'models/DetalleVenta_Model.php';
 require_once 'models/Venta_Model.php';
-// require_once 'models/Pedido_Model.php';
 require_once 'utilidades/Mails.php';
 require_once 'utilidades/Errors.php';
+require_once 'utilidades\Formatos.php';
+
 
 
 
@@ -39,7 +40,9 @@ class Usuario_API_Controller extends Controller
     }
 
     public function test2(){
-        Errors::NewError("PDO", __File__, __Line__, "Max Verstapen is champion");
+        //Errors::NewError("PDO", __File__, __Line__, "Max Verstapen is champion");
+        
+        SessionStorage::newSS(["name"=>"Token","value"=>"Max1 Verstapen is champion"]);
     }
 
 

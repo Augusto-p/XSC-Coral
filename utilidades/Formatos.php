@@ -15,10 +15,15 @@ class Formatos{
     }
 
     public static function moneyFormat($base){
-        return number_format($base, 2, ',', '.');;
-
-
-        
+        return number_format($base, 2, ',', '.');
     }
+
+    public static function RolFormat($Base){
+        $string = explode(":", $Base);
+        return trim(str_replace('"', "", $string[count($string) - 1]), ";");
+
+    }
+
+    
 
 }

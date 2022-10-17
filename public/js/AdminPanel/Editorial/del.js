@@ -4,7 +4,7 @@ async function send() {
             "id": IDValue
         }
     }
-    headersList["Authorization"] = "Token " + getCookie("Token");
+    headersList["Authorization"] = "Token " + sessionStorage.getItem("Token");
     let response = await fetch(URL + "api/editorial/delete", {
         method: "POST",
         body: JSON.stringify(bodyContent),

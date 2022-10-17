@@ -5,7 +5,7 @@ async function Send() {
             "Email": email.value,
         }
     });
-    headersList["Authorization"] = "Token " + getCookie("Token");
+    headersList["Authorization"] = "Token " + sessionStorage.getItem("Token");
     let response = await fetch(URL + "api/usuario/delete", {
         method: "POST",
         body: bodyContent,

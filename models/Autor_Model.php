@@ -21,6 +21,8 @@ class Autor_Model extends Model
                 return -1;
             }
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return -1;
         }finally {
            $pdo = null;
@@ -46,7 +48,8 @@ class Autor_Model extends Model
             }
             return $autores;
         } catch (PDOException $e) {
-            var_dump($e);
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+            return null;
         }finally {
            $pdo = null;
         }
@@ -71,7 +74,8 @@ class Autor_Model extends Model
             }
             return $autores;
         } catch (PDOException $e) {
-            var_dump($e);
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+            return null;
         }finally {
            $pdo = null;
         }
@@ -95,7 +99,8 @@ class Autor_Model extends Model
             $autor->foto         = $row['Foto'];
             return $autor;
         } catch (PDOException $e) {
-            var_dump($e);
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+            return null;
         }finally {
            $pdo = null;
         }
@@ -114,6 +119,8 @@ class Autor_Model extends Model
             $consulta->bindValue(':foto', $autor->foto);
             return $consulta->execute();
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return false;
         }finally {
            $pdo = null;
@@ -127,6 +134,8 @@ class Autor_Model extends Model
             $consulta->bindValue(':id', $id);
             return $consulta->execute();
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return false;
         }finally {
            $pdo = null;

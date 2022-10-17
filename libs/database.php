@@ -35,7 +35,8 @@ class Database
             return $pdo;
 
         } catch (PDOException $e) {
-            print_r('Error connection: ' . $e->getMessage());
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
         }
     }
 }

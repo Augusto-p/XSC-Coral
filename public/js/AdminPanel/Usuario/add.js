@@ -18,7 +18,7 @@ async function Send(){
 
         }
     });
-    headersList["Authorization"] = "Token " + getCookie("Token");
+    headersList["Authorization"] = "Token " + sessionStorage.getItem("Token");
 
     let response = await fetch(URL+"api/usuario/add", {
         method: "POST",

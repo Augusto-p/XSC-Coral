@@ -51,7 +51,7 @@ async function Send(){
             "Imagenes": imgs
         }
         });
-        headersList["Authorization"] = "Token " + getCookie("Token");
+        headersList["Authorization"] = "Token " + sessionStorage.getItem("Token");
         let response = fetch("http://localhost/xsc/api/book/add", {
             method: "POST",
             body: bodyContent,
@@ -64,24 +64,25 @@ async function Send(){
         let data = response.json();
         if (data["code"] == 200) {
             ITag({ "Type": "SUCCESS", "Position": "RB", "Duration": 5, "Title": "Hecho!", "Description": data["mensaje"] });
+            ISBN.value = "";
+            Titulo.value = "";
+            Precio.value = "";
+            Sipnosis.value = "";
+            Editorial.value = "";
+            Autor.value = "";
+            CategoriasDiv.innerHTML = "";
+            AutoresDiv.innerHTML = "";
+            ImagenesDiv.innerHTML = "";
+            nvAutorIn.innerHTML = "";
+            nvCategoriasIn.innerHTML = "";
+            nvImagesIn.innerHTML = "";
+            Categoriain.value = "";
         } else if (data["code"] == 403) {
             ITag({ "Type": "ERROR", "Position": "RB", "Duration": 5, "Title": "Error!", "Description": data["mensaje"] });
         } else if (data["code"] == 404) {
             ITag({ "Type": "WARNING", "Position": "RB", "Duration": 5, "Title": "Advertencia!", "Description": data["mensaje"] });
         }
-        ISBN.value = "";
-        Titulo.value = "";
-        Precio.value = "";
-        Sipnosis.value = "";
-        Editorial.value = ""; 
-        Autor.value = "";
-        CategoriasDiv.innerHTML = "";
-        AutoresDiv.innerHTML = "";
-        ImagenesDiv.innerHTML = "";
-        nvAutorIn.innerHTML = ""; 
-        nvCategoriasIn.innerHTML = "";
-        nvImagesIn.innerHTML = "";
-        Categoriain.value = "";
+        
     }
         
     );

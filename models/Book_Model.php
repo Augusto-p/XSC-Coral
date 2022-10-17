@@ -12,34 +12,38 @@ class Book_Model extends Model {
             $QBook = $pdo->prepare('SELECT * FROM libros where libros.ISBN = :isbn'); // consulta a la base de datos no disponible
             $QBook->bindValue(':isbn', $id);
             $QBook->execute();
-            $libro = new Book();
+            $libro = null;
             while ($row = $QBook->fetch()) {
+                $libro              = new Book();
                 $libro->isbn        = $row['ISBN'];
                 $libro->titulo      = $row['Titulo'];
                 $libro->precio      = $row['Precio'];
                 $libro->sipnosis    = $row['Sinopsis'];
                 $libro->IDEditorial = $row['ID_Editorial'];
             }
-            $imagenes = [];
-            $QImages  = $pdo->prepare('SELECT * FROM libros_imgs where libros_imgs.isbn = :isbn'); // consulta a la base de datos no disponible
-            $QImages->bindValue(':isbn', $id);
-            $QImages->execute();
-            while ($row = $QImages->fetch()) {
-                $imagenes[] = $row['Img'];
+            if ($libro != null) {                
+                $imagenes = [];
+                $QImages  = $pdo->prepare('SELECT * FROM libros_imgs where libros_imgs.isbn = :isbn'); // consulta a la base de datos no disponible
+                $QImages->bindValue(':isbn', $id);
+                $QImages->execute();
+                while ($row = $QImages->fetch()) {
+                    $imagenes[] = $row['Img'];
+                }
+                $libro->imagenes = $imagenes;
+            
+                $Categorias  = [];
+                $QCategorias = $pdo->prepare('SELECT * FROM libros_categorias where libros_categorias.isbn = :isbn'); // consulta a la base de datos no disponible
+                $QCategorias->bindValue(':isbn', $id);
+                $QCategorias->execute();
+                while ($row = $QCategorias->fetch()) {
+                    $Categorias[] = $row['Categoria'];
+                }
+                $libro->categorias = $Categorias;
+                return $libro;
             }
-            $libro->imagenes = $imagenes;
-
-            $Categorias  = [];
-            $QCategorias = $pdo->prepare('SELECT * FROM libros_categorias where libros_categorias.isbn = :isbn'); // consulta a la base de datos no disponible
-            $QCategorias->bindValue(':isbn', $id);
-            $QCategorias->execute();
-            while ($row = $QCategorias->fetch()) {
-                $Categorias[] = $row['Categoria'];
-            }
-            $libro->categorias = $Categorias;
-            return $libro;
         } catch (PDOException $e) {
-            var_dump($e);
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+            return null;
         } finally {
             $pdo = null;
         }
@@ -78,6 +82,8 @@ class Book_Model extends Model {
 
             return true;
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return false;
         } finally {
             $pdo = null;
@@ -86,43 +92,45 @@ class Book_Model extends Model {
 
     public function seach($Termino) {
         try {
-            $pdo   = $this->db->connect();
+            $pdo      = $this->db->connect();
             $consulta = $pdo->prepare('SELECT * FROM libros where libros.Titulo like :Termino'); // consulta a la base de datos no disponible
             $consulta->bindValue(':Termino', "%" . $Termino . "%");
             $consulta->execute();
             $libros = [];
-        while ($row = $consulta->fetch()) {
-            $libro              = new Book();
-            $libro->isbn        = $row['ISBN'];
-            $libro->titulo      = $row['Titulo'];
-            $libro->precio      = $row['Precio'];
-            $libro->sipnosis    = $row['Sinopsis'];
-            $libro->IDEditorial = $row['ID_Editorial'];
-            array_push($libros, $libro);
-        }
-        foreach ($libros as $key => $value) {
-
-            $imagenes   = [];
-            $Categorias = [];
-
-            $QImages = $pdo->prepare('SELECT * FROM libros_imgs where libros_imgs.isbn = :isbn'); // consulta a la base de datos no disponible
-            $QImages->bindValue(':isbn', $value->isbn);
-            $QImages->execute();
-            while ($row = $QImages->fetch()) {
-                $imagenes[] = $row['Img'];
+            while ($row = $consulta->fetch()) {
+                $libro              = new Book();
+                $libro->isbn        = $row['ISBN'];
+                $libro->titulo      = $row['Titulo'];
+                $libro->precio      = $row['Precio'];
+                $libro->sipnosis    = $row['Sinopsis'];
+                $libro->IDEditorial = $row['ID_Editorial'];
+                array_push($libros, $libro);
             }
-            $QCategorias = $pdo->prepare('SELECT * FROM libros_categorias where libros_categorias.isbn = :isbn'); // consulta a la base de datos no disponible
-            $QCategorias->bindValue(':isbn', $value->isbn);
-            $QCategorias->execute();
-            while ($row = $QCategorias->fetch()) {
-                $Categorias[] = $row['Categoria'];
+            foreach ($libros as $key => $value) {
+
+                $imagenes   = [];
+                $Categorias = [];
+
+                $QImages = $pdo->prepare('SELECT * FROM libros_imgs where libros_imgs.isbn = :isbn'); // consulta a la base de datos no disponible
+                $QImages->bindValue(':isbn', $value->isbn);
+                $QImages->execute();
+                while ($row = $QImages->fetch()) {
+                    $imagenes[] = $row['Img'];
+                }
+                $QCategorias = $pdo->prepare('SELECT * FROM libros_categorias where libros_categorias.isbn = :isbn'); // consulta a la base de datos no disponible
+                $QCategorias->bindValue(':isbn', $value->isbn);
+                $QCategorias->execute();
+                while ($row = $QCategorias->fetch()) {
+                    $Categorias[] = $row['Categoria'];
+                }
+                $libros[$key]->categorias = $Categorias;
+                $libros[$key]->imagenes   = $imagenes;
             }
-            $libros[$key]->categorias = $Categorias;
-            $libros[$key]->imagenes   = $imagenes;
-        }
 
             return $libros;
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return null;
         } finally {
             $pdo = null;
@@ -167,6 +175,8 @@ class Book_Model extends Model {
 
             return $libros;
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return null;
         } finally {
             $pdo = null;
@@ -212,7 +222,8 @@ class Book_Model extends Model {
             }
             return $libros;
         } catch (PDOException $e) {
-            var_dump($e);
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+            return null;
         } finally {
             $pdo = null;
         }
@@ -257,7 +268,9 @@ class Book_Model extends Model {
             }
             return $libros;
         } catch (PDOException $e) {
-            var_dump($e);
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
+            return null;
         } finally {
             $pdo = null;
         }
@@ -312,6 +325,8 @@ class Book_Model extends Model {
 
             return true;
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return false;
         } finally {
             $pdo = null;
@@ -326,6 +341,8 @@ class Book_Model extends Model {
             $consulta->bindValue(':isbn', $id);
             return $consulta->execute();
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return false;
         } finally {
             $pdo = null;
@@ -337,7 +354,7 @@ class Book_Model extends Model {
         try {
             $pdo      = $this->db->connect();
             $consulta = $pdo->prepare('SELECT * FROM libros join libros_categorias on libros.ISBN = libros_categorias.ISBN where libros_categorias.Categoria like :cat group by libros.ISBN;'); // consulta a la base de datos no disponible
-            $consulta->bindValue(':cat', "%".$Categoria."%");
+            $consulta->bindValue(':cat', "%" . $Categoria . "%");
             $consulta->execute();
             $libros = [];
             while ($row = $consulta->fetch()) {
@@ -371,7 +388,8 @@ class Book_Model extends Model {
             }
             return $libros;
         } catch (PDOException $e) {
-            var_dump($e);
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+            return null;
         } finally {
             $pdo = null;
         }

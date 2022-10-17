@@ -16,7 +16,7 @@ async function send() {
             "Fnacimento": FN.value,
         }
     }
-    headersList["Authorization"] = "Token " + getCookie("Token");
+    headersList["Authorization"] = "Token " + sessionStorage.getItem("Token");
     bodyContent["Autor"]["foto"] = INFoto['files'].length > 0 ?await ImgToB64(await INFoto['files'][0]) : null   
     
     let response = await fetch(URL + "api/autor/mod", {

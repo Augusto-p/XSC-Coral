@@ -20,7 +20,7 @@ async function send() {
             "Logo": await ImgToB64(await INLogo['files'][0])
         }
     }
-    headersList["Authorization"] = "Token " + getCookie("Token");
+    headersList["Authorization"] = "Token " + sessionStorage.getItem("Token");
 
 
     let response = await fetch(URL + "api/editorial/add", {

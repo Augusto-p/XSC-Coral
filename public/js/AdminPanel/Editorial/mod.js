@@ -18,7 +18,7 @@ async function send() {
             "Web": Web.value,
         }
     }
-    headersList["Authorization"] = "Token " + getCookie("Token");
+    headersList["Authorization"] = "Token " + sessionStorage.getItem("Token");
     bodyContent["Editorial"]["Logo"] = INLogo['files'].length > 0 ? await ImgToB64(await INLogo['files'][0]) : null
 
 

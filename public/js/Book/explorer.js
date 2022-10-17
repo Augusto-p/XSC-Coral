@@ -6,7 +6,7 @@ let headersList = {
 
 
 async function addCarrito(ISBN) {
-    headersList["Authorization"] = "Token " + getCookie("Token");
+    headersList["Authorization"] = "Token " + sessionStorage.getItem("Token");
     let bodyContent = JSON.stringify({
         "Book": ISBN
     });

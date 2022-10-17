@@ -24,6 +24,8 @@ class JWTs {
                 return $deco->Email;
             }
         } catch (Exception $e) {
+            Errors::NewError("JWT", __File__, __Line__, $e->getMessage());
+
             return false;
         }
         

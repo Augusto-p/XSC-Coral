@@ -34,6 +34,8 @@ class Usuario_Model extends Model {
             }
 
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return false;
         } finally {
             $pdo = null;
@@ -59,7 +61,8 @@ class Usuario_Model extends Model {
             $consulta->bindParam(':CodigoPostal', $user->codigoPostal);
             return $consulta->execute();
         } catch (PDOException $e) {
-            var_dump($e);
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+            return false;
         } finally {
             $pdo = null;
         }
@@ -89,7 +92,8 @@ class Usuario_Model extends Model {
             }
             return $usr;
         } catch (PDOException $e) {
-            var_dump($e);
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+            return null;
         } finally {
             $pdo = null;
         }
@@ -108,7 +112,9 @@ class Usuario_Model extends Model {
             }
             return $name;
         } catch (PDOException $e) {
-            var_dump($e);
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
+            return null;
         } finally {
             $pdo = null;
         }
@@ -123,7 +129,8 @@ class Usuario_Model extends Model {
             $consulta->bindValue(':password', $password);
             return $consulta->execute();
         } catch (PDOException $e) {
-            var_dump($e);
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+            return false;
         } finally {
             $pdo = null;
         }
@@ -138,7 +145,8 @@ class Usuario_Model extends Model {
             $consulta->bindValue(':date', $date);
             return $consulta->execute();
         } catch (PDOException $e) {
-            var_dump($e);
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+            return false;
         } finally {
             $pdo = null;
         }
@@ -164,6 +172,8 @@ class Usuario_Model extends Model {
             $consulta->bindParam(':CodigoPostal', $user->codigoPostal);
             return $consulta->execute();
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return false;
         } finally {
             $pdo = null;
@@ -177,7 +187,8 @@ class Usuario_Model extends Model {
             $consulta->bindValue(':email', $email);
             return $consulta->execute();
         } catch (PDOException $e) {
-            var_dump($e);
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+            return false;
         } finally {
             $pdo = null;
         }
@@ -195,6 +206,8 @@ class Usuario_Model extends Model {
             }
             return $rol;
         } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
             return false;
         } finally {
             $pdo = null;
