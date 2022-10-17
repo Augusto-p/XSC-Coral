@@ -7,34 +7,11 @@ if grep -qi "xscadmin" /etc/passwd; then
 else
     echo "El usuario no pudo ser creado"
 fi
-sudo apt install net-tools
-if dpkg -l | grep -qi net-tools;then
-    echo "Instalado correctamente"
-fi
-sudo apt update && apt upgrade
-sudo apt update && apt upgrade
-sudo apt install openssh-server
-if dpkg -l | grep -qi openssh-server;then
-    echo "Instalado correctamente"
-fi
-systemctl enable ssh
-sudo apt update && apt upgrade
-sudo apt install mysql-server
-if dpkg -l | grep -qi mysql-server;then
-    echo "Instalado correctamente"
-fi
-sudo apt update && apt upgrade
-sudo apt install git-all
-if dpkg -l | grep -qi git;then
-    echo "Instalado correctamente"
-fi
-sudo apt update && apt upgrade
+sudo ./install.sh
 ifconfig
-echo "Escribir la dirección ip del dispositivo"
-echo "Debajo de la línea que dice: bind-address:127.0.0.0"
-read -p "Presione cualquier tecla para continuar..." ne
-# ne significa: No Existe
-# Lo que quiere decir que esa variable no va a ser utilizada nunca
+echo "Escribir la dirección ip del dispositivo:"
+read $ip
+sudo echo "bind-address:$ip" >> /etc/mysql/mysql.conf.d/mysqld.cnf
 git clone https://github.com/Augusto-p/GX.git
 cd ./GX
 sudo chmod 777 ./main
@@ -42,7 +19,7 @@ let link=$(./main)
 wget -O xampp $link
 sudo chmod 700 ./xampp
 sudo ./xampp
-sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
+cd
 sudo chmod 666 /opt/lampp/etc/php.ini
 sudo echo -e "\n[Date]\ndate.imezone=UTC" >> /opt/lampp/etc/php.ini
 sudo chmod 644 /opt/lampp/etc/php.ini
@@ -53,7 +30,6 @@ sudo /etc/init.d/mysql restart
 sudo chmod 777 startup.sh
 sudo mv startup.sh /etc/init.d/startup
 sudo update-rc.d startup defaults
-
 
 
 #Luego de composer

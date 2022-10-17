@@ -1,4 +1,2 @@
-1-Mostrar las opciones de servicios, osea, mostrar, agregar y matar.
 2-Mostrar las opciones de red, osea, mostrar, agregar y eliminar.
 3-Mostrar las opciones de respaldos, osea, mostrar los planes, agregar y eliminar.
-4-Mostrar las opciones de log, osea, mostrar, agregar, matar y eliminar.
