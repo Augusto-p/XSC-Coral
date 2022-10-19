@@ -5,7 +5,7 @@ function SeachBar() {
 }
 Buscar.value = new URLSearchParams(window.location.search).get("Seach");
 function goTo(url) {
-    a = document.createElement("a");
+    let a = document.createElement("a");
     a.href = url;
     a.click()
 }
@@ -16,9 +16,23 @@ function getCookie(name) {
 
 function enterSach(event) {
     
-        var keycode = event.keyCode;
+        let keycode = event.keyCode;
         if (keycode == '13') {
             SeachBar()
         }
     
+}
+function ToUTC(date) {
+    let actualTime = new Date();
+    let Dif = actualTime.getTimezoneOffset();
+    date = new Date(date.toUTCString().slice(0, (-Dif / 60)));
+    return `${date.getUTCFullYear()}-${date.getUTCMonth() + 1}-${date.getUTCDate()} ${date.getUTCHours()}:${date.getUTCMinutes()}:${date.getUTCSeconds()}`;
+}
+
+function FromUTC(date) {
+    date = new Date(date);
+    let actualTime = new Date();
+    let Dif = actualTime.getTimezoneOffset();
+    date.setMinutes(date.getUTCMinutes() - Dif)
+    return `${date.getFullYear()}-${date.getMonth() + 1 > 9 ? date.getMonth() + 1 : "0" + (date.getMonth() + 1)}-${date.getDate() > 9 ? date.getDate() : "0" + date.getDate()} ${date.getHours() > 9 ? date.getHours() : "0" + date.getHours()}:${date.getMinutes() > 9 ? date.getMinutes() : "0" + date.getMinutes()}:${date.getSeconds() > 9 ? date.getSeconds() : "0" + date.getSeconds()}`;
 }

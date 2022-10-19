@@ -32,7 +32,7 @@
           <?php 
             }
             require_once 'utilidades\Formatos.php';
-            if (Formatos::RolFormat(!empty($_SESSION["rol"])?? "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?? "") == "Empleado") {;?>
+            if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {;?>
           <li class="noselect"><a href="<?php echo constant('URL'); ?>home/mod">Panel Admin</a></li>
           <?php  } if (isset($_SESSION["login"])) { 
             if ($_SESSION["login"]) {?>

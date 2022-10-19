@@ -56,7 +56,71 @@
     background-color: #2692ca;
 }
 
+.PopUP-form {
+    width: 50%;
+    height: 70%;
+    background-color: white;
+    border-radius: 5vh;
+    display: grid;
+    grid-template-rows: 15% 75% 10%;
+    grid-template-columns: 100%;
+    overflow: hidden;
+    font-family: 'Roboto';
+}
+
+.PopUP-Titulo {
+    grid-row: 1;
+    grid-column: 1;
+    background-color: #145075;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+}
+
+.PopUP-Titulo h2 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.PopUP-BTNs {
+    background-color: #145075;
+    grid-row: 3;
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.PopUP-BTNs button {
+    width: 10vw;
+    font-size: 20px;
+    background-color: white;
+    border: .3vh solid;
+    border-radius: 5vh;
+    pointer-events: all;
+
+}
+
+.PopUP-Window {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    height: 100vh;
+    width: 100vw;
+    transition: opacity 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+}
 
 
-
-
+.show-PopUp {
+    display: flex;
+    opacity: 1;
+}

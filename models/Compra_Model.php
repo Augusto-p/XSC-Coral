@@ -47,7 +47,7 @@ class Compra_Model extends Model
     public function getAll(){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare('SELECT * FROM compras;'); // consulta a la base de datos no disponible 
+            $consulta = $pdo->prepare('SELECT compras.*, editoriales.Nombre FROM compras join editoriales on compras.ID_Editorial = editoriales.ID;'); // consulta a la base de datos no disponible 
             $consulta->execute();
             $Compras = [];
             while ($row = $consulta->fetch()) {
@@ -55,13 +55,13 @@ class Compra_Model extends Model
                 $Compra->id = $row['ID'];
                 $Compra->estado = $row['Estado'];
                 $Compra->MPago = $row['Metodo_Pago'];
-                $Compra->IDEditorial = $row['ID_Editorial'];
+                $Compra->Editorial = $row['Nombre'];
                 $Compra->FechaHora = $row['Fecha_Hora'];
                 $Compra->Total = $row['Total'];
                 array_push($Compras, $Compra);
             }
             foreach ($Compras as $key => $Compra) {
-                $consulta2 = $pdo->prepare('SELECT * FROM libreria.compras_detalle where compras_detalle.ID_Compra = :id;'); // consulta a la base de datos no disponible 
+                $consulta2 = $pdo->prepare('SELECT * FROM compras_detalle where compras_detalle.ID_Compra = :id;'); // consulta a la base de datos no disponible 
                 $consulta2->bindValue(':id', $Compra->id);
                 $consulta2->execute();
                 $Detalles = [];
@@ -90,7 +90,7 @@ class Compra_Model extends Model
     public function getAllByEditorial($IDEdirorial){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare('SELECT * FROM compras where compras.ID_Editorial = :idedi;'); // consulta a la base de datos no disponible 
+            $consulta = $pdo->prepare('SELECT compras.*, editoriales.Nombre FROM compras join editoriales on compras.ID_Editorial = editoriales.ID where compras.ID_Editorial = :idedi;'); // consulta a la base de datos no disponible 
             $consulta->bindValue(':idedi', $IDEdirorial);
             $consulta->execute();
             $Compras = [];
@@ -99,13 +99,13 @@ class Compra_Model extends Model
                 $Compra->id = $row['ID'];
                 $Compra->estado = $row['Estado'];
                 $Compra->MPago = $row['Metodo_Pago'];
-                $Compra->IDEditorial = $row['ID_Editorial'];
+                $Compra->Editorial = $row['Nombre'];
                 $Compra->FechaHora = $row['Fecha_Hora'];
                 $Compra->Total = $row['Total'];
                 array_push($Compras, $Compra);
             }
             foreach ($Compras as $key => $Compra) {
-                $consulta2 = $pdo->prepare('SELECT * FROM libreria.compras_detalle where compras_detalle.ID_Compra = :id;'); // consulta a la base de datos no disponible 
+                $consulta2 = $pdo->prepare('SELECT * FROM compras_detalle where compras_detalle.ID_Compra = :id;'); // consulta a la base de datos no disponible 
                 $consulta2->bindValue(':id', $Compra->id);
                 $consulta2->execute();
                 $Detalles = [];
@@ -134,8 +134,8 @@ class Compra_Model extends Model
     public function getAllByMPago($MPago){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare('SELECT * FROM compras where compras.Metodo_Pago = :mp;'); // consulta a la base de datos no disponible 
-            $consulta->bindValue(':mp', $MPago);
+            $consulta = $pdo->prepare('SELECT compras.*, editoriales.Nombre FROM compras join editoriales on compras.ID_Editorial = editoriales.ID where compras.Metodo_Pago like :mp;'); // consulta a la base de datos no disponible 
+            $consulta->bindValue(':mp', "%".$MPago."%");
             $consulta->execute();
             $Compras = [];
             while ($row = $consulta->fetch()) {
@@ -143,13 +143,13 @@ class Compra_Model extends Model
                 $Compra->id = $row['ID'];
                 $Compra->estado = $row['Estado'];
                 $Compra->MPago = $row['Metodo_Pago'];
-                $Compra->IDEditorial = $row['ID_Editorial'];
+                $Compra->Editorial = $row['Nombre'];
                 $Compra->FechaHora = $row['Fecha_Hora'];
                 $Compra->Total = $row['Total'];
                 array_push($Compras, $Compra);
             }
             foreach ($Compras as $key => $Compra) {
-                $consulta2 = $pdo->prepare('SELECT * FROM libreria.compras_detalle where compras_detalle.ID_Compra = :id;'); // consulta a la base de datos no disponible 
+                $consulta2 = $pdo->prepare('SELECT * FROM compras_detalle where compras_detalle.ID_Compra = :id;'); // consulta a la base de datos no disponible 
                 $consulta2->bindValue(':id', $Compra->id);
                 $consulta2->execute();
                 $Detalles = [];
@@ -178,7 +178,7 @@ class Compra_Model extends Model
     public function getAllByEstado($Estado){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare('SELECT * FROM compras where compras.Estado = :status;'); // consulta a la base de datos no disponible 
+            $consulta = $pdo->prepare('SELECT compras.*, editoriales.Nombre FROM compras join editoriales on compras.ID_Editorial = editoriales.ID where compras.Estado = :status;'); // consulta a la base de datos no disponible 
             $consulta->bindValue(':status', $Estado);
             $consulta->execute();
             $Compras = [];
@@ -187,12 +187,12 @@ class Compra_Model extends Model
                 $Compra->id = $row['ID'];
                 $Compra->estado = $row['Estado'];
                 $Compra->MPago = $row['Metodo_Pago'];
-                $Compra->IDEditorial = $row['ID_Editorial'];
+                $Compra->Editorial = $row['Nombre'];
                 $Compra->FechaHora = $row['Fecha_Hora'];
                 $Compra->Total = $row['Total'];
                 array_push($Compras, $Compra);
             } foreach ($Compras as $key => $Compra) {
-                $consulta2 = $pdo->prepare('SELECT * FROM libreria.compras_detalle where compras_detalle.ID_Compra = :id;'); // consulta a la base de datos no disponible 
+                $consulta2 = $pdo->prepare('SELECT * FROM compras_detalle where compras_detalle.ID_Compra = :id;'); // consulta a la base de datos no disponible 
                 $consulta2->bindValue(':id', $Compra->id);
                 $consulta2->execute();
                 $Detalles = [];
@@ -221,7 +221,7 @@ class Compra_Model extends Model
     public function getAllByFecha($from, $to){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare('SELECT * FROM compras where compras.Fecha_Hora between :from and :to;'); // consulta a la base de datos no disponible 
+            $consulta = $pdo->prepare('SELECT compras.*, editoriales.Nombre FROM compras join editoriales on compras.ID_Editorial = editoriales.ID where compras.Fecha_Hora between :from and :to;'); // consulta a la base de datos no disponible 
             $consulta->bindValue(':from', $from);
             $consulta->bindValue(':to', $to);
             $consulta->execute();
@@ -231,13 +231,13 @@ class Compra_Model extends Model
                 $Compra->id = $row['ID'];
                 $Compra->estado = $row['Estado'];
                 $Compra->MPago = $row['Metodo_Pago'];
-                $Compra->IDEditorial = $row['ID_Editorial'];
+                $Compra->Editorial = $row['Nombre'];
                 $Compra->FechaHora = $row['Fecha_Hora'];
                 $Compra->Total = $row['Total'];
                 array_push($Compras, $Compra);
             }
              foreach ($Compras as $key => $Compra) {
-                $consulta2 = $pdo->prepare('SELECT * FROM libreria.compras_detalle where compras_detalle.ID_Compra = :id;'); // consulta a la base de datos no disponible 
+                $consulta2 = $pdo->prepare('SELECT * FROM compras_detalle where compras_detalle.ID_Compra = :id;'); // consulta a la base de datos no disponible 
                 $consulta2->bindValue(':id', $Compra->id);
                 $consulta2->execute();
                 $Detalles = [];
@@ -266,7 +266,7 @@ class Compra_Model extends Model
     public function get($ID){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare('SELECT * FROM compras where compras.ID = :id;'); // consulta a la base de datos no disponible 
+            $consulta = $pdo->prepare('SELECT compras.*, editoriales.Nombre FROM compras join editoriales on compras.ID_Editorial = editoriales.ID where compras.ID = :id;'); // consulta a la base de datos no disponible 
             $consulta->bindValue(':id', $ID);
             $consulta->execute();
             $row = $consulta->fetch();
@@ -274,10 +274,10 @@ class Compra_Model extends Model
             $Compra->id = $row['ID'];
             $Compra->estado = $row['Estado'];
             $Compra->MPago = $row['Metodo_Pago'];
-            $Compra->IDEditorial = $row['ID_Editorial'];
+            $Compra->Editorial = $row['Nombre'];
             $Compra->FechaHora = $row['Fecha_Hora'];
             $Compra->Total = $row['Total'];
-            $consulta2 = $pdo->prepare('SELECT * FROM libreria.compras_detalle where compras_detalle.ID_Compra = :id;'); // consulta a la base de datos no disponible 
+            $consulta2 = $pdo->prepare('SELECT * FROM compras_detalle where compras_detalle.ID_Compra = :id;'); // consulta a la base de datos no disponible 
             $consulta2->bindValue(':id', $Compra->id);
             $consulta2->execute();
             $Detalles = [];

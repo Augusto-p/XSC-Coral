@@ -188,4 +188,12 @@ class Usuario_API_Controller extends Controller
 
     }
 
+    public function getMyRol(){
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
+        $res = ["Rol" => $this->model->getRol($email)];
+        $this->view->res = json_encode($res);
+$this->view->render("API/Ususario/get");
+    }
+
 }
