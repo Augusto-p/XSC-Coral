@@ -15,7 +15,7 @@ menuprin(){
     read -p "Ingrese la opción aquí" opc
     case $opc in
         1)source ./ADMServices/main.sh;;
-        2);;
+        2)source ./ADMWeb/main.sh;;
         3);;
         4)source ./ADMUsers/main.sh;;
         5)source ./ADMLogs/main.sh;;

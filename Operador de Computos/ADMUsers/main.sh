@@ -21,7 +21,7 @@ menuinic() {
         4) source ./GR/gadd.sh;;
         5) source ./GR/gdel.sh;;
         6) source ./GR/gmod.sh;;
-        9)exit;;
+        9)../main.sh;;
         *)echo -e "La opción : $opc ,no es válida"
         menuinic;;
     esac
