@@ -1,7 +1,5 @@
 <?php
 
-require_once 'DTO/editorial.php';
-require_once 'utilidades/Imagenes.php';
 
 
 class Editorial_Controller extends Controller {
@@ -10,35 +8,34 @@ class Editorial_Controller extends Controller {
     }
 
     public function render() {
-        $this->view->render('PanelAdmin/Editorial/add');
+        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+            
+            $this->view->render('PanelAdmin/Editorial/add');
+        }else {
+            $this->view->render('errores/403');
+        }
     }
     public function new() {
-        $this->view->render('PanelAdmin/Editorial/add');
+        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+            $this->view->render('PanelAdmin/Editorial/add');
+        }else {
+            $this->view->render('errores/403');
+        }
     }
     public function change() {
-        $this->view->render('PanelAdmin/Editorial/mod');
+        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+            $this->view->render('PanelAdmin/Editorial/mod');
+        }else {
+            $this->view->render('errores/403');
+        }
     }
-    // public function add(){
-    //     $editorial = new Editorial();
-    //     $editorial->nombre = $_POST["nombre"];
-    //     $editorial->direccion = $_POST["Direccion"];
-    //     $editorial->telefono = str_replace(" ", "", $_POST["Numero"], $count);
-    //     $editorial->email = $_POST["email"];  
-    //     $editorial->web = $_POST["Web"];
-    //     $editorial->logo = $_FILES["Logo"];
-
-    //     $id = $this->model->add($editorial);
-        
-    //     if ($id >=0) {
-    //         $ImagenEditorial = new Imagenes($editorial->logo, "public/imgs/Editoriales/".$id);
-    //         $path = $ImagenEditorial->Upload();
-    //         $status = $this->model->updateImge($id, $path);
-    //     }
-
-        
-    // }
+ 
      public function remove() {
-        $this->view->render('PanelAdmin/Editorial/del');
+        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+            $this->view->render('PanelAdmin/Editorial/del');
+        }else {
+            $this->view->render('errores/403');
+        }
     }
     
 }

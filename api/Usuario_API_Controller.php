@@ -8,7 +8,7 @@ require_once 'models/Book_Model.php';
 require_once 'models/Venta_Model.php';
 require_once 'utilidades/Mails.php';
 require_once 'utilidades/Errors.php';
-require_once 'utilidades\Formatos.php';
+require_once 'utilidades/Formatos.php';
 
 
 

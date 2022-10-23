@@ -3,10 +3,7 @@
 class View
 {
 
-    public function __construct()
-    {
-        //$this->var = 123;
-        //echo "<p>Vista principal</p>";
+    public function __construct(){
     }
 
     public function render($nombre)

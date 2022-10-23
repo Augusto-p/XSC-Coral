@@ -1,12 +1,7 @@
 <?php
-require_once 'DTO/book.php';
-require_once 'DTO/autor.php';
-require_once 'DTO/editorial.php';
-require_once 'utilidades/Archivos.php';
-require_once 'models/Autor_Model.php';
 require_once 'models/Editorial_Model.php';
-require_once 'utilidades/Imagenes.php';
-
+require_once 'models/Autor_Model.php';
+require_once 'utilidades/Archivos.php';
 class Book_Controller extends Controller {
     public function __construct() {
         parent::__construct();
@@ -63,39 +58,25 @@ class Book_Controller extends Controller {
         $this->view->render('libros/view');
     }
     public function new() {
-        $this->view->render('PanelAdmin/Book/add');
-    }
 
+        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+            $this->view->render('PanelAdmin/Book/add');
+        }else {
+            $this->view->render('errores/403');
+        }
+    }
     public function change(){
-        $this->view->render('PanelAdmin/Book/mod');
+        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+            $this->view->render('PanelAdmin/Book/mod');
+        }else {
+            $this->view->render('errores/403');
+        }
     }
-
     public function remove(){
-        $this->view->render('PanelAdmin/Book/del');
+        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+            $this->view->render('PanelAdmin/Book/del');
+        }else {
+            $this->view->render('errores/403');
+        }
     }
-    
-    // public function explorer(){
-    //     if ($_GET["Categoria"] != null) {
-    //         $Books = $this->model->getAllByCategoria($_GET["Categoria"]);    
-    //     }else {
-    //         $Books = $this->model->getAll();
-    //     }
-
-
-
-    //     foreach ($Books as $key => $libro) {
-    //         $file = new Archivo;
-    //         $file->setPath($libro->sipnosis);
-    //         $file->read();
-    //         $Books[$key]->sipnosis  = $file->getContent();
-    //         $AutorModel             = new Autor_Model();
-    //         $Books[$key]->Autores   = $AutorModel->getBybook($libro->isbn);
-    //         $EditorialModel         = new Editorial_Model();
-    //         $Books[$key]->Editorial = $EditorialModel->get($libro->IDEditorial);
-    //     }
-    //     $this->view->Books = $Books;
-    //     $this->view->render('libros/Listar');
-    // }
-
-
 };?>

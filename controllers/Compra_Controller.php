@@ -7,17 +7,25 @@ class Compra_Controller extends Controller {
     }
 
     public function render() {
-        $this->view->render('PanelAdmin/Autor/add');
+        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+            $this->view->render('PanelAdmin/Compra/lista');
+        }else {
+            $this->view->render('errores/403');
+        }
     }
     public function new () {
-        $this->view->render('PanelAdmin/Compra/add');
+        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+            $this->view->render('PanelAdmin/Compra/add');
+        }else {
+            $this->view->render('errores/403');
+        }
     }
     public function list() {
-        $this->view->render('PanelAdmin/Compra/lista');
+        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+            $this->view->render('PanelAdmin/Compra/lista');
+        }else {
+            $this->view->render('errores/403');
+        }
     }
-    // public function remove() {
-    //     $this->view->render('PanelAdmin/Autor/del');
-    // }
-   
 
 }

@@ -33,24 +33,28 @@ class Home_Controller extends Controller {
     }
 
     public function mod() {
-        $data         = json_decode(file_get_contents('public/Recursos/Jsons/Home.json'), true);
-        $UrlBanerP    = constant('URL') . $data["Pagina Principal"]["Baner Principal"]["img"];
-        $UrlBanerP1   = constant('URL') . $data["Pagina Principal"]["Baner Publisitario Uno"]["img"];
-        $UrlBanerP2   = constant('URL') . $data["Pagina Principal"]["Baner Publisitario Dos"]["img"];
-        $isbnsSlider1 = [];
-        $isbnsSlider2 = [];
-        foreach ($data["Pagina Principal"]["Slider Uno"] as $key => $value) {
-            array_push($isbnsSlider1, $value['ISBN']);
+        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+            $data         = json_decode(file_get_contents('public/Recursos/Jsons/Home.json'), true);
+            $UrlBanerP    = constant('URL') . $data["Pagina Principal"]["Baner Principal"]["img"];
+            $UrlBanerP1   = constant('URL') . $data["Pagina Principal"]["Baner Publisitario Uno"]["img"];
+            $UrlBanerP2   = constant('URL') . $data["Pagina Principal"]["Baner Publisitario Dos"]["img"];
+            $isbnsSlider1 = [];
+            $isbnsSlider2 = [];
+            foreach ($data["Pagina Principal"]["Slider Uno"] as $key => $value) {
+                array_push($isbnsSlider1, $value['ISBN']);
+            }
+            foreach ($data["Pagina Principal"]["Slider Dos"] as $key => $value) {
+                array_push($isbnsSlider2, $value['ISBN']);
+            }
+            $this->view->UrlBanerP    = $UrlBanerP;
+            $this->view->UrlBanerP1   = $UrlBanerP1;
+            $this->view->UrlBanerP2   = $UrlBanerP2;
+            $this->view->Slider1Isbns = $isbnsSlider1;
+            $this->view->Slider2Isbns = $isbnsSlider2;
+            $this->view->render('PanelAdmin/Home/mod');
+        }else {
+            $this->view->render('errores/403');
         }
-        foreach ($data["Pagina Principal"]["Slider Dos"] as $key => $value) {
-            array_push($isbnsSlider2, $value['ISBN']);
-        }
-        $this->view->UrlBanerP    = $UrlBanerP;
-        $this->view->UrlBanerP1   = $UrlBanerP1;
-        $this->view->UrlBanerP2   = $UrlBanerP2;
-        $this->view->Slider1Isbns = $isbnsSlider1;
-        $this->view->Slider2Isbns = $isbnsSlider2;
-        $this->view->render('PanelAdmin/Home/mod');
 
     }
 

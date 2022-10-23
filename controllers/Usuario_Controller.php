@@ -12,7 +12,6 @@ class Usuario_Controller extends Controller
         
     }
     public function render(){
-        $this->view->mensaje = "cargado";
         $this->view->render('usuario/login');
     }
     
@@ -34,13 +33,25 @@ class Usuario_Controller extends Controller
 
     // admin panel paths
     public function apadd(){
-        $this->view->render("PanelAdmin/Usuario/add");
+        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+            $this->view->render("PanelAdmin/Usuario/add");
+        }else {
+            $this->view->render('errores/403');
+        }
     }
     public function apmod(){
-        $this->view->render("PanelAdmin/Usuario/mod");
+        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+            $this->view->render("PanelAdmin/Usuario/mod");
+        }else {
+            $this->view->render('errores/403');
+        }
     }
     public function apdel(){
-        $this->view->render("PanelAdmin/Usuario/del");
+        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+            $this->view->render("PanelAdmin/Usuario/del");
+        }else {
+            $this->view->render('errores/403');
+        }
     }  
     
     public function signin(){
@@ -51,16 +62,7 @@ class Usuario_Controller extends Controller
         if (!$usr) {
             $this->view->render('usuario/login');
         } else {
-            // $_SESSION['email'] = serialize($usr->email);
-            // $_SESSION['nombre'] = serialize($usr->nombrecompleto);
             $_SESSION['rol'] = serialize($usr->rol);
-            // $_SESSION['genero'] = serialize($usr->Genero);
-            // $_SESSION['numero'] = serialize($usr->numero);
-            // $_SESSION['calle'] = serialize($usr->calle);
-            // $_SESSION['ciudad'] = serialize($usr->ciudad);
-            // $_SESSION['codigoPostal'] = serialize($usr->codigoPostal);
-            // $_SESSION['departamento'] = serialize($usr->departamento);
-            // $_SESSION['Fnacimeto'] = serialize($usr->Fnacimento);
             $_SESSION['login'] = true;
             SessionStorage::newSS(["name" => "Token", "value" => JWTs::newJWT($user->email, 60 * 60 * 48)]);
             $this->view->render('home/GoToindex');
@@ -107,38 +109,38 @@ class Usuario_Controller extends Controller
         }
            
     }
-    public function signupAdmin(){ //la pagina de registro Para el uso del administradores Y los Vendeores
-        $user = new Usuario();
-        $user->nombrecompleto = $_POST['nombre']. " " . $_POST['apellido'];
-        $user->email = $_POST['email'];
+    // public function signupAdmin(){ //la pagina de registro Para el uso del administradores Y los Vendeores
+    //     $user = new Usuario();
+    //     $user->nombrecompleto = $_POST['nombre']. " " . $_POST['apellido'];
+    //     $user->email = $_POST['email'];
         
-        $user->Fnacimento = $_POST['FNacimiento'];
-        if ($_POST['Genero'] == "M") {
-            $user->Genero = "Masculino";
-        } elseif ($_POST['Genero'] == "F") {
-            $user->Genero = "Femenino";
-        } else {
-            $user->Genero = $_POST['GPersonalizado'];
-        }
-        $user->numero = $_POST['numero'];
-        $user->calle = $_POST['calle'];
-        $user->ciudad = $_POST['ciudad'];
-        $user->codigoPostal =$_POST["codigo"];
-        $user->departamento = $_POST['Departamento'];
-        $user->rol = $_POST['Rol'];
-        $user->password = password_hash($_POST['Password'], PASSWORD_BCRYPT , ['cost' => 10]);
+    //     $user->Fnacimento = $_POST['FNacimiento'];
+    //     if ($_POST['Genero'] == "M") {
+    //         $user->Genero = "Masculino";
+    //     } elseif ($_POST['Genero'] == "F") {
+    //         $user->Genero = "Femenino";
+    //     } else {
+    //         $user->Genero = $_POST['GPersonalizado'];
+    //     }
+    //     $user->numero = $_POST['numero'];
+    //     $user->calle = $_POST['calle'];
+    //     $user->ciudad = $_POST['ciudad'];
+    //     $user->codigoPostal =$_POST["codigo"];
+    //     $user->departamento = $_POST['Departamento'];
+    //     $user->rol = $_POST['Rol'];
+    //     $user->password = password_hash($_POST['Password'], PASSWORD_BCRYPT , ['cost' => 10]);
     
         
         
-        $reg = $this->model->registrarse($user);
-        if (!$reg) {
-            $this->view->render('usuario/registrarse');
-        }else{
-            $this->view->render('usuario/login');
-        }
+    //     $reg = $this->model->registrarse($user);
+    //     if (!$reg) {
+    //         $this->view->render('usuario/registrarse');
+    //     }else{
+    //         $this->view->render('usuario/login');
+    //     }
            
         
-    }
+    // }
 
     public function SendEmailPassword(){
         $email = $_POST['Email'];
@@ -179,10 +181,9 @@ class Usuario_Controller extends Controller
     }
 
     public function Salir(){
-
         $_SESSION["rol"] = null;
         $_SESSION["login"] = null;
-        Cookies::delCookie(["name" => "Token"]);
+        SessionStorage::delSS("Token");
         $this->view->from = constant('URL') . $_GET["From"];
         $this->view->render('usuario/Salir');
     }

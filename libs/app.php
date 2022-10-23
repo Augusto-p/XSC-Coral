@@ -94,37 +94,6 @@ class App {
 
         }
 
-        // if (file_exists($archivoController)) {
-        //     require $archivoController;
-        //     $controllerName = ucfirst($url[0]) . '_Controller';
-        //     $nparam         = sizeof($url);
-        //     if ($nparam > 1) {
-        //         $métodos_controler = get_class_methods($controllerName);
-        //         //if not existis url[1] in methods of controller
-        //         if (!in_array($url[1], $métodos_controler)) {
-        //             //if not existis url[1] in methods of controller execute error controller
-        //             $controller = new Errores_Controller();
-        //         } else {
-        //             $controller = new $controllerName();
-        //             $controller->loadModel($url[0]);
-        //             if ($nparam > 2) {
-        //                 $param = [];
-        //                 for ($i = 2; $i < $nparam; $i++) {
-        //                     array_push($param, $url[$i]);
-        //                 }
-        //                 $controller->{$url[1]}($param);
-        //             } else {
-        //                 $controller->{$url[1]}();
-        //             }
-        //         }
-        //     } else {
-        //         $controller = new $controllerName();
-        //         $controller->loadModel($url[0]);
-        //         $controller->render();
-        //     }
-
-        // } else {
-        //     $controller = new Errores_Controller();
-        // }
+    
     }
 }
