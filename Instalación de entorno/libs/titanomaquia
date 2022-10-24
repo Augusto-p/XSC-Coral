@@ -1,4 +1,4 @@
 #
 #
 #
-0 0 * * * mysql -u usuariobackup -pf5fa8480b5b9fd7d3034ee03be13129c965d5aec < /home/xscadmin/archivos-default/coral-mimundo.sql
+0 0 * * * xscadmin /home/xscadmin/archivos-default/backs.sh

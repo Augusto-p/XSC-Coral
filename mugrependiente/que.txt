@@ -1,2 +1,8 @@
-2-Mostrar las opciones de red, osea, mostrar, agregar y eliminar.
-3-Mostrar las opciones de respaldos, osea, mostrar los planes, agregar y eliminar.
+Cosas que se planea que realice el script de instalación de entorno:
+LISTO-Creación de un usuario en el servidor para el futuro mantenimiento del servidor
+LISTO-Instalación de Mysql
+LISTO-Instalación de Open-SSH
+LISTO-Instalación de Git
+LISTO-Instalación de Xampp
+LISTO-Configuración de hora de MYSQL
+    -Creación de respaldos en un equipo remoto por medio de SSH usando scp

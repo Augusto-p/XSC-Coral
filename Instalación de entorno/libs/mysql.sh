@@ -2,7 +2,7 @@
 #Programa hecho por XSC Software Company
 ifconfig
 echo "Escribir la dirección ip del dispositivo:"
-read $ip
+read ip
 echo "bind-address:$ip" >> /etc/mysql/mysql.conf.d/mysqld.cnf
 sudo chmod 666 /opt/lampp/etc/php.ini
 echo -e "\n[Date]\ndate.imezone=UTC" >> /opt/lampp/etc/php.ini

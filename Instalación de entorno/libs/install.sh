@@ -1,9 +1,7 @@
 #!/bin/bash
 #Programa hecho por XSC Software Company
 sudo apt -yq install net-tools
-if dpkg -l | grep -qi net-tools;then
-    echo "Instalado correctamente"
-fi
+apt-get install sed
 sudo apt -yq install openssh-server
 if dpkg -l | grep -qi openssh-server;then
     echo "Instalado correctamente"
