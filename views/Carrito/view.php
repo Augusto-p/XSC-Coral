@@ -206,19 +206,80 @@
                 </div>
             
             </section>
-        </section>
-        <section class="ads-div">
-            <div class="ad">
-                <img src="https://media.istockphoto.com/photos/profile-portrait-picture-id176799603?k=20&m=176799603&s=612x612&w=0&h=fBeWO8TsYh7T4eTlS8pgfzRp3ccGJPFn7IGIBBhYMm8=">
-            </div>
-            <div class="ad">
-                <img
-                    src="https://media.istockphoto.com/photos/profile-portrait-picture-id176799603?k=20&m=176799603&s=612x612&w=0&h=fBeWO8TsYh7T4eTlS8pgfzRp3ccGJPFn7IGIBBhYMm8=">
-            </div>
-            
-        </section>
+
+            <button onclick="ViewPopUP()" class="BTNSale">Comprar</button>
+
         </section>
     </section>
+    <section class="PopUP-Window" id="PopUP-Window">
+    <div class="PopUP-form">
+      <div class="PopUP-Titulo">
+        <h2>Detalles de la Compra</h2>
+      </div>
+      <div class="PopUP-form-data">
+        <div class="Tabla-Detalles">
+        	<div class="Tabla-Detalles-Thead">
+				<div class="Tabla-Detalles-tr">
+            		<div class="Tabla-Detalles-th"><span>ISBN</span></div>
+            		<div class="Tabla-Detalles-th"><span>Nombre</span></div>
+                    <div class="Tabla-Detalles-th"><span>Precio</span></div>
+            		<div class="Tabla-Detalles-th"><span>Cantidad</span></div>
+                    <div class="Tabla-Detalles-th"><span>Total</span></div>
+            		<div class="Tabla-Detalles-th"><span>Eliminar</span></div>
+            	</div>
+        	</div>
+            <div class="Tabla-Detalles-Tbody" id="Tabla-Detalles-POPUP">
+                
+            </div>
+        </div>
+
+      </div>
+      <div class="PopUP-BTNs">
+        <div class="PopUP-Total">
+            <span id="popUpTotal">Total: $</span>
+        </div>
+        <button class="PopUP-BTNs-pagar" onclick="Pagar()">Pagar</button>
+
+      </div>
+
+    </div>
+    </section>
+    <section class="PopUP-Window" id="PopUP-Window2">
+        <div class="PopUP-form">
+            <div class="PopUP-Titulo">
+                <h2>Informacion de la Compra</h2>
+            </div>
+            <div class="PopUP-form-data">
+                <div id="Imgdiv" style="background-image: url(https://thumbs.dreamstime.com/b/gracias-por-su-compra-en-espa%C3%B1ol-letras-ilustraci%C3%B3n-de-l%C3%A1piz-caligraf%C3%ADa-moderna-pincel-traducci%C3%B3n-del-tu-elemento-para-193742802.jpg);">
+                    
+                </div>
+
+                <div>
+
+                    <select name="MPago" id="Mpago" class="inputs">
+                    <option value="">Metodo de Pago</option>
+                    <option value="Credito">Cerdito</option>
+                    <option value="Devito">Devito</option>
+                </select>
+                </div>
+                <div>
+
+                    <input type="text" placeholder="Sistema de Paqueria" id="SYSPaceteria" class="inputs">
+                </div>
+                <div id="Decripciondiv">
+
+                    <textarea name="Descripcion" id="descripcion" placeholder="Escribe una descripcion" class="inputs"></textarea>
+                </div>
+        
+            </div>
+            <div class="PopUP-BTNs">
+                <button class="PopUP-BTNs-Finalizar" onclick="Fin()">Finalizar</button>
+
+            </div>
+
+        </div>
+  </section>
+
 
     <?php require 'views/footer.php';?>
 </body>
