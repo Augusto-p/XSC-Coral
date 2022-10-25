@@ -279,3 +279,82 @@ footer {
     display: flex;
     justify-content: center;
 }
+
+
+@media (max-width: 768px) and (min-width: 400px){
+
+.ads-div{
+    display: none;
+}
+
+.list-item{
+    width: 70vw;
+    height: 30vh;
+    margin-left: 5vw;
+}
+
+.list-item-img img{
+    width: 16vw;
+    height: 25vh;
+    margin-top: 2vh;
+    border-radius: 7px;
+}
+
+.list-item-data-up h2{
+    font-size: 1.3em;
+}
+
+.list-item-data-center p{
+    font-size: 0.7em;
+}
+
+.list-item-sale-up h3{ 
+    font-size: 0.8em;
+}
+
+.AddCarr{
+    width: 10vw;
+    height: 6vh;
+    font-size: 0.8em;
+}
+
+.footer-up-Column-in{
+    display: grid;
+    font-size: 10px ;
+    margin-left: 10px;
+}
+
+.footer-up-column{
+    display: grid;
+}
+
+.footer-up-column{
+    display: grid;
+}
+
+.footer-down{
+    display: grid;
+}
+
+.recomendados{
+    width: 23vw;
+    font-size: 0.8em;
+}
+
+.recomendados h2{
+    font-size: 1.2em;
+    margin-left: 1vw;
+}
+
+.recomendados a{
+    font-size: 1.3em;
+}
+
+.remoCarr{
+    width: 10vw;
+    height: 6vh;
+    font-size: 0.7em;
+}
+}
+
+}

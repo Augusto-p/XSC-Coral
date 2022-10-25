@@ -45,16 +45,6 @@ btnSlider3.addEventListener('click', function () {
 
 function slider1Move(mode, sliderContent, pointers) {
     let transform = sliderContent.style.transform
-    let max;
-    let value;
-    if (window.innerWidth > 768){
-        max = 153
-        value = 17
-    }else{
-        max=810
-        value=90
-    }
-
     let valor;
     if (transform == "") {
         valor = 0;
@@ -62,11 +52,11 @@ function slider1Move(mode, sliderContent, pointers) {
         valor = parseInt(transform.replace("translateX(", "").replace("vw)", ""))
     }
     if (mode == 'next') {
-        if (valor <= -max) {
+        if (valor <= -153) {
             valor = 0;
         }
         else {
-            valor = valor - value;
+            valor = valor - 17;
         }
 
         if (pointerValue >= 9) {
@@ -80,10 +70,10 @@ function slider1Move(mode, sliderContent, pointers) {
     }
     if (mode == 'previous') {
         if (valor >= 0) {
-            valor = -max;
+            valor = -153;
         }
         else {
-            valor = valor + value;
+            valor = valor + 17;
         }
 
         if (pointerValue <= 0) {
@@ -105,26 +95,17 @@ function slider1Move(mode, sliderContent, pointers) {
 function slider2Move(mode, sliderContent, pointers) {
     let transform = sliderContent.style.transform
     let valor;
-    let max;
-    let value;
-    if (window.innerWidth > 768) {
-        max = 153
-        value = 17
-    } else {
-        max = 810
-        value = 90
-    }
     if (transform == "") {
         valor = 0;
     } else {
         valor = parseInt(transform.replace("translateX(", "").replace("vw)", ""))
     }
     if (mode == 'next') {
-        if (valor <= -max) {
+        if (valor <= -153) {
             valor = 0;
         }
         else {
-            valor = valor - value;
+            valor = valor - 17;
         }
 
         if (pointerValue2 >= 9) {
@@ -138,10 +119,10 @@ function slider2Move(mode, sliderContent, pointers) {
     }
     if (mode == 'previous') {
         if (valor >= 0) {
-            valor = -max;
+            valor = -153;
         }
         else {
-            valor = valor + value;
+            valor = valor + 17;
         }
 
         if (pointerValue2 <= 0) {
