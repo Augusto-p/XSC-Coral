@@ -37,7 +37,7 @@
                     <h2 id="titulo-book"><?=$this->Book->titulo;?></h2>
                     <p id="sipnosis-book"><?=$this->Book->sipnosis;?></p>
                     <h3 id="precio-book">$ <?=$this->Book->precio;?></h3>
-                    <button id="btn-addCarrito">Añadir al carrito</button>
+                    <button id="btn-addCarrito" addCarrito(<?=$this->Book->isbn?>)>Añadir al carrito</button>
 
                     <!-- public $isbn;
                         public $idAutor; -->
@@ -56,7 +56,7 @@
                         <a href="tel:<?=$this->Editorial->telefono;?>"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/phone.svg"><?=$this->Editorial->telefono;?></a>
                     </div>
                     <div class="info-editorial-book">
-                        <a href="mailto:<?=$this->Editorial->email;?>"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/email.svg"><?=$this->Editorial->email;?></a>
+                        <a href="mailto:<?=$this->Editorial->email;?>"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/email.svg">Correo Electronico</a>
                     </div>
                     <div class="info-editorial-book">
                         <a href="<?=$this->Editorial->web;?>"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/web.svg">Pagina Web</a>
@@ -113,7 +113,7 @@
 
 <?php //se cargan los autores del libro
 foreach ($this->Autores as $key => $autor) {
-    echo '<script>addbookAutor('.$autor->id.',"'.$autor->nombre.'","'.$autor->nacionalidad.'","'.$autor->biografia.'","'.$autor->Fnacimento.'","'.constant('URL').$autor->foto.'")</script>'; //'","'
+    echo '<script>addbookAutor('.$autor->id.',`'.$autor->nombre.'`,`'.$autor->nacionalidad.'`,`'.$autor->biografia.'`,`'.$autor->Fnacimento.'`,`'.constant('URL').$autor->foto.'`)</script>'; //'","'
 }; ?>
 
 <?php //se cargan las imagenes

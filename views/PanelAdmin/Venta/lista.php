@@ -16,7 +16,7 @@
     <?php require 'views/adminPanel.php';?>
     <div class="conten-data">
       <div id="Formulario">
-        <h2 id="titulo">Listado de Compras</h2>
+        <h2 id="titulo">Listado de Ventas</h2>
         <div class="Select-Zone">
           <div class="Select-Div">
             <div class="Select-Div-in">
@@ -25,7 +25,7 @@
             </div>
             <div class="Select-Div-in">
               <input type="radio" name="Modo" id="Radio-Editorial" onchange="ChangeMod(1)">
-              <label for="Radio-Editorial">Editorial</label>
+              <label for="Radio-Editorial">Usuario</label>
             </div>
             <div class="Select-Div-in">
               <input type="radio" name="Modo" id="Radio-Estado" onchange="ChangeMod(2)">
@@ -40,30 +40,29 @@
               <label for="Radio-Fecha">Fecha</label>
             </div>
           
-
-
           </div>
           <div class="select-Values">
-            <!-- Editorial -->
+            <!-- Usuario -->
             <div class="Select_NotView">
-
-                  <select name="Editorial" id="Select_Editorial" class="inputs" onchange="getbyEditorial()">
-                        <option value="" selected disabled>Editorial</option>
-                  </select>
-                  <Button class="btnRefresh" type="button" onclick="refresheditoriales()"><img
-                  src="<?php echo constant('URL'); ?>public/Recursos/icons/refresh.svg"></Button>
+                  <input type="text" id="Select_Usuario" class="inputs" placeholder="Email" onkeyup="getbyUsuario(event)">
+    
             </div>
             <!-- estado -->
             <div class="Select_NotView">
                   <select name="Estado" id="Select_Estado" class="inputs" onchange="getbyEstado()">
                         <option value="" selected disabled>Estado</option>
-                        <option value="En Espera">En Espera</option>
-                        <option value="Recibido">Recibido</option>
+                        <option value="Enviado">Enviado</option>
+                        <option value="Entregado">Entregado</option>
+                        <option value="Procesando">Procesando</option>
                   </select>
             </div>
             <!-- MP -->
             <div class="Select_NotView">
-                  <input type="text" name="MP" id="Select_MP" class="inputs" placeholder="Metodo de Pago" onkeyup="getbyMP(event)">
+              <select name="Select_MP" id="Select_MP" class="inputs" onchange="getbyMP()">
+                <option value="" selected disabled>Metodo de Pago</option>
+                <option value="Credito">Credito</option>
+                <option value="Devito">Devito</option>
+              </select>
             </div>
             <!-- Fecha -->
             <div class="Select_NotView">
@@ -82,7 +81,7 @@
             <div class="Tabla-Detalles-Thead">
               <div class="Tabla-Detalles-tr">
                 <div class="Tabla-Detalles-th"><span>ID</span></div>
-                <div class="Tabla-Detalles-th"><span>Editorial</span></div>
+                <div class="Tabla-Detalles-th"><span>Usuario</span></div>
                 <div class="Tabla-Detalles-th"><span>Fecha Hora</span></div>
                 <div class="Tabla-Detalles-th"><span>Pago</span></div>
                 <div class="Tabla-Detalles-th"><span>Estado</span></div>
@@ -115,6 +114,7 @@
 				<div class="Tabla-Detalles-tr">
             		<div class="Tabla-Detalles-th"><span>ISBN</span></div>
             		<div class="Tabla-Detalles-th"><span>Precio Unitario</span></div>
+                <div class="Tabla-Detalles-th"><span>Descuento</span></div>
             		<div class="Tabla-Detalles-th"><span>Cantidad</span></div>
             		<div class="Tabla-Detalles-th"><span>Ver</span></div>
             	</div>
@@ -134,8 +134,8 @@
   </section>
 
 
-  <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Compra/Compra.css">
-  <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Compra/listar.css">
+  <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Venta/Venta.css">
+  <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Venta/listar.css">
   <?php 
   require_once 'utilidades/Formatos.php';
   if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") != "Administrador"){ ?>
@@ -144,6 +144,6 @@
 </body>
 
 <script src="<?php echo constant('URL'); ?>public/js/AdminPanel/AdminPanel.js"></script>
-<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Compra/listar.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Venta/listar.js"></script>
 
 </html>

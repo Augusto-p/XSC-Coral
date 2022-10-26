@@ -5,11 +5,9 @@
             </div>
             <div class="OP-item">
                 <div class="OP-item-titulo ">
-                    <h4 class="noselect"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/home.svg">Home</h4>
+                    <h4 class="noselect" onclick="goTo('<?php echo constant('URL'); ?>home/mod')"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/home.svg">Home</h4>
                 </div>
-                <div class="OP-item-content OP-item-content-home">
-                    <a class="OP-item-content-end noselect" href="<?php echo constant('URL'); ?>home/mod">Editar</a>
-                </div>
+                
             </div>
             <div class="OP-item ">
                 <div class="OP-item-titulo">
@@ -56,23 +54,18 @@
                 <div class="OP-item-titulo">
                     <h4 class="noselect"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/buys.svg">Compras</h4>
                 </div>
-                <div class="OP-item-content">
+                <div class="OP-item-content OP-item-content-Two">
                     <a class="noselect" href="<?php echo constant('URL'); ?>Compra/list">Ver</a>
-                    <a class="noselect" href="<?php echo constant('URL'); ?>Compra/new">Añadir</a>
-                    <a class="OP-item-content-end noselect">Eliminar</a>
+                    <a class="OP-item-content-end noselect" href="<?php echo constant('URL'); ?>Compra/new">Añadir</a>
                 </div>
             </div>
             <div class="OP-item">
-                <div class="OP-item-titulo">
+                <div class="OP-item-titulo" onclick="goTo('<?php echo constant('URL'); ?>Venta/list')">
                     <h4 class="noselect"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/tag.svg">Ventas</h4>
                 </div>
-                <div class="OP-item-content">
-                    <a class="noselect">Ver</a>
-                    <a class="noselect">Añadir</a>
-                    <a class="OP-item-content-end noselect">Eliminar</a>
-                </div>
+            
             </div>
-            <div class="OP-item">
+            <!-- <div class="OP-item">
                 <div class="OP-item-titulo">
                     <h4 class="noselect"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/info.svg">Informacion</h4>
                 </div>
@@ -81,6 +74,6 @@
                     <a class="noselect">Añadir</a>
                     <a class="OP-item-content-end noselect">Eliminar</a>
                 </div>
-            </div>
+            </div> -->
         </div>
 

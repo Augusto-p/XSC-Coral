@@ -8,12 +8,7 @@ class Editorial_Controller extends Controller {
     }
 
     public function render() {
-        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
-            
-            $this->view->render('PanelAdmin/Editorial/add');
-        }else {
-            $this->view->render('errores/403');
-        }
+        $this->new();
     }
     public function new() {
         if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {

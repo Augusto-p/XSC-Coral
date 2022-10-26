@@ -32,6 +32,7 @@ body {
     background-color: transparent;
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 #book-image-pointer-section {
@@ -92,7 +93,7 @@ body {
 }
 
 #btn-slider-s {
-    right: calc(7vw + 80vh);
+    right: 0;
 }
 
 .slider-book-btn:hover {
@@ -109,7 +110,7 @@ body {
     background-color: transparent;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 50% 50%;
     align-items: center;
     justify-items: center;
     width: 100%;
@@ -128,6 +129,7 @@ body {
     align-items: center;
     border: 2px solid #e0e0e0;
     border-radius: 2vh;
+    justify-content: space-around;
 }
 
 #categorias-book-span {
@@ -139,6 +141,7 @@ body {
     align-items: center;
     font-size: 0.9rem;
     color: rgba(0, 0, 0, .55);
+    overflow-x: auto;
 }
 
 .categoria-book {
@@ -177,10 +180,9 @@ body {
     background-color: transparent;
     display: flex;
     justify-content: flex-start;
-    /* align-items: center; */
     font-size: 1.2rem;
     margin-bottom: 0;
-    overflow-y: scroll;
+    overflow-y: auto;
 
 }
 
@@ -319,6 +321,7 @@ body {
     margin: 0;
     background-color: transparent;
     margin-bottom: 5%;
+    overflow-y: auto;
 }
 
 #autor-book-slider {
@@ -488,6 +491,40 @@ body {
     align-items: flex-start;
 }
 
-#PaisesData{
+#PaisesData {
     display: none;
+}
+
+
+@media (max-width: 768px) and (min-width: 200px) {
+    .info-book {
+        grid-column: 1;
+        grid-row: 2/4;
+        align-items: flex-start;
+
+    }
+
+    #info-autor-book-section {
+        grid-row: 4;
+    }
+
+    .contenedor {
+        height: 280vh;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+
+    #bio-autor-book {
+        height: calc(100% - 25vh - 15%);
+    }
+
+    #data-autor-book {
+        height: 15%;
+    }
+
+    #titulo-book {
+        height: 7vh;
+        align-items: center;
+    }
+
 }

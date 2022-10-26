@@ -152,7 +152,7 @@ slider1Content.appendChild(slider1Content.children[3].cloneNode(true));
 let pointerValue = 2;
 slider1Pointers[pointerValue].style.backgroundColor = '#71eba1';
 
-let slider1timer = setInterval(() => { slider1Move('next', slider1Content, slider1Pointers); }, 6000);
+let slider1timer = setInterval(() => { slider1Move('next', slider1Content, slider1Pointers); }, 3000);
 
 //seteos slider 2
 slider2Content.appendChild(slider2Content.children[0].cloneNode(true));
@@ -162,5 +162,10 @@ slider2Content.appendChild(slider2Content.children[3].cloneNode(true));
 let pointerValue2 = 2;
 slider2Pointers[pointerValue2].style.backgroundColor = '#71eba1';
 
-let slider2timer = setInterval(() => { slider2Move('next', slider2Content, slider2Pointers); }, 6000);
+let slider2timer = setInterval(() => { slider2Move('next', slider2Content, slider2Pointers); }, 3000);
 
+
+function AddCarritoHome(event, ISBN) {
+    event.stopPropagation();
+    addCarrito(ISBN)
+}

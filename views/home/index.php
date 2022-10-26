@@ -12,7 +12,7 @@
     <?php require 'views/header.php';?>
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Home/style.css">
     <div class="banner1">
-        <a href="#" target="_blank"><img class="baner" src="<?=$this->UrlBanerP;?>"></a>
+        <a href="#"><img class="baner" src="<?=$this->UrlBanerP;?>"></a>
     </div>
     <section class="producto">
         <h2 class="cat-prod">Libros</h2>
@@ -26,14 +26,14 @@
                     <div class="slider-content-view">
                         <div class="slider-content-in">
                             <?php foreach ($this->Slider1 as $key => $book) {;?>
-                                <a href="<?php echo constant('URL'); ?>book/view?id=<?=$book->isbn;?>">
+                                <a onclick="goTo('<?php echo constant('URL'); ?>book/view?id=<?=$book->isbn;?>')">
                                 <div class="slider-item">
                                     <div class="slider-item-up" style="background-image: url('<?php echo constant('URL'); ?><?=$book->imagenes[0];?>')">
                                         <div class="slider-item-up-up">
                                             <span class="slider-item-precio">$<?=$book->precio;?></span>
                                         </div>
                                         <div class="slider-item-up-down">
-                                            <button class="slider-item-addCarito">Añadir al carrito</button>
+                                            <button class="slider-item-addCarito"  onclick="AddCarritoHome(event,<?=$book->isbn;?>)">Añadir al carrito</button>
                                         </div>
                                     </div>
                                     <div class="slider-item-down">
@@ -89,14 +89,14 @@
                         <div class="slider-content-in">
 
                         <?php foreach ($this->Slider2 as $key => $book) {;?>
-                                <a href="<?php echo constant('URL'); ?>book/view?id=<?=$book->isbn;?>">
+                                <a onclick="goTo('<?php echo constant('URL'); ?>book/view?id=<?=$book->isbn;?>')">
                                 <div class="slider-item">
                                     <div class="slider-item-up" style="background-image: url('<?php echo constant('URL'); ?><?=$book->imagenes[0];?>')">
                                         <div class="slider-item-up-up">
                                             <span class="slider-item-precio">$<?=$book->precio;?></span>
                                         </div>
                                         <div class="slider-item-up-down">
-                                            <button class="slider-item-addCarito">Añadir al carrito</button>
+                                            <button class="slider-item-addCarito" onclick="AddCarritoHome(event,<?=$book->isbn;?>)">Añadir al carrito</button>
                                         </div>
                                     </div>
                                     <div class="slider-item-down">

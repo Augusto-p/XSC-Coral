@@ -9,7 +9,11 @@ class Carrito_Controller extends Controller{
     }
 
     public function render(){
-        $this->view->render('Carrito/view');
+        if (!empty($_SESSION['login']) ? $_SESSION['login'] : false) {
+            $this->view->render('Carrito/view');
+        }else {
+            $this->view->render('usuario/login');
+        }
     }
 
    

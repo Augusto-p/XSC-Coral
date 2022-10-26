@@ -84,9 +84,9 @@ body {
     border-bottom-right-radius: 2vh;
 }
 
-.OP-item-content-home {
-    height: 10vh;
-    transform: translateY(0vh);
+.OP-item-content-Two {
+    height: 20vh;
+    transform: translateY(-5vh);
 }
 
 .OP-item-content a {

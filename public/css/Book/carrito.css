@@ -179,14 +179,24 @@
 }
 
 .BTNSale {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    color: white;
-    background-color: #71eba1;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 15vw;
+    height: 7vh;
+    background-color: #145075;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 3.5vh;
     font-size: 1.3rem;
-    padding: 10px;
 }
+
+.BTNSale:hover {
+    color: #fff;
+    background-color: #71eba1;
+    border: 1px solid transparent;
+}
+
 
 .Tabla-Detalles-td span {
     text-align: center;
@@ -204,7 +214,7 @@
 
 }
 
-#Decripciondiv  textarea{
+#Decripciondiv textarea {
     border: #145075 solid 0.4vh;
     outline: none;
     width: 50%;
@@ -234,4 +244,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.PointersBTNSale {
+    width: 0px;
+    height: 0px;
+    background-color: transparent;
+    bottom: 0;
+    right: 0;
+}
+
+.PointersBTNSale#Element {
+    position: absolute;
+}
+
+.PointersBTNSale#window {
+    position: fixed;
+}
+
+.PopUP-BTNs-pagar, .PopUP-BTNs-Finalizar {
+    color: #71eba1;
+    border-color: #71eba1;
+}
+
+.PopUP-BTNs-pagar:hover, .PopUP-BTNs-Finalizar:hover {
+    background-color: #71eba1;
+    color: #fff;
+    border-color: #fff;
 }

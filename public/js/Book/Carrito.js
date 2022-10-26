@@ -1,15 +1,12 @@
-let headersList = {
-    "Accept": "*/*",
-    "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-    "Content-Type": "application/json"
-}
-
 let Carrito = new Map();
 let Listado = document.getElementById("ListaDeDatos");
 let PopUP = document.getElementById("PopUP-Window");
 let PopUPInfo = document.getElementById("PopUP-Window2");
 let TBodyPop = document.getElementById("Tabla-Detalles-POPUP");
 let PopUpTotal = document.getElementById("popUpTotal")
+let MetodoPagioPopUp2 = document.getElementById("Mpag-popUp");
+let SenvioPopUp2 = document.getElementById("SYSPaceteria");
+let DescripcionPopUp2 = document.getElementById("descripcion-popUp");
 let Total = 0;
 function addcarrito(book) {
     Carrito.set(book.isbn, book);
@@ -124,8 +121,12 @@ function ChangeCant(event, id) {
 }
 
 function ViewPopUP() {
-    CargrarItemsPopUp()
-    PopUP.classList.add('show-PopUp');
+    if (Carrito.size > 0) {
+        CargrarItemsPopUp()
+        PopUP.classList.add('show-PopUp');
+    }else{
+        ITag({ "Type": "WARNING", "Position": "RB", "Duration": 5, "Title": "Lo Sentimos", "Description": "Su Carrito se encuntra Vacio" });
+    }
 }
 
 function ClosePopUP() {
@@ -133,21 +134,22 @@ function ClosePopUP() {
     PopUP.classList.remove('show-PopUp');
 }
 
-
 function CargrarItemsPopUp() {
     TBodyPop.innerHTML = "";
     for (const [isbn, book] of Carrito) {
-        Total += parseFloat(book.precio) ;
+        Total += parseFloat(book.precio);
         TBodyPop.innerHTML += `<div class="Tabla-Detalles-tr">
-                    <div class="Tabla-Detalles-td"><span>${isbn}</span></div>
-                    <div class="Tabla-Detalles-td"><span>${book.titulo}</span></div>
-                    <div class="Tabla-Detalles-td"><span>$${parseFloat(book.precio).toFixed(2)}</span></div>
-                    <div class="Tabla-Detalles-td"><span><input type="number" data-ISBN="${isbn}" min="1" step="1" class="inputs"  placeholder="Cantidad" onkeydown="filtroCantidad(event)" max="1000" onchange="ChangeCant(event, ${isbn})" value=1></span></div>
-                    <div class="Tabla-Detalles-td"><span>$${parseFloat(book.precio).toFixed(2)}</span></div>
-                    <div class="Tabla-Detalles-td"><span onclick="RemovePopUpDetalle(${isbn})"><img src="${URL}public/Recursos/icons/Papelera.svg"></span></div>
-                </div>`;
+            <div class="Tabla-Detalles-td"><span>${isbn}</span></div>
+            <div class="Tabla-Detalles-td"><span>${book.titulo}</span></div>
+            <div class="Tabla-Detalles-td"><span>$${parseFloat(book.precio).toFixed(2)}</span></div>
+            <div class="Tabla-Detalles-td"><span><input type="number" data-ISBN="${isbn}" min="1" step="1" class="inputs"  placeholder="Cantidad" onkeydown="filtroCantidad(event)" max="1000" onchange="ChangeCant(event, ${isbn})" value=1></span></div>
+            <div class="Tabla-Detalles-td"><span>$${parseFloat(book.precio).toFixed(2)}</span></div>
+            <div class="Tabla-Detalles-td"><span onclick="RemovePopUpDetalle(${isbn})"><img src="${URL}public/Recursos/icons/Papelera.svg"></span></div>
+            </div>`;
     }
-    cahngetotal("$0", 0);
+    cahngetotal("$0", 0);    
+        
+    
     
 }
 
@@ -163,37 +165,25 @@ function RemovePopUpDetalle(isbn) {
     
 }
 
-async function Send() {
+async function Send(Body) {
     headersList["Authorization"] = "Token " + sessionStorage.getItem("Token");
-    let bodyContent = JSON.stringify({
-        "Venta": {
-            "Metodo_Pago": "Debito",
-            "Estado": "Enviado",
-            "Pedido": {
-                "Sistema_Envio": "DAC",
-                "Descripcion": "hola como estas"
-            },
-            "Detalles": [{
-                "ISBN": 9788448025373,
-                "Descuento": 3,
-                "Cantidad": 5
-
-            }]
-
-        }
-    });
-
     let response = await fetch(`${URL}api/venta/add`, {
         method: "POST",
-        body: bodyContent,
+        body: Body,
         headers: headersList
     });
 
-    let data = await response.text();
-    console.log(data);
+    let data = await response.json();
+    if (data["code"] == 200) {
+        ITag({ "Type": "SUCCESS", "Position": "RB", "Duration": 5, "Title": "Hecho!", "Description": data["mensaje"] });
+        GetCrritos()
+    } else if (data["code"] == 403) {
+        ITag({ "Type": "ERROR", "Position": "RB", "Duration": 5, "Title": "Error!", "Description": data["mensaje"] });
+    } else if (data["code"] == 404) {
+        ITag({ "Type": "WARNING", "Position": "RB", "Duration": 5, "Title": "Advertencia!", "Description": data["mensaje"] });
+    }
 
 
-    
 }
 
 function Pagar() {
@@ -208,6 +198,7 @@ function Pagar() {
         })
     })
     ClosePopUP()
+    localStorage.setItem("Detalles-Compra", JSON.stringify(Detalles));
     ViewPopUPInfo()
         
 }
@@ -221,6 +212,41 @@ function ClosePopUPInfo() {
     PopUPInfo.classList.remove('show-PopUp');
 }
 
+function finalizar() {
 
-// getCarrito()
+    let bodyContent = JSON.stringify({
+        "Venta": {
+            "Metodo_Pago": `${MetodoPagioPopUp2.value}`,
+            "Estado": "Enviado",
+            "Pedido": {
+                "Sistema_Envio": `${SenvioPopUp2.value}`,
+                "Descripcion": `${DescripcionPopUp2.value}`
+            },
+            "Detalles": JSON.parse(localStorage.getItem("Detalles-Compra"))
+
+        }
+    });
+
+    MetodoPagioPopUp2.value = SenvioPopUp2.value = DescripcionPopUp2.value = "";
+    Send(bodyContent);
+    ClosePopUPInfo()
+    
+
+}
 GetCrritos()
+
+// boton sale
+let PoniterElemnt = document.querySelector(".PointersBTNSale#Element")
+let PoniterWindows = document.querySelector(".PointersBTNSale#window")
+let BTNSale = document.getElementById("BTNSale")
+window.addEventListener('scroll', e => {
+    if ((PoniterElemnt.getBoundingClientRect().bottom - PoniterWindows.getBoundingClientRect().bottom) > 0) {
+        BTNSale.style.position = "fixed";
+    } else {
+        BTNSale.style.position = "absolute";
+    }
+});
+
+
+
+

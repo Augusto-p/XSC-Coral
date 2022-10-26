@@ -2,7 +2,6 @@ let Compras = new Map();
 let Editorial = document.getElementById("Select_Editorial");
 let Estado = document.getElementById("Select_Estado");
 let MP = document.getElementById("Select_MP");
-let Seach = document.getElementById("Select_ID");
 let FechaIn = document.getElementById("Select_FechaIN");
 let FechaOut = document.getElementById("Select_FechaOUT");
 let TBody = document.getElementById("Tabla-Detalles");
@@ -23,17 +22,14 @@ async function refresheditoriales() {
 
 }
 
-
 function ChangeMod(value) {
     Editorial.parentElement.style.display = "none";
     Estado.parentElement.style.display = "none";
     MP.parentElement.style.display = "none";
-    Seach.parentElement.style.display = "none";
     FechaIn.parentElement.style.display = "none";
     Editorial.value = "";
     Estado.value = "";
     MP.value = "";
-    Seach.value = "";
     FechaIn.value = "";
     FechaOut.value = ""; 
     switch (value) {
@@ -51,9 +47,6 @@ function ChangeMod(value) {
             break;
         case 4:
             FechaIn.parentElement.style.display = "flex";
-            break;
-        case 5:
-            Seach.parentElement.style.display = "block";
             break;
         default:
             break;

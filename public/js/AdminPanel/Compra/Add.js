@@ -128,9 +128,9 @@ async function Send() {
     let data = await response.json();
     if (data["code"] == 200) {
         ITag({ "Type": "SUCCESS", "Position": "RB", "Duration": 5, "Title": "Hecho!", "Description": data["mensaje"] });
-        Editorial.value = null;
-        Mpago.value = null;
-        Estado.value = null;
+        Editorial.value = "";
+        Mpago.value = "";
+        Estado.value = "";
         FCompra.value = null;
         Detalles.clear();
         RefreshTBody()

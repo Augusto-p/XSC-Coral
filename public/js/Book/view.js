@@ -10,7 +10,7 @@ let bookAutores = new Map();
 function run() {
     uploadimage()
     uploadAutor()
-    uploadPaises()
+    // uploadPaises()
     
 }
 
@@ -19,6 +19,7 @@ function addbookimage(url) {
 }
 
 function addbookAutor(id, nombre, nacionalidad, biografia, fechaNacimiento, foto) {
+    console.log("Addbook");
     bookAutores.set(bookAutores.size, { "id": id,
                                         "nombre": nombre, 
                                         "Nacionalidad": nacionalidad,
@@ -131,10 +132,7 @@ let autorbtns = document.getElementById("btn-autor-s");
 let acont = 0;
 
 
-function getFlag(Pais) {
-    return Paises
-    
-}
+
 
 
 function uploadAutor() {

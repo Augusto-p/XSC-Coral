@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <title>Libreria MiMundo</title>
 </head>
 
@@ -17,7 +15,7 @@
     <section class="content">
         <?php require 'views/adminPanel.php';?>
         <div class="conten-data">
-            <form action="<?php echo constant('URL'); ?>usuario/signupAdmin" method="post" id="Formulario" enctype="multipart/form-data">
+            <div id="Formulario">
                 <h2 id="titulo">Añadir Usuario</h2>
 
                 <div class="data">
@@ -110,7 +108,7 @@
                 <div id="save-div">
                     <button type="button" onclick="Send()">Guardar</button>
                 </div>
-            </form>
+            </div>
         </div>
     </section>
 

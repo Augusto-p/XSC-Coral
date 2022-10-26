@@ -12,7 +12,7 @@ class Usuario_Controller extends Controller
         
     }
     public function render(){
-        $this->view->render('usuario/login');
+        $this->login();
     }
     
     public function login(){

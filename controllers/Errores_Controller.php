@@ -9,7 +9,7 @@ class Errores_Controller extends Controller
 
     public function render()
     {
-        $this->view->render('errores/404');
+        $this->E404();
     }
 
 

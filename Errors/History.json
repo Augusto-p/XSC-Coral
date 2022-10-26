@@ -1,5 +1,18 @@
 {
     "Errors": [
-        
+        {
+            "Type": "JWT",
+            "Date": "2022-10-25 22:17:27",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-10-25 22:19:53",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        }
     ]
 }

@@ -42,172 +42,11 @@
                 <h2>Mi Carrito</h2>
             </section>
             <section class="listado" id="ListaDeDatos">
-                
-
-                <div class="list-item">
-                    <div class="list-item-img">
-                        <img src="../Recursos/imgs/libro.jpg" alt="">
-                    </div>
-                    <div class="list-item-data">
-                        <div class="list-item-data-up">
-                            <h2>Cómo hacer un coche</h2>
-                        </div>
-                        <div class="list-item-data-center">
-                            <p>
-                                En este emocionante libro descubriremos de manera exhaustiva, fascinante y extraordinariamente
-                                entretenida cómo funciona
-                                un coche de carreras, mientras recorremos la trayectoria de Adrian Newey, el más grande diseñador de
-                                automóviles de la
-                                historia, desde sus comienzos en la IndyCar hasta alcanzar un éxito inigualado en la Fórmula 1 diseñando
-                                coches para
-                                pilotos como Mario Andretti, Nigel Mansell, Alain Prost, Mika Häkkinen, Mark Webber o Sebastian Vettel
-                                entre otros,
-                                siempre con un objetivo inquebrantable: conseguir el coche más rápido.
-                            </p>
-                        </div>
-                        <div class="list-item-data-down">
-                            <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                            <h6>Adrian Newey</h6>
-                            <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                            <h6>Adrian Newey</h6>
-                            <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                            <h6>Adrian Newey</h6>
-                        </div>
-                    </div>
-                    <div class="list-item-sale">
-                        <div class="list-item-sale-ultra-up">
-                            <div class="list-item-sale-ultra-up-pointer"></div>
-                            <div class="list-item-sale-ultra-up-pointer"></div>
-                            <div class="list-item-sale-ultra-up-pointer"></div>
-                            <div class="item-menu">
-                                <button>Ver Libro</button>
-                                <button>Ver Autor</button>
-                                <button>Ver Editorial</button>
-                                <hr>
-                                <button class="remoCarr" >Remover del Carrito</button>
-                            </div>
-                        </div>
-                        <div class="list-item-sale-up">
-                            <h3>$ 2.900,00</h3>
-                        </div>
-                        <div class="list-item-sale-down">
-                            <button class="remoCarr">Remover del Carrito</button>
-                        </div>
-                    </div>
-                
-                
-                </div>
-                <div class="list-item">
-                    <div class="list-item-img">
-                        <img src="../Recursos/imgs/libro.jpg" alt="">
-                    </div>
-                    <div class="list-item-data">
-                        <div class="list-item-data-up">
-                            <h2>Cómo hacer un coche</h2>
-                        </div>
-                        <div class="list-item-data-center">
-                            <p>
-                                En este emocionante libro descubriremos de manera exhaustiva, fascinante y extraordinariamente
-                                entretenida cómo funciona
-                                un coche de carreras, mientras recorremos la trayectoria de Adrian Newey, el más grande diseñador de
-                                automóviles de la
-                                historia, desde sus comienzos en la IndyCar hasta alcanzar un éxito inigualado en la Fórmula 1 diseñando
-                                coches para
-                                pilotos como Mario Andretti, Nigel Mansell, Alain Prost, Mika Häkkinen, Mark Webber o Sebastian Vettel
-                                entre otros,
-                                siempre con un objetivo inquebrantable: conseguir el coche más rápido.
-                            </p>
-                        </div>
-                        <div class="list-item-data-down">
-                            <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                            <h6>Adrian Newey</h6>
-                            <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                            <h6>Adrian Newey</h6>
-                            <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                            <h6>Adrian Newey</h6>
-                        </div>
-                    </div>
-                    <div class="list-item-sale">
-                        <div class="list-item-sale-ultra-up">
-                            <div class="list-item-sale-ultra-up-pointer"></div>
-                            <div class="list-item-sale-ultra-up-pointer"></div>
-                            <div class="list-item-sale-ultra-up-pointer"></div>
-                            <div class="item-menu">
-                                <button>Ver Libro</button>
-                                <button>Ver Autor</button>
-                                <button>Ver Editorial</button>
-                                <hr>
-                                <button class="remoCarr">Remover del Carrito</button>
-                            </div>
-                        </div>
-                        <div class="list-item-sale-up">
-                            <h3>$ 2.900,00</h3>
-                        </div>
-                        <div class="list-item-sale-down">
-                            <button class="remoCarr">Remover del Carrito</button>
-                        </div>
-                    </div>
-                
-                
-                </div>
-            
-                <div class="list-item">
-                    <div class="list-item-img">
-                        <img src="../Recursos/imgs/libro.jpg" alt="">
-                    </div>
-                    <div class="list-item-data">
-                        <div class="list-item-data-up">
-                            <h2>Cómo hacer un coche</h2>
-                        </div>
-                        <div class="list-item-data-center">
-                            <p>
-                                En este emocionante libro descubriremos de manera exhaustiva, fascinante y extraordinariamente
-                                entretenida cómo funciona
-                                un coche de carreras, mientras recorremos la trayectoria de Adrian Newey, el más grande diseñador de
-                                automóviles de la
-                                historia, desde sus comienzos en la IndyCar hasta alcanzar un éxito inigualado en la Fórmula 1 diseñando
-                                coches para
-                                pilotos como Mario Andretti, Nigel Mansell, Alain Prost, Mika Häkkinen, Mark Webber o Sebastian Vettel
-                                entre otros,
-                                siempre con un objetivo inquebrantable: conseguir el coche más rápido.
-                            </p>
-                        </div>
-                        <div class="list-item-data-down">
-                            <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                            <h6>Adrian Newey</h6>
-                            <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                            <h6>Adrian Newey</h6>
-                            <img src="https://cdn-1.motorsport.com/images/amp/YEQVPjLY/s1000/adrian-newey-red-bull-racing--.jpg">
-                            <h6>Adrian Newey</h6>
-                        </div>
-                    </div>
-                    <div class="list-item-sale">
-                        <div class="list-item-sale-ultra-up">
-                            <div class="list-item-sale-ultra-up-pointer"></div>
-                            <div class="list-item-sale-ultra-up-pointer"></div>
-                            <div class="list-item-sale-ultra-up-pointer"></div>
-                            <div class="item-menu">
-                                <button>Ver Libro</button>
-                                <button>Ver Autor</button>
-                                <button>Ver Editorial</button>
-                                <hr>
-                                <button class="remoCarr">Remover del Carrito</button>
-                            </div>
-                        </div>
-                        <div class="list-item-sale-up">
-                            <h3>$ 2.900,00</h3>
-                        </div>
-                        <div class="list-item-sale-down">
-                            <button class="remoCarr">Remover del Carrito</button>
-                        </div>
-                    </div>
-                
-                
-                </div>
-            
             </section>
 
-            <button onclick="ViewPopUP()" class="BTNSale">Comprar</button>
+            <button onclick="ViewPopUP()" class="BTNSale" id="BTNSale">Comprar</button>
+            <div class="PointersBTNSale" id="Element"></div>
+            <div class="PointersBTNSale" id="window"></div>
 
         </section>
     </section>
@@ -238,9 +77,9 @@
         <div class="PopUP-Total">
             <span id="popUpTotal">Total: $</span>
         </div>
+        
         <button class="PopUP-BTNs-pagar" onclick="Pagar()">Pagar</button>
-
-      </div>
+    </div>
 
     </div>
     </section>
@@ -250,14 +89,14 @@
                 <h2>Informacion de la Compra</h2>
             </div>
             <div class="PopUP-form-data">
-                <div id="Imgdiv" style="background-image: url(https://thumbs.dreamstime.com/b/gracias-por-su-compra-en-espa%C3%B1ol-letras-ilustraci%C3%B3n-de-l%C3%A1piz-caligraf%C3%ADa-moderna-pincel-traducci%C3%B3n-del-tu-elemento-para-193742802.jpg);">
+                <div id="Imgdiv" style="background-image: url(<?php echo constant('URL'); ?>public/Recursos/imgs/GraciasXSuCompra.svg);">
                     
                 </div>
 
                 <div>
 
-                    <select name="MPago" id="Mpago" class="inputs">
-                    <option value="">Metodo de Pago</option>
+                    <select name="MPago" id="Mpag-popUp" class="inputs">
+                    <option value="" selected disabled>Metodo de Pago</option>
                     <option value="Credito">Cerdito</option>
                     <option value="Devito">Devito</option>
                 </select>
@@ -268,12 +107,12 @@
                 </div>
                 <div id="Decripciondiv">
 
-                    <textarea name="Descripcion" id="descripcion" placeholder="Escribe una descripcion" class="inputs"></textarea>
+                    <textarea name="Descripcion" id="descripcion-popUp" placeholder="Escribe una descripcion" class="inputs"></textarea>
                 </div>
         
             </div>
             <div class="PopUP-BTNs">
-                <button class="PopUP-BTNs-Finalizar" onclick="Fin()">Finalizar</button>
+                <button class="PopUP-BTNs-Finalizar" onclick="finalizar()">Finalizar</button>
 
             </div>
 

@@ -1,9 +1,4 @@
 
-const headersList = {
-    "Accept": "*/*",
-    "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-    "Content-Type": "application/json"
-}
 
 async function ImgToB64(img) {
     return new Promise(res => {

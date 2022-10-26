@@ -4,5 +4,6 @@ class DetalleVenta{
     public $ISBN;
     public $Cantidad;
     public $Descuento;
+    public $Precio;
     public $Book;    
 }; ?>

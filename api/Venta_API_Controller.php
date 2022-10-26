@@ -140,12 +140,11 @@ class Venta_API_Controller extends Controller {
     }
     public function add(){
         //add Compra
-        $userModel = new Usuario_Model();
+        // $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
         $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
         $email = $token != false ? $token : null; //JWT
-        if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
-            //$res = $data;
+        if ($email != null) {
             $Venta = new Venta;
             $Venta->Estado = $data->Venta->Estado;
             $Venta->MPago = $data->Venta->Metodo_Pago;

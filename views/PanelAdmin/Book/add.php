@@ -15,7 +15,7 @@
   <section class="content">
     <?php require 'views/adminPanel.php';?>
     <div class="conten-data">
-      <form action="<?php echo constant('URL'); ?>book/add" method="post" enctype="multipart/form-data" id="Formulario">
+      <div id="Formulario">
         <h2 id="titulo">Añadir Libro</h2>
         <div class="data">
           <div class="row">
@@ -127,7 +127,7 @@
         <div id="save-div">
           <button type="button" onclick="Send()">Guardar</button>
         </div>
-      </form>
+      </div>
     </div>
   </section>
 

@@ -39,12 +39,6 @@ class Usuario_API_Controller extends Controller
         echo $pdfs->Facturar($venta, $user);
     }
 
-    public function test2(){
-        //Errors::NewError("PDO", __File__, __Line__, "Max Verstapen is champion");
-        
-        SessionStorage::newSS(["name"=>"Token","value"=>"Max1 Verstapen is champion"]);
-    }
-
 
     public function get(){
 
@@ -193,7 +187,22 @@ class Usuario_API_Controller extends Controller
         $email = $token != false ? $token : null; //JWT
         $res = ["Rol" => $this->model->getRol($email)];
         $this->view->res = json_encode($res);
-$this->view->render("API/Ususario/get");
+        $this->view->render("API/Ususario/get");
+    }
+
+    public function getMyToken(){
+        $data = json_decode(file_get_contents('php://input'));
+        $user           = new Usuario(); 
+        $user->email    = $data->Usuario->Email; 
+        $user->password = $data->Usuario->Password;
+        $usr = $this->model->entrar($user);
+        if ($usr) {
+            $res = ["Token" => JWTs::newJWT($usr->email, 60 * 60 * 24)];
+        }else {
+            $res = ["Token" => null];
+        }
+        $this->view->res = json_encode($res);
+        $this->view->render("API/Ususario/get");
     }
 
 }

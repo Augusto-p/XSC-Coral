@@ -1,6 +1,7 @@
 <?php
 
 require_once 'controllers/Errores_Controller.php';
+require_once 'C:\xampp\htdocs\XSC\utilidades\Errors.php';
 
 class App {
     public function __construct() {

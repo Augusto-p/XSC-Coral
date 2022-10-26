@@ -9,6 +9,7 @@ class Venta_Model extends Model
     public function add($venta){
         try {
             $pdo = $this->db->connect();
+            $pdo->beginTransaction();
             $consulta = $pdo->prepare("INSERT INTO ventas (Email, Estado, Metodo_Pago, Fecha_Hora, Total) VALUES (:email, :estado, :mp, :date, :total);"); // consulta a la base de datos no disponible                                                      
             $consulta->bindValue(':email', $venta->Email);
             $consulta->bindValue(':mp', $venta->MPago);
@@ -24,8 +25,8 @@ class Venta_Model extends Model
             if ($id > 0) {
                 $consulta2 = $pdo->prepare("INSERT INTO pedidos (`ID_Venta`, `Descripcion`, `Sistema_Envio`) VALUES (:id, :desc, :envio);"); // consulta a la base de datos no disponible                                                      
                 $consulta2->bindValue(':id', $id);
-                $consulta2->bindValue(':envio', $Pedido->SEnvio);
-                $consulta2->bindValue(':desc', $Pedido->Descripcion);
+                $consulta2->bindValue(':envio', $venta->Pedido->SEnvio);
+                $consulta2->bindValue(':desc', $venta->Pedido->Descripcion);
                 $consulta2->execute();
                 foreach ($venta->Detalles as $key => $DetalleVenta) {
                     $consulta3 = $pdo->prepare("INSERT INTO ventas_detalle (ID_Venta, ISBN, Cantidad, Descuento) VALUES (:id, :isbn, :cant, :descu);"); // consulta a la base de datos no disponible                                                      
@@ -74,7 +75,7 @@ class Venta_Model extends Model
                     $Pedido->Descripcion = $row['Descripcion'];
                 }
                 $ventas[$key]->Pedido = $Pedido;
-                $consulta3 = $pdo->prepare('SELECT * FROM ventas_detalle where ventas_detalle.ID_Venta = :id;'); // consulta a la base de datos no disponible 
+                $consulta3 = $pdo->prepare('SELECT ventas_detalle.*, libros.Precio FROM ventas_detalle join libros on ventas_detalle.ISBN = libros.ISBN where ventas_detalle.ID_Venta = :id;'); // consulta a la base de datos no disponible 
                 $consulta3->bindValue(':id', $venta->id);
                 $consulta3->execute();
                 $Detalles = [];
@@ -84,6 +85,8 @@ class Venta_Model extends Model
                     $Detalle->ISBN = $row['ISBN'];
                     $Detalle->Descuento = $row['Descuento'];
                     $Detalle->Cantidad = $row['Cantidad'];
+                    $Detalle->Precio = $row['Precio'];
+
                     array_push($Detalles , $Detalle);
                 }
                 $ventas[$key]->Detalles = $Detalles;
@@ -106,8 +109,8 @@ class Venta_Model extends Model
     public function getAllByUser($Email){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare('SELECT * FROM ventas where ventas.Email = :email;'); // consulta a la base de datos no disponible 
-            $consulta->bindValue(':email', $Email);
+            $consulta = $pdo->prepare('SELECT * FROM ventas where ventas.Email like :email;'); // consulta a la base de datos no disponible 
+            $consulta->bindValue(':email', "%".$Email."%");
             $consulta->execute();
             $ventas = [];
             while ($row = $consulta->fetch()) {
@@ -131,7 +134,7 @@ class Venta_Model extends Model
                     $Pedido->Descripcion = $row['Descripcion'];
                 }
                 $ventas[$key]->Pedido = $Pedido;
-                $consulta3            = $pdo->prepare('SELECT * FROM ventas_detalle where ventas_detalle.ID_Venta = :id;'); // consulta a la base de datos no disponible
+                $consulta3            = $pdo->prepare('SELECT ventas_detalle.*, libros.Precio FROM ventas_detalle join libros on ventas_detalle.ISBN = libros.ISBN where ventas_detalle.ID_Venta = :id;'); // consulta a la base de datos no disponible
                 $consulta3->bindValue(':id', $venta->id);
                 $consulta3->execute();
                 $Detalles = [];
@@ -185,7 +188,7 @@ class Venta_Model extends Model
                     $Pedido->Descripcion = $row['Descripcion'];
                 }
                 $ventas[$key]->Pedido = $Pedido;
-                $consulta3 = $pdo->prepare('SELECT * FROM ventas_detalle where ventas_detalle.ID_Venta = :id;'); // consulta a la base de datos no disponible 
+                $consulta3            = $pdo->prepare('SELECT ventas_detalle.*, libros.Precio FROM ventas_detalle join libros on ventas_detalle.ISBN = libros.ISBN where ventas_detalle.ID_Venta = :id;'); // consulta a la base de datos no disponible
                 $consulta3->bindValue(':id', $venta->id);
                 $consulta3->execute();
                 $Detalles = [];
@@ -195,6 +198,7 @@ class Venta_Model extends Model
                     $Detalle->ISBN = $row['ISBN'];
                     $Detalle->Descuento = $row['Descuento'];
                     $Detalle->Cantidad = $row['Cantidad'];
+                    $Detalle->Precio = $row['Precio'];
                     array_push($Detalles , $Detalle);
                 }
                 $ventas[$key]->Detalles = $Detalles;
@@ -239,7 +243,7 @@ class Venta_Model extends Model
                     $Pedido->Descripcion = $row['Descripcion'];
                 }
                 $ventas[$key]->Pedido = $Pedido;
-                $consulta3 = $pdo->prepare('SELECT * FROM ventas_detalle where ventas_detalle.ID_Venta = :id;'); // consulta a la base de datos no disponible 
+                $consulta3            = $pdo->prepare('SELECT ventas_detalle.*, libros.Precio FROM ventas_detalle join libros on ventas_detalle.ISBN = libros.ISBN where ventas_detalle.ID_Venta = :id;'); // consulta a la base de datos no disponible
                 $consulta3->bindValue(':id', $venta->id);
                 $consulta3->execute();
                 $Detalles = [];
@@ -248,7 +252,8 @@ class Venta_Model extends Model
                     $Detalle->id = $row['ID_Venta'];
                     $Detalle->ISBN = $row['ISBN'];
                     $Detalle->Descuento = $row['Descuento'];
-                    $Detalle->Cantidad = $row['Cantidad'];
+                    $Detalle->Cantidad = $row['Cantidad']; 
+                    $Detalle->Precio = $row['Precio'];
                     array_push($Detalles , $Detalle);
                 }
                 $ventas[$key]->Detalles = $Detalles;
@@ -295,7 +300,7 @@ class Venta_Model extends Model
                     $Pedido->Descripcion = $row['Descripcion'];
                 }
                 $ventas[$key]->Pedido = $Pedido;
-                $consulta3 = $pdo->prepare('SELECT * FROM ventas_detalle where ventas_detalle.ID_Venta = :id;'); // consulta a la base de datos no disponible 
+                $consulta3            = $pdo->prepare('SELECT ventas_detalle.*, libros.Precio FROM ventas_detalle join libros on ventas_detalle.ISBN = libros.ISBN where ventas_detalle.ID_Venta = :id;'); // consulta a la base de datos no disponible
                 $consulta3->bindValue(':id', $venta->id);
                 $consulta3->execute();
                 $Detalles = [];
@@ -305,6 +310,7 @@ class Venta_Model extends Model
                     $Detalle->ISBN = $row['ISBN'];
                     $Detalle->Descuento = $row['Descuento'];
                     $Detalle->Cantidad = $row['Cantidad'];
+                    $Detalle->Precio = $row['Precio'];
                     array_push($Detalles , $Detalle);
                 }
                 $ventas[$key]->Detalles = $Detalles;
@@ -346,7 +352,7 @@ class Venta_Model extends Model
                 $Pedido->Descripcion = $row['Descripcion'];
             }
             $venta->Pedido = $Pedido;
-            $consulta3 = $pdo->prepare('SELECT * FROM ventas_detalle where ventas_detalle.ID_Venta = :id;'); // consulta a la base de datos no disponible 
+            $consulta3            = $pdo->prepare('SELECT ventas_detalle.*, libros.Precio FROM ventas_detalle join libros on ventas_detalle.ISBN = libros.ISBN where ventas_detalle.ID_Venta = :id;'); // consulta a la base de datos no disponible
             $consulta3->bindValue(':id', $venta->id);
             $consulta3->execute();
             $Detalles = [];
@@ -356,6 +362,7 @@ class Venta_Model extends Model
                 $Detalle->ISBN = $row['ISBN'];
                 $Detalle->Descuento = $row['Descuento'];
                 $Detalle->Cantidad = $row['Cantidad'];
+                $Detalle->Precio = $row['Precio'];
                 array_push($Detalles , $Detalle);
             }
             $venta->Detalles = $Detalles;
