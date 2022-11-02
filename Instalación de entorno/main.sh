@@ -18,10 +18,11 @@ sudo mv ./libs/startup.sh /etc/init.d/startup
 sudo update-rc.d startup defaults
 sudo chmod 777 ./libs/composer.sh
 source ./libs/composer.sh
-sudo mkdir -p /home/xscadmin/archivos-default/files
+cd
+sudo mkdir -p archivos-default/files
 sudo mv ./libs/backs.sh /home/xscadmin/archivos-default/backs.sh
 chmod 777 /home/xscadmin/archivos-default/backs.sh
-ifconfig eth0 | grep -qi "inet addr"
+hostname -id
 echo "Ingrese la ip de este dispositivo"
 read iphst
 sudo sed -i "s/127.0.0.1/$iphst/g" "/home/xscadmin/archivos-default/backs.sh"
