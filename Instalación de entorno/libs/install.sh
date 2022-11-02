@@ -16,7 +16,7 @@ sudo apt -yq install mysql-server
 if dpkg -l | grep -qi mysql-server;then
     echo "Instalado correctamente"
 fi
-sudo apt -yq install git-all
+sudo apt -yq install git
 if dpkg -l | grep -qi git;then
     echo "Instalado correctamente"
 fi
