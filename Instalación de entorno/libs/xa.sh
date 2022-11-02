@@ -7,3 +7,4 @@ let link=$(./main)
 wget -O xampp $link
 sudo chmod 700 ./xampp
 sudo ./xampp
+cd ..

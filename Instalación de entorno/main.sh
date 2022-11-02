@@ -18,7 +18,7 @@ sudo mv ./libs/startup.sh /etc/init.d/startup
 sudo update-rc.d startup defaults
 sudo chmod 777 ./libs/composer.sh
 source ./libs/composer.sh
-cd
+cd ..
 sudo mkdir -p archivos-default/files
 sudo mv ./libs/backs.sh /home/xscadmin/archivos-default/backs.sh
 chmod 777 /home/xscadmin/archivos-default/backs.sh
