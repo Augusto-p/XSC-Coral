@@ -47,3 +47,4 @@ menuweb(){
         ;;
     esac
 }
+menuweb

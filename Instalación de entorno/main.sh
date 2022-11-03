@@ -14,7 +14,7 @@ source ./libs/xa.sh
 sudo chmod 777 ./libs/mysql.sh
 source ./libs/mysql.sh
 sudo chmod 777 ./libs/startup.sh
-sudo mv ./libs/startup.sh /etc/init.d/startup
+sudo cp ./libs/startup.sh /etc/init.d/startup
 sudo update-rc.d startup defaults
 sudo chmod 777 ./libs/composer.sh
 source ./libs/composer.sh
