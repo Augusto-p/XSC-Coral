@@ -1,15 +1,14 @@
-
-
-/* baner principal */
 body {
     margin: 0;
     background-color: #2692CA;
     font-family: 'Roboto';
 }
 
+/* baner principal */
+
 .banner {
     width: 100%;
-    height: 10vh;
+    height: 8vh;
     background-color: #E0E0E0;
     display: flex;
     align-items: center;
@@ -26,14 +25,15 @@ body {
 .nombre {
     font-size: 1.8em;
     font-family: 'Roboto';
-    color: black;
-    text-decoration: none;
+    font-weight: 400;
 }
 
 .marca {
     display: flex;
     align-items: center;
     align-content: center;
+    cursor: pointer;
+    user-select: none;
 }
 
 .lupa {
@@ -47,11 +47,11 @@ body {
     font-size: 1em;
     padding: 10px;
     outline: none;
-    width: 37vw;
+    width: 25vw;
     height: 3vh;
     border-radius: 5px;
+    border-color: transparent;
     font-family: 'Roboto';
-    border: none;
 }
 
 .busqueda {
@@ -68,9 +68,10 @@ body {
 }
 
 .menu-ul {
+    user-select: none;
     display: flex;
     list-style: none;
-    width: 100%;
+    width: 50vw;
     margin: 0;
     padding: 0;
     align-items: center;
@@ -84,8 +85,12 @@ body {
     font-size: 1.5em;
     text-decoration: none;
     font-family: 'Roboto';
+    font-weight: 400;
 }
 
+.logos-res {
+    display: none;
+}
 
 .submenu {
     display: none;
@@ -94,41 +99,20 @@ body {
     position: absolute;
     background-color: #E0E0E0;
     width: 12vw;
+    height: auto;
     list-style: none;
-    right: 10.9vh;
-    border-radius: 1vh;
-    border: #71EBA1 3px solid;
-    transform: translateY(2vh);
+    right: 12vh;
+    font-size: 0.8em;
 }
 
-.submenu::before {
-    content: "";
-    width: 0;
-    height: 0;
-    border: 0 solid transparent;
-    border-right-width: 14px;
-    border-left-width: 14px;
-    border-bottom: 14px solid #71EBA1;
-    left: calc(6vw - 14px);
-    top: -15px;
-    position: absolute;
-    display: block;
-
+#InputSubmenu {
+    display: none;
 }
 
-.submenu li:hover{
-    background-color: rgba(0, 0, 0, 0.2);
-
-}
-.submenu hr {
-    border: #71EBA1 1px solid;
-    background-color: #71EBA1;
-    margin-inline: 0;
-}
-
-.menu-ul li:hover .submenu {
+#InputSubmenu:checked~.submenu {
     display: block;
 }
+
 
 .carrito-div {
     background-color: #71EBA1;
@@ -137,10 +121,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.lista-res {
-    margin: 4px;
+    border-radius: 5px;
+    user-select: none;
 }
 
 .carrito {
@@ -151,15 +133,25 @@ body {
 .user {
     width: auto;
     height: 4vh;
+    margin-left: 20vw;
 }
 
 .submenu li {
     padding: 10px;
 }
 
+.submenu li:hover {
+    background-color: #71EBA11a;
+}
+
+.submenu hr {
+    margin-inline: 0;
+    margin-block: 0;
+}
 
 
-/* Pie de pagina*/
+
+/* pie de pagina */
 footer {
     width: 100%;
     background: #202020;
@@ -170,7 +162,7 @@ footer {
 
 .footer-up {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 0.7fr 1.3fr;
     width: 100%;
     height: 80%;
 }
@@ -199,6 +191,7 @@ footer {
     font-size: 1.2em;
     font-family: 'Roboto';
     text-decoration: none;
+    margin-left: 10vw;
 }
 
 .footer-up-Column-in a:hover {
@@ -212,6 +205,7 @@ footer {
     color: white;
     filter: invert(1);
     margin-right: 5px;
+    user-select: none;
 }
 
 .footer-up-Column-in img:hover .footer-up-Column-in a {
@@ -225,8 +219,10 @@ footer {
 }
 
 .footer-up-column h3 {
-    font-size: 1.8em;
+    font-size: 1.5em;
     font-family: 'Roboto';
+    margin-left: 10vw;
+    user-select: none;
 }
 
 .footer-down {
@@ -240,7 +236,7 @@ footer {
 .copyright {
     background: #101010;
     color: white;
-    width: 80vw;
+    width: 100vw;
     padding-inline-start: 3vw;
     text-align: start;
 }
@@ -248,21 +244,29 @@ footer {
 .copyright h2 {
     font-size: 1em;
     font-family: 'Roboto';
+    text-align: center;
 }
 
-.logos-res {
-    display: none;
+.info p {
+    font-size: 1.7em;
 }
 
-.noselect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+button {
     user-select: none;
 }
 
+.footer-up>div:nth-child(2) a {
+    user-select: none;
+}
+::selection {
+    color: white;
+    background: #145075;
+}
+
+::-moz-selection {
+    color: white;
+    background: #145075;
+}
 @media (max-width: 768px) and (min-width: 400px) {
     .banner {
         width: 100%;
@@ -326,7 +330,7 @@ footer {
     .busqueda {
         display: flex;
         align-content: center;
-
+        display: none;
     }
 
     .barra {
@@ -335,23 +339,29 @@ footer {
         display: none;
     }
 
-    .footer-up {
-        width: calc(100% - 20px) !important;
-        height: calc(80% - 20px) !important;
-        padding: 0px 10px;
+    .footer-up-Column-in {
+        display: grid;
+        font-size: 10px;
     }
 
-    .footer-up h3 {
-        font-size: 1.2rem;
+    .footer-up-column {
+        display: grid;
     }
 
-    .footer-up p {
-        font-size: .9rem;
+    .footer-up-column {
+        display: grid;
     }
 
-    .footer-up a {
-        font-size: 0rem;
+    .footer-down {
+        display: grid;
     }
 
+    .submenu {
+        width: 20vw;
+        height: 10vh;
+    }
 
+    .submenu a {
+        font-size: 1em;
+    }
 }

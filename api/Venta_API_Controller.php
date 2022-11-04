@@ -4,10 +4,9 @@ require_once 'DTO/venta.php';
 require_once 'DTO/detalleVenta.php';
 require_once 'DTO/pedido.php';
 require_once 'models/Usuario_model.php';
-// require_once 'models/DetalleVenta_Model.php';
-// require_once 'models/Pedido_Model.php';
 require_once 'models/Book_Model.php';
-
+require_once 'utilidades/Mails.php';
+require_once 'utilidades/PDFs.php';
 
 
 class Venta_API_Controller extends Controller {
@@ -151,16 +150,22 @@ class Venta_API_Controller extends Controller {
             $Venta->Email = $email;
             $Venta->FechaHora = date("Y-m-d H:i:s");
             $Total = 0;
+            $SinStok = [];
             $Detalles = [];
             $BookModel = new Book_Model();
             foreach ($data->Venta->Detalles as $key => $value) {
                 $book = $BookModel->get($value->ISBN);
-                $Detalle = new DetalleVenta();
-                $Detalle->ISBN = $value->ISBN;
-                $Detalle->Descuento = $value->Descuento;
-                $Detalle->Cantidad =$value->Cantidad;
-                $Total += $book->precio * $Detalle->Cantidad ;
-                array_push($Detalles, $Detalle);
+                if ($book->Stock > 0) {   
+                    $Detalle = new DetalleVenta();
+                    $Detalle->Book = $book;
+                    $Detalle->ISBN = $value->ISBN;
+                    $Detalle->Descuento = $value->Descuento;
+                    $Detalle->Cantidad =$value->Cantidad;
+                    $Total += $book->precio * $Detalle->Cantidad ;
+                    array_push($Detalles, $Detalle);
+                }else{
+                    array_push($SinStok, $book->titulo);
+                }
             }
             $Pedido = new Pedido();
             $Pedido->SEnvio = $data->Venta->Pedido->Sistema_Envio;
@@ -171,7 +176,20 @@ class Venta_API_Controller extends Controller {
     
             $id = $this->model->add($Venta);
             if ($id >= 0) {
-                $res = ["mensaje" => "Venta Ingresada", "code" => 200];
+                $Venta->id = $id;
+                $pdfs = new PDFs();
+                $mails = new Mail();
+                $userModel = new Usuario_Model();
+                
+                
+                $user = $userModel->get($email);
+                $mails->SendMailETiket($user->email, $pdfs->Facturar($Venta, $user), $user->nombre);
+                if ($SinStok != []) {
+                    $res = ["mensaje" => "Venta Ingresada", "code" => 200];
+                }else{
+
+                    $res = ["mensaje" => $SinStok, "code" => 201];
+                }
             }else{
                 $res = ["mensaje" => "Venta No Ingresada", "code" => 404];
             }

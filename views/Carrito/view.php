@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Book/listar.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Book/carrito.css">
     <title>Libreria MiMundo</title>
+<link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico" type="image/x-icon">
 </head>
 <body>
     <?php require 'views/header.php';?>
@@ -97,8 +98,8 @@
 
                     <select name="MPago" id="Mpag-popUp" class="inputs">
                     <option value="" selected disabled>Metodo de Pago</option>
-                    <option value="Credito">Cerdito</option>
-                    <option value="Devito">Devito</option>
+                    <option value="Credito">Credito</option>
+                    <option value="Debito">Debito</option>
                 </select>
                 </div>
                 <div>

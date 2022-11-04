@@ -13,6 +13,139 @@
             "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
             "Line": 27,
             "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-10-26 21:48:36",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Book_Model.php",
+            "Line": 85,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '9788478884957' for key 'libros.PRIMARY'"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-10-26 21:48:43",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Book_Model.php",
+            "Line": 85,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '9788478884957' for key 'libros.PRIMARY'"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-10-26 21:48:44",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Book_Model.php",
+            "Line": 85,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '9788478884957' for key 'libros.PRIMARY'"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-10-26 21:48:57",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Book_Model.php",
+            "Line": 85,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '9788478884957' for key 'libros.PRIMARY'"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-10-26 21:49:28",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Book_Model.php",
+            "Line": 85,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '9788478884957' for key 'libros.PRIMARY'"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-10-26 21:49:40",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Book_Model.php",
+            "Line": 85,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '9788478884957' for key 'libros.PRIMARY'"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-10-26 21:55:55",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Venta_Model.php",
+            "Line": 43,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Metodo_Pago' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-10-30 23:33:53",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Venta_Model.php",
+            "Line": 43,
+            "Error": "SQLSTATE[22003]: Numeric value out of range: 1690 BIGINT UNSIGNED value is out of range in '(`libreria`.`libros`.`Stock` - NEW.Cantidad)'"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-10-31 00:02:30",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Venta_Model.php",
+            "Line": 43,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Metodo_Pago' at row 1"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-10-31 00:28:57",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-02 17:49:02",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-02 17:49:06",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-02 17:49:28",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-02 17:50:49",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Venta_Model.php",
+            "Line": 43,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Metodo_Pago' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-02 18:13:17",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Book_Model.php",
+            "Line": 182,
+            "Error": "SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and libros.stock > 0' at line 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-02 18:14:17",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Book_Model.php",
+            "Line": 182,
+            "Error": "SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and libros.stock > 0' at line 1"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-02 20:17:47",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-02 20:17:52",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-04 00:00:23",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
         }
     ]
 }

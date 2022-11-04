@@ -38,6 +38,7 @@ class Venta_Model extends Model
                 }
             }
             $pdo->commit();
+            return $id;
         } catch (PDOException $e) {
             $pdo->rollBack();
             Errors::NewError("PDO", __File__, __Line__, $e->getMessage());

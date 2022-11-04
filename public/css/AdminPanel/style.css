@@ -1,7 +1,6 @@
 body {
     margin: 0;
     background-color: #2692CA;
-    font-family: 'Roboto';
 }
 
 .content {
@@ -28,6 +27,8 @@ body {
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    cursor: default;
+    user-select: none;
 
 }
 
@@ -44,6 +45,8 @@ body {
     width: 20vw;
     font-size: 1.5rem;
     color: black;
+    cursor: pointer;
+    user-select: none;
 }
 
 .OP-item h4 {
@@ -270,47 +273,37 @@ body {
 }
 
 @media (max-width: 768px) and (min-width: 400px) {
-    #Formulario {
-        height: auto;
-    }
+    @media (max-width: 768px) and (min-width: 400px) {
+        .optionPanel {
+            width: 19.5vw;
+            height: 160vh;
+        }
 
-    .conten-data {
-        height: auto;
-    }
+        .titulo-Div-OP h3 {
+            margin-left: 1vw;
+            width: 40vw;
+            font-size: 1.3em;
+        }
 
-    .content {
-        height: 120vh;
-    }
+        .OP-item-titulo img {
+            width: 3vw;
+            height: 3vh;
+        }
 
-    .optionPanel {
-        width: 19.5vw;
-        height: 180vh;
-    }
+        .OP-item-titulo h4 {
+            font-size: 0.6em;
+        }
 
-    .titulo-Div-OP h3 {
-        margin-left: 1vw;
-        width: 40vw;
-        font-size: 1.3em;
-    }
+        .OP-item-titulo {
+            height: 10vh;
+            width: 18vw;
+        }
 
-    .OP-item-titulo img {
-        width: 3vw;
-        height: 3vh;
-    }
+        .OP-item-content {
+            width: 15vw;
+            height: 30vh;
+            font-size: 0.6em;
+        }
 
-    .OP-item-titulo h4 {
-        font-size: 0.6em;
     }
-
-    .OP-item-titulo {
-        height: 10vh;
-        width: 18vw;
-    }
-
-    .OP-item-content {
-        width: 15vw;
-        height: 30vh;
-        font-size: 0.6em;
-    }
-
 }

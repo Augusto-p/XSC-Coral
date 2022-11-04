@@ -17,7 +17,6 @@ class Book_Controller extends Controller {
         }elseif (isset($_GET["Seach"])) {
             $Books = $this->model->seach($_GET["Seach"]);
         }
-        
         else {
             $Books = $this->model->getAll();
         }
@@ -38,24 +37,26 @@ class Book_Controller extends Controller {
         $id = $_GET['id'];
         //get Book
         $libro = $this->model->get($id);
-        $file  = new Archivo;
-        $file->setPath($libro->sipnosis);
-        $file->read();
-        $libro->sipnosis = $file->getContent();
-        //get author
-        $AutorModel = new Autor_Model();
-        $autores    = $AutorModel->getBybook($id);
-        //get Editor
-        $EditorialModel = new Editorial_Model();
-        $editorial      = $EditorialModel->get($libro->IDEditorial);
-
-        //send Data
-        $this->view->Book      = $libro;
-        $this->view->Autores   = $autores;
-        $this->view->Editorial = $editorial;
-        $this->view->Paises = file_get_contents('public/Recursos/Jsons/Paises.json');
-
-        $this->view->render('libros/view');
+        if ($libro != null) {
+            $file  = new Archivo;
+            $file->setPath($libro->sipnosis);
+            $file->read();
+            $libro->sipnosis = $file->getContent();
+            //get author
+            $AutorModel = new Autor_Model();
+            $autores    = $AutorModel->getBybook($id);
+            //get Editor
+            $EditorialModel = new Editorial_Model();
+            $editorial      = $EditorialModel->get($libro->IDEditorial);
+            //send Data
+            $this->view->Book      = $libro;
+            $this->view->Autores   = $autores;
+            $this->view->Editorial = $editorial;
+            $this->view->Paises = file_get_contents('public/Recursos/Jsons/Paises.json');
+            $this->view->render('libros/view');
+        }else{
+            $this->view->render('errores/404');
+        }
     }
     public function new() {
 

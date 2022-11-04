@@ -19,7 +19,6 @@ function addbookimage(url) {
 }
 
 function addbookAutor(id, nombre, nacionalidad, biografia, fechaNacimiento, foto) {
-    console.log("Addbook");
     bookAutores.set(bookAutores.size, { "id": id,
                                         "nombre": nombre, 
                                         "Nacionalidad": nacionalidad,

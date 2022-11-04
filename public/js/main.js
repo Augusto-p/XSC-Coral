@@ -44,7 +44,7 @@ let headersList = {
 }
 
 async function addCarrito(ISBN) {
-    
+    console.log("add");
     headersList["Authorization"] = "Token " + sessionStorage.getItem("Token");
     let bodyContent = JSON.stringify({
         "Book": ISBN
@@ -65,3 +65,14 @@ async function addCarrito(ISBN) {
         ITag({ "Type": "WARNING", "Position": "RB", "Duration": 5, "Title": "Advertencia!", "Description": data["mensaje"] });
     }
 }
+
+
+function BanerSubmenu(mode) {
+    if (mode) {
+        document.getElementById("InputSubmenu").focus()
+    } else {
+        setTimeout(1)
+        document.getElementById("InputSubmenu").blur();
+    }
+}
+

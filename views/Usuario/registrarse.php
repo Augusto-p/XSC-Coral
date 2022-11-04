@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Usuario/registro.css">
   <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Usuario/aminations.css">
   <title>Libreria MiMundo</title>
+<link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico" type="image/x-icon">
 </head>
 
 <body>

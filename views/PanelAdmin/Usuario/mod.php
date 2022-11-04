@@ -8,6 +8,7 @@
 
 
     <title>Libreria MiMundo</title>
+<link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico" type="image/x-icon">
 </head>
 <body>
     <!-- baner -->

@@ -177,6 +177,9 @@ async function Send(Body) {
     if (data["code"] == 200) {
         ITag({ "Type": "SUCCESS", "Position": "RB", "Duration": 5, "Title": "Hecho!", "Description": data["mensaje"] });
         GetCrritos()
+        refreshCarritos()
+    } else if (data["code"] == 201){
+        ITag({ "Type": "LOG", "Position": "RT", "Duration": 5, "Title": "Sin Stock!", "Description": data["mensaje"] });
     } else if (data["code"] == 403) {
         ITag({ "Type": "ERROR", "Position": "RB", "Duration": 5, "Title": "Error!", "Description": data["mensaje"] });
     } else if (data["code"] == 404) {

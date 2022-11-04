@@ -145,12 +145,7 @@ function ClosePopUP() {
     PopUP.classList.remove('show-PopUp');
 }
 
-function GoToView(ISBNV) {
-    let a = document.createElement("a");
-    a.href = `${URL}book/view?id=${ISBNV}`;
-    a.target = "_blank"
-    a.click()
-}
+
 
 async function DeleteVenta(ID) {
 

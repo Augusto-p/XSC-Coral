@@ -7,6 +7,7 @@
     
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Book/listar.css">
     <title>Libreria MiMundo</title>
+<link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico" type="image/x-icon">
 </head>
 <body>
     <?php require 'views/header.php';?>
@@ -85,16 +86,6 @@
             <?php }; ?>
             
 
-        </section>
-        <section class="ads-div">
-            <div class="ad">
-                <img src="https://media.istockphoto.com/photos/profile-portrait-picture-id176799603?k=20&m=176799603&s=612x612&w=0&h=fBeWO8TsYh7T4eTlS8pgfzRp3ccGJPFn7IGIBBhYMm8=">
-            </div>
-            <div class="ad">
-                <img
-                    src="https://media.istockphoto.com/photos/profile-portrait-picture-id176799603?k=20&m=176799603&s=612x612&w=0&h=fBeWO8TsYh7T4eTlS8pgfzRp3ccGJPFn7IGIBBhYMm8=">
-            </div>
-            
         </section>
     </section>
 

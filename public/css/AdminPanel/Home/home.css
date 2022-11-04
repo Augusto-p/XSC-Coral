@@ -16,6 +16,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     height: 100%;
+    user-select: none;
 }
 
 .colrow img {
@@ -63,6 +64,7 @@
 
 .subBaner {
     height: 30vw;
+    user-select: none;
 }
 
 .five-row {
@@ -166,6 +168,7 @@
     font-size: 2rem;
     color: #145075;
     margin-bottom: 2vh;
+    user-select: none;
 }
 
 #notView {

@@ -28,3 +28,10 @@ async function ImgToB64FromUrl (url){
         }
     });
 }
+
+function GoToView(ISBNV) {
+    let a = document.createElement("a");
+    a.href = `${URL}book/view?id=${ISBNV}`;
+    a.target = "_blank"
+    a.click()
+}

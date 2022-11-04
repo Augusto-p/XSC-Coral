@@ -1,0 +1,8 @@
+{
+    "roboto-900": {
+        "normal": "C:\\xampp\\htdocs\\XSC\\vendor\\dompdf\\dompdf\/lib\/fonts\/Roboto-Black",
+        "bold": "C:\\xampp\\htdocs\\XSC\\vendor\\dompdf\\dompdf\/lib\/fonts\/Roboto-BlackItalic",
+        "italic": "C:\\xampp\\htdocs\\XSC\\vendor\\dompdf\\dompdf\/lib\/fonts\/Roboto-Black",
+        "bold_italic": "C:\\xampp\\htdocs\\XSC\\vendor\\dompdf\\dompdf\/lib\/fonts\/Roboto-Black"
+    }
+}

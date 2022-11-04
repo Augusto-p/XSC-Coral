@@ -10,4 +10,5 @@ class Book{
     public $IDEditorial;
     public $Editorial;
     public $Autores;
+    public $Stock;
 }; ?>

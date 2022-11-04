@@ -5,11 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    
-
     <title>Libreria MiMundo</title>
+    <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico" type="image/x-icon">
+    
 </head>
 
 <body>
@@ -18,8 +16,9 @@
     <!-- contenido -->
     <section class="content">
         <?php require 'views/adminPanel.php';?>
+        <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Home/home.css">
         <div class="conten-data">
-            <form action="<?php echo constant('URL'); ?>home/saveMod" method="post" id="Formulario" enctype="multipart/form-data">
+            <div id="Formulario">
                 <h2 id="titulo">Home</h2>
                 <div class="data">
 
@@ -76,13 +75,13 @@
                         <div class="col1 col">
                             <div class="row-in-col">
                                 <input type="number" name="slider1in" id="slider1in" placeholder="ISBN" class="inputs">
-                                <Button type="button" class="btnadd" onclick="addslider1()"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
+                                <Button type="button" class="btnadd" onclick="AddInputSlider1()"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
                             </div>
                         </div>
                         <div class="col2 col">
                             <div class="row-in-col">
                                 <input type="number" name="slider1in" id="slider2in" placeholder="ISBN" class="inputs">
-                                <Button type="button" class="btnadd" onclick="addslider2()"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
+                                <Button type="button" class="btnadd" onclick="AddInputSlider2()"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
                             </div>
                         </div>
                     </div>
@@ -104,34 +103,32 @@
                             </div>
                         </div>
                     </div>
-                    <div id="notView">
-                        <div id="notView-s1">
-                            
-                        </div>
-                        <div id="notView-s2"></div>
-                    </div>
                 </div>
                 
 
 
 
                 <div id="save-div">
-                    <button type="submit">Guardar</button>
+                    <button type="button" onclick="Send()">Guardar</button>
                 </div>
-            </form>
+        </div>
         </div>
         </section>
 
-<link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Home/home.css">
+
 </body>
+    <script src="<?php echo constant('URL'); ?>public/js/AdminPanel/AdminPanel.js"></script>
     <script src="<?php echo constant('URL'); ?>public/js/AdminPanel/home/main.js"></script>
+    
     <?php 
-    foreach ($this->Slider1Isbns as $key => $value) {
-        echo '<script>addslider1php('.$value.')</script>';
-    }
-    foreach ($this->Slider2Isbns as $key => $value) {
-        echo '<script>addslider2php('.$value.')</script>';
-    }
-    ; ?>
+    foreach ($this->Slider1Isbns as $key => $value) {; ?>
+        <script>AddSlider1(<?=$value;?>)</script>
+    <?php
+    } 
+    foreach ($this->Slider2Isbns as $key => $value) {; ?>
+        <script>AddSlider2(<?=$value;?>)</script>
+    <?php }; ?>
+    
+    
     
 </html>

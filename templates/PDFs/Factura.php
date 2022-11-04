@@ -403,7 +403,7 @@
                                 <td><?=$venta->FechaHora;?></td>
                             </tr>
                             <tr>
-                                <th>N° Factura</th>
+                                <th>E-Ticket N°</th>
                                 <td><?=$venta->id;?></td>
 
                             </tr>
@@ -455,7 +455,7 @@
     </section>
 
     <section class="Body">
-        <img src="http://localhost/xsc/public/Recursos/imgs/LogoMimundo.svg">
+        <img src="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.svg">
         <table>
             <thead>
                 <tr>

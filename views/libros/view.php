@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Book/view.css">
     <title>Libreria MiMundo</title>
+<link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico" type="image/x-icon">
 </head>
 <body>
     
@@ -37,7 +38,7 @@
                     <h2 id="titulo-book"><?=$this->Book->titulo;?></h2>
                     <p id="sipnosis-book"><?=$this->Book->sipnosis;?></p>
                     <h3 id="precio-book">$ <?=$this->Book->precio;?></h3>
-                    <button id="btn-addCarrito" addCarrito(<?=$this->Book->isbn?>)>Añadir al carrito</button>
+                    <button id="btn-addCarrito" onclick="addCarrito(<?=$this->Book->isbn?>)">Añadir al carrito</button>
 
                     <!-- public $isbn;
                         public $idAutor; -->
@@ -111,6 +112,7 @@
 </body>
 <script src="<?php echo constant('URL'); ?>public/js/Book/view.js"></script>
 
+
 <?php //se cargan los autores del libro
 foreach ($this->Autores as $key => $autor) {
     echo '<script>addbookAutor('.$autor->id.',`'.$autor->nombre.'`,`'.$autor->nacionalidad.'`,`'.$autor->biografia.'`,`'.$autor->Fnacimento.'`,`'.constant('URL').$autor->foto.'`)</script>'; //'","'
@@ -120,9 +122,6 @@ foreach ($this->Autores as $key => $autor) {
 foreach ($this->Book->imagenes as $key => $value) {
     echo '<script>addbookimage("'.constant('URL').$value.'");</script>';
 }; ?>
-
-
-<p id="PaisesData"><?=$this->Paises;?></p>
 
 
 <script>const Paises = <?=$this->Paises;?>;</script>

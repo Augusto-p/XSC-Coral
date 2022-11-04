@@ -3,7 +3,6 @@
 require_once 'DTO/compra.php';
 require_once 'DTO/detalleCompra.php';
 require_once 'models/Usuario_model.php';
-// require_once 'models/DetalleCompra_Model.php';
 
 
 
@@ -151,7 +150,7 @@ class Compra_API_Controller extends Controller {
             $compra->estado = $data->Compra->Estado;
             $compra->MPago = $data->Compra->Metodo_Pago;
             $compra->IDEditorial = $data->Compra->IDEditorial;
-            $compra->FechaHora = date("Y-m-d H:i:s");
+            $compra->FechaHora =  Formatos::DateDatabaseFormat($data->Compra->FechaHora);
             $Total = 0;
             $Detalles = [];
 

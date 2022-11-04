@@ -20,6 +20,8 @@ class Book_Model extends Model {
                 $libro->precio      = $row['Precio'];
                 $libro->sipnosis    = $row['Sinopsis'];
                 $libro->IDEditorial = $row['ID_Editorial'];
+                $libro->Stock = $row['Stock'];
+                
             }
             if ($libro != null) {                
                 $imagenes = [];
@@ -39,8 +41,8 @@ class Book_Model extends Model {
                     $Categorias[] = $row['Categoria'];
                 }
                 $libro->categorias = $Categorias;
-                return $libro;
             }
+            return $libro;
         } catch (PDOException $e) {
             Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
             return null;
@@ -93,7 +95,7 @@ class Book_Model extends Model {
     public function seach($Termino) {
         try {
             $pdo      = $this->db->connect();
-            $consulta = $pdo->prepare('SELECT * FROM libros where libros.Titulo like :Termino'); // consulta a la base de datos no disponible
+            $consulta = $pdo->prepare('SELECT * FROM libros where libros.Titulo like :Termino and libros.stock > 0'); // consulta a la base de datos no disponible
             $consulta->bindValue(':Termino', "%" . $Termino . "%");
             $consulta->execute();
             $libros = [];
@@ -104,6 +106,7 @@ class Book_Model extends Model {
                 $libro->precio      = $row['Precio'];
                 $libro->sipnosis    = $row['Sinopsis'];
                 $libro->IDEditorial = $row['ID_Editorial'];
+                $libro->Stock = $row['Stock'];
                 array_push($libros, $libro);
             }
             foreach ($libros as $key => $value) {
@@ -140,7 +143,7 @@ class Book_Model extends Model {
     public function getAll() {
         try {
             $pdo      = $this->db->connect();
-            $consulta = $pdo->prepare('SELECT * FROM libros'); // consulta a la base de datos no disponible
+            $consulta = $pdo->prepare('SELECT * FROM libros where libros.stock > 0'); // consulta a la base de datos no disponible
             $consulta->execute();
             $libros = [];
             while ($row = $consulta->fetch()) {
@@ -150,6 +153,7 @@ class Book_Model extends Model {
                 $libro->precio      = $row['Precio'];
                 $libro->sipnosis    = $row['Sinopsis'];
                 $libro->IDEditorial = $row['ID_Editorial'];
+                $libro->Stock = $row['Stock'];
                 array_push($libros, $libro);
             }
             foreach ($libros as $key => $value) {
@@ -187,7 +191,7 @@ class Book_Model extends Model {
     public function getByAutor($idAutor) {
         try {
             $pdo      = $this->db->connect();
-            $consulta = $pdo->prepare('select libros.* from libros join escriben on libros.ISBN = escriben.ISBN where escriben.ID_autor =:idAutor'); // consulta a la base de datos no disponible
+            $consulta = $pdo->prepare('select libros.* from libros join escriben on libros.ISBN = escriben.ISBN where escriben.ID_autor =:idAutor and libros.stock > 0'); // consulta a la base de datos no disponible
             $consulta->bindValue(':idAutor', $idAutor);
             $consulta->execute();
             $libros = [];
@@ -198,6 +202,7 @@ class Book_Model extends Model {
                 $libro->precio      = $row['Precio'];
                 $libro->sipnosis    = $row['Sinopsis'];
                 $libro->IDEditorial = $row['ID_Editorial'];
+                $libro->Stock = $row['Stock'];
                 array_push($libros, $libro);
             }
             foreach ($libros as $key => $value) {
@@ -233,7 +238,7 @@ class Book_Model extends Model {
     public function getByEditorial($idEditorial) {
         try {
             $pdo      = $this->db->connect();
-            $consulta = $pdo->prepare('select libros.* from libros where libros.ID_Editorial =:idEditorial'); // consulta a la base de datos no disponible
+            $consulta = $pdo->prepare('select libros.* from libros where libros.ID_Editorial =:idEditorial and libros.stock > 0'); // consulta a la base de datos no disponible
             $consulta->bindValue(':idEditorial', $idEditorial);
             $consulta->execute();
             $libros = [];
@@ -244,6 +249,7 @@ class Book_Model extends Model {
                 $libro->precio      = $row['Precio'];
                 $libro->sipnosis    = $row['Sinopsis'];
                 $libro->IDEditorial = $row['ID_Editorial'];
+                $libro->Stock = $row['Stock'];
                 array_push($libros, $libro);
             }
             foreach ($libros as $key => $value) {
@@ -353,7 +359,7 @@ class Book_Model extends Model {
     public function getByCategoria($Categoria) {
         try {
             $pdo      = $this->db->connect();
-            $consulta = $pdo->prepare('SELECT * FROM libros join libros_categorias on libros.ISBN = libros_categorias.ISBN where libros_categorias.Categoria like :cat group by libros.ISBN;'); // consulta a la base de datos no disponible
+            $consulta = $pdo->prepare('SELECT * FROM libros join libros_categorias on libros.ISBN = libros_categorias.ISBN where libros_categorias.Categoria like :cat and libros.stock > 0 group by libros.ISBN;'); // consulta a la base de datos no disponible
             $consulta->bindValue(':cat', "%" . $Categoria . "%");
             $consulta->execute();
             $libros = [];
@@ -364,6 +370,7 @@ class Book_Model extends Model {
                 $libro->precio      = $row['Precio'];
                 $libro->sipnosis    = $row['Sinopsis'];
                 $libro->IDEditorial = $row['ID_Editorial'];
+                $libro->Stock = $row['Stock'];
                 array_push($libros, $libro);
             }
             foreach ($libros as $key => $value) {

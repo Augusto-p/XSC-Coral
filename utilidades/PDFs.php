@@ -15,11 +15,7 @@ class PDFs{
         ob_start();
         include 'templates/PDFs/Factura.php';
         $html =  ob_get_clean();
-
-        
-
-
-        $PDFPath = "public/PDfs/Facturas/Etiket1-" . $venta->id .".pdf";
+        $PDFPath = "public/PDfs/Facturas/Etiket-" . $venta->id .".pdf";
         $DOMPDF    = new DOMPDF(array('enable_remote' => true));
         $DOMPDF->load_html($html);
         $DOMPDF->set_option( 'dpi' , '300' );
@@ -27,8 +23,6 @@ class PDFs{
         $DOMPDF->render();
         $output = $DOMPDF->output();
         file_put_contents($PDFPath, $output);
-
-
         return $PDFPath;
     }
 

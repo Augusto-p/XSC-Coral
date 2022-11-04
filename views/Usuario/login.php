@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Usuario/style.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Usuario/login.css">
     <title>Libreria MiMundo</title>
+<link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico" type="image/x-icon">
 </head>
 <body>
     <section id="global">

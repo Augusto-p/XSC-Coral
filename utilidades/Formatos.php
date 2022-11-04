@@ -24,6 +24,8 @@ class Formatos{
 
     }
 
-    
+    public static function DateDatabaseFormat($dateTime){
+        return str_replace('T', " ", $dateTime) . ":00";
+    }
 
 }
