@@ -108,7 +108,8 @@ menuserv(){
             case $sal in
                 S | s)
                     clear
-                ../main.sh;;
+                    cd ..
+                ./main.sh;;
                 N | n) clear
                 menuserv;;
             esac

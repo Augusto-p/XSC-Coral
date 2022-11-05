@@ -8,3 +8,4 @@ wget -O xampp $link
 sudo chmod 700 xampp
 sudo ./xampp
 cd ..
+sudo rm -rf ./GX

@@ -37,7 +37,8 @@ menuweb(){
             case $sal in
                 S | s)
                     clear
-                ../main.sh;;
+                    cd ..
+                ./main.sh;;
                 N | n) clear
                 menuweb;;
             esac

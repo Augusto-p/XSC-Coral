@@ -21,7 +21,17 @@ menuinic() {
         4) source ./GR/gadd.sh;;
         5) source ./GR/gdel.sh;;
         6) source ./GR/gmod.sh;;
-        9)../main.sh;;
+        9) echo "¿Está seguro que desea volver al menú principal?"
+            read -p "Si=S No=N" sal
+            case $sal in
+                S | s)
+                    clear
+                    cd ..
+                ./main.sh;;
+                N | n) clear
+                menuinic;;
+            esac
+        ;;
         *)echo -e "La opción : $opc ,no es válida"
         menuinic;;
     esac

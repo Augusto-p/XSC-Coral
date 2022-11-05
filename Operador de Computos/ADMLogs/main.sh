@@ -24,3 +24,13 @@ do
     echo -en "\t Categoria: ${listline[4]}"
     echo -en "\t Mensaje: ${listline[@]:4:${#listline[@]}}"
 done < "$pathv2"
+echo "¿Desea salir al menú principal?"
+            read -p "Si=S No=N" sal
+            case $sal in
+                S | s)
+                    clear
+                    cd ..
+                ./main.sh;;
+                N | n) clear
+                source ./main.sh;;
+            esac
