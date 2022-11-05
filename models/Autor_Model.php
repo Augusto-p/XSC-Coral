@@ -32,7 +32,7 @@ class Autor_Model extends Model
     public function getBybook($bookId){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare('select autores.* from autores join escriben on autores.ID = escriben.ID_Autor where escriben.ISBN = :isbn'); // consulta a la base de datos no disponible 
+            $consulta = $pdo->prepare('select autores.* from autores join escriben on autores.ID = escriben.ID_Autor where escriben.ISBN = :isbn order by autores.Nombre'); // consulta a la base de datos no disponible 
             $consulta->bindValue(':isbn', $bookId);
             $consulta->execute();
             $autores = [];
@@ -59,7 +59,7 @@ class Autor_Model extends Model
     public function getAll(){
         try {
             $pdo = $this->db->connect();
-            $consulta = $pdo->prepare('select autores.* from autores'); // consulta a la base de datos no disponible 
+            $consulta = $pdo->prepare('select autores.* from autores order by autores.Nombre'); // consulta a la base de datos no disponible 
             $consulta->execute();
             $autores = [];
             while ($row = $consulta->fetch()) {

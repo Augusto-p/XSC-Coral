@@ -33,7 +33,7 @@ class Editorial_Model extends Model {
     public function getAll() {
         try {
             $pdo      = $this->db->connect();
-            $consulta = $pdo->prepare('select * from editoriales'); // consulta a la base de datos no disponible
+            $consulta = $pdo->prepare('select * from editoriales order by editoriales.Nombre'); // consulta a la base de datos no disponible
             $consulta->execute();
             $editoriales = [];
             while ($row = $consulta->fetch()) {
