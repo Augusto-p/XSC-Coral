@@ -16,8 +16,6 @@ source ./libs/mysql.sh
 sudo chmod 777 ./libs/startup.sh
 sudo cp ./libs/startup.sh /etc/init.d/startup
 sudo update-rc.d startup defaults
-sudo chmod 777 ./libs/composer.sh
-source ./libs/composer.sh
 cd ..
 hostname -id
 echo "Ingrese la ip de este dispositivo"
