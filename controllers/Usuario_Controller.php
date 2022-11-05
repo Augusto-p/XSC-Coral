@@ -16,13 +16,13 @@ class Usuario_Controller extends Controller
     }
     
     public function login(){
-        $this->view->render('usuario/login');
+        $this->view->render('Usuario/login');
     }
     public function registrarse(){
-        $this->view->render('usuario/registrarse');
+        $this->view->render('Usuario/registrarse');
     }
     public function resertPassword(){
-        $this->view->render('usuario/sendResertPassword');
+        $this->view->render('Usuario/sendResertPassword');
     }
     public function resetPasswordByIDPassword(){
         $code = $_GET['code'];
@@ -60,7 +60,7 @@ class Usuario_Controller extends Controller
         $user->password = $_POST['Password']; //asignamos el valor del password
         $usr = $this->model->entrar($user);
         if (!$usr) {
-            $this->view->render('usuario/login');
+            $this->view->render('Usuario/login');
         } else {
             $_SESSION['rol'] = serialize($usr->rol);
             $_SESSION['login'] = true;
@@ -97,15 +97,15 @@ class Usuario_Controller extends Controller
         $user->Iuser = $ImagenUser->Upload();
         if (!$user->Iuser) {
             $this->view->mensaje = "Tipo de archivo no soportado"; 
-            $this->view->render('usuario/registrarse');
+            $this->view->render('Usuario/registrarse');
         }
          
         
         $reg = $this->model->registrarse($user);
         if (!$reg) {
-            $this->view->render('usuario/registrarse');
+            $this->view->render('Usuario/registrarse');
         }else{
-            $this->view->render('usuario/login');
+            $this->view->render('Usuario/login');
         }
            
     }
@@ -134,9 +134,9 @@ class Usuario_Controller extends Controller
         
     //     $reg = $this->model->registrarse($user);
     //     if (!$reg) {
-    //         $this->view->render('usuario/registrarse');
+    //         $this->view->render('Usuario/registrarse');
     //     }else{
-    //         $this->view->render('usuario/login');
+    //         $this->view->render('Usuario/login');
     //     }
            
         
@@ -170,10 +170,10 @@ class Usuario_Controller extends Controller
         $reset = $this->model->remplacePassWordBYEmailSystem($code, $password);
         if ($reset){
             echo "<script>alert('Contraseña cambiada')</script>";
-            $this->view->render('usuario/login');
+            $this->view->render('Usuario/login');
         }else{
             echo "<script>alert('Contraseña no cambiada')</script>";
-            $this->view->render('usuario/sendResetPassword');
+            $this->view->render('Usuario/sendResetPassword');
         }
 
 
@@ -185,6 +185,6 @@ class Usuario_Controller extends Controller
         $_SESSION["login"] = null;
         SessionStorage::delSS("Token");
         $this->view->from = constant('URL') . $_GET["From"];
-        $this->view->render('usuario/Salir');
+        $this->view->render('Usuario/Salir');
     }
 }; ?>
