@@ -1,0 +1,4 @@
+#
+#
+#
+0 0 * * * coraladmin /home/coraladmin/backs.sh

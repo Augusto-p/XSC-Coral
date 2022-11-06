@@ -1,13 +1,18 @@
 #!/bin/bash
 #Programa Desarollado por XSC Software Company
-
-sudo useradd -d /home/xscadmin -c "Administrador" xscadmin
 if grep -qi "xscadmin" /etc/passwd; then
-    echo "El usuario Administrador fue creado exitosamente"
-    sudo usermod -p xscsoftwarecompanydbest xscadmin
+    echo "El usuario ya existe"
 else
-    echo "El usuario Administrador no pudo ser creado"
+    sudo useradd -d /home/xscadmin -c "Administrador" xscadmin
+    if grep -qi "xscadmin" /etc/passwd; then
+        echo "El usuario Administrador fue creado exitosamente"
+        sudo usermod -p xscsoftwarecompanydbest xscadmin
+    else
+        echo "El usuario Administrador no pudo ser creado"
+    fi
 fi
+
+
 
 
 # add execution permissions to all files in libs/
@@ -28,7 +33,7 @@ sql start # start mysql server
 xampp startapache # start apache in xampp
 
 
-# no se que hace esto
+# Se solicita la ip del dispositivo en el que se guardaran los respaldos
 source ./libs/nose.sh
 
 # call ./libs/xsc-tools.sh (install XSC Tools)
