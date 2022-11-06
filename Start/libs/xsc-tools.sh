@@ -15,3 +15,5 @@ sudo ln -s /var/lib/XSC/GU/main.sh /usr/bin/GU
 # add operador de computo
 sudo ln -s /var/lib/XSC/OC/main.sh /usr/bin/oc
 sudo ln -s /var/lib/XSC/OC/main.sh /usr/bin/OC
+
+echo "XSC Toos Insataladas"

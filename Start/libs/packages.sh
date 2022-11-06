@@ -42,3 +42,12 @@ else
     echo "No se a podido instalar git"    
 fi
 
+# install unzip
+sudo apt -qq install unzip
+if dpkg -l | grep -qi unzip;then
+    echo "Instalado correctamente unzip"
+else
+    echo "No se a podido instalar unzip"    
+fi
+
+
