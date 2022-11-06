@@ -8,3 +8,4 @@ sudo chmod 700 xampp
 sudo ./xampp
 cd ..
 sudo rm -rf ./GX
+echo "XAMPP instalado Corectamente"
