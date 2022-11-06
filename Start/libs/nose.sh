@@ -1,3 +1,4 @@
+#!/bin/bash
 cd ..
 hostname -id
 echo "Ingrese la ip de este dispositivo"
