@@ -4,8 +4,8 @@
 
 sudo mkdir -p /var/lib/XSC
 
-sudo mv ./XSC-Tools/GU /var/lib/XSC/GU
-sudo mv ./XSC-Tools/OC /var/lib/XSC/OC
+sudo mv ./libs/XSC-Tools/GU /var/lib/XSC/GU
+sudo mv ./libs/XSC-Tools/OC /var/lib/XSC/OC
 
 
 # add Gestor de usuarios
