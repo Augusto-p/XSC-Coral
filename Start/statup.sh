@@ -13,9 +13,13 @@ fi
 # add execution permissions to all files in libs/
 sudo chmod -R 777 ./libs/*
 # call ./libs/packages.sh
+echo "Instalando Paquetes"
 source ./libs/packages.sh
+echo "Paquetes instalados"
 # call ./libs/xampp.sh
-source ./libs/xampp.sh
+echo "Instalando Xampp"
+source ./libs/xa.sh
+echo "Xampp instalado"
 # call ./libs/Atajos/install.sh
 source ./libs/Atajos/install.sh
 
