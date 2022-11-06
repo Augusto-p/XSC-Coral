@@ -18,9 +18,10 @@ source ./libs/packages.sh
 source ./libs/xampp.sh
 # call ./libs/Atajos/install.sh
 source ./libs/Atajos/install.sh
-sql start #start mysql server
-xampp startapache #start apache in xampp
 
+# start services
+sql start # start mysql server
+xampp startapache # start apache in xampp
 
 
 # no se que hace esto
@@ -28,8 +29,6 @@ source ./libs/nose.sh
 
 # call ./libs/xsc-tools.sh (install XSC Tools)
 source ./libs/xsc-tools
-
-
 
 #call ./libs/project.sh (install Coral)
 source ./libs/project.sh
