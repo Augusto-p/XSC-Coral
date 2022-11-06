@@ -13,6 +13,6 @@ git clone --branch $Branch $URL
 sudo chown daemon $Name
 sudo mv $Name /opt/lampp/htdocs/$Name
 cd ..
-sudo ln -s /opt/lampp/htdocs/$Name/config/config.php config.php
+sudo ln -s /opt/lampp/htdocs/$Name/config/config.php ~/config.php
 rm -rf ProZone
 echo -e "$Name Instalado existosamente"

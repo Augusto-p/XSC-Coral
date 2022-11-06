@@ -32,7 +32,7 @@ xampp startapache # start apache in xampp
 source ./libs/nose.sh
 
 # call ./libs/xsc-tools.sh (install XSC Tools)
-source ./libs/xsc-tools
+source ./libs/xsc-tools.sh
 
 #call ./libs/project.sh (install Coral)
 source ./libs/project.sh
