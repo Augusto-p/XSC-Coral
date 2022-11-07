@@ -1,5 +1,8 @@
 <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/style.css">
 <div class="optionPanel">
+    <div class="Burgerdiv" onclick="MenuBurger()">
+        <span>☰</span>
+    </div>
             <div class="titulo-Div-OP">
                 <h3>Panel De Control</h3>
             </div>

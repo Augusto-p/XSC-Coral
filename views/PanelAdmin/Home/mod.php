@@ -63,42 +63,38 @@
                         </div>
                     
                     </div>
-                    <div class="row">
+                    <div class="Slideszones">
+
                         <div class="col1 col">
-                            <h2 class="Slider-title">Slider 1</h2>
-                        </div>
+                                <h2 class="Slider-title">Slider 1</h2>
+                            </div>
                         <div class="col2 col">
-                            <h2 class="Slider-title">Slider 2</h2>
+                                <h2 class="Slider-title">Slider 2</h2>
                         </div>
-                    </div>
-                    <div class="row">
+                        
                         <div class="col1 col">
-                            <div class="row-in-col">
-                                <input type="number" name="slider1in" id="slider1in" placeholder="ISBN" class="inputs">
-                                <Button type="button" class="btnadd" onclick="AddInputSlider1()"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
+                                <div class="row-in-col">
+                                    <input type="number" name="slider1in" id="slider1in" placeholder="ISBN" class="inputs">
+                                    <Button type="button" class="btnadd" onclick="AddInputSlider1()"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
+                                </div>
                             </div>
-                        </div>
                         <div class="col2 col">
-                            <div class="row-in-col">
-                                <input type="number" name="slider1in" id="slider2in" placeholder="ISBN" class="inputs">
-                                <Button type="button" class="btnadd" onclick="AddInputSlider2()"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
+                                <div class="row-in-col">
+                                    <input type="number" name="slider1in" id="slider2in" placeholder="ISBN" class="inputs">
+                                    <Button type="button" class="btnadd" onclick="AddInputSlider2()"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row five-row">
+                        
                         <div class="col1 col colSc">
                             <div class="sroliable">
                                 <div id="slider1Div" >
-                                    
+                                        
                                 </div>
                             </div>
-                    
-                    
                         </div>
                         <div class="col2 col colSc">
                             <div class="sroliable">
                                 <div id="slider2Div">
-                                    
                                 </div>
                             </div>
                         </div>

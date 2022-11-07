@@ -146,6 +146,104 @@
             "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
             "Line": 27,
             "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-06 04:54:53",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-06 04:54:57",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-06 04:54:57",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-06 05:41:40",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-06 06:25:54",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-06 06:26:09",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-06 06:26:40",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-06 06:27:41",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-06 06:29:11",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-06 06:29:40",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-06 06:29:51",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-06 06:29:54",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-06 06:29:57",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-06 22:55:33",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Venta_Model.php",
+            "Line": 44,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Metodo_Pago' at row 1"
         }
     ]
 }

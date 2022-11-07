@@ -17,7 +17,7 @@
     <?php require 'views/adminPanel.php';?>
     <div class="conten-data">
       <div id="Formulario">
-        <h2 id="titulo">Listado de Ventas</h2>
+        <h2 id="titulo">Ventas</h2>
         <div class="Select-Zone">
           <div class="Select-Div">
             <div class="Select-Div-in">
@@ -79,7 +79,7 @@
 
         <div class="data">
           <div class="Tabla-Detalles">
-            <div class="Tabla-Detalles-Thead">
+            <div class="Tabla-Detalles-Thead" onscroll="ScrollTable(1)">
               <div class="Tabla-Detalles-tr">
                 <div class="Tabla-Detalles-th"><span>ID</span></div>
                 <div class="Tabla-Detalles-th"><span>Usuario</span></div>
@@ -91,7 +91,7 @@
                 <div class="Tabla-Detalles-th"><span>Eliminar</span></div>
               </div>
             </div>
-            <div class="Tabla-Detalles-Tbody" id="Tabla-Detalles">
+            <div class="Tabla-Detalles-Tbody" id="Tabla-Detalles" onscroll="ScrollTable(0)">
 
             </div>
 
@@ -111,7 +111,7 @@
       </div>
       <div class="PopUP-form-data">
         <div class="Tabla-Detalles">
-        	<div class="Tabla-Detalles-Thead">
+        	<div class="Tabla-Detalles-Thead" onscroll="ScrollTablePop(1)">
 				<div class="Tabla-Detalles-tr">
             		<div class="Tabla-Detalles-th"><span>ISBN</span></div>
             		<div class="Tabla-Detalles-th"><span>Precio Unitario</span></div>
@@ -120,7 +120,7 @@
             		<div class="Tabla-Detalles-th"><span>Ver</span></div>
             	</div>
         	</div>
-            <div class="Tabla-Detalles-Tbody" id="Tabla-Detalles-POPUP">
+            <div class="Tabla-Detalles-Tbody" id="Tabla-Detalles-POPUP" onscroll="ScrollTablePop(0)">
             </div>
         </div>
 

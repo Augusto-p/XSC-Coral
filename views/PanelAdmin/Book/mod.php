@@ -47,45 +47,44 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col1 col">
-                            <div class="row-in-col">
-                                <input type="text" name="Categoriain" id="Categoriain" placeholder="Categorias"
-                                    class="inputs">
-                                <Button type="button" class="btnadd" onclick="addCat()"><img
-                                        src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
-                            </div>
-                        </div>
-                        <div class="col2 col">
-                            <div class="row-in-col">
-                                <select name="Autor" id="Autor" class="inputs">
-                                    <option value="" selected disabled>Autor</option>
+                    <div class="autoresCategorias">
+              <div class="col1 col">
+                <div class="row-in-col">
+                  <input type="text" name="Categoriain" id="Categoriain" placeholder="Categorias" class="inputs">
+                  <Button type="button" class="btnadd" onclick="addCat()"><img
+                      src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
+                </div>
+              </div>
+              <div class="col2 col">
+                <div class="row-in-col">
+                  <select name="Autor" id="Autor" class="inputs">
+                    <option value="" selected disabled>Autor</option>
 
-                                </select>
-                                <Button class="btnRefresh" type="button" onclick="refreshAutores()"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/refresh.svg"></Button>
-                                <Button type="button" class="btnadd" onclick="addAutor()"><img
-                                        src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row doble-row">
-                        <div class="col1 col colSc">
-                            <div class="sroliable">
-                                <div id="CategoriasDiv">
+                  </select>
+                  <Button class="btnRefresh" type="button" onclick="refreshAutores()"><img
+                      src="<?php echo constant('URL'); ?>public/Recursos/icons/refresh.svg"></Button>
+                  <Button type="button" class="btnadd" onclick="addAutor()"><img
+                      src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
+                </div>
+              </div>
+            
+              <div class="col1 col colSc">
+                <div class="sroliable">
+                  <div id="CategoriasDiv">
 
-                                </div>
-                            </div>
+                  </div>
+                </div>
 
 
-                        </div>
-                        <div class="col2 col colSc">
-                            <div class="sroliable">
-                                <div id="AutoresDiv">
+              </div>
+              <div class="col2 col colSc">
+                <div class="sroliable">
+                  <div id="AutoresDiv">
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  </div>
+                </div>
+          </div>
+        </div>
                     <div class="row triple-row">
                         <div class="col sipCol">
                             <textarea name="Sipnosis" id="Sipnosis" placeholder="Escriba una Sipnosis"></textarea>

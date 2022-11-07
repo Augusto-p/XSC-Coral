@@ -272,3 +272,41 @@
     color: #fff;
     border-color: #fff;
 }
+
+
+@media (max-width: 768px) and (min-width: 400px) {
+    .BTNSale {
+        width: 35vw;
+        font-size: 1.5rem;
+    }
+
+    .PopUP-form {
+        width: 100%;
+    }
+
+    .Tabla-Detalles-tr {
+        width: 200vw;
+    }
+
+    .Tabla-Detalles-Thead {
+        overflow-x: auto;
+    }
+
+    .PopUP-BTNs button {
+        width: 30vw;
+    }
+
+    #PopUP-Window2 .PopUP-form {
+        width: 100%;
+    }
+
+    #PopUP-Window2 .PopUP-form-data {
+        grid-template-columns: 100%;
+        grid-template-rows: 100% 15% 15% 50% ;
+        overflow-y: auto;
+    }
+
+    #Imgdiv {
+        grid-row: 1;
+    }      
+}

@@ -54,7 +54,7 @@ function refreshCarritos() {
                     <div class="list-item-data-down">${Autores}</div>
                 </div>
                 <div class="list-item-sale">
-                    <div class="list-item-sale-ultra-up">
+                    <div class="list-item-sale-ultra-up" onclick="options(event)">
                         <div class="list-item-sale-ultra-up-pointer"></div>
                         <div class="list-item-sale-ultra-up-pointer"></div>
                         <div class="list-item-sale-ultra-up-pointer"></div>
@@ -250,6 +250,29 @@ window.addEventListener('scroll', e => {
     }
 });
 
+function options(event) {
+    if (!event.target.firstElementChild) {
+        event.target.offsetParent.childNodes[7].classList.toggle("active");
+    } else {
+        event.target.childNodes[7].classList.toggle("active")
+    }
+}
 
 
+function recomendados() {
+    document.querySelector(".recomendados").classList.toggle("active")
 
+}
+
+
+function ScrollTablePop(mode) {
+    let Head = document.querySelector(".PopUP-form .Tabla-Detalles-Thead");
+    let Body = document.querySelector(".PopUP-form .Tabla-Detalles-Tbody");
+    if (mode) {
+        Body.scrollLeft = Head.scrollLeft;
+    }
+    else {
+        Head.scrollLeft = Body.scrollLeft;
+    }
+
+}

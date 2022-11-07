@@ -23,7 +23,7 @@ async function refresheditoriales() {
 }
 
 function ChangeMod(value) {
-    Editorial.parentElement.style.display = "none";
+    Editorial.parentElement.parentElement.style.display = "none";
     Estado.parentElement.style.display = "none";
     MP.parentElement.style.display = "none";
     FechaIn.parentElement.style.display = "none";
@@ -37,13 +37,13 @@ function ChangeMod(value) {
             GatData("api/compra/getAll", "")
             break;
         case 1:
-            Editorial.parentElement.style.display = "block";
+            Editorial.parentElement.parentElement.style.display = "flex";
             break;
         case 2:
-            Estado.parentElement.style.display = "block";
+            Estado.parentElement.style.display = "flex";
             break;
         case 3:
-            MP.parentElement.style.display = "block";
+            MP.parentElement.style.display = "flex";
             break;
         case 4:
             FechaIn.parentElement.style.display = "flex";
@@ -197,6 +197,29 @@ async function DeleteCompra(ID) {
     
 }
 
+
+function ScrollTable(mode) {
+    let Head = document.querySelector(".Tabla-Detalles-Thead");
+    if (mode) {
+        TBody.scrollLeft = Head.scrollLeft;
+    }
+    else{
+        Head.scrollLeft = TBody.scrollLeft;
+    }
+
+}
+
+function ScrollTablePop(mode) {
+    let Head = document.querySelector(".PopUP-form .Tabla-Detalles-Thead");
+    let Body = document.querySelector(".PopUP-form .Tabla-Detalles-Tbody");
+    if (mode) {
+        Body.scrollLeft = Head.scrollLeft;
+    }
+    else {
+        Head.scrollLeft = Body.scrollLeft;
+    }
+
+}
 
 GatData("api/compra/getAll", "")
 

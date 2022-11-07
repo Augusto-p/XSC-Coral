@@ -8,6 +8,7 @@
     display: grid;
     grid-template-rows: 5vh 1fr;
     grid-template-columns: 100%;
+    margin-top: 3vh;
 }
 
 .Tabla-Detalles-Thead {
@@ -123,4 +124,9 @@
 .show-PopUp {
     display: flex;
     opacity: 1;
+}
+
+@media (max-width: 768px) and (min-width: 400px) {
+    
+
 }

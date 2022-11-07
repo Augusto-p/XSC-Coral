@@ -59,6 +59,7 @@ class Usuario_Controller extends Controller
         $user->email = $_POST['Email']; //asignamos el valor del email
         $user->password = $_POST['Password']; //asignamos el valor del password
         $usr = $this->model->entrar($user);
+
         if (!$usr) {
             $this->view->render('Usuario/login');
         } else {

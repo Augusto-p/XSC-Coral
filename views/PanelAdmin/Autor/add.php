@@ -37,7 +37,7 @@
                             <img id="VFoto">
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row inputimage">
                         <div class="col1 col">
 
                         </div>

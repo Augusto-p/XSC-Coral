@@ -8,8 +8,9 @@ body {
     grid-template-columns: 20vw 1fr;
     grid-template-rows: 100%;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: transparent;
+    position: relative;
 }
 
 .optionPanel {
@@ -18,6 +19,8 @@ body {
     background-color: #fff;
     display: flex;
     flex-direction: column;
+    border-right: 1px solid #e0e0e0;
+    transition: 1s transform;
 }
 
 .titulo-Div-OP {
@@ -39,14 +42,15 @@ body {
 
 .OP-item {
     display: grid;
-    grid-template-columns: 20vw;
+    grid-template-columns: 100%;
     background-color: transparent;
     height: 10vh;
-    width: 20vw;
+    width: 100%;
     font-size: 1.5rem;
     color: black;
     cursor: pointer;
     user-select: none;
+    position: relative;
 }
 
 .OP-item h4 {
@@ -76,7 +80,7 @@ body {
 .OP-item-content {
     display: none;
     height: 30vh;
-    width: 15vw !important;
+    width: 60% !important;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -85,6 +89,8 @@ body {
     border: 1px black #e0e0e0;
     border-top-right-radius: 2vh;
     border-bottom-right-radius: 2vh;
+    position: absolute;
+    left: 100%;
 }
 
 .OP-item-content-Two {
@@ -115,10 +121,6 @@ body {
 
 }
 
-.OP-item:hover {
-    grid-template-columns: 20vw 15vw;
-    width: 35vw;
-}
 
 .OP-item-content a:first-child {
     border-top-right-radius: 2vh;
@@ -137,10 +139,10 @@ body {
     grid-template-columns: 1fr;
     grid-template-rows: 10vh 1fr 10vh;
     width: 90%;
-    height: 90%;
     background-color: white;
     border-radius: 5vh;
     border: 1px solid #e0e0e0;
+    min-height: 70vh;
 }
 
 #titulo {
@@ -187,8 +189,9 @@ body {
     display: flex;
     flex-direction: column;
     background-color: transparent;
-    height: 70vh;
+    height: auto;
     align-items: center;
+    min-height: 70vh;
 }
 
 .row {
@@ -272,38 +275,66 @@ body {
     border-radius: 5vh;
 }
 
+
+
+.optionPanel.active {
+    transform: translateX(0) !important;
+}
+
 @media (max-width: 768px) and (min-width: 400px) {
-    @media (max-width: 768px) and (min-width: 400px) {
-        .optionPanel {
-            width: 19.5vw;
-            height: 160vh;
-        }
+    .optionPanel {
+        position: absolute;
+        width: 50vw;
+        top: 0;
+        bottom: 0;
+        transform: translateX(-50vw);
+        z-index: 999;
+    }
 
-        .titulo-Div-OP h3 {
-            margin-left: 1vw;
-            width: 40vw;
-            font-size: 1.3em;
-        }
+    
 
-        .OP-item-titulo img {
-            width: 3vw;
-            height: 3vh;
-        }
+    .content {
+        grid-template-columns: 100%;
+    }
 
-        .OP-item-titulo h4 {
-            font-size: 0.6em;
-        }
+    .conten-data {
+        grid-column: 1;
+    }
 
-        .OP-item-titulo {
-            height: 10vh;
-            width: 18vw;
-        }
+    #Formulario {
+        width: 95%;
+    }
 
-        .OP-item-content {
-            width: 15vw;
-            height: 30vh;
-            font-size: 0.6em;
-        }
+    .data {
+        width: 100%;
 
+    }
+
+    .row {
+        grid-template-columns: 100%;
+        grid-template-rows: 10vh 10vh;
+        height: 20vh;
+    }
+
+    .col2 {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    #save-div button {
+        width: 50vw;
+    }
+
+    .inputimage {
+        grid-template-rows: 10vh;
+        height: 10vh;
+    }
+
+    .inputimage .col1 {
+        display: none;
+    }
+
+    .inputimage .col2 {
+        grid-row: 1;
     }
 }

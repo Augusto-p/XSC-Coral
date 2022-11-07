@@ -54,7 +54,7 @@
                             <div class="Tabla-Detalles-Thead">
                                 <div class="Tabla-Detalles-tr">
                                     <div class="Tabla-Detalles-th"><span>ISBN</span></div>
-                                    <div class="Tabla-Detalles-th"><span>Precio Unitario</span></div>
+                                    <div class="Tabla-Detalles-th"><span>Precio</span></div>
                                     <div class="Tabla-Detalles-th"><span>Cantidad</span></div>
                                     <div class="Tabla-Detalles-th"><span>Editar</span></div>
                                     <div class="Tabla-Detalles-th"><span>Eliminar</span></div>

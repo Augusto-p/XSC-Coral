@@ -24,13 +24,13 @@ function ChangeMod(value) {
             GatData("api/Venta/getAll", "")
             break;
         case 1:
-            Usuario.parentElement.style.display = "block";
+            Usuario.parentElement.style.display = "flex";
             break;
         case 2:
-            Estado.parentElement.style.display = "block";
+            Estado.parentElement.style.display = "flex";
             break;
         case 3:
-            MP.parentElement.style.display = "block";
+            MP.parentElement.style.display = "flex";
             break;
         case 4:
             FechaIn.parentElement.style.display = "flex";
@@ -171,5 +171,29 @@ async function DeleteVenta(ID) {
     }
     console.log(data);
 
+
+}
+
+function ScrollTable(mode) {
+    let Head = document.querySelector(".Tabla-Detalles-Thead");
+    if (mode) {
+        TBody.scrollLeft = Head.scrollLeft;
+    }
+    else {
+        Head.scrollLeft = TBody.scrollLeft;
+    }
+
+}
+
+
+function ScrollTablePop(mode) {
+    let Head = document.querySelector(".PopUP-form .Tabla-Detalles-Thead");
+    let Body = document.querySelector(".PopUP-form .Tabla-Detalles-Tbody");
+    if (mode) {
+        Body.scrollLeft = Head.scrollLeft;
+    }
+    else {
+        Head.scrollLeft = Body.scrollLeft;
+    }
 
 }

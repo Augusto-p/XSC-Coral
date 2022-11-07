@@ -14,6 +14,9 @@
 
     <section class="content">
         <section class="recomendados noselect">
+            <div class="Burgerdiv" onclick="recomendados()">
+                <span>☰</span>
+            </div>
             <h2>Recomendados</h2>
             <hr>
             <h3>Categorias</h3>
@@ -58,7 +61,7 @@
       </div>
       <div class="PopUP-form-data">
         <div class="Tabla-Detalles">
-        	<div class="Tabla-Detalles-Thead">
+        	<div class="Tabla-Detalles-Thead" onscroll="ScrollTablePop(1)">
 				<div class="Tabla-Detalles-tr">
             		<div class="Tabla-Detalles-th"><span>ISBN</span></div>
             		<div class="Tabla-Detalles-th"><span>Nombre</span></div>
@@ -68,7 +71,7 @@
             		<div class="Tabla-Detalles-th"><span>Eliminar</span></div>
             	</div>
         	</div>
-            <div class="Tabla-Detalles-Tbody" id="Tabla-Detalles-POPUP">
+            <div class="Tabla-Detalles-Tbody" id="Tabla-Detalles-POPUP" onscroll="ScrollTablePop(0)">
                 
             </div>
         </div>

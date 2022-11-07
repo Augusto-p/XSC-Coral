@@ -155,6 +155,7 @@
 #PopUP-Window .Tabla-Detalles {
     border-radius: 0;
     border-top: 1px solid #fff;
+    margin: 0;
 }
 
 #PopUP-Window .Tabla-Detalles-tr {
@@ -178,3 +179,68 @@
     height: 100%;
     filter: invert(1);
 }
+
+@media (max-width: 768px) and (min-width: 400px) {
+
+    #Formulario {
+        grid-template-rows: 10vh 20vh 1fr;
+    }
+
+    .Select-Zone {
+        grid-template-columns: 100%;
+        grid-template-rows: 50% 50%;
+    }
+
+    .select-Values {
+        grid-column: 1;
+        grid-row: 2;
+        justify-content: center;
+    }
+
+    .Select_NotView {
+        justify-content: center;
+    }
+
+    .select-Values .Select_NotView:nth-child(4) {
+        justify-content: space-between;
+    }
+
+    .select-Values .Select_NotView:nth-child(4) .inputs {
+        font-size: 1.2em;
+        min-width: 25%;
+        margin: 1vh 0px;
+    }
+
+
+
+    .Tabla-Detalles-Thead {
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .Tabla-Detalles-tr {
+            width: 200vw;
+        }
+
+        .Tabla-Detalles-Tbody {
+            overflow: auto;
+            position: relative;
+        }
+
+        .PopUP-form {
+            width: 100%;
+            height: 50%;
+        }
+
+        .PopUP-form .Tabla-Detalles-th {
+            font-size: 30px;
+        }
+
+        .PopUP-form .Tabla-Detalles-td {
+            font-size: 25px;
+        }
+
+        .PopUP-BTNs button {
+            width: 35vw;
+        }
+    }

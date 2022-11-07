@@ -17,7 +17,7 @@
     <?php require 'views/adminPanel.php';?>
     <div class="conten-data">
       <div id="Formulario">
-        <h2 id="titulo">Listado de Compras</h2>
+        <h2 id="titulo">Compras</h2>
         <div class="Select-Zone">
           <div class="Select-Div">
             <div class="Select-Div-in">
@@ -47,12 +47,16 @@
           <div class="select-Values">
             <!-- Editorial -->
             <div class="Select_NotView">
-
-                  <select name="Editorial" id="Select_Editorial" class="inputs" onchange="getbyEditorial()">
+              <div>
+                <select name="Editorial" id="Select_Editorial" class="inputs" onchange="getbyEditorial()">
                         <option value="" selected disabled>Editorial</option>
                   </select>
                   <Button class="btnRefresh" type="button" onclick="refresheditoriales()"><img
                   src="<?php echo constant('URL'); ?>public/Recursos/icons/refresh.svg"></Button>
+
+              </div>
+
+                  
             </div>
             <!-- estado -->
             <div class="Select_NotView">
@@ -80,7 +84,7 @@
 
         <div class="data">
           <div class="Tabla-Detalles">
-            <div class="Tabla-Detalles-Thead">
+            <div class="Tabla-Detalles-Thead" onscroll="ScrollTable(1)">
               <div class="Tabla-Detalles-tr">
                 <div class="Tabla-Detalles-th"><span>ID</span></div>
                 <div class="Tabla-Detalles-th"><span>Editorial</span></div>
@@ -92,7 +96,7 @@
                 <div class="Tabla-Detalles-th"><span>Eliminar</span></div>
               </div>
             </div>
-            <div class="Tabla-Detalles-Tbody" id="Tabla-Detalles">
+            <div class="Tabla-Detalles-Tbody" id="Tabla-Detalles" onscroll="ScrollTable(0)">
 
             </div>
 
@@ -112,7 +116,7 @@
       </div>
       <div class="PopUP-form-data">
         <div class="Tabla-Detalles">
-        	<div class="Tabla-Detalles-Thead">
+        	<div class="Tabla-Detalles-Thead" onscroll="ScrollTablePop(1)">
 				<div class="Tabla-Detalles-tr">
             		<div class="Tabla-Detalles-th"><span>ISBN</span></div>
             		<div class="Tabla-Detalles-th"><span>Precio Unitario</span></div>
@@ -120,7 +124,7 @@
             		<div class="Tabla-Detalles-th"><span>Ver</span></div>
             	</div>
         	</div>
-            <div class="Tabla-Detalles-Tbody" id="Tabla-Detalles-POPUP">
+            <div class="Tabla-Detalles-Tbody" id="Tabla-Detalles-POPUP" onscroll="ScrollTablePop(0)">
             </div>
         </div>
 

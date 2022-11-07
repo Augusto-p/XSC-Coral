@@ -14,6 +14,9 @@
     
     <section class="content">
         <section class="recomendados noselect">
+            <div class="Burgerdiv" onclick="recomendados()">
+                <span>☰</span>
+            </div>
             <h2>Recomendados</h2>
             <hr>
             <h3>Categorias</h3>
@@ -60,7 +63,7 @@
                     </div>
                 </div>
                 <div class="list-item-sale">
-                    <div class="list-item-sale-ultra-up">
+                    <div class="list-item-sale-ultra-up" onclick="options(event)">
                         <div class="list-item-sale-ultra-up-pointer"></div>
                         <div class="list-item-sale-ultra-up-pointer"></div>
                         <div class="list-item-sale-ultra-up-pointer"></div>

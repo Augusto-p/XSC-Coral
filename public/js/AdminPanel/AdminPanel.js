@@ -35,3 +35,8 @@ function GoToView(ISBNV) {
     a.target = "_blank"
     a.click()
 }
+
+function MenuBurger(){
+    let menu = document.querySelector(".optionPanel")
+    menu.classList.toggle("active")
+}
