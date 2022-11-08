@@ -8,15 +8,17 @@
 
 
     <title>Libreria MiMundo</title>
-<link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico"
+        type="image/x-icon">
 </head>
+
 <body>
     <!-- baner -->
     <?php require 'views/header.php';?>
     <!-- contenido -->
     <section class="content">
         <?php require 'views/adminPanel.php';?>
-            <div class="conten-data">
+        <div class="conten-data">
             <div id="Formulario">
                 <h2 id="titulo">Modificar Usuario</h2>
 
@@ -24,10 +26,12 @@
                     <div class="row">
                         <div class="col1 col">
                             <div class="row-in-col">
-                                <input type="email" name="email" onkeyup="IDonKeyUp(event)" id="Email" placeholder="Email" class="inputs">
-                                <Button class="btnSeach" onclick="Seach()" type="button"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/lupa.svg"></Button>
+                                <input type="email" name="email" onkeyup="IDonKeyUp(event)" id="Email"
+                                    placeholder="Email" class="inputs">
+                                <Button class="btnSeach" onclick="Seach()" type="button"><img
+                                        src="<?php echo constant('URL'); ?>public/Recursos/icons/lupa.svg"></Button>
                             </div>
-                            
+
                         </div>
                         <div class="col2 col">
                             <select name="Rol" id="Rol" class="inputs">
@@ -48,7 +52,7 @@
                     <div class="row">
                         <div class="col1 col">
                             <select name="Genero" id="genero" class="inputs">
-                                <option value="" selected disabled>Genero</option>
+                                <option value="" selected disabled>Género</option>
                                 <option value="M">Masculino</option>
                                 <option value="F">Femenino</option>
                                 <option value="P">Otro</option>
@@ -57,7 +61,7 @@
                         </div>
                         <div class="col2 col">
                             <input type="text" name="GPersonalizado" id="GP" placeholder="Genero" class="inputs">
-                            
+
                         </div>
                     </div>
                     <div class="row">
@@ -72,38 +76,37 @@
                     </div>
                     <div class="row">
                         <div class="col1 col">
-                             <input type="text" name="calle" id="Calle" placeholder="Calle" class="inputs">
+                            <input type="text" name="calle" id="Calle" placeholder="Calle" class="inputs">
                         </div>
                         <div class="col2 col">
                             <input type="text" name="ciudad" id="Ciudad" placeholder="Ciudad" class="inputs">
-                           
+
                         </div>
                     </div>
                     <div class="row">
                         <div class="col1 col">
-                            <input type="number" name="codigo" id="CPostal"
-                                placeholder="Codigo Postal" class="inputs" step="1" min="1"
-                                onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                            <input type="number" name="codigo" id="CPostal" placeholder="Codigo Postal" class="inputs"
+                                step="1" min="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                         </div>
                         <div class="col2 col">
-                             <input type="text" name="Departamento" list="depaList" id="departamento"
+                            <input type="text" name="Departamento" list="depaList" id="departamento"
                                 placeholder="Departamento" class="inputs">
                             <datalist id="depaList">
                                 <option value="Artigas">
                                 <option value="Canelones">
                                 <option value="Cerro Largo">
-                                <option value="Coloña">
+                                <option value="Colonia">
                                 <option value="Durazno">
                                 <option value="Flores">
                                 <option value="Florida">
                                 <option value="Lavalleja">
                                 <option value="Maldonado">
                                 <option value="Montevideo">
-                                <option value="Paisandú">
+                                <option value="Paysandú">
                                 <option value="Rivera">
                                 <option value="Rocha">
                                 <option value="Salto">
-                                <option value="San Jose">
+                                <option value="San José">
                                 <option value="Soriano">
                                 <option value="Tacuarembó">
                                 <option value="Treinta y Tres">
@@ -121,7 +124,7 @@
                 <div id="save-div">
                     <button type="button" onclick="Send()">Guardar</button>
                 </div>
-</div>
+            </div>
         </div>
     </section>
 

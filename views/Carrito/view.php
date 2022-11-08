@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,10 @@
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Book/listar.css">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Book/carrito.css">
     <title>Libreria MiMundo</title>
-<link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico"
+        type="image/x-icon">
 </head>
+
 <body>
     <?php require 'views/header.php';?>
 
@@ -19,9 +22,9 @@
             </div>
             <h2>Recomendados</h2>
             <hr>
-            <h3>Categorias</h3>
-            <a href="<?php echo constant('URL'); ?>book?Categoria=Autobiografia">Autobiografia</a>
-            <a href="<?php echo constant('URL'); ?>book?Categoria=Biografia">Biografia</a>
+            <h3>Categorías</h3>
+            <a href="<?php echo constant('URL'); ?>book?Categoria=Autobiografia">Autobiografía</a>
+            <a href="<?php echo constant('URL'); ?>book?Categoria=Biografia">Biografía</a>
             <a href="<?php echo constant('URL'); ?>book?Categoria=Deportes">Deportes</a>
             <a href="<?php echo constant('URL'); ?>book?Categoria=Humor">Humor</a>
             <a href="<?php echo constant('URL'); ?>book?Categoria=F1">F1</a>
@@ -55,55 +58,56 @@
         </section>
     </section>
     <section class="PopUP-Window" id="PopUP-Window">
-    <div class="PopUP-form">
-      <div class="PopUP-Titulo">
-        <h2>Detalles de la Compra</h2>
-      </div>
-      <div class="PopUP-form-data">
-        <div class="Tabla-Detalles">
-        	<div class="Tabla-Detalles-Thead" onscroll="ScrollTablePop(1)">
-				<div class="Tabla-Detalles-tr">
-            		<div class="Tabla-Detalles-th"><span>ISBN</span></div>
-            		<div class="Tabla-Detalles-th"><span>Nombre</span></div>
-                    <div class="Tabla-Detalles-th"><span>Precio</span></div>
-            		<div class="Tabla-Detalles-th"><span>Cantidad</span></div>
-                    <div class="Tabla-Detalles-th"><span>Total</span></div>
-            		<div class="Tabla-Detalles-th"><span>Eliminar</span></div>
-            	</div>
-        	</div>
-            <div class="Tabla-Detalles-Tbody" id="Tabla-Detalles-POPUP" onscroll="ScrollTablePop(0)">
-                
+        <div class="PopUP-form">
+            <div class="PopUP-Titulo">
+                <h2>Detalles de la Compra</h2>
             </div>
-        </div>
+            <div class="PopUP-form-data">
+                <div class="Tabla-Detalles">
+                    <div class="Tabla-Detalles-Thead" onscroll="ScrollTablePop(1)">
+                        <div class="Tabla-Detalles-tr">
+                            <div class="Tabla-Detalles-th"><span>ISBN</span></div>
+                            <div class="Tabla-Detalles-th"><span>Nombre</span></div>
+                            <div class="Tabla-Detalles-th"><span>Precio</span></div>
+                            <div class="Tabla-Detalles-th"><span>Cantidad</span></div>
+                            <div class="Tabla-Detalles-th"><span>Total</span></div>
+                            <div class="Tabla-Detalles-th"><span>Eliminar</span></div>
+                        </div>
+                    </div>
+                    <div class="Tabla-Detalles-Tbody" id="Tabla-Detalles-POPUP" onscroll="ScrollTablePop(0)">
 
-      </div>
-      <div class="PopUP-BTNs">
-        <div class="PopUP-Total">
-            <span id="popUpTotal">Total: $</span>
-        </div>
-        
-        <button class="PopUP-BTNs-pagar" onclick="Pagar()">Pagar</button>
-    </div>
+                    </div>
+                </div>
 
-    </div>
+            </div>
+            <div class="PopUP-BTNs">
+                <div class="PopUP-Total">
+                    <span id="popUpTotal">Total: $</span>
+                </div>
+
+                <button class="PopUP-BTNs-pagar" onclick="Pagar()">Pagar</button>
+            </div>
+
+        </div>
     </section>
     <section class="PopUP-Window" id="PopUP-Window2">
         <div class="PopUP-form">
             <div class="PopUP-Titulo">
-                <h2>Informacion de la Compra</h2>
+                <h2>Información de la Compra</h2>
             </div>
             <div class="PopUP-form-data">
-                <div id="Imgdiv" style="background-image: url(<?php echo constant('URL'); ?>public/Recursos/imgs/GraciasXSuCompra.svg);">
-                    
+                <div id="Imgdiv"
+                    style="background-image: url(<?php echo constant('URL'); ?>public/Recursos/imgs/GraciasXSuCompra.svg);">
+
                 </div>
 
                 <div>
 
                     <select name="MPago" id="Mpag-popUp" class="inputs">
-                    <option value="" selected disabled>Metodo de Pago</option>
-                    <option value="Credito">Credito</option>
-                    <option value="Debito">Debito</option>
-                </select>
+                        <option value="" selected disabled>Método de Pago</option>
+                        <option value="Credito">Crédito</option>
+                        <option value="Debito">Débito</option>
+                    </select>
                 </div>
                 <div>
 
@@ -111,9 +115,10 @@
                 </div>
                 <div id="Decripciondiv">
 
-                    <textarea name="Descripcion" id="descripcion-popUp" placeholder="Escribe una descripcion" class="inputs"></textarea>
+                    <textarea name="Descripcion" id="descripcion-popUp" placeholder="Escribe una descripcion"
+                        class="inputs"></textarea>
                 </div>
-        
+
             </div>
             <div class="PopUP-BTNs">
                 <button class="PopUP-BTNs-Finalizar" onclick="finalizar()">Finalizar</button>
@@ -121,10 +126,11 @@
             </div>
 
         </div>
-  </section>
+    </section>
 
 
     <?php require 'views/footer.php';?>
 </body>
 <script src="<?php echo constant('URL'); ?>public/js/Book/Carrito.js"></script>
+
 </html>

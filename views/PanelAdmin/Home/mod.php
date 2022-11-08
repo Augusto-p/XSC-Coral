@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Libreria MiMundo</title>
-    <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico" type="image/x-icon">
-    
+    <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico"
+        type="image/x-icon">
+
 </head>
 
 <body>
-     <!-- baner -->
+    <!-- baner -->
     <?php require 'views/header.php';?>
     <!-- contenido -->
     <section class="content">
@@ -24,71 +25,73 @@
 
                     <div class="row seven-row">
                         <div class="col colrow">
-                            <h3>Baner Principal</h3>
+                            <h3>Banner Principal</h3>
                             <img src="<?=$this->UrlBanerP;?>" id="VBanerP">
-                            <p>Relacion de apecto recomendada 6,72:1</p>
+                            <p>Relacion de aspecto recomendada 6,72:1</p>
                             <div class="div-change-ban">
                                 <input type="file" name="PBaner" id="PBaner" class="InBanP">
-                                <button type="button" class="btn-change-ban">Canbiar Baner</button>
+                                <button type="button" class="btn-change-ban">Cambiar Banner</button>
                             </div>
 
                         </div>
-                        
+
                     </div>
                     <hr>
                     <div class="row seven-row subBaner">
                         <div class="col colrow ">
-                            <h3>Baner Publicitario 1</h3>
+                            <h3>Banner Publicitario 1</h3>
                             <img src="<?=$this->UrlBanerP1;?>" id="VBanerP1">
-                            <p>Relacion de apecto recomendada 4.68:1</p>
+                            <p>Relación de aspecto recomendada 4.68:1</p>
                             <div class="div-change-ban">
                                 <input type="file" name="PP1Baner" id="PP1Baner" class="InBanP">
-                                <button type="button" class="btn-change-ban">Canbiar Baner</button>
+                                <button type="button" class="btn-change-ban">Cambiar Banner</button>
                             </div>
-                    
+
                         </div>
-                    
+
                     </div>
                     <hr>
                     <div class="row seven-row subBaner">
                         <div class="col colrow ">
-                            <h3>Baner Publicitario 2</h3>
+                            <h3>Banner Publicitario 2</h3>
                             <img src="<?=$this->UrlBanerP2;?>" id="VBanerP2">
-                            <p>Relacion de apecto recomendada 4.68:1</p>
+                            <p>Relación de aspecto recomendada 4.68:1</p>
                             <div class="div-change-ban">
                                 <input type="file" name="PP2Baner" id="PP2Baner" class="InBanP">
-                                <button type="button" class="btn-change-ban">Canbiar Baner</button>
+                                <button type="button" class="btn-change-ban">Cambiar Banner</button>
                             </div>
-                    
+
                         </div>
-                    
+
                     </div>
                     <div class="Slideszones">
 
                         <div class="col1 col">
-                                <h2 class="Slider-title">Slider 1</h2>
-                            </div>
-                        <div class="col2 col">
-                                <h2 class="Slider-title">Slider 2</h2>
+                            <h2 class="Slider-title">Slider 1</h2>
                         </div>
-                        
-                        <div class="col1 col">
-                                <div class="row-in-col">
-                                    <input type="number" name="slider1in" id="slider1in" placeholder="ISBN" class="inputs">
-                                    <Button type="button" class="btnadd" onclick="AddInputSlider1()"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
-                                </div>
-                            </div>
                         <div class="col2 col">
-                                <div class="row-in-col">
-                                    <input type="number" name="slider1in" id="slider2in" placeholder="ISBN" class="inputs">
-                                    <Button type="button" class="btnadd" onclick="AddInputSlider2()"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
-                                </div>
+                            <h2 class="Slider-title">Slider 2</h2>
+                        </div>
+
+                        <div class="col1 col">
+                            <div class="row-in-col">
+                                <input type="number" name="slider1in" id="slider1in" placeholder="ISBN" class="inputs">
+                                <Button type="button" class="btnadd" onclick="AddInputSlider1()"><img
+                                        src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
                             </div>
-                        
+                        </div>
+                        <div class="col2 col">
+                            <div class="row-in-col">
+                                <input type="number" name="slider1in" id="slider2in" placeholder="ISBN" class="inputs">
+                                <Button type="button" class="btnadd" onclick="AddInputSlider2()"><img
+                                        src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
+                            </div>
+                        </div>
+
                         <div class="col1 col colSc">
                             <div class="sroliable">
-                                <div id="slider1Div" >
-                                        
+                                <div id="slider1Div">
+
                                 </div>
                             </div>
                         </div>
@@ -100,31 +103,35 @@
                         </div>
                     </div>
                 </div>
-                
+
 
 
 
                 <div id="save-div">
                     <button type="button" onclick="Send()">Guardar</button>
                 </div>
+            </div>
         </div>
-        </div>
-        </section>
+    </section>
 
 
 </body>
-    <script src="<?php echo constant('URL'); ?>public/js/AdminPanel/AdminPanel.js"></script>
-    <script src="<?php echo constant('URL'); ?>public/js/AdminPanel/home/main.js"></script>
-    
-    <?php 
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/AdminPanel.js"></script>
+<script src="<?php echo constant('URL'); ?>public/js/AdminPanel/home/main.js"></script>
+
+<?php 
     foreach ($this->Slider1Isbns as $key => $value) {; ?>
-        <script>AddSlider1(<?=$value;?>)</script>
-    <?php
+<script>
+AddSlider1(<?=$value;?>)
+</script>
+<?php
     } 
     foreach ($this->Slider2Isbns as $key => $value) {; ?>
-        <script>AddSlider2(<?=$value;?>)</script>
-    <?php }; ?>
-    
-    
-    
+<script>
+AddSlider2(<?=$value;?>)
+</script>
+<?php }; ?>
+
+
+
 </html>

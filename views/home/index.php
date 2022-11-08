@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Libreria MiMundo</title>
-<link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico" type="image/x-icon">
+    <title>Librería MiMundo</title>
+    <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico"
+        type="image/x-icon">
 </head>
 
 <body>
@@ -27,14 +28,17 @@
                     <div class="slider-content-view">
                         <div class="slider-content-in">
                             <?php foreach ($this->Slider1 as $key => $book) {;?>
-                                <a onclick="goTo('<?php echo constant('URL'); ?>book/view?id=<?=$book->isbn;?>')">
+                            <a onclick="goTo('<?php echo constant('URL'); ?>book/view?id=<?=$book->isbn;?>')">
                                 <div class="slider-item">
-                                    <div class="slider-item-up" style="background-image: url('<?php echo constant('URL'); ?><?=$book->imagenes[0];?>')">
+                                    <div class="slider-item-up"
+                                        style="background-image: url('<?php echo constant('URL'); ?><?=$book->imagenes[0];?>')">
                                         <div class="slider-item-up-up">
                                             <span class="slider-item-precio">$<?=$book->precio;?></span>
                                         </div>
                                         <div class="slider-item-up-down">
-                                            <button class="slider-item-addCarito"  onclick="AddCarritoHome(event,<?=$book->isbn;?>)">Añadir al carrito</button>
+                                            <button class="slider-item-addCarito"
+                                                onclick="AddCarritoHome(event,<?=$book->isbn;?>)">Añadir al
+                                                carrito</button>
                                         </div>
                                     </div>
                                     <div class="slider-item-down">
@@ -89,15 +93,18 @@
                     <div class="slider-content-view">
                         <div class="slider-content-in">
 
-                        <?php foreach ($this->Slider2 as $key => $book) {;?>
-                                <a onclick="goTo('<?php echo constant('URL'); ?>book/view?id=<?=$book->isbn;?>')">
+                            <?php foreach ($this->Slider2 as $key => $book) {;?>
+                            <a onclick="goTo('<?php echo constant('URL'); ?>book/view?id=<?=$book->isbn;?>')">
                                 <div class="slider-item">
-                                    <div class="slider-item-up" style="background-image: url('<?php echo constant('URL'); ?><?=$book->imagenes[0];?>')">
+                                    <div class="slider-item-up"
+                                        style="background-image: url('<?php echo constant('URL'); ?><?=$book->imagenes[0];?>')">
                                         <div class="slider-item-up-up">
                                             <span class="slider-item-precio">$<?=$book->precio;?></span>
                                         </div>
                                         <div class="slider-item-up-down">
-                                            <button class="slider-item-addCarito" onclick="AddCarritoHome(event,<?=$book->isbn;?>)">Añadir al carrito</button>
+                                            <button class="slider-item-addCarito"
+                                                onclick="AddCarritoHome(event,<?=$book->isbn;?>)">Añadir al
+                                                carrito</button>
                                         </div>
                                     </div>
                                     <div class="slider-item-down">

@@ -208,9 +208,9 @@ class Venta_API_Controller extends Controller {
         $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             if($this->model->delete($data->ID)){
-                $res = ["mensaje" => "Compra Eliminado Correctamente", "code" => 200];
+                $res = ["mensaje" => "Compra Eliminada Correctamente", "code" => 200];
             }else{
-                $res = ["mensaje" => "Compra No Localizado", "code" => 404];
+                $res = ["mensaje" => "Compra No Localizada", "code" => 404];
             }
         } else {
             $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
@@ -227,7 +227,7 @@ class Venta_API_Controller extends Controller {
         $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado" || ($this->model->get($data->ID)->Email == $email && $data->New_Status ==  "Entregado")) {    
             if($this->model->NewStatus($data->ID, $data->New_Status)){
-                $res = ["mensaje" => "Estado de Venta Acutualizado Correctamente", "code" => 200];
+                $res = ["mensaje" => "Estado de Venta Actualizado Correctamente", "code" => 200];
             }else{
                 $res = ["mensaje" => "Venta No Localizada", "code" => 404];
             }

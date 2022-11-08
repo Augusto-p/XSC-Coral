@@ -210,7 +210,7 @@ class Compra_API_Controller extends Controller {
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             
             if($this->model->NewStatus($data->ID, $data->New_Status)){
-                $res = ["mensaje" => "Estado de Compra Acutualizado Correctamente", "code" => 200];
+                $res = ["mensaje" => "Estado de compra actualizado Correctamente", "code" => 200];
             }else{
                 $res = ["mensaje" => "Compra No Localizado", "code" => 404];
             }

@@ -56,16 +56,16 @@ class Carrito_API_Controller extends Controller {
         $email     = $token != false ? $token: null ; //JWT
         if ($userModel->getRol($email) != false) {
             if ($this->model->Existe($email, $data->Book)) {
-                $res = ["mensaje" => "Se Añadio Al Carrito", "code" => 200];
+                $res = ["mensaje" => "Se añadio al Carrito", "code" => 200];
             }else{
                 $carro = new Carrito();
                 $carro->Email = $email;
                 $carro->ISBN = $data->Book;
                 $carro->FechaHora = date("Y-m-d H:i:s");
                 if ($this->model->add($carro)) {
-                    $res = ["mensaje" => "Se Añadio Al Carrito", "code" => 200];
+                    $res = ["mensaje" => "Se añadió al Carrito", "code" => 200];
                 }else{
-                    $res = ["mensaje" => "No Se Pudo Añadir Al Carrito", "code" => 404];
+                    $res = ["mensaje" => "No se pudo añadir al Carrito", "code" => 404];
             }
             }
 
@@ -88,7 +88,7 @@ class Carrito_API_Controller extends Controller {
             if($this->model->deleteAll($email)){
                 $res = ["mensaje" => "Carrito Vaciado Correctamente", "code" => 200];
             }else{
-                $res = ["mensaje" => "Carrito N0 Localizado", "code" => 404];
+                $res = ["mensaje" => "Carrito No Localizado", "code" => 404];
             }
 
         } else {
@@ -111,9 +111,9 @@ class Carrito_API_Controller extends Controller {
             $carro->ISBN = $data->Book;
 
             if($this->model->delete($carro)){
-                $res = ["mensaje" => "Elemnto Removido Correctamente", "code" => 200];
+                $res = ["mensaje" => "Elemento Removido Correctamente", "code" => 200];
             }else{
-                $res = ["mensaje" => "Carrito N0 Localizado", "code" => 404];
+                $res = ["mensaje" => "Carrito No Localizado", "code" => 404];
             }
 
         } else {

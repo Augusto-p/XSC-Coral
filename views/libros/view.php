@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/Book/view.css">
     <title>Libreria MiMundo</title>
-<link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico"
+        type="image/x-icon">
 </head>
+
 <body>
-    
+
     <?php require 'views/header.php';?>
 
     <section class="big-contenedor">
@@ -20,7 +23,7 @@
                 <div id="slider-book-image-box">
                     <img id="slider-book-image"> <!-- aca se mustra la imagen -->
                 </div>
-                
+
                 <section id="book-image-pointer-section">
                     <!-- dependiendo de la cantiad de imagens insertadas se crean atraves de js -->
                 </section>
@@ -28,7 +31,7 @@
             <section class="info-book">
                 <div class="info-book-in">
                     <span id="categorias-book-span">
-                        Categorias:
+                        Categorías:
                         <?php
                             foreach ($this->Book->categorias as $key => $value) {
                                 echo '<a href="'.constant('URL').'book?Categoria='.$value.'" class="categoria-book">'.$value.'</a>';
@@ -50,17 +53,23 @@
                         <h3 id="input-nombre-editorial"><?=$this->Editorial->nombre;?></h3>
                     </div>
                     <div class="info-editorial-book">
-                        <a id="info-editorial-book-dir" target="_blank" href="https://maps.google.com/?q=<?=$this->Editorial->direccion;?>">
-                            <img src="<?php echo constant('URL'); ?>public/Recursos/icons/office.svg"><?=$this->Editorial->direccion;?></a>
+                        <a id="info-editorial-book-dir" target="_blank"
+                            href="https://maps.google.com/?q=<?=$this->Editorial->direccion;?>">
+                            <img
+                                src="<?php echo constant('URL'); ?>public/Recursos/icons/office.svg"><?=$this->Editorial->direccion;?></a>
                     </div>
                     <div class="info-editorial-book">
-                        <a href="tel:<?=$this->Editorial->telefono;?>"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/phone.svg"><?=$this->Editorial->telefono;?></a>
+                        <a href="tel:<?=$this->Editorial->telefono;?>"><img
+                                src="<?php echo constant('URL'); ?>public/Recursos/icons/phone.svg"><?=$this->Editorial->telefono;?></a>
                     </div>
                     <div class="info-editorial-book">
-                        <a href="mailto:<?=$this->Editorial->email;?>"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/email.svg">Correo Electronico</a>
+                        <a href="mailto:<?=$this->Editorial->email;?>"><img
+                                src="<?php echo constant('URL'); ?>public/Recursos/icons/email.svg">Correo
+                            Electrónico</a>
                     </div>
                     <div class="info-editorial-book">
-                        <a href="<?=$this->Editorial->web;?>"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/web.svg">Pagina Web</a>
+                        <a href="<?=$this->Editorial->web;?>"><img
+                                src="<?php echo constant('URL'); ?>public/Recursos/icons/web.svg">Página Web</a>
                     </div>
                 </div>
 
@@ -104,7 +113,7 @@
                     </div>
                 </div>
             </section>
-    </section>
+        </section>
     </section>
     <?php require 'views/footer.php';?>
 
@@ -124,8 +133,11 @@ foreach ($this->Book->imagenes as $key => $value) {
 }; ?>
 
 
-<script>const Paises = <?=$this->Paises;?>;</script>
 <script>
-    run() // se llama a la funcion run que inserta los datos de los autores y las imagenes en la vista
+const Paises = <?=$this->Paises;?>;
 </script>
+<script>
+run() // se llama a la funcion run que inserta los datos de los autores y las imagenes en la vista
+</script>
+
 </html>
