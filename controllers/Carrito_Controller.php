@@ -9,7 +9,7 @@ class Carrito_Controller extends Controller{
         if (!empty($_SESSION['login']) ? $_SESSION['login'] : false) {
             $this->view->render('Carrito/view');
         }else {
-            $this->view->render('usuario/login');
+            $this->view->render('Usuario/login');
         }
     }
 
