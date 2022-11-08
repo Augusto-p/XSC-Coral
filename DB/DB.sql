@@ -1202,3 +1202,17 @@ VALUES (9780007270064,
                                                                                                                                                                                                                                                       43),(9783839849958,
                                                                                                                                                                                                                                                            45);
 
+
+
+
+-- User crate zone
+CREATE USER 'Coral'@'localhost' IDENTIFIED BY 'd724a567490114d353f8bbaf451f151001b9911d97c7af273354cea45a8753e6883c685bba9c0391e7838178f5f1eb45c3dc4cbfc9571febf0aab698c4d0ec20';
+GRANT ALL PRIVILEGES ON *.* TO 'Coral'@'localhost';
+
+CREATE USER 'usuariobackup'@'localhost' IDENTIFIED BY 'f5fa8480b5b9fd7d3034ee03be13129c965d5aec';
+GRANT SELECT,SHOW DATABASES,LOCK TABLES ON *.* TO 'usuariobackup'@'localhost';
+
+
+
+
+
