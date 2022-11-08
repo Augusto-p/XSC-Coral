@@ -1,5 +1,5 @@
 <?php
-require_once 'models/Usuario_model.php';
+require_once 'models/Usuario_Model.php';
 require_once 'utilidades/Imagenes.php';
 
 class Home_API_Controller extends Controller {

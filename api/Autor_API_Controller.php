@@ -1,7 +1,7 @@
 <?php
 
 require_once 'DTO/autor.php';
-require_once 'models/Usuario_model.php';
+require_once 'models/Usuario_Model.php';
 require_once 'utilidades/Imagenes.php';
 
 class Autor_API_Controller extends Controller {

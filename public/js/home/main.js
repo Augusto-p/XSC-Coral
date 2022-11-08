@@ -6,6 +6,7 @@ let slider1Content = document.getElementsByClassName('slider-content-in')[0];
 let slider1PointersBox = document.getElementsByClassName('slider-pointer')[0];
 let slider2Content = document.getElementsByClassName('slider-content-in')[1];
 let slider2PointersBox = document.getElementsByClassName('slider-pointer')[1];
+let SliderItem = document.querySelector(".slider-item")
 let slider1Pointers = [];
 let slider2Pointers = [];
 
@@ -44,6 +45,7 @@ btnSlider3.addEventListener('click', function () {
 
 
 function slider1Move(mode, sliderContent, pointers) {
+    let AnchoItem = convertPXToVW(SliderItem.offsetWidth) + 2
     let transform = sliderContent.style.transform
     let valor;
     if (transform == "") {
@@ -52,11 +54,11 @@ function slider1Move(mode, sliderContent, pointers) {
         valor = parseInt(transform.replace("translateX(", "").replace("vw)", ""))
     }
     if (mode == 'next') {
-        if (valor <= -153) {
+        if (valor <= -(AnchoItem * 9)) {
             valor = 0;
         }
         else {
-            valor = valor - 17;
+            valor = valor - AnchoItem;
         }
 
         if (pointerValue >= 9) {
@@ -70,10 +72,10 @@ function slider1Move(mode, sliderContent, pointers) {
     }
     if (mode == 'previous') {
         if (valor >= 0) {
-            valor = -153;
+            valor = -(AnchoItem * 9);
         }
         else {
-            valor = valor + 17;
+            valor = valor + AnchoItem;
         }
 
         if (pointerValue <= 0) {
@@ -93,6 +95,7 @@ function slider1Move(mode, sliderContent, pointers) {
 }
 
 function slider2Move(mode, sliderContent, pointers) {
+    let AnchoItem = convertPXToVW(SliderItem.offsetWidth) + 2
     let transform = sliderContent.style.transform
     let valor;
     if (transform == "") {
@@ -101,11 +104,11 @@ function slider2Move(mode, sliderContent, pointers) {
         valor = parseInt(transform.replace("translateX(", "").replace("vw)", ""))
     }
     if (mode == 'next') {
-        if (valor <= -153) {
+        if (valor <= -(AnchoItem * 9)) {
             valor = 0;
         }
         else {
-            valor = valor - 17;
+            valor = valor - AnchoItem;
         }
 
         if (pointerValue2 >= 9) {
@@ -119,10 +122,10 @@ function slider2Move(mode, sliderContent, pointers) {
     }
     if (mode == 'previous') {
         if (valor >= 0) {
-            valor = -153;
+            valor = -(AnchoItem * 9);
         }
         else {
-            valor = valor + 17;
+            valor = valor + AnchoItem;
         }
 
         if (pointerValue2 <= 0) {
@@ -143,6 +146,10 @@ function slider2Move(mode, sliderContent, pointers) {
 
 
 
+window.onresize = function () {
+    pointers[pointerValue2].style.backgroundColor = '#71eba1';
+    sliderContent.style.transform = 'translateX(' + valor + 'vw)';
+}
 
 //seteos slider 1
 slider1Content.appendChild(slider1Content.children[0].cloneNode(true));
@@ -168,4 +175,8 @@ let slider2timer = setInterval(() => { slider2Move('next', slider2Content, slide
 function AddCarritoHome(event, ISBN) {
     event.stopPropagation();
     addCarrito(ISBN)
+}
+
+function convertPXToVW(px) {
+    return Math.round(px * (100 / document.documentElement.clientWidth));
 }

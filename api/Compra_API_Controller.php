@@ -2,7 +2,7 @@
 
 require_once 'DTO/compra.php';
 require_once 'DTO/detalleCompra.php';
-require_once 'models/Usuario_model.php';
+require_once 'models/Usuario_Model.php';
 
 
 

@@ -292,6 +292,10 @@ button {
 
 }
 
+.footer-up .footer-up-column:nth-child(3) .footer-up-Column-in a {
+    margin: 0;
+}
+
 @media (max-width: 768px) and (min-width: 400px) {
     .banner {
         width: 100%;
@@ -411,5 +415,10 @@ button {
 
     .Burgerdiv {
         display: flex;
+    }
+
+    .footer-up .footer-up-column:nth-child(3) .footer-up-Column-in a {
+
+        justify-content: center;
     }
 }

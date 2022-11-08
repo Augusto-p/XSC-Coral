@@ -3,7 +3,7 @@
 require_once 'DTO/venta.php';
 require_once 'DTO/detalleVenta.php';
 require_once 'DTO/pedido.php';
-require_once 'models/Usuario_model.php';
+require_once 'models/Usuario_Model.php';
 require_once 'models/Book_Model.php';
 require_once 'utilidades/Mails.php';
 require_once 'utilidades/PDFs.php';

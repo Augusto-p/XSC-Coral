@@ -1,7 +1,7 @@
 <?php
 
 require_once 'DTO/carrito.php';
-require_once 'models/Usuario_model.php';
+require_once 'models/Usuario_Model.php';
 require_once 'models/Book_Model.php';
 require_once 'utilidades/Archivos.php';
 require_once 'models/Autor_Model.php';
