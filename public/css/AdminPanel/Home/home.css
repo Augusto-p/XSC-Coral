@@ -211,7 +211,7 @@
 }
 
 
-@media (max-width: 768px) and (min-width: 400px) {
+@media (max-width: 768px) and (min-width: 300px) {
     .seven-row {
         width: 90vw;
         height: 22vh;

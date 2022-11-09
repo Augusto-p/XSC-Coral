@@ -28,7 +28,7 @@
                     <div class="slider-content-view">
                         <div class="slider-content-in">
                             <?php foreach ($this->Slider1 as $key => $book) {;?>
-                            <a onclick="goTo('<?php echo constant('URL'); ?>book/view?id=<?=$book->isbn;?>')">
+                            <!-- <a onclick="goTo('<?php echo constant('URL'); ?>book/view?id=<?=$book->isbn;?>')">
                                 <div class="slider-item">
                                     <div class="slider-item-up"
                                         style="background-image: url('<?php echo constant('URL'); ?><?=$book->imagenes[0];?>')">
@@ -47,7 +47,8 @@
 
                                     </div>
                                 </div>
-                            </a>
+                            </a> -->
+                            
                             <?php }
 ;?>
 
@@ -59,11 +60,14 @@
                     <div class="slider-pointer">
                         <span class="slider-pointer-item"></span>
                         <span class="slider-pointer-item"></span>
+                        <span class="slider-pointer-item active"></span>
                         <span class="slider-pointer-item"></span>
                         <span class="slider-pointer-item"></span>
-                        <span class="slider-pointer-item"></span><span class="slider-pointer-item"></span><span
-                            class="slider-pointer-item"></span><span class="slider-pointer-item"></span><span
-                            class="slider-pointer-item"></span><span class="slider-pointer-item"></span>
+                        <span class="slider-pointer-item"></span>
+                        <span class="slider-pointer-item"></span>
+                        <span class="slider-pointer-item"></span>
+                        <span class="slider-pointer-item"></span>
+                        <span class="slider-pointer-item"></span>
                     </div>
                 </div>
                 <div class="btn-slider btn-slider-next" id="btn-slider-2">
@@ -94,7 +98,7 @@
                         <div class="slider-content-in">
 
                             <?php foreach ($this->Slider2 as $key => $book) {;?>
-                            <a onclick="goTo('<?php echo constant('URL'); ?>book/view?id=<?=$book->isbn;?>')">
+                            <!-- <a onclick="goTo('<?php echo constant('URL'); ?>book/view?id=<?=$book->isbn;?>')">
                                 <div class="slider-item">
                                     <div class="slider-item-up"
                                         style="background-image: url('<?php echo constant('URL'); ?><?=$book->imagenes[0];?>')">
@@ -113,7 +117,8 @@
 
                                     </div>
                                 </div>
-                            </a>
+                            </a> -->
+                        
                             <?php }
 ;?>
 
@@ -124,11 +129,14 @@
                     <div class="slider-pointer">
                         <span class="slider-pointer-item"></span>
                         <span class="slider-pointer-item"></span>
+                        <span class="slider-pointer-item active"></span>
                         <span class="slider-pointer-item"></span>
                         <span class="slider-pointer-item"></span>
-                        <span class="slider-pointer-item"></span><span class="slider-pointer-item"></span><span
-                            class="slider-pointer-item"></span><span class="slider-pointer-item"></span><span
-                            class="slider-pointer-item"></span><span class="slider-pointer-item"></span>
+                        <span class="slider-pointer-item"></span>
+                        <span class="slider-pointer-item"></span>
+                        <span class="slider-pointer-item"></span>
+                        <span class="slider-pointer-item"></span>
+                        <span class="slider-pointer-item"></span>
                     </div>
                 </div>
                 <div class="btn-slider btn-slider-next" id="btn-slider-4">
@@ -144,5 +152,16 @@
 
 </body>
 <script src="<?php echo constant('URL'); ?>public/js/home/main.js"></script>
-
+<?php foreach ($this->Slider1 as $key => $book) {;?>
+    <script>
+    AddSlider1(<?=$book->isbn;?>, '<?=$book->titulo;?>', <?=$book->precio;?>, '<?php echo constant('URL'); ?><?=$book->imagenes[0];?>');
+    </script>
+<?php } foreach ($this->Slider2 as $key => $book) {;?>
+    <script>
+        AddSlider2(<?=$book->isbn;?>,'<?=$book->titulo;?>', <?=$book->precio;?>, '<?php echo constant('URL'); ?><?=$book->imagenes[0];?>');
+    </script>
+<?php };?>
+<script>
+    StartSliders()
+</script>
 </html>

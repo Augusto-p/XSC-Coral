@@ -1215,4 +1215,13 @@ GRANT SELECT,SHOW DATABASES,LOCK TABLES ON *.* TO 'usuariobackup'@'localhost';
 
 
 
+DELIMITER **
+CREATE PROCEDURE infoStock() BEGIN
+SELECT libros.ISBN,
+       libros.Titulo,
+       libros.Stock
+FROM libros
+WHERE libros.Stock < 30
+ORDER BY libros.Stock,
+         libros.titulo; END **
 

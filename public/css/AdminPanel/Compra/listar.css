@@ -6,7 +6,7 @@
 
 .Tabla-Detalles-Tbody .Tabla-Detalles-tr .Tabla-Detalles-td:nth-child(8) {
     cursor: pointer;
-    background-color: crimson;
+    background-color: #ca2626;
     height: 5vh;
     width: 5vh;
     border: 2px solid transparent;
@@ -181,7 +181,7 @@
 }
 
 
-@media (max-width: 768px) and (min-width: 400px) {
+@media (max-width: 768px) and (min-width: 300px) {
 
     #Formulario {
         grid-template-rows: 10vh 20vh 1fr;

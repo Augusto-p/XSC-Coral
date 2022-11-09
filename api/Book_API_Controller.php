@@ -118,12 +118,6 @@ class Book_API_Controller extends Controller {
         $this->view->render("API/Book/get");
     }
 
-
-
-
-
-
-
     public function add() {
         //add author
         $userModel = new Usuario_Model();
@@ -258,6 +252,23 @@ class Book_API_Controller extends Controller {
         }
         $this->view->res = json_encode($res);
         $this->view->render("API/Book/add");
+
+    }
+
+    public function info() {
+        //grt info
+        $userModel = new Usuario_Model();
+        $data      = json_decode(file_get_contents('php://input'));
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
+        if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
+            $infos = $this->model->getInfo();
+            $res = ["Info" => $infos, "code" => 200];
+        } else {
+            $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
+        }
+        $this->view->res = json_encode($res);
+        $this->view->render("API/Book/get");
 
     }
 }

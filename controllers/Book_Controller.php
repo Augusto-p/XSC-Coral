@@ -59,7 +59,6 @@ class Book_Controller extends Controller {
         }
     }
     public function new() {
-
         if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
             $this->view->render('PanelAdmin/Book/add');
         }else {
@@ -76,6 +75,13 @@ class Book_Controller extends Controller {
     public function remove(){
         if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
             $this->view->render('PanelAdmin/Book/del');
+        }else {
+            $this->view->render('errores/403');
+        }
+    }
+    public function info() {
+        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+            $this->view->render('PanelAdmin/Book/info');
         }else {
             $this->view->render('errores/403');
         }

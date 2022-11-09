@@ -14,13 +14,11 @@ function getCookie(name) {
     return document.cookie.split('; ').filter(Cookie => Cookie.includes(name + "="))[0].replace(name + "=", "");
 }
 
-function enterSach(event) {
-    
+function enterSach(event) {   
         let keycode = event.keyCode;
         if (keycode == '13') {
             SeachBar()
         }
-    
 }
 function ToUTC(date) {
     let actualTime = new Date();
@@ -44,7 +42,6 @@ let headersList = {
 }
 
 async function addCarrito(ISBN) {
-    console.log("add");
     headersList["Authorization"] = "Token " + sessionStorage.getItem("Token");
     let bodyContent = JSON.stringify({
         "Book": ISBN
@@ -67,12 +64,10 @@ async function addCarrito(ISBN) {
 }
 
 
-function BanerSubmenu(mode) {
-    if (mode) {
-        document.getElementById("InputSubmenu").focus()
-    } else {
-        setTimeout(1)
-        document.getElementById("InputSubmenu").blur();
-    }
-}
 
+
+function openSubmenuBanner() {
+    document.getElementById("SubmenuBanner").classList.toggle("active")
+
+
+}

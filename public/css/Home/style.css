@@ -105,8 +105,7 @@
     justify-content: left;
     width: 200vw;
     height: 70vh;
-    transform: translateX(0);
-
+    transform: translateX(-17vw);
 }
 
 
@@ -177,10 +176,11 @@
     height: 1vh;
     background-color: black;
     border-radius: 50%;
-
-
 }
 
+.slider-pointer-item.active {
+    background-color: #71eba1;
+}
 
 .noselect {
     -webkit-touch-callout: none;
@@ -238,7 +238,7 @@
 
 /* responsive */
 
-@media (max-width: 768px) and (min-width: 400px) {
+@media (max-width: 768px) and (min-width: 300px) {
 
     /* Banner principal */
     .banner1 {
@@ -305,9 +305,30 @@
         width: 83vw;
         font-size: 22px;
     }
-        /* no jodan */
-        .slider-pointer {
-            display: none;
-        }
 
+    /* no jodan */
+    .slider-pointer {
+        display: none;
     }
+
+}
+
+@keyframes sliderAnimasionN {
+    0% {
+        transform: translateX(0vw);
+    }
+
+    100% {
+        transform: translateX(-17vw);
+    }
+}
+
+@keyframes sliderAnimasionB {
+    0% {
+        transform: translateX(-34vw);
+    }
+
+    100% {
+        transform: translateX(-17vw);
+    }
+}

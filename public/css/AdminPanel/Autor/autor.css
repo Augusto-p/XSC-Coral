@@ -73,7 +73,7 @@ textarea {
     resize: none;
 }
 
-@media (max-width: 768px) and (min-width: 400px) {
+@media (max-width: 768px) and (min-width: 300px) {
     
 
     #btnAddimage, #Foto {

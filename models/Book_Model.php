@@ -402,4 +402,30 @@ class Book_Model extends Model {
         }
 
     } //upd
+
+
+    public function getInfo() {
+        try {
+            $pdo      = $this->db->connect();
+            $consulta = $pdo->prepare('call infoStock();'); // consulta a la base de datos no disponible
+            $consulta->execute();
+            $libros = [];
+            while ($row = $consulta->fetch()) {
+                $libro              = new Book();
+                $libro->isbn        = $row['ISBN'];
+                $libro->titulo      = $row['Titulo'];
+                $libro->Stock = $row['Stock'];
+                array_push($libros, $libro);
+            }
+            return $libros;
+        } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
+            return null;
+        } finally {
+            $pdo = null;
+        }
+
+    } //upd
+
 };?>

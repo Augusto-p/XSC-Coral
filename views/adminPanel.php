@@ -7,11 +7,10 @@
         <h3>Panel De Control</h3>
     </div>
     <div class="OP-item">
-        <div class="OP-item-titulo ">
-            <h4 class="noselect" onclick="goTo('<?php echo constant('URL'); ?>home/mod')"><img
-                    src="<?php echo constant('URL'); ?>public/Recursos/icons/home.svg">Home</h4>
+        <div class="OP-item-titulo" onclick="goTo('<?php echo constant('URL'); ?>Book/info')">
+            <h4 class="noselect">
+            <img src="<?php echo constant('URL'); ?>public/Recursos/icons/warning.svg">Stock</h4>
         </div>
-
     </div>
     <div class="OP-item ">
         <div class="OP-item-titulo">
@@ -68,16 +67,18 @@
         <div class="OP-item-titulo" onclick="goTo('<?php echo constant('URL'); ?>Venta/list')">
             <h4 class="noselect"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/tag.svg">Ventas</h4>
         </div>
-
     </div>
-    <!-- <div class="OP-item">
-                <div class="OP-item-titulo">
-                    <h4 class="noselect"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/info.svg">Informacion</h4>
-                </div>
-                <div class="OP-item-content">
-                    <a class="noselect">Ver</a>
-                    <a class="noselect">Añadir</a>
-                    <a class="OP-item-content-end noselect">Eliminar</a>
-                </div>
-            </div> -->
+    
+    <?php 
+    require_once 'utilidades/Formatos.php';
+    if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador"){;?>
+        <div class="OP-item">
+            <div class="OP-item-titulo ">
+                <h4 class="noselect" onclick="goTo('<?php echo constant('URL'); ?>home/mod')">
+                <img src="<?php echo constant('URL'); ?>public/Recursos/icons/home.svg">Home</h4>
+            </div>
+        </div>
+    <?php }; ?>
+
+
 </div>

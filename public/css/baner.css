@@ -14,6 +14,7 @@ body {
     align-items: center;
     align-content: center;
     justify-content: space-around;
+    position: relative;
 
 }
 
@@ -78,6 +79,7 @@ body {
     background-color: #E0E0E0;
     justify-content: space-around;
     font-family: 'Roboto';
+    height: 100%;
 }
 
 .menu-ul a {
@@ -92,8 +94,22 @@ body {
     display: none;
 }
 
+.menu {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.li-user {
+    position: relative;
+    z-index: 100;
+    background-color: #E0E0E0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
 .submenu {
-    display: none;
     margin: 0;
     padding: 0;
     position: absolute;
@@ -103,14 +119,18 @@ body {
     list-style: none;
     right: 12vh;
     font-size: 0.8em;
-}
-
-#InputSubmenu {
     display: none;
+    transform: translateY(-15vh);
+    z-index: 1;
+    top: 100%;
 }
 
-#InputSubmenu:checked~.submenu {
+
+.submenu.active {
+    animation: SubmenuOpen 3s normal;
     display: block;
+    z-index: 999;
+    transform: translateY(0vh);
 }
 
 
@@ -296,7 +316,7 @@ button {
     margin: 0;
 }
 
-@media (max-width: 768px) and (min-width: 400px) {
+@media (max-width: 768px) and (min-width: 300px) {
     .banner {
         width: 100%;
         height: 8vh;
@@ -420,5 +440,18 @@ button {
     .footer-up .footer-up-column:nth-child(3) .footer-up-Column-in a {
 
         justify-content: center;
+    }
+}
+
+
+@keyframes SubmenuOpen {
+    0% {
+        transform: translateY(-15vh);
+        z-index: 99;
+    }
+
+    100% {
+        transform: translateY(0vh);
+        z-index: 99;
     }
 }

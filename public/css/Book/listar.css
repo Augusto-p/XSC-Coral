@@ -317,7 +317,7 @@ footer {
 }
 
 
-@media (max-width: 768px) and (min-width: 400px) {
+@media (max-width: 768px) and (min-width: 300px) {
     .content {
         grid-template-columns: 100%;
     }

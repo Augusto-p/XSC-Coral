@@ -24,12 +24,11 @@
             <li class="lista-res"><b><a href="<?php echo constant('URL'); ?>About">Sobre nosotros</a></b></li>
             <li class="logos-res"><button><img src="<?php echo constant('URL'); ?>public/Recursos/icons/info.svg"
                         alt=""></button></li>
-            <li>
-                <input type="checkbox" id="InputSubmenu">
-                <label for="InputSubmenu">
-                    <img class="user" src="<?php echo constant('URL'); ?>public/Recursos/icons/user.svg">
-                </label>
-                <ul class="submenu">
+            <li class="li-user">
+                <img class="user" onclick="openSubmenuBanner()" src="<?php echo constant('URL'); ?>public/Recursos/icons/user.svg">
+                
+            </li>
+            <ul class="submenu" id="SubmenuBanner">
                     <?php if (empty($_SESSION["login"])){ ; ?>
                     <li class="noselect"><a href="<?php echo constant('URL'); ?>Usuario">Ingresar</a></li>
                     <li class="noselect"><a href="<?php echo constant('URL'); ?>Usuario/registrarse">Registro</a></li>
@@ -37,7 +36,7 @@
                         }
                         require_once 'utilidades/Formatos.php';
                         if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {;?>
-                    <li class="noselect"><a href="<?php echo constant('URL'); ?>home/mod">Panel Admin</a></li>
+                    <li class="noselect"><a href="<?php echo constant('URL'); ?>Book/info">Panel Admin</a></li>
                     <?php  } if (isset($_SESSION["login"])) { 
                         if ($_SESSION["login"]) {?>
                     <li class="noselect"><a href="#">Configuración</a></li>
@@ -47,7 +46,6 @@
                     </li>
                     <?php }}; ?>
                 </ul>
-            </li>
         </ul>
     </div>
 

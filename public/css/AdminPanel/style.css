@@ -132,6 +132,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    margin: 4vh 0px;
 }
 
 #Formulario {
@@ -281,7 +282,7 @@ body {
     transform: translateX(0) !important;
 }
 
-@media (max-width: 768px) and (min-width: 400px) {
+@media (max-width: 768px) and (min-width: 300px) {
     .optionPanel {
         position: absolute;
         width: 50vw;
@@ -291,7 +292,7 @@ body {
         z-index: 999;
     }
 
-    
+
 
     .content {
         grid-template-columns: 100%;

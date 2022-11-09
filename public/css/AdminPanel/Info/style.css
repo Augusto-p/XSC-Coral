@@ -1,0 +1,81 @@
+#Formulario {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10vh 1fr;
+}
+
+.Tabla-Detalles {
+    background-color: transparent;
+    overflow: hidden;
+    border-radius: 5vh;
+    font-family: 'Roboto';
+    width: 100%;
+    height: 85vh;
+    display: grid;
+    grid-template-rows: 5vh 1fr;
+    grid-template-columns: 100%;
+    margin-top: 3vh;
+}
+
+.Tabla-Detalles-Thead {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    background-color: #145075;
+    height: 100%;
+}
+
+.Tabla-Detalles-tr {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 30% 50% 20%;
+    justify-items: center;
+    align-items: center;
+}
+
+.Tabla-Detalles-th {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.Tabla-Detalles-Tbody {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+
+    height: 100%;
+    overflow-y: auto;
+    display: grid;
+    grid-auto-rows: 6vh;
+}
+
+.Tabla-Detalles-Tbody .Tabla-Detalles-tr {
+    font-size: 15px;
+    font-weight: 300;
+    min-height: 5vh;
+    background-color: white;
+}
+
+.Tabla-Detalles-Tbody .Tabla-Detalles-tr:nth-child(even) {
+    background-color: #2692ca;
+}
+
+.Tabla-Detalles-Tbody .Tabla-Detalles-tr .Tabla-Detalles-td:nth-child(3) span {
+    padding: 1vh 2vh;
+    background-color: #ca2626;
+    color: white;
+    border-radius: 1vh;
+}
+
+@media (max-width: 768px) and (min-width: 300px) {
+    #Formulario {
+        grid-template-rows: 6vh 1fr;
+    }
+
+    .Tabla-Detalles {
+        height: 75vh;
+    }
+}
