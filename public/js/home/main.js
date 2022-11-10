@@ -5,8 +5,7 @@ let Slider1Position = 2;
 let Slider2Position = 2;
 let Slider1 = document.getElementsByClassName('slider-content-in')[0];
 let Slider2 = document.getElementsByClassName('slider-content-in')[1];
-let slider1PointersBox = document.getElementsByClassName('slider-pointer')[0];
-let slider2PointersBox = document.getElementsByClassName('slider-pointer')[1];
+
 
 
 function AddSlider1(ISBN, Titulo, Precio, Img) {
@@ -51,49 +50,55 @@ function StartSliders() {
     for (let i = -1; i < 6; i++) {
         a = i < 0 ? (Slider1Items.length -1) : i
         Slider1.innerHTML += CreateSliderItem(Slider1Items[a]);
-        // Slider1Position++
     }
     for (let i = -1; i < 6; i++) {
         a = i < 0 ? (Slider2Items.length -1) : i
         Slider2.innerHTML += CreateSliderItem(Slider2Items[a]);
-        Slider2Position++
     }
 }
 
-function MoveSlider1(mode) {
+function MoveSlider1(mode, Interval) {
+    if (!Interval) {
+        clearInterval(slider1timer);
+    }
     if (mode == "NEXT") {
-        Slider1.style.animation = "sliderAnimasionN 2s normal";
+        Slider1.style.animation = (300 < window.innerWidth) && (window.innerWidth < 768) ? "sliderAnimasionNR 2s normal" : "sliderAnimasionN 2s normal";
         Slider1.removeChild(Slider1.firstElementChild);
         Slider1Position = Slider1Position + 1 == Slider1Items.length ? 0 : Slider1Position + 1
         Slider1.appendChild(HTMLtoElemnt(CreateSliderItem(Slider1Items[Slider1Position + 3 >= Slider1Items.length ? (Slider1Position + 3) - Slider1Items.length : Slider1Position + 3])));
     } else {
         Slider1Position = Slider1Position - 1 < 0 ? Slider1Items.length - 1 : Slider1Position - 1;
         Slider1.insertBefore(HTMLtoElemnt(CreateSliderItem(Slider1Items[Slider1Position - 3 < 0 ? Slider1Items.length + (Slider1Position - 3) : Slider1Position - 3])), Slider1.firstChild);
-        Slider1.style.animation = "sliderAnimasionB 2s normal";
+        Slider1.style.animation = (300 < window.innerWidth) && (window.innerWidth < 768) ? "sliderAnimasionBR 2s normal" : "sliderAnimasionB 2s normal";
         Slider1.removeChild(Slider1.lastElementChild);
     }
+    document.getElementsByClassName('slider-pointer')[0].querySelector(".slider-pointer-item.active").classList.toggle("active");
+    document.getElementsByClassName('slider-pointer')[0].querySelectorAll(".slider-pointer-item")[Slider2Position].classList.toggle("active");
 }
 
-function MoveSlider2(mode) {
+function MoveSlider2(mode, Interval) {
+    if (!Interval) {
+        clearInterval(slider2timer);
+    }
     if (mode == "NEXT") {
-        Slider2.style.animation = "sliderAnimasionN 2s normal";
+        Slider2.style.animation = (300 < window.innerWidth) && (window.innerWidth < 768) ? "sliderAnimasionNR 2s normal" : "sliderAnimasionN 2s normal";
         Slider2.removeChild(Slider2.firstElementChild)
         Slider2Position = Slider2Position + 1 == Slider2Items.length ? 0 : Slider2Position + 1;
         Slider2.appendChild(HTMLtoElemnt(CreateSliderItem(Slider2Items[Slider2Position + 3 >= Slider2Items.length ? (Slider2Position + 3) - Slider2Items.length : Slider2Position + 3])));
     } else {
         Slider2Position = Slider2Position - 1 < 0 ? Slider2Items.length - 1 : Slider2Position - 1;
         Slider2.insertBefore(HTMLtoElemnt(CreateSliderItem(Slider2Items[Slider2Position - 3 < 0 ? Slider2Items.length + (Slider2Position - 3) : Slider2Position - 3])), Slider2.firstChild);
-        Slider2.style.animation = "sliderAnimasionB 2s normal";
+        Slider2.style.animation = (300 < window.innerWidth) && (window.innerWidth < 768) ? "sliderAnimasionBR 2s normal" : "sliderAnimasionB 2s normal";
         Slider2.removeChild(Slider2.lastElementChild)
     }
-    document.getElementsByClassName('slider-pointer')[1].querySelector(".slider-pointer-item.active").classList.toggle("active")
-    console.log(document.getElementsByClassName('slider-pointer')[1].querySelectorAll(".slider-pointer-item")[Slider2Position].classList.toggle("active"));
+    document.getElementsByClassName('slider-pointer')[1].querySelector(".slider-pointer-item.active").classList.toggle("active");
+    document.getElementsByClassName('slider-pointer')[1].querySelectorAll(".slider-pointer-item")[Slider2Position].classList.toggle("active");
 }
 Slider1.addEventListener("animationend", () => { Slider1.style.animation = "none"; })
 Slider2.addEventListener("animationend", () => { Slider2.style.animation = "none"; })
 
-
-
+let slider1timer = setInterval(() => { MoveSlider1("NEXT", true); }, 5000);
+let slider2timer = setInterval(() => { MoveSlider2("NEXT", true); }, 5000);
 
 
 function PXtoVW(px) {
@@ -104,16 +109,6 @@ function HTMLtoElemnt(html) {
     div.innerHTML = html.trim();
     return div.firstChild;
 }
-
-
-
-
-
-
-
-
-
-
 
 // Carrito
 function AddCarritoHome(event, ISBN) {

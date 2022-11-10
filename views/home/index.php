@@ -20,41 +20,12 @@
         <h2 class="cat-prod">Libros</h2>
         <div class="slider-div">
             <section class="slider">
-                <div class="btn-slider btn-slider-before" id="btn-slider-1">
-                    <h2 class="noselect">
-                        ❮</h2>
+                <div class="btn-slider btn-slider-before" id="btn-slider-1" onclick="MoveSlider1('BEFORE', false);">
+                    <h2 class="noselect">❮</h2>
                 </div>
                 <div class="slider-content">
                     <div class="slider-content-view">
                         <div class="slider-content-in">
-                            <?php foreach ($this->Slider1 as $key => $book) {;?>
-                            <!-- <a onclick="goTo('<?php echo constant('URL'); ?>book/view?id=<?=$book->isbn;?>')">
-                                <div class="slider-item">
-                                    <div class="slider-item-up"
-                                        style="background-image: url('<?php echo constant('URL'); ?><?=$book->imagenes[0];?>')">
-                                        <div class="slider-item-up-up">
-                                            <span class="slider-item-precio">$<?=$book->precio;?></span>
-                                        </div>
-                                        <div class="slider-item-up-down">
-                                            <button class="slider-item-addCarito"
-                                                onclick="AddCarritoHome(event,<?=$book->isbn;?>)">Añadir al
-                                                carrito</button>
-                                        </div>
-                                    </div>
-                                    <div class="slider-item-down">
-
-                                        <h2 class="slider-item-titulo"><?=$book->titulo;?></h2>
-
-                                    </div>
-                                </div>
-                            </a> -->
-                            
-                            <?php }
-;?>
-
-
-
-
                         </div>
                     </div>
                     <div class="slider-pointer">
@@ -70,11 +41,9 @@
                         <span class="slider-pointer-item"></span>
                     </div>
                 </div>
-                <div class="btn-slider btn-slider-next" id="btn-slider-2">
+                <div class="btn-slider btn-slider-next" id="btn-slider-2" onclick="MoveSlider1('NEXT', false);">
                     <h2 class="noselect">❯</h2>
                 </div>
-
-
             </section>
         </div>
     </section>
@@ -89,41 +58,12 @@
         <h2 class="cat-prod">Libros</h2>
         <div class="slider-div">
             <section class="slider">
-                <div class="btn-slider btn-slider-before" id="btn-slider-3">
-                    <h2 class="noselect">
-                        ❮</h2>
+                <div class="btn-slider btn-slider-before" id="btn-slider-3" onclick="MoveSlider2('BEFORE', false);">
+                    <h2 class="noselect">❮</h2>
                 </div>
                 <div class="slider-content">
                     <div class="slider-content-view">
                         <div class="slider-content-in">
-
-                            <?php foreach ($this->Slider2 as $key => $book) {;?>
-                            <!-- <a onclick="goTo('<?php echo constant('URL'); ?>book/view?id=<?=$book->isbn;?>')">
-                                <div class="slider-item">
-                                    <div class="slider-item-up"
-                                        style="background-image: url('<?php echo constant('URL'); ?><?=$book->imagenes[0];?>')">
-                                        <div class="slider-item-up-up">
-                                            <span class="slider-item-precio">$<?=$book->precio;?></span>
-                                        </div>
-                                        <div class="slider-item-up-down">
-                                            <button class="slider-item-addCarito"
-                                                onclick="AddCarritoHome(event,<?=$book->isbn;?>)">Añadir al
-                                                carrito</button>
-                                        </div>
-                                    </div>
-                                    <div class="slider-item-down">
-
-                                        <h2 class="slider-item-titulo"><?=$book->titulo;?></h2>
-
-                                    </div>
-                                </div>
-                            </a> -->
-                        
-                            <?php }
-;?>
-
-
-
                         </div>
                     </div>
                     <div class="slider-pointer">
@@ -139,11 +79,9 @@
                         <span class="slider-pointer-item"></span>
                     </div>
                 </div>
-                <div class="btn-slider btn-slider-next" id="btn-slider-4">
+                <div class="btn-slider btn-slider-next" id="btn-slider-4" onclick="MoveSlider2('NEXT', false);">
                     <h2 class="noselect">❯</h2>
                 </div>
-
-
             </section>
         </div>
     </section>
