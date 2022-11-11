@@ -18,7 +18,7 @@
 
 </ul>
 
-### Con la especialización en el área realizada por:
+Con la especialización en el área realizada por:
 
 David Dos Santos
 
