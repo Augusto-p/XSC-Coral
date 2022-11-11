@@ -34,19 +34,20 @@
             </li>
             <ul class="submenu" id="SubmenuBanner">
                     <?php if (empty($_SESSION["login"])){ ; ?>
-                    <li class="noselect"><a href="<?php echo constant('URL'); ?>Usuario">Ingresar</a></li>
-                    <li class="noselect"><a href="<?php echo constant('URL'); ?>Usuario/registrarse">Registro</a></li>
+                    <li class="noselect" onclick="goTo('<?php echo constant('URL'); ?>Usuario')">Ingresar</li>
+                    <li class="noselect" onclick="goTo('<?php echo constant('URL'); ?>Usuario/registrarse')">Registro</li>
+
                     <?php 
                         }
                         
                         if (unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {;?>
-                    <li class="noselect"><a href="<?php echo constant('URL'); ?>Book/info">Panel Admin</a></li>
+                    
+                    <li class="noselect" onclick="goTo('<?php echo constant('URL'); ?>Book/info')">Panel Admin</li>
                     <?php  } if (isset($_SESSION["login"])) { 
                         if ($_SESSION["login"]) {?>
-                    <li class="noselect"><a href="<?php echo constant('URL'); ?>usuario/settings">Configuración</a></li>
+                    <li class="noselect" onclick="goTo('<?php echo constant('URL'); ?>usuario/settings')">Configuración</li>
                     <hr>
-                    <li class="noselect"><a
-                            href="<?php echo constant('URL'); ?>Usuario/Salir?From=<?php echo isset($_GET["url"]) ? $_GET["url"]: "";?>">Salir</a>
+                    <li class="noselect" onclick="goTo('<?php echo constant('URL'); ?>Usuario/Salir?From=<?php echo isset($_GET["url"]) ? $_GET["url"]: "";?>')">Salir
                     </li>
                     <?php }}; ?>
                 </ul>

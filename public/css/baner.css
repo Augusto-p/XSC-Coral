@@ -82,7 +82,7 @@ body {
     height: 100%;
 }
 
-.menu-ul a {
+.menu-ul a, .submenu li {
     color: black;
     font-size: 1.5em;
     text-decoration: none;

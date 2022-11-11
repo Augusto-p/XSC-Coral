@@ -67,7 +67,7 @@ function refreshCarritos() {
                         </div>
                     </div>
                     <div class="list-item-sale-up" onclick="goTo('${URL}book/view?id=${book.isbn}')">
-                        <h3>$ ${book.precio}</h3>
+                        <h3>$${book.precio}</h3>
                     </div>
                     <div class="list-item-sale-down">
                         <button class="remoCarr" onclick="delCarrito(${book.isbn})">Remover del Carrito</button>

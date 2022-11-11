@@ -87,7 +87,7 @@
                     </div>
                     <div class="list-item-sale-up"
                         onclick="goTo('<?php echo constant('URL');?>book/view?id=<?=$Book->isbn?>')">
-                        <h3>$ <?=$Book->precio;?></h3>
+                        <h3>$<?=$Book->precio;?></h3>
                     </div>
                     <div class="list-item-sale-down">
                         <button class="AddCarr" onclick="addCarrito(<?=$Book->isbn?>)">Añadir Carrito</button>

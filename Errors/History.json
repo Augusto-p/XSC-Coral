@@ -244,6 +244,552 @@
             "File": "C:\\xampp\\htdocs\\XSC\\models\\Venta_Model.php",
             "Line": 44,
             "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Metodo_Pago' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:20",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:21",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:22",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:22",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:23",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:23",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:24",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:24",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:25",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:25",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:26",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:26",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:27",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:28",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:28",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:29",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:29",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:30",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:30",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:31",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:32",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:32",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:33",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:33",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:34",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:34",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:35",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:35",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:36",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:36",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:37",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:38",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:38",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:39",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:39",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:10:40",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Autor_Model.php",
+            "Line": 24,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Nombre' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:10",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:11",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:11",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:12",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:12",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:13",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:13",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:14",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:14",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:15",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:16",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:16",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:17",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:17",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:18",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:18",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:19",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:19",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:20",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:20",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:21",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:21",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:22",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:22",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:23",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:23",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:24",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:24",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:25",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:26",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:26",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:27",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:27",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:28",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:28",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:11:29",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:13:17",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:15:19",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: '2022-11-11 0:14:31:00' for column 'Fecha_Hora' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:17:47",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: '2022-11-11 0:14:31:00' for column 'Fecha_Hora' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-11 03:18:24",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: '2022-11-11 00:31:00:00' for column 'Fecha_Hora' at row 1"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-11 03:29:15",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-11 15:49:33",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
         }
     ]
 }

@@ -70,6 +70,10 @@
     height: 30vh;
     display: flex;
     justify-content: center;
+    overflow: hidden;
+    position: relative;
+    border-top-left-radius: 2vh;
+    border-bottom-left-radius: 2vh;
 }
 
 .list-item-img img {
@@ -109,7 +113,7 @@
     grid-column: 2;
     width: 100%;
     display: grid;
-    grid-template-rows: 20% 65% 15%;
+    grid-template-rows: 30% 1fr 15%;
     position: relative;
 
 }
@@ -440,6 +444,6 @@ footer {
 
     .item-menu .remoCarr {
         font-size: 1rem;
-     
+
     }
 }

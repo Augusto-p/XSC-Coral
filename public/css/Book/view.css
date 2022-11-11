@@ -121,7 +121,7 @@ body {
 .info-book-in {
     grid-column: 1;
     grid-row: 1;
-    width: 90%;
+    width: 72vh;
     height: 90%;
     background-color: transparent;
     display: flex;
@@ -142,6 +142,7 @@ body {
     font-size: 0.9rem;
     color: rgba(0, 0, 0, .55);
     overflow-x: auto;
+    overflow-y: hidden;
 }
 
 .categoria-book {
@@ -495,6 +496,9 @@ body {
     display: none;
 }
 
+#categorias-book-span a {
+    white-space: nowrap;
+}
 
 @media (max-width: 768px) and (min-width: 200px) {
     .info-book {
