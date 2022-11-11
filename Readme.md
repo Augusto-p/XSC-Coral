@@ -32,7 +32,7 @@ Se crea un script que va a manejar dos actividades mayores, las cuales son
 Ambos scripts son manejados en el mismo directorio, el cual es llamado como "Start".
 El script de Instalación de entorno instala aplicaciónes necesarias para el uso del servidor.
 El script para el Operador de Centro de Cómputos
-***
+
 ## Instalación de entorno
 El script de instalación va a instalar paquetes necesarios para la operación del servidor, tales como:
 <ul>
@@ -56,7 +56,6 @@ Se crean atajos para facilitar el uso del servidor para el operador de centro de
 </ul>
 Este script también configura archivos necesarios para el correcto uso de la base de datos.
 Por último, este script añade el script de operador de cómputos como un comando que puede ser llamado en cualquier momento, el cual es "oc".
-***
 
 ## Operador de Centro de Cómputos
 Este script le permite a la persona escogida por la empresa la administración del servidor, con funciones como:
@@ -67,4 +66,3 @@ Este script le permite a la persona escogida por la empresa la administración d
  4. Lectura de Registros del Sistema.
 
 Este script permite al Operador cambiar la red a la que se encuentra conectado, gestionar el equipo en el que quiere que se respalde la base de datos, leer los registros del sistema, administrar servicios y procesos del equipo, además de la gestión de usuarios y grupos del sistema.
-***
