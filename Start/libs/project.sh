@@ -2,14 +2,15 @@
 #Programa Desarollado por XSC Software Company
 
 #github URL
+clear
 URL="git@github.com:Augusto-p/XSC-Coral.git"
-Name="XSC-Coral" 
+Name="XSC-Coral"
 Branch="Programacion"
 
 
 mkdir ProZone
 cd ./ProZone
-git clone --branch $Branch $URL 
+git clone --branch $Branch $URL
 sudo chown daemon $Name
 sudo mv $Name /opt/lampp/htdocs/$Name
 cd ..

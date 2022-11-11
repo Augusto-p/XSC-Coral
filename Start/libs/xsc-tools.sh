@@ -1,7 +1,7 @@
 #!/bin/bash
 #Programa Desarollado por XSC Software Company
 
-
+clear
 sudo mkdir -p /var/lib/XSC
 
 sudo mv ./libs/XSC-Tools/OC /var/lib/XSC/OC

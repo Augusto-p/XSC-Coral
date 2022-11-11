@@ -1,3 +1,3 @@
 #!/bin/bash
 #Programa hecho por XSC Software Company
-sudo /opt/lampp/lampp $1
+sudo chmod -R 777 /opt/lampp/htdocs/XSC-Coral/

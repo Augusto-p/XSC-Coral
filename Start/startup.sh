@@ -1,5 +1,6 @@
 #!/bin/bash
 #Programa Desarollado por XSC Software Company
+clear
 if grep -qi "xscadmin" /etc/passwd; then
     echo "El usuario ya existe"
 else
@@ -11,9 +12,6 @@ else
         echo "El usuario Administrador no pudo ser creado"
     fi
 fi
-
-
-
 
 # add execution permissions to all files in libs/
 sudo chmod -R 777 ./libs/*
@@ -34,7 +32,7 @@ xampp startapache # start apache in xampp
 
 
 # Se solicita la ip del dispositivo en el que se guardaran los respaldos
-source ./libs/nose.sh
+source ./libs/backupsremote.sh
 
 # call ./libs/xsc-tools.sh (install XSC Tools)
 source ./libs/xsc-tools.sh

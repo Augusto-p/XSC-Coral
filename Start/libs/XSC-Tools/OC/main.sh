@@ -11,7 +11,7 @@ menuprin(){
     echo "3-Administración de Usuarios y Grupos"
     echo "4-Administración de Registros"
     echo "9-Salir"
-    read -p "Ingrese la opción aquí" opc
+    read -p "Ingrese la opción aquí: " opc
     case $opc in
         1)source ./ADMServices/main.sh;;
         2)source ./ADMWeb/main.sh;;
@@ -28,4 +28,5 @@ menuprin(){
     esac
 }
 clear
+cd /var/lib/XSC/
 menuprin
