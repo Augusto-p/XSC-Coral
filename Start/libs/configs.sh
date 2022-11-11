@@ -14,6 +14,6 @@ sudo chmod 644 /etc/mysql/mysql.cnf
 # modify crontab
 sudo cp ./libs/Atajos/libs/list.sh /home/coraladmin/list.sh
 sudo chmod 777 /var/spool/cron/crontab/coraladmin
-echo -e "\n@daily ./backs.sh" >> /var/spool/cron/crontab/coraladmin
-echo -e "\n@daily sudo /opt/lampp/xampp restart" >> /var/spool/cron/crontab/coraladmin
-echo -e "\n@reboot ./home/coraladmin/list.sh"
+echo -e "@daily ./backs.sh\n" >> /var/spool/cron/crontab/coraladmin
+echo -e "@daily sudo /opt/lampp/xampp restart\n" >> /var/spool/cron/crontab/coraladmin
+echo -e "@reboot ./home/coraladmin/list.sh\n" >> /var/spool/cron/crontab/coraladmin
