@@ -376,7 +376,7 @@ button {
         height: auto;
     }
 
-    .user {
+    .user, .userpersonal {
         margin: 0;
     }
 
