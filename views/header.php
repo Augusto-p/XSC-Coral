@@ -25,8 +25,12 @@
             <li class="logos-res"><button><img src="<?php echo constant('URL'); ?>public/Recursos/icons/info.svg"
                         alt=""></button></li>
             <li class="li-user">
-                <img class="user" onclick="openSubmenuBanner()" src="<?php echo constant('URL'); ?>public/Recursos/icons/user.svg">
-                
+                <?php if (empty($_SESSION["login"])){ ; ?>
+                    <img class="user" onclick="openSubmenuBanner()" src="<?php echo constant('URL'); ?>public/Recursos/icons/user.svg">
+                <?php }else{; ?>
+                    <div class="userpersonal" onclick="openSubmenuBanner()" style="background-image: url(<?php echo constant('URL'); ?><?=unserialize($_SESSION["img"]);?>);"></div>
+                    
+                <?php }; ?>
             </li>
             <ul class="submenu" id="SubmenuBanner">
                     <?php if (empty($_SESSION["login"])){ ; ?>
@@ -34,12 +38,12 @@
                     <li class="noselect"><a href="<?php echo constant('URL'); ?>Usuario/registrarse">Registro</a></li>
                     <?php 
                         }
-                        require_once 'utilidades/Formatos.php';
-                        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {;?>
+                        
+                        if (unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {;?>
                     <li class="noselect"><a href="<?php echo constant('URL'); ?>Book/info">Panel Admin</a></li>
                     <?php  } if (isset($_SESSION["login"])) { 
                         if ($_SESSION["login"]) {?>
-                    <li class="noselect"><a href="#">Configuración</a></li>
+                    <li class="noselect"><a href="<?php echo constant('URL'); ?>usuario/settings">Configuración</a></li>
                     <hr>
                     <li class="noselect"><a
                             href="<?php echo constant('URL'); ?>Usuario/Salir?From=<?php echo isset($_GET["url"]) ? $_GET["url"]: "";?>">Salir</a>

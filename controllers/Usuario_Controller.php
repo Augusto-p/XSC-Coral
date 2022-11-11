@@ -53,6 +53,40 @@ class Usuario_Controller extends Controller
             $this->view->render('errores/403');
         }
     }  
+    public function settings(){
+        if ($_SESSION["login"]) {
+            $user = $this->model->get(unserialize($_SESSION["email"]));
+            $GP = null;
+            $Genero = null;
+            if ($user->Genero == "Masculino") {
+                $Genero = "M";
+            }elseif($user->Genero == "Femenino"){
+                $Genero = "F";
+            }else{
+                $Genero = "P";
+                $GP = $user->Genero;
+            }
+            $this->view->user = $user;
+            $this->view->Genero = $Genero;
+            $this->view->GP = $GP;
+            $this->view->render("Usuario/panelUser");
+        }else {
+            $this->view->render('errores/403');
+        }
+
+        
+    }
+    public function security(){
+        if ($_SESSION["login"]) {
+            $user = $this->model->get(unserialize($_SESSION["email"]));
+            $this->view->user = $user;
+            $this->view->render("Usuario/panelUserS");
+        }else {
+            $this->view->render('errores/403');
+        }
+
+        
+    }
     
     public function signin(){
         $user = new Usuario(); //creamos un objeto de tipo usuario
@@ -64,6 +98,8 @@ class Usuario_Controller extends Controller
             $this->view->render('Usuario/login');
         } else {
             $_SESSION['rol'] = serialize($usr->rol);
+            $_SESSION['email'] = serialize($usr->email);
+            $_SESSION['img'] = serialize($usr->Iuser);
             $_SESSION['login'] = true;
             SessionStorage::newSS(["name" => "Token", "value" => JWTs::newJWT($user->email, 60 * 60 * 48)]);
             $this->view->render('home/GoToindex');

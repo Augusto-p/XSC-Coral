@@ -316,6 +316,16 @@ button {
     margin: 0;
 }
 
+.userpersonal {
+    height: 6vh;
+    width: 6vh;
+    margin-left: 20vw;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+}
+
 @media (max-width: 768px) and (min-width: 300px) {
     .banner {
         width: 100%;

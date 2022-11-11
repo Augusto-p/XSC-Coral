@@ -8,6 +8,7 @@ class App {
         $url = isset($_GET['url']) ? $_GET['url'] : null;
         $url = rtrim($url, '/');
         $url = explode('/', $url);
+        error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
         if (empty($url[0])) {
             $archivoController = 'controllers/Home_Controller.php';

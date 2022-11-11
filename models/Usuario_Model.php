@@ -215,5 +215,20 @@ class Usuario_Model extends Model {
 
     } //upd
 
+    public function newpass($email, $password) {
+        try {
+            $pdo      = $this->db->connect();
+            $consulta = $pdo->prepare("UPDATE usuarios SET Password = :pass WHERE (`Email` = :email);"); // consulta a la base de datos no disponible
+            $consulta->bindParam(':email', $email);
+            $consulta->bindParam(':pass', $password);
+            return $consulta->execute();
+        } catch (PDOException $e) {
+            Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
+
+            return false;
+        } finally {
+            $pdo = null;
+        }
+    }
 
 };?>

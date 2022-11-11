@@ -103,7 +103,7 @@ genero.addEventListener('change', (e) => {
 foto.addEventListener('change', (e) => {
     let file = e.target.files[0];
     if (file) {
-        let url = URL.createObjectURL(file);
+        let url = window.URL.createObjectURL(file);
         noImg.style.display = 'none';
         yesImg.style.display = 'flex';
         fotoImg.src = url;
