@@ -1,6 +1,6 @@
 #!/bin/bash
 #Programa hecho por XSC Software Company
-clear
+
 echo "Ingrese la ip del dispositivo en el que se guardaran los respaldos de base de datos"
 read ipback
 echo "Ingrese el usuario donde se van a respaldar las bases de datos"
