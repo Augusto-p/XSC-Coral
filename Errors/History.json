@@ -790,6 +790,97 @@
             "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
             "Line": 27,
             "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-13 20:40:28",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Expired token"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-13 22:56:06",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-13 23:15:27",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-13 23:39:23",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-13 23:39:37",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Usuario_Model.php",
+            "Line": 175,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Departamento' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-13 23:39:48",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Usuario_Model.php",
+            "Line": 64,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Jp@gmail.com' for key 'usuarios.PRIMARY'"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-13 23:40:08",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Usuario_Model.php",
+            "Line": 175,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Departamento' cannot be null"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-13 23:43:23",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Usuario_Model.php",
+            "Line": 175,
+            "Error": "SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'Departamento' cannot be null"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-14 18:17:31",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Expired token"
+        },
+        {
+            "Type": "JWT",
+            "Date": "2022-11-14 18:38:30",
+            "File": "C:\\xampp\\htdocs\\XSC\\utilidades\\JWTs.php",
+            "Line": 27,
+            "Error": "Wrong number of segments"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-14 18:38:45",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: ':00' for column 'Fecha_Hora' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-14 18:39:23",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 39,
+            "Error": "SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect datetime value: ':00' for column 'Fecha_Hora' at row 1"
+        },
+        {
+            "Type": "PDO",
+            "Date": "2022-11-14 19:05:59",
+            "File": "C:\\xampp\\htdocs\\XSC\\models\\Compra_Model.php",
+            "Line": 314,
+            "Error": "SQLSTATE[01000]: Warning: 1265 Data truncated for column 'Estado' at row 1"
         }
     ]
 }

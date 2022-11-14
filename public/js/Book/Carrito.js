@@ -173,11 +173,10 @@ async function Send(Body) {
         headers: headersList
     });
 
-    let data = await response.json();
+    let data = await response.json();    
     if (data["code"] == 200) {
         ITag({ "Type": "SUCCESS", "Position": "RB", "Duration": 5, "Title": "Hecho!", "Description": data["mensaje"] });
-        GetCrritos()
-        refreshCarritos()
+        GetCrritos().then(() => { refreshCarritos() })
     } else if (data["code"] == 201){
         ITag({ "Type": "LOG", "Position": "RT", "Duration": 5, "Title": "Sin Stock!", "Description": data["mensaje"] });
     } else if (data["code"] == 403) {

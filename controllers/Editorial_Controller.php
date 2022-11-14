@@ -11,14 +11,14 @@ class Editorial_Controller extends Controller {
         $this->new();
     }
     public function new() {
-        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+        if (unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
             $this->view->render('PanelAdmin/Editorial/add');
         }else {
             $this->view->render('errores/403');
         }
     }
     public function change() {
-        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+        if (unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
             $this->view->render('PanelAdmin/Editorial/mod');
         }else {
             $this->view->render('errores/403');
@@ -26,7 +26,7 @@ class Editorial_Controller extends Controller {
     }
  
      public function remove() {
-        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+        if (unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
             $this->view->render('PanelAdmin/Editorial/del');
         }else {
             $this->view->render('errores/403');

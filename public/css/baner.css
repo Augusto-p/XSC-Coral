@@ -21,12 +21,14 @@ body {
 .logo {
     height: 3vh;
     width: auto;
+    user-select: none;
 }
 
 .nombre {
     font-size: 1.8em;
     font-family: 'Roboto';
     font-weight: 400;
+    user-select: none;
 }
 
 .marca {
@@ -80,6 +82,8 @@ body {
     justify-content: space-around;
     font-family: 'Roboto';
     height: 100%;
+    position: relative;
+    z-index: 100;
 }
 
 .menu-ul a, .submenu li {
@@ -101,8 +105,6 @@ body {
 }
 
 .li-user {
-    position: relative;
-    z-index: 100;
     background-color: #E0E0E0;
     height: 100%;
     display: flex;
@@ -127,7 +129,7 @@ body {
 
 
 .submenu.active {
-    animation: SubmenuOpen 3s normal;
+    animation: SubmenuOpen 1.5s normal;
     display: block;
     z-index: 999;
     transform: translateY(0vh);
@@ -143,6 +145,7 @@ body {
     align-items: center;
     border-radius: 5px;
     user-select: none;
+    cursor: pointer;
 }
 
 .carrito {
@@ -313,7 +316,7 @@ button {
 }
 
 .footer-up .footer-up-column:nth-child(3) .footer-up-Column-in a {
-    margin: 0;
+    margin-left: 5vw;
 }
 
 .userpersonal {

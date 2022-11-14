@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/fonts.css">
 <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/baner.css">
 <div class="banner">
-    <div class="marca">
+    <div class="marca" onclick="goTo('<?php echo constant('URL'); ?>')">
         <img class="logo" src="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.svg">
-        <h2 class="nombre" onclick="goTo('<?php echo constant('URL'); ?>')">MiMundo</h2>
+        <h2 class="nombre" >MiMundo</h2>
     </div>
 
     <div class="busqueda">
@@ -16,13 +16,13 @@
     <div class="menu">
         <ul class="menu-ul">
             <li class="lista-res"><b><a href="<?php echo constant('URL'); ?>">Inicio</a></b></li>
-            <li class="logos-res"><button><img
+            <li class="logos-res"><button onclick="goTo('<?php echo constant('URL'); ?>')"><img
                         src="<?php echo constant('URL'); ?>public/Recursos/icons/home.svg"></button></li>
             <li class="lista-res"><b><a href="<?php echo constant('URL'); ?>book">Explorar</a></b></li>
-            <li class="logos-res"><button><img
+            <li class="logos-res"><button onclick="goTo('<?php echo constant('URL'); ?>book')"><img
                         src="<?php echo constant('URL'); ?>public/Recursos/icons/safari.svg"></button></li>
             <li class="lista-res"><b><a href="<?php echo constant('URL'); ?>About">Sobre nosotros</a></b></li>
-            <li class="logos-res"><button><img src="<?php echo constant('URL'); ?>public/Recursos/icons/info.svg"
+            <li class="logos-res"><button onclick="goTo('<?php echo constant('URL'); ?>About')"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/info.svg"
                         alt=""></button></li>
             <li class="li-user">
                 <?php if (empty($_SESSION["login"])){ ; ?>
@@ -32,31 +32,29 @@
                     
                 <?php }; ?>
             </li>
-            <ul class="submenu" id="SubmenuBanner">
-                    <?php if (empty($_SESSION["login"])){ ; ?>
+            
+        
+        </ul>
+        <ul class="submenu" id="SubmenuBanner">
+                <?php if (empty($_SESSION["login"])){ ; ?>
                     <li class="noselect" onclick="goTo('<?php echo constant('URL'); ?>Usuario')">Ingresar</li>
                     <li class="noselect" onclick="goTo('<?php echo constant('URL'); ?>Usuario/registrarse')">Registro</li>
 
-                    <?php 
-                        }
-                        
-                        if (unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {;?>
-                    
+                <?php }
+                if (unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {;?>
                     <li class="noselect" onclick="goTo('<?php echo constant('URL'); ?>Book/info')">Panel Admin</li>
-                    <?php  } if (isset($_SESSION["login"])) { 
-                        if ($_SESSION["login"]) {?>
-                    <li class="noselect" onclick="goTo('<?php echo constant('URL'); ?>usuario/settings')">Configuración</li>
-                    <hr>
-                    <li class="noselect" onclick="goTo('<?php echo constant('URL'); ?>Usuario/Salir?From=<?php echo isset($_GET["url"]) ? $_GET["url"]: "";?>')">Salir
-                    </li>
-                    <?php }}; ?>
-                </ul>
-        </ul>
+                <?php  } if (isset($_SESSION["login"])) { 
+                    if ($_SESSION["login"]) {?>
+                        <li class="noselect" onclick="goTo('<?php echo constant('URL'); ?>usuario/settings')">Configuración</li>
+                        <hr>
+                        <li class="noselect" onclick="goTo('<?php echo constant('URL'); ?>Usuario/Salir?From=<?php echo isset($_GET["url"]) ? $_GET["url"]: "";?>')">Salir
+                        </li>
+                <?php }}; ?>
+            </ul>
     </div>
 
-    <div class="carrito-div">
-        <a href="<?php echo constant('URL'); ?>Carrito/"><img class="carrito"
-                src="<?php echo constant('URL'); ?>public/Recursos/icons/carrito.svg"></a>
+    <div class="carrito-div" onclick="goTo('<?php echo constant('URL'); ?>Carrito/')">
+        <img class="carrito" src="<?php echo constant('URL'); ?>public/Recursos/icons/carrito.svg">
     </div>
 </div>
 <input type="hidden" name="url" id="URL" value="<?php echo constant('URL'); ?>">

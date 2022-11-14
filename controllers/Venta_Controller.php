@@ -8,7 +8,7 @@ class Venta_Controller extends Controller {
         $this->list();
     }
     public function list() {
-        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
+        if (unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {
             $this->view->render('PanelAdmin/Venta/lista');
         }else {
             $this->view->render('errores/403');

@@ -516,6 +516,7 @@ body {
         height: 280vh;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr;
+        overflow: hidden;
     }
 
     #bio-autor-book {
@@ -531,4 +532,19 @@ body {
         align-items: center;
     }
 
+    #input-nombre-editorial {
+
+        font-size: 1.7rem;
+    }
+
+    .info-book-in {
+        margin-top: 1vh;
+        width: 80vw;
+    }
+
+
+    .info-editorial-book a {
+    
+        font-size: 1em;
+    }
 }

@@ -1,14 +1,8 @@
 <?php
 require_once 'DTO/usuario.php';
 require_once 'utilidades/Imagenes.php';
-//test
-require_once 'utilidades/PDFs.php';
-require_once 'models/Book_Model.php';
-// require_once 'models/DetalleVenta_Model.php';
-require_once 'models/Venta_Model.php';
-require_once 'utilidades/Mails.php';
-require_once 'utilidades/Errors.php';
-require_once 'utilidades/Formatos.php';
+
+
 
 
 
@@ -22,33 +16,20 @@ class Usuario_API_Controller extends Controller
         parent::__construct();
     }
 
-    public function test(){
-        $bookmodel = new Book_Model();
-        $ventamodel = new Venta_Model();
-        $dventamodel = new DetalleVenta_Model();
-        $pedidomodel = new Pedido_Model();
-        $venta = $ventamodel->get(7);
-        $detalles = $dventamodel->getAllByIdVenta(7);
-        foreach ($detalles as $key => $value) {
-            $detalles[$key]->Book = $bookmodel->get($value->ISBN);
-        }
-        $venta->Detalles = $detalles;
-        $venta->Pedido = $pedidomodel->get(7);
-        $user = $this->model->get($venta->Email);
-        $pdfs = new PDFs();
-        echo $pdfs->Facturar($venta, $user);
-    }
-
+    
 
     public function get(){
-
-        $email = $_GET["Email"];
-        $user = $this->model->get($email);
-        $user->password ="";
-        $res = [
-            "mensaje"   => "Hey",
-            "User"     => $user,
-        ];
+        
+        $data  = json_decode(file_get_contents('php://input'));
+        $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
+        $email = $token != false ? $token : null; //JWT
+        if (($this->model->getRol($email) == "Administrador")||($this->model->getRol($email) == "Empleado" &&  $this->model->getRol($data->Usuario->Email) == "Cliente")) {
+            $user = $this->model->get($data->Usuario->Email);
+            $user->password ="";
+            $res = ["mensaje" => "Hey", "User" => $user,"code"=>200];
+        }else {
+            $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
+        }
         $this->view->res = json_encode($res);
         $this->view->render("API/Ususario/get");
 
@@ -104,8 +85,7 @@ class Usuario_API_Controller extends Controller
     }
 
     public function delete(){
-        //add author
-
+        //delete user
         $data      = json_decode(file_get_contents('php://input'));
         $token     = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
         $email     = $token != false ? $token: null ; //JWT
@@ -114,19 +94,13 @@ class Usuario_API_Controller extends Controller
             if ($this->model->getRol($email) == "Empleado" && $User->rol != "Cliente") {
                 $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
             }else{
-
-            unlink($User->Iuser); // delete image
-
-            if($this->model->delete($data->Usuario->Email)){
-                $res = ["mensaje" => "Usuario Eliminado Correctamente", "code" => 200];
-            }else{
-                $res = ["mensaje" => "Usuario No Localizado", "code" => 404];
+                unlink($User->Iuser); // delete image
+                if($this->model->delete($data->Usuario->Email)){
+                    $res = ["mensaje" => "Usuario Eliminado Correctamente", "code" => 200];
+                }else{
+                    $res = ["mensaje" => "Usuario No Localizado", "code" => 404];
+                }
             }
-
-
-            }
-
-
         } else {
             $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
         }
@@ -139,46 +113,37 @@ class Usuario_API_Controller extends Controller
         $data = json_decode(file_get_contents('php://input'));
         $token     = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
         $email     = $token != false ? $token: null ; //JWT
-        if ($this->model->getRol($email) == "Administrador" || $this->model->getRol($email) == "Empleado" || ($data->Usuario->Email == $email &&($data->Usuario->Rol == $this->model->getRol($email) || empty($data->Usuario->Rol)))) {
-            if ($this->model->getRol($email) == "Empleado" && $data->Usuario->Rol != "Cliente" && $data->Usuario->Email != $email) {
-                $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
-            }else{
-                $user = $this->model->get(empty($data->Usuario->Email) ? $email: $data->Usuario->Email);
-                $user->nombrecompleto = $data->Usuario->Nombre != null || $data->Usuario->Apellido != null ? $data->Usuario->Nombre: $user->nombrecompleto;
-                $user->email = $data->Usuario->Email != null ? $data->Usuario->Email : $user->email;
-                $user->Fnacimento = $data->Usuario->Fecha_Nacimento != null ? $data->Usuario->Fecha_Nacimento : $user->Fnacimento;
-                $user->numero = $data->Usuario->Numero != null ? $data->Usuario->Numero : $user->numero;
-                $user->calle = $data->Usuario->Calle != null ? $data->Usuario->Calle : $user->calle;
-                $user->ciudad = $data->Usuario->Ciudad != null ? $data->Usuario->Ciudad : $user->ciudad;
-                $user->codigoPostal = $data->Usuario->Codigo_Postal != null ? $data->Usuario->Codigo_Postal : $user->codigoPostal;
-                $user->departamento = $data->Usuario->Departamento != null ? $data->Usuario->Departamento : $data->Usuario->Departamento;
-                $user->rol = $data->Usuario->Rol ? $data->Usuario->Rol : $user->rol;
-                $user->password = $data->Usuario->Password != "Dafatult" ? password_hash($data->Usuario->Password, PASSWORD_BCRYPT , ['cost' => 10]) : $user->password;
-                
-                if ($data->Usuario->Genero == "M") {
-                    $user->Genero = "Masculino";
-                } elseif ($data->Usuario->Genero == "F") {
-                    $user->Genero = "Femenino";
-                } else {
-                    $user->Genero = $data->Usuario->Genero_Personalisado != null ? $data->Usuario->Genero_Personalisado : $user->Genero;
-                }
-
-                if (!empty($data->Usuario->Imagen)) {
-                    $Imagen = new Imagenes("public/imgs/Users/".$user->email);
-                    unlink($user->Iuser);
-                    $user->Iuser = $Imagen->Upload64($data->Usuario->Imagen);
-                }
-
-                if ($this->model->update($user)) {
-                    $res = ["mensaje" => "Usuario Actualizado Existosamente", "code" => 200];
-                }else{
-                    $res = ["mensaje" => "Usuario No Actualizado Existosamente", "code" => 404];
-                }
-
-
+        if ((empty($data->Usuario->Email)) || ($this->model->getRol($email) == "Administrador")||($this->model->getRol($email) == "Empleado" && $data->Usuario->Rol == "Cliente" && $this->model->getRol($data->Usuario->Email) == "Cliente")) {
+            $user = $this->model->get(empty($data->Usuario->Email) ? $email: $data->Usuario->Email);
+            $user->nombrecompleto = $data->Usuario->Nombre != null || $data->Usuario->Apellido != null ? $data->Usuario->Nombre: $user->nombrecompleto;
+            $user->email = $data->Usuario->Email != null ? $data->Usuario->Email : $user->email;
+            $user->Fnacimento = $data->Usuario->Fecha_Nacimento != null ? $data->Usuario->Fecha_Nacimento : $user->Fnacimento;
+            $user->numero = $data->Usuario->Numero != null ? $data->Usuario->Numero : $user->numero;
+            $user->calle = $data->Usuario->Calle != null ? $data->Usuario->Calle : $user->calle;
+            $user->ciudad = $data->Usuario->Ciudad != null ? $data->Usuario->Ciudad : $user->ciudad;
+            $user->codigoPostal = $data->Usuario->Codigo_Postal != null ? $data->Usuario->Codigo_Postal : $user->codigoPostal;
+            $user->departamento = $data->Usuario->Departamento != null ? $data->Usuario->Departamento : $user->departamento;
+            $user->password = $data->Usuario->Password != "Dafatult" ? password_hash($data->Usuario->Password, PASSWORD_BCRYPT , ['cost' => 10]) : $user->password;
+            $user->rol = $data->Usuario->Rol ? $data->Usuario->Rol : $user->rol;
+            if ($data->Usuario->Genero == "M") {
+                $user->Genero = "Masculino";
+            } elseif ($data->Usuario->Genero == "F") {
+                $user->Genero = "Femenino";
+            } else {
+                $user->Genero = $data->Usuario->Genero_Personalisado != null ? $data->Usuario->Genero_Personalisado : $user->Genero;
             }
 
+            if (!empty($data->Usuario->Imagen)) {
+                $Imagen = new Imagenes("public/imgs/Users/".$user->email);
+                unlink($user->Iuser);
+                $user->Iuser = $Imagen->Upload64($data->Usuario->Imagen);
+            }
 
+            if ($this->model->update($user)) {
+                $res = ["mensaje" => "Usuario Actualizado Existosamente", "code" => 200];
+            }else{
+                $res = ["mensaje" => "Usuario No Actualizado Existosamente", "code" => 404];
+            }
         } else {
             $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
         }
@@ -195,20 +160,20 @@ class Usuario_API_Controller extends Controller
         $this->view->render("API/Ususario/get");
     }
 
-    public function getMyToken(){
-        $data = json_decode(file_get_contents('php://input'));
-        $user           = new Usuario(); 
-        $user->email    = $data->Usuario->Email; 
-        $user->password = $data->Usuario->Password;
-        $usr = $this->model->entrar($user);
-        if ($usr) {
-            $res = ["Token" => JWTs::newJWT($usr->email, 60 * 60 * 24)];
-        }else {
-            $res = ["Token" => null];
-        }
-        $this->view->res = json_encode($res);
-        $this->view->render("API/Ususario/get");
-    }
+    // public function getMyToken(){
+    //     $data = json_decode(file_get_contents('php://input'));
+    //     $user           = new Usuario(); 
+    //     $user->email    = $data->Usuario->Email; 
+    //     $user->password = $data->Usuario->Password;
+    //     $usr = $this->model->entrar($user);
+    //     if ($usr) {
+    //         $res = ["Token" => JWTs::newJWT($usr->email, 60 * 60 * 24)];
+    //     }else {
+    //         $res = ["Token" => null];
+    //     }
+    //     $this->view->res = json_encode($res);
+    //     $this->view->render("API/Ususario/get");
+    // }
     public function newpass(){
         $data = json_decode(file_get_contents('php://input'));
         $token     = JWTs::ValidJWT(apache_request_headers()["Authorization"]);

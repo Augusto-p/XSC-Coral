@@ -150,7 +150,7 @@ class Compra_API_Controller extends Controller {
             $compra->estado = $data->Compra->Estado;
             $compra->MPago = $data->Compra->Metodo_Pago;
             $compra->IDEditorial = $data->Compra->IDEditorial;
-            $compra->FechaHora =  Formatos::DateDatabaseFormat($data->Compra->FechaHora);
+            $compra->FechaHora = !empty($data->Compra->FechaHora)? Formatos::DateDatabaseFormat($data->Compra->FechaHora):date("Y-m-d H:i:s");
             $Total = 0;
             $Detalles = [];
 

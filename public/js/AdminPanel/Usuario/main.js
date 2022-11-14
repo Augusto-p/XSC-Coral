@@ -34,33 +34,45 @@ genero.addEventListener('change', (e) => {
 
 
 async function Seach() {
-    let response = await fetch(URL + "api/usuario/get?Email=" + email.value , {
-        method: "GET",
+
+    let bodyContent = JSON.stringify({
+        "Usuario": {
+            "Email": email.value
+        }
+    });
+    headersList["Authorization"] = "Token " + sessionStorage.getItem("Token");
+    let response = await fetch(`${URL}api/usuario/get`, {
+        method: "POST",
+        body: bodyContent,
         headers: headersList
     });
 
+
     let data = await response.json().then((data) =>{
-        nombre.value = data.User.nombrecompleto
+        if (data.code == 200) {
+            nombre.value = data.User.nombrecompleto
+            EmailValue = data.User.email;
+            fn.value = data.User.Fnacimento
+            if (data.User.Genero == "Masculino"){
+                genero.value = "M";
+            } else if (data.User.Genero == "Femenino") {
+                genero.value = "F";
+            } else {
+                genero.value = "P";
+                gp.value = data.User.Genero;
+                gp.style.display = 'inline-block';
+            }
         
-        EmailValue = data.User.email;
-        fn.value = data.User.Fnacimento
-        if (data.User.Genero == "Masculino"){
-            genero.value = "M";
-        } else if (data.User.Genero == "Femenino") {
-            genero.value = "F";
-        } else {
-            genero.value = "P";
-            gp.value = data.User.Genero;
-            gp.style.display = 'inline-block';
+            pass.value = "Dafatult"
+            rol.value = data.User.rol
+            numero.value = data.User.numero
+            calle.value = data.User.calle
+            ciudad.value = data.User.ciudad
+            Codigo.value = data.User.codigoPostal
+            deparamentos.value = data.User.departamento
+        }else{
+            ITag({ "Type": "ERROR", "Position": "RB", "Duration": 5, "Title": "Error!", "Description": data["mensaje"] });
         }
-            
-        pass.value = "Dafatult"
-        rol.value = data.User.rol
-        numero.value = data.User.numero
-        calle.value = data.User.calle
-        ciudad.value = data.User.ciudad
-        Codigo.value = data.User.codigoPostal
-        deparamentos.value = data.User.departamento
     });
     
     

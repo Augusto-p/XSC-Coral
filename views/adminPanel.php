@@ -71,7 +71,7 @@
     
     <?php 
     require_once 'utilidades/Formatos.php';
-    if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador"){;?>
+    if (unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador"){;?>
         <div class="OP-item">
             <div class="OP-item-titulo ">
                 <h4 class="noselect" onclick="goTo('<?php echo constant('URL'); ?>home/mod')">

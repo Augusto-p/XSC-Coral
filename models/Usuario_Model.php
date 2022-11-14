@@ -40,7 +40,6 @@ class Usuario_Model extends Model {
         } finally {
             $pdo = null;
         }
-        return $Accseo;
     } //upd
 
     public function registrarse($user) {

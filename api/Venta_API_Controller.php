@@ -184,7 +184,7 @@ class Venta_API_Controller extends Controller {
                 
                 $user = $userModel->get($email);
                 $mails->SendMailETiket($user->email, $pdfs->Facturar($Venta, $user), $user->nombre);
-                if ($SinStok != []) {
+                if ($SinStok == []) {
                     $res = ["mensaje" => "Venta Ingresada", "code" => 200];
                 }else{
 

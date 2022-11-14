@@ -9,7 +9,7 @@ class Controller
     {
         $this->view = new View();
         session_start();
-        require 'utilidades/Cookies.php';
+        // require 'utilidades/Cookies.php';
         require 'utilidades/JWTs.php';
         require 'utilidades/SessionStorage.php';
         require_once 'utilidades/Formatos.php';

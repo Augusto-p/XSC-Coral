@@ -18,12 +18,6 @@ class Formatos{
         return number_format($base, 2, ',', '.');
     }
 
-    public static function RolFormat($Base){
-        $string = explode(":", $Base);
-        return trim(str_replace('"', "", $string[count($string) - 1]), ";");
-
-    }
-
     public static function DateDatabaseFormat($dateTime){
         return str_replace('T', " ", $dateTime) . ":00";
     }

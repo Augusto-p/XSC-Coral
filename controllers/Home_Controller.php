@@ -34,7 +34,7 @@ class Home_Controller extends Controller {
     }
 
     public function mod() {
-        if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador") {
+        if (unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador") {
             $data         = json_decode(file_get_contents('public/Recursos/Jsons/Home.json'), true);
             $UrlBanerP    = constant('URL') . $data["Pagina Principal"]["Baner Principal"]["img"];
             $UrlBanerP1   = constant('URL') . $data["Pagina Principal"]["Baner Publisitario Uno"]["img"];

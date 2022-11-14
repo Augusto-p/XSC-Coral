@@ -64,7 +64,7 @@
                             <select name="Select_MP" id="Select_MP" class="inputs" onchange="getbyMP()">
                                 <option value="" selected disabled>Método de Pago</option>
                                 <option value="Credito">Crédito</option>
-                                <option value="Devito">Débito</option>
+                                <option value="Debito">Débito</option>
                             </select>
                         </div>
                         <!-- Fecha -->
@@ -142,7 +142,7 @@
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Venta/listar.css">
     <?php 
   require_once 'utilidades/Formatos.php';
-  if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") != "Administrador"){ ?>
+  if (unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") != "Administrador"){ ?>
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Compra/NoAdmin.css">
     <?php }; ?>
 </body>

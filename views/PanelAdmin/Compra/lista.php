@@ -147,7 +147,7 @@
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Compra/listar.css">
     <?php 
   require_once 'utilidades/Formatos.php';
-  if (Formatos::RolFormat(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") != "Administrador"){ ?>
+  if (unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") != "Administrador"){ ?>
     <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Compra/NoAdmin.css">
     <?php }; ?>
 </body>
