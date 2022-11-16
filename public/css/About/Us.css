@@ -48,7 +48,8 @@
     .container {
         height: 92vh;
         grid-template-columns: 1fr;
-        grid-template-rows: 11.11% 44.44% 44.44%;
+        grid-template-rows: 11.11% 50.44% 44.44%;
+        justify-items: center;
     }
 
     .bienv {
@@ -60,8 +61,9 @@
     .somosnos {
         grid-row: 2;
         grid-column: 1;
-        width: 100%;
+        width: calc(100% - 2vh);
         padding: 1vh;
+        text-align: center;
 
     }
 

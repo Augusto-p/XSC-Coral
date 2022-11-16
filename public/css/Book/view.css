@@ -36,11 +36,12 @@ body {
 }
 
 #book-image-pointer-section {
-    width: calc(85vw - 80vh - 5vw);
+    
     height: 2vh;
     position: absolute;
-    bottom: 9vh;
-    left: 10vw;
+    bottom: 2vh;
+    left: 0;
+    right: 0;
     z-index: 10;
     background-color: transparent;
     display: flex;

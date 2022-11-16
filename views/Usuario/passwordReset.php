@@ -27,7 +27,7 @@
                 <input type="hidden" name="Code" value="<?=$this->code;?>">
                 <input type="password" name="Password" id="password" placeholder="New Password" class="inputs">
                 <input type="password" name="RPassword" id="rpassword" placeholder="Confirmed Password" class="inputs">
-                <button id="entrar" type="button" onclick="SendNewPassword();" class="btn">Entrar</button>
+                <button id="entrar" type="submit" class="btn">Entrar</button>
             </form>
         </section>
     </section>

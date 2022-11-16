@@ -24,6 +24,7 @@
 
         <div class="imagen"> <img src="<?php echo constant('URL'); ?>public/Recursos/imgs/Saludo.svg" alt=""></div>
     </div>
+        <?php require 'views/footer.php';?>
 </body>
 
 </html>
