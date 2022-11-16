@@ -6,24 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Libreria MiMundo</title>
-<link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico"
+        type="image/x-icon">
 </head>
 
 <body>
-     <!-- baner -->
+    <!-- baner -->
     <?php require 'views/header.php';?>
     <!-- contenido -->
     <section class="content">
         <?php require 'views/adminPanel.php';?>
-         <div class="conten-data">
+        <div class="conten-data">
             <div id="Formulario">
                 <h2 id="titulo">Eliminar Libro</h2>
                 <div class="data">
                     <div class="row">
                         <div class="col1 col">
                             <div class="row-in-col">
-                                <input type="number" name="ISBN" id="ISBN" placeholder="ISBN" class="inputs" onkeyup="IDonKeyUp(event)">
-                                <Button class="btnSeach" type="button" onclick="Seach()"><img src="<?php echo constant('URL'); ?>public/Recursos/icons/lupa.svg"></Button>
+                                <input type="number" name="ISBN" id="ISBN" placeholder="ISBN" class="inputs"
+                                    onkeyup="IDonKeyUp(event)">
+                                <Button class="btnSeach" type="button" onclick="Seach()"><img
+                                        src="<?php echo constant('URL'); ?>public/Recursos/icons/lupa.svg"></Button>
                             </div>
 
                         </div>
@@ -47,46 +50,48 @@
                         </div>
                     </div>
                     <div class="autoresCategorias">
-              <div class="col1 col">
-                <div class="row-in-col">
-                  <input type="text" name="Categoriain" id="Categoriain" placeholder="Categorias" class="inputs">
-                  <Button type="button" class="btnadd" onclick="addCat()"><img
-                      src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
-                </div>
-              </div>
-              <div class="col2 col">
-                <div class="row-in-col">
-                  <select name="Autor" id="Autor" class="inputs">
-                    <option value="" selected disabled>Autor</option>
+                        <div class="col1 col">
+                            <div class="row-in-col">
+                                <input type="text" name="Categoriain" id="Categoriain" placeholder="Categorias"
+                                    class="inputs">
+                                <Button type="button" class="btnadd" onclick="addCat()"><img
+                                        src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
+                            </div>
+                        </div>
+                        <div class="col2 col">
+                            <div class="row-in-col">
+                                <select name="Autor" id="Autor" class="inputs">
+                                    <option value="" selected disabled>Autor</option>
 
-                  </select>
-                  <Button class="btnRefresh" type="button" onclick="refreshAutores()"><img
-                      src="<?php echo constant('URL'); ?>public/Recursos/icons/refresh.svg"></Button>
-                  <Button type="button" class="btnadd" onclick="addAutor()"><img
-                      src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
-                </div>
-              </div>
-            
-              <div class="col1 col colSc">
-                <div class="sroliable">
-                  <div id="CategoriasDiv">
+                                </select>
+                                <Button class="btnRefresh" type="button" onclick="refreshAutores()"><img
+                                        src="<?php echo constant('URL'); ?>public/Recursos/icons/refresh.svg"></Button>
+                                <Button type="button" class="btnadd" onclick="addAutor()"><img
+                                        src="<?php echo constant('URL'); ?>public/Recursos/icons/add.svg"></Button>
+                            </div>
+                        </div>
 
-                  </div>
-                </div>
+                        <div class="col1 col colSc">
+                            <div class="sroliable">
+                                <div id="CategoriasDiv">
+
+                                </div>
+                            </div>
 
 
-              </div>
-              <div class="col2 col colSc">
-                <div class="sroliable">
-                  <div id="AutoresDiv">
+                        </div>
+                        <div class="col2 col colSc">
+                            <div class="sroliable">
+                                <div id="AutoresDiv">
 
-                  </div>
-                </div>
-          </div>
-        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row triple-row">
                         <div class="col sipCol">
-                            <textarea name="Sipnosis" id="Sipnosis" placeholder="Escriba una Sipnosis" disabled></textarea>
+                            <textarea name="Sipnosis" id="Sipnosis" placeholder="Escriba una Sinopsis"
+                                disabled></textarea>
 
                         </div>
 
@@ -95,7 +100,8 @@
                         <div id="not-view-Categorias"></div>
                         <div id="not-view-images"></div>
                         <div id="not-view-Autores"></div>
-                        <button type="button" id="addImage"><input type="file" name="Img[]" class="addImagein">+Añadir Imagen</button>
+                        <button type="button" id="addImage"><input type="file" name="Img[]" class="addImagein">+Añadir
+                            Imagen</button>
                     </div>
 
                     <div class="row quad-row">
@@ -111,7 +117,7 @@
                         </div>
                         <div class="row image-down-row">
 
-                            
+
 
                         </div>
 
@@ -123,13 +129,13 @@
                 <div id="save-div">
                     <button type="button" onclick="Send()">Eliminar</button>
                 </div>
-</div>
+            </div>
         </div>
     </section>
 
 
-<link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Book/style.css">
-<link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Book/modbook.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Book/style.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Book/modbook.css">
 </body>
 <script src="<?php echo constant('URL'); ?>public/js/AdminPanel/AdminPanel.js"></script>
 <script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Book/main.js"></script>

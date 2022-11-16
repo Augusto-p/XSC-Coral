@@ -21,11 +21,11 @@
                 <button class="slider-book-btn" id="btn-slider-a">❮</button>
                 <button class="slider-book-btn" id="btn-slider-s">❯</button>
                 <div id="slider-book-image-box">
-                    <img id="slider-book-image"> <!-- aca se mustra la imagen -->
+                    <img id="slider-book-image"> <!-- aca se muestra la imagen -->
                 </div>
 
                 <section id="book-image-pointer-section">
-                    <!-- dependiendo de la cantiad de imagens insertadas se crean atraves de js -->
+                    <!-- dependiendo de la cantidad de imagenes insertadas se crean atraves de js -->
                 </section>
             </section>
             <section class="info-book">

@@ -2,20 +2,21 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Libreria MiMundo</title>
-<link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libreria MiMundo</title>
+    <link rel="shortcut icon" href="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.ico"
+        type="image/x-icon">
 </head>
 
 <body>
-  <!-- baner -->
-  <?php require 'views/header.php';?>
-  <!-- contenido -->
-  <section class="content">
-    <?php require 'views/adminPanel.php';?>
-    <div class="conten-data">
+    <!-- baner -->
+    <?php require 'views/header.php';?>
+    <!-- contenido -->
+    <section class="content">
+        <?php require 'views/adminPanel.php';?>
+        <div class="conten-data">
             <div id="Formulario">
                 <h2 id="titulo">Añadir Editorial</h2>
 
@@ -30,7 +31,8 @@
                     </div>
                     <div class="row">
                         <div class="col1 col">
-                            <input type="text" name="Numero" id="Numero" placeholder="Numero de Telefono" class="inputs">
+                            <input type="text" name="Numero" id="Numero" placeholder="Número de Teléfono"
+                                class="inputs">
                         </div>
                         <div class="col2 col">
                             <input type="text" name="Direccion" id="Direccion" placeholder="Dirección" class="inputs">
@@ -47,14 +49,14 @@
                     </div>
                     <div class="row inputimage">
                         <div class="col1 col">
-                            
+
                         </div>
                         <div class="col2 col">
                             <input type="file" name="Logo" id="Logo">
-                            <button type="button" id="btnAddimage" >Añadir Imagen</button>
+                            <button type="button" id="btnAddimage">Añadir Imagen</button>
                         </div>
                     </div>
-                    
+
                 </div>
 
                 <div id="save-div">
@@ -62,13 +64,14 @@
                 </div>
             </div>
         </div>
-  </section>
+    </section>
 
 
-  <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Editorial/editorial.css">
+    <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Editorial/editorial.css">
 </body>
 
 <script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Editorial/Editorial.js"></script>
 <script src="<?php echo constant('URL'); ?>public/js/AdminPanel/Editorial/add.js"></script>
 <script src="<?php echo constant('URL'); ?>public/js/AdminPanel/AdminPanel.js"></script>
+
 </html>

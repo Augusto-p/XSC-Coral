@@ -20,11 +20,11 @@
             de libros, además del servicio excelente a nuestros clientes.
             Nuestro principal objetivo es el poder satisfacer las necesidades de nuestros clientes, brindando productos
             de excelente calidad y a precios únicos, así como ofrecer al cliente asesoramiento, venta y entrega
-            excelente para que su experiencia con los libros pueda ser la mejor posible.</div>
+            sobresaliente, para que su experiencia con los libros pueda ser la mejor posible.</div>
 
         <div class="imagen"> <img src="<?php echo constant('URL'); ?>public/Recursos/imgs/Saludo.svg" alt=""></div>
     </div>
-        <?php require 'views/footer.php';?>
+    <?php require 'views/footer.php';?>
 </body>
 
 </html>

@@ -80,7 +80,7 @@ class Autor_API_Controller extends Controller {
             if ($this->model->delete($data->Autor->id)) {
                 $res = ["mensaje" => "Autor Eliminado Correctamente", "code" => 200];
             } else {
-                $res = ["mensaje" => "Autor N0 Localizado", "code" => 404];
+                $res = ["mensaje" => "Autor No Localizado", "code" => 404];
             }
 
         } else {

@@ -92,7 +92,7 @@
                     </div>
                     <div class="row triple-row">
                         <div class="col sipCol">
-                            <textarea name="Sipnosis" id="Sipnosis" placeholder="Escriba una Sipnosis"></textarea>
+                            <textarea name="Sipnosis" id="Sipnosis" placeholder="Escriba una Sinopsis"></textarea>
 
                         </div>
 

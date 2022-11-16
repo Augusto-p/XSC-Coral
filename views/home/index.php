@@ -17,7 +17,7 @@
         <a href="#"><img class="baner" src="<?=$this->UrlBanerP;?>"></a>
     </div>
     <section class="producto">
-        <h2 class="cat-prod">Libros</h2>
+        <h2 class="cat-prod">Más vendidos</h2>
         <div class="slider-div">
             <section class="slider">
                 <div class="btn-slider btn-slider-before" id="btn-slider-1" onclick="MoveSlider1('BEFORE', false);">
@@ -55,7 +55,7 @@
 
     </div>
     <section class="producto">
-        <h2 class="cat-prod">Libros</h2>
+        <h2 class="cat-prod">Más vistos</h2>
         <div class="slider-div">
             <section class="slider">
                 <div class="btn-slider btn-slider-before" id="btn-slider-3" onclick="MoveSlider2('BEFORE', false);">
@@ -91,15 +91,18 @@
 </body>
 <script src="<?php echo constant('URL'); ?>public/js/home/main.js"></script>
 <?php foreach ($this->Slider1 as $key => $book) {;?>
-    <script>
-    AddSlider1(<?=$book->isbn;?>, '<?=$book->titulo;?>', <?=$book->precio;?>, '<?php echo constant('URL'); ?><?=$book->imagenes[0];?>');
-    </script>
+<script>
+AddSlider1(<?=$book->isbn;?>, '<?=$book->titulo;?>', <?=$book->precio;?>,
+    '<?php echo constant('URL'); ?><?=$book->imagenes[0];?>');
+</script>
 <?php } foreach ($this->Slider2 as $key => $book) {;?>
-    <script>
-        AddSlider2(<?=$book->isbn;?>,'<?=$book->titulo;?>', <?=$book->precio;?>, '<?php echo constant('URL'); ?><?=$book->imagenes[0];?>');
-    </script>
+<script>
+AddSlider2(<?=$book->isbn;?>, '<?=$book->titulo;?>', <?=$book->precio;?>,
+    '<?php echo constant('URL'); ?><?=$book->imagenes[0];?>');
+</script>
 <?php };?>
 <script>
-    StartSliders()
+StartSliders()
 </script>
+
 </html>
