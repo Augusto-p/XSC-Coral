@@ -9,3 +9,6 @@
     <li> Bautista Canobra </li>
     <li> Agustin Cancela </li>
 </ul>
+
+## Permisos de visualización
+Para poder visualizar este proyecto debe de contactarse al correo electrónico: "ickkckdbb2511@gmail.com"
