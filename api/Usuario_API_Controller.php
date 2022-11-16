@@ -1,14 +1,6 @@
 <?php
 require_once 'DTO/usuario.php';
 require_once 'utilidades/Imagenes.php';
-
-
-
-
-
-
-
-
 class Usuario_API_Controller extends Controller
 {
     public function __construct()

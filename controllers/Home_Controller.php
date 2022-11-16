@@ -1,8 +1,6 @@
 <?php
 require_once 'models/Book_Model.php';
-require_once 'DTO/book.php';
-require_once 'utilidades/Imagenes.php';
-require_once 'utilidades/Formatos.php';
+
 
 class Home_Controller extends Controller {
     public function __construct() {
