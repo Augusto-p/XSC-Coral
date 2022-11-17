@@ -123,7 +123,7 @@ class Usuario_Model extends Model {
     public function remplacePassWordBYEmailSystem($token, $password) {
         try {
             $pdo      = $this->db->connect();
-            $consulta = $pdo->prepare('update usuarios set Password=:password, Token_Password="" where usuarios.Token_Password = :token;'); // consulta a la base de datos no disponible
+            $consulta = $pdo->prepare('update usuarios set Password=:password, Token_Password=null,Fecha_Token=null  where usuarios.Token_Password = :token;'); // consulta a la base de datos no disponible
             $consulta->bindValue(':token', $token);
             $consulta->bindValue(':password', $password);
             return $consulta->execute();
