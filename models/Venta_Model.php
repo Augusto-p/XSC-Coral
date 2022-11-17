@@ -1,5 +1,7 @@
 <?php 
 require_once 'DTO/venta.php';
+require_once 'DTO/pedido.php';
+require_once 'DTO/detalleVenta.php';
 class Venta_Model extends Model
 {
     public function __construct(){

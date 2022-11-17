@@ -19,7 +19,7 @@
         <section id="g-izq">
             <div id="g-izq-content">
 
-                <div id="g-izq-content-in">
+                <div id="g-izq-content-in" onclick="goTo('<?php echo constant('URL'); ?>')">
                     <img src="<?php echo constant('URL'); ?>public/Recursos/imgs/LogoMimundo.svg" alt="">
                 </div>
 

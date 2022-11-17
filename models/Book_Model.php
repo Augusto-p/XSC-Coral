@@ -96,7 +96,7 @@ class Book_Model extends Model {
         try {
             $pdo      = $this->db->connect();
             $consulta = $pdo->prepare('call seach(:ter)'); // consulta a la base de datos no disponible
-            $consulta->bindValue(':Termino', "%" . $Termino . "%");
+            $consulta->bindValue(':ter', "%" . $Termino . "%");
             $consulta->execute();
             $libros = [];
             while ($row = $consulta->fetch()) {
@@ -115,9 +115,9 @@ class Book_Model extends Model {
 
                 $imagenes   = [];
                 $Categorias = [];
-
-                $QImages = $pdo->prepare('SELECT * FROM libros_imgs where libros_imgs.isbn = :isnb'); // consulta a la base de datos no disponible
-                $QImages->bindValue(':isnb', ''.$value->isbn);
+                
+                $QImages = $pdo->prepare('SELECT * FROM libros_imgs where libros_imgs.isbn = :isbn'); // consulta a la base de datos no disponible
+                $QImages->bindValue(':isbn', $value->isbn);
                 $QImages->execute();
                 while ($row = $QImages->fetch()) {
                     $imagenes[] = $row['Img'];
@@ -363,7 +363,7 @@ class Book_Model extends Model {
     public function getByCategoria($Categoria) {
         try {
             $pdo      = $this->db->connect();
-            $consulta = $pdo->prepare('SELECT * FROM libros join libros_categorias on libros.ISBN = libros_categorias.ISBN where libros_categorias.Categoria like :cat and libros.stock > 0 group by libros_categorias.ISBN;'); // consulta a la base de datos no disponible
+            $consulta = $pdo->prepare('SELECT  libros.* FROM libros join libros_categorias on libros.ISBN = libros_categorias.ISBN where libros_categorias.Categoria like :cat and libros.stock > 0 group by libros_categorias.ISBN;'); // consulta a la base de datos no disponible
             $consulta->bindValue(':cat', "%" . $Categoria . "%");
             $consulta->execute();
             $libros = [];

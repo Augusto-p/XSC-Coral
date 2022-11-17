@@ -15,3 +15,10 @@ function ConfirmedPasword(pass1,pass2) {
     }
     
 }
+
+
+function goTo(url) {
+    let a = document.createElement("a");
+    a.href = url;
+    a.click()
+}
