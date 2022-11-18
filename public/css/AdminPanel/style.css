@@ -91,6 +91,7 @@ body {
     border-bottom-right-radius: 2vh;
     position: absolute;
     left: 100%;
+    z-index: 2;
 }
 
 .OP-item-content-Two {

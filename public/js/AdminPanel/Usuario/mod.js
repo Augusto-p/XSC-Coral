@@ -1,4 +1,8 @@
 async function Send() {
+     let password = ""
+    if (pass.value != "Dafatult") {
+        password = pass.value
+    }
 
     let bodyContent = JSON.stringify({
         "Usuario": {
@@ -7,7 +11,7 @@ async function Send() {
             "Fecha_Nacimento": fn.value,
             "Genero": genero.value,
             "Genero_Personalisado": gp.value,
-            "Password": pass.value,
+            "Password": password,
             "Rol": rol.value,
             "Numero": numero.value,
             "Calle": calle.value,

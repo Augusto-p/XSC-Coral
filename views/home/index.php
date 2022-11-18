@@ -17,7 +17,7 @@
         <a href="#"><img class="baner" src="<?=$this->UrlBanerP;?>"></a>
     </div>
     <section class="producto">
-        <h2 class="cat-prod">Más vendidos</h2>
+        <h2 class="cat-prod">Recomendaciones</h2>
         <div class="slider-div">
             <section class="slider">
                 <div class="btn-slider btn-slider-before" id="btn-slider-1" onclick="MoveSlider1('BEFORE', false);">

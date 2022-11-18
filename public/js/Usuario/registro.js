@@ -5,7 +5,7 @@ let genero = document.getElementById("genero");
 let FNacimento = document.getElementById('fecha');
 let btnSigiente = document.getElementById('Sig');
 let btnSend = document.getElementById('send');
-let IGlobal = document.getElementById('i-global');
+let  = document.getElementById('i-global');
 let foto = document.getElementById('foto');
 let gp = document.getElementById('GP');
 let rpass = document.getElementById('rpassword');
@@ -46,6 +46,7 @@ function setSize() {
     btnSigiente.style.width = (input.offsetWidth -10) + 'px';
     IGlobal.style.width = (input.offsetWidth - (2 * vH)) + 'px';
     IGlobal.style.height = (input.offsetHeight *3) + 'px';
+    IGlobal.style.display = "bolck";
     //get 1 window height
     foto.style.width = input.offsetWidth + 'px';
     foto.style.height = (input.offsetHeight *3) + 'px';
@@ -57,7 +58,6 @@ function setSize() {
 setSize()
 
 function sigiente() {
-    console.log("hello");
     
     if (window.innerWidth > 768) {
         formsls.style.animationName = 'sigienteDesk';

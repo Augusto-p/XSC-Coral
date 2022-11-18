@@ -141,13 +141,13 @@ DROP TABLE IF EXISTS `ventas`;
 
 CREATE TABLE `ventas`
   (`ID` int NOT NULL AUTO_INCREMENT,
-`Email` varchar(255) NOT NULL,
+`Email` varchar(255),
 `Estado` enum('Enviado','Entregado','Procesando') NOT NULL,
 `Metodo_Pago` enum('Debito','Credito') NOT NULL,
 `Fecha_Hora` datetime NOT NULL,
 `Total` decimal(10,2) NOT NULL,
-PRIMARY KEY (`ID`,`Email`),
-   FOREIGN KEY (`Email`) REFERENCES `usuarios` (`Email`) ON UPDATE CASCADE ON DELETE no action );
+PRIMARY KEY (`ID`),
+   FOREIGN KEY (`Email`) REFERENCES `usuarios` (`Email`) ON UPDATE CASCADE ON DELETE SET NULL);
 
 
 DROP TABLE IF EXISTS `ventas_detalle`;
@@ -220,7 +220,7 @@ INSERT INTO `editoriales` VALUES (1,'Libros Cúpula','https://www.planetadelibro
 INSERT INTO `autores`
 VALUES (1,'Lewis Hamilton','Reino Unido','Lewis Carl Davidson Larbalestier Hamilton​ es un piloto británico de automovilismo. En Fórmula 1 desde 2007, coronándose campeón del mundo en 7 ocasiones: en 2008 (McLaren) 2014, 2015, 2017, 2018, 2019, 2020 con Mercedes, igualando los 7 títulos mundiales de Michael Schumacher, cuenta con 103 victorias en Grandes Premios a lo largo de su carrera en la Fórmula 1 lo que lo convierte en el piloto con más victorias en la historia de la Categoría','1985-01-07','public/imgs/Autores/1.jpeg'),
 (2,'Jenson Button','Reino Unido','Jenson Alexander Lyons Button​, más conocido como Jenson Button, es un piloto de automovilismo de velocidad británico y expiloto de Fórmula 1 que participó entre el año 2000 y 2017 en la dicha categoría, coronándose campeón del mundo en 2009 con Brawn GP.','1980-01-19','public/imgs/Autores/2.jpeg'),
-(3,'Adrian Newey','Reino Unido','Adrian Newey, OBE es el director técnico del equipo Red Bull Racing de Fórmula 1.\nHa trabajado tanto en Fórmula 1 como en Indycar, habiendo logrado éxitos en ambas categorías. Considerado como uno de los mejores ingenieros en la Fórmula 1, Newey inspiró diseños que han ganado numerosos títulos, dominando gran parte de los años 1990. Desde el 2006 es parte del equipo Red Bull Racing donde consiguieron el título de pilotos en 5 ocasiones y el de constructores en 4\nocasiones. ','1958-12-26','public/imgs/Autores/3.jpeg'),
+(3,'Adrian Newey','Reino Unido','Adrian Newey, OBE es el director técnico del equipo Red Bull Racing de Fórmula 1.Ha trabajado tanto en Fórmula 1 como en Indycar, habiendo logrado éxitos en ambas categorías. Considerado como uno de los mejores ingenieros en la Fórmula 1, Newey inspiró diseños que han ganado numerosos títulos, dominando gran parte de los años 1990. Desde el 2006 es parte del equipo Red Bull Racing donde consiguieron el título de pilotos en 5 ocasiones y el de constructores en 4ocasiones. ','1958-12-26','public/imgs/Autores/3.jpeg'),
 (4,'Ross Brawn','Reino Unido','Ross James Brawn​ es un ingeniero de automovilismo británico. Ha trabajado con varios equipos de Fórmula 1. Hasta 2013 fue el máximo responsable del equipo Mercedes AMG F1, en 2014 fue sustituido por Toto Wolff.','1954-11-23','public/imgs/Autores/4.jpeg'),
 (5,'Adam Parr','Reino Unido','Adam Parr es un empresario británico conocido por su trabajo en varios campos, incluida la Fórmula 1 y la inversión en ONG. Fue director ejecutivo y ex presidente de Williams Grand Prix Holdings PLC, desde noviembre de 2006 hasta el 30 de marzo de 2012.','1965-05-26','public/imgs/Autores/5.jpeg'),
 (6,'Tom Bower','Reino Unido','Thomas Michael Bower es un escritor británico y ex periodista y productor de televisión de la BBC. Es conocido por su periodismo de investigación y por sus biografías no autorizadas, a menudo de magnates de los negocios y propietarios de periódicos.','1946-09-28','public/imgs/Autores/6.jpeg'),
@@ -266,12 +266,12 @@ VALUES (1,'Lewis Hamilton','Reino Unido','Lewis Carl Davidson Larbalestier Hamil
 
 INSERT INTO `libros`
 VALUES (9780007270064,'Lewis Hamilton: My Story',900.89,'public/texts/BookSipnosis/9780007270064.txt',5,0),
-(9780137035151,'Ingeniería del Software – Ian Sommerville – 9na Edición\n ',230.00,'public/texts/BookSipnosis/9780137035151.txt',25,0),
+(9780137035151,'Ingeniería del Software – Ian Sommerville – 9na Edición ',230.00,'public/texts/BookSipnosis/9780137035151.txt',25,0),
 (9780192815989,'Drácula',500.00,'public/texts/BookSipnosis/9780192815989.txt',28,0),
-(9780307795960,'Star Wars: The Clone Wars \n ',740.00,'public/texts/BookSipnosis/9780307795960.txt',15,0),
+(9780307795960,'Star Wars: The Clone Wars  ',740.00,'public/texts/BookSipnosis/9780307795960.txt',15,0),
 (9780307796080,'Star Wars Death Troopers:',430.00,'public/texts/BookSipnosis/9780307796080.txt',15,0),
 (9780356514215,'La sombra de los dioses',1500.00,'public/texts/BookSipnosis/9780356514215.txt',31,0),
-(9780395647387,'The Lord Of The Rings: One Volume\n ',2000.00,'public/texts/BookSipnosis/9780395647387.txt',21,0),
+(9780395647387,'The Lord Of The Rings: One Volume ',2000.00,'public/texts/BookSipnosis/9780395647387.txt',21,0),
 (9780399565212,'Star wars Aftermath',1000.00,'public/texts/BookSipnosis/9780399565212.txt',8,0),
 (9780450032202,'El resplandor',350.00,'public/texts/BookSipnosis/9780450032202.txt',27,0),
 (9780450057694,'Cementerio de animales',600.00,'public/texts/BookSipnosis/9780450057694.txt',35,0),
@@ -283,13 +283,13 @@ VALUES (9780007270064,'Lewis Hamilton: My Story',900.89,'public/texts/BookSipnos
 (9781524796297,'Fuego y Sangre',1000.00,'public/texts/BookSipnosis/9781524796297.txt',35,0),
 (9781565119383,'La muerte de Arturo',550.00,'public/texts/BookSipnosis/9781565119383.txt',36,0),
 (9781692101619,'El Hijo Del Traidor',450.00,'public/texts/BookSipnosis/9781692101619.txt',34,0),
-(9781780899602,'Stranger Things. Mundos al revés\n ',720.00,'public/texts/BookSipnosis/9781780899602.txt',23,0),
+(9781780899602,'Stranger Things. Mundos al revés ',720.00,'public/texts/BookSipnosis/9781780899602.txt',23,0),
 (9781788702614,'How To Be An F1 Driver: My Guide To Life In The Fast Lane',899.99,'public/texts/BookSipnosis/9781788702614.txt',2,0),
-(9781789090413,'Halo: Silent Storm: A Master Chief Story\n ',500.00,'public/texts/BookSipnosis/9781789090413.txt',33,0),
-(9781789098907,'Alien: Colony War\n ',789.00,'public/texts/BookSipnosis/9781789098907.txt',20,0),
+(9781789090413,'Halo: Silent Storm: A Master Chief Story ',500.00,'public/texts/BookSipnosis/9781789090413.txt',33,0),
+(9781789098907,'Alien: Colony War ',789.00,'public/texts/BookSipnosis/9781789098907.txt',20,0),
 (9781797123431,'Star Treck Revenant',1500.00,'public/texts/BookSipnosis/9781797123431.txt',18,0),
 (9781911600343,'Jenson Button: Life to the Limit: My Autobiography',1250.99,'public/texts/BookSipnosis/9781911600343.txt',2,0),
-(9781974732500,'The Art and Making of Transformers: War for Cybertron Trilogy\n ',550.00,'public/texts/BookSipnosis/9781974732500.txt',24,0),
+(9781974732500,'The Art and Making of Transformers: War for Cybertron Trilogy ',550.00,'public/texts/BookSipnosis/9781974732500.txt',24,0),
 (9782811206772,'Mass Effect: Revelation',1200.00,'public/texts/BookSipnosis/9782811206772.txt',19,0),
 (9782820507082,'El último deseo',900.00,'public/texts/BookSipnosis/9782820507082.txt',30,0),
 (9783453435773,'It',1000.00,'public/texts/BookSipnosis/9783453435773.txt',18,0),
@@ -312,7 +312,7 @@ VALUES (9780007270064,'Lewis Hamilton: My Story',900.89,'public/texts/BookSipnos
 (9788466631792,'El Camino hacia el amor',450.12,'public/texts/BookSipnosis/9788466631792.txt',13,0),
 (9788499983196,'El libro Troll',450.03,'public/texts/BookSipnosis/9788499983196.txt',6,0),
 (9789504956860,'Star Wars Líneas de sangre',1377.00,'public/texts/BookSipnosis/9789504956860.txt',8,0),
-(9789571077154,'Classroom of the Elite (Light Novel) Vol. 1\n ',500.00,'public/texts/BookSipnosis/9789571077154.txt',26,0),
+(9789571077154,'Classroom of the Elite (Light Novel) Vol. 1 ',500.00,'public/texts/BookSipnosis/9789571077154.txt',26,0),
 (9789875802667,'Brida',500.00,'public/texts/BookSipnosis/9789875802667.txt',8,0),
 (9789915667027,'Boulevard',850.50,'public/texts/BookSipnosis/9789915667027.txt',12,0),
 (9789974312463,'Manual de Tecnologías y Técnicas en Enfermería.',1000.00,'public/texts/BookSipnosis/9789974312463.txt',9,0),
@@ -589,6 +589,9 @@ VALUES (9780007270064,1),
 (9783839849958,45);
 
 -- User crate zone
+DROP USER IF EXISTS 'Coral'@'localhost';
+DROP USER IF EXISTS 'usuariobackup'@'localhost';
+
 CREATE USER 'Coral'@'localhost' IDENTIFIED BY 'd724a567490114d353f8bbaf451f151001b9911d97c7af273354cea45a8753e6883c685bba9c0391e7838178f5f1eb45c3dc4cbfc9571febf0aab698c4d0ec20';
 GRANT ALL PRIVILEGES ON *.* TO 'Coral'@'localhost';
 

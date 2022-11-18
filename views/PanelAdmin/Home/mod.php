@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="<?php echo constant('URL'); ?>public/css/AdminPanel/Home/home.css">
         <div class="conten-data">
             <div id="Formulario">
-                <h2 id="titulo">Modificación de Página de Inicio</h2>
+                <h2 id="titulo">Home</h2>
                 <div class="data">
 
                     <div class="row seven-row">

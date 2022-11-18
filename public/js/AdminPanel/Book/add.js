@@ -52,7 +52,7 @@ async function Send(){
         }
         });
         headersList["Authorization"] = "Token " + sessionStorage.getItem("Token");
-        let response = fetch("http://localhost/xsc/api/book/add", {
+        let response = fetch(`${URL}api/book/add`, {
             method: "POST",
             body: bodyContent,
             headers: headersList

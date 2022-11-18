@@ -115,7 +115,7 @@ class Usuario_API_Controller extends Controller
             $user->ciudad = $data->Usuario->Ciudad != null ? $data->Usuario->Ciudad : $user->ciudad;
             $user->codigoPostal = $data->Usuario->Codigo_Postal != null ? $data->Usuario->Codigo_Postal : $user->codigoPostal;
             $user->departamento = $data->Usuario->Departamento != null ? $data->Usuario->Departamento : $user->departamento;
-            $user->password = $data->Usuario->Password != "default" ? password_hash($data->Usuario->Password, PASSWORD_BCRYPT , ['cost' => 10]) : $user->password;
+            $user->password = $data->Usuario->Password != "" ? password_hash($data->Usuario->Password, PASSWORD_BCRYPT , ['cost' => 10]) : $user->password;
             $user->rol = $data->Usuario->Rol ? $data->Usuario->Rol : $user->rol;
             if ($data->Usuario->Genero == "M") {
                 $user->Genero = "Masculino";

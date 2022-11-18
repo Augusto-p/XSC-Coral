@@ -46,7 +46,7 @@ async function Send() {
         }
     });
     headersList["Authorization"] = "Token " + sessionStorage.getItem("Token");
-    let response = await fetch("http://localhost/xsc/api/book/delete", {
+    let response = await fetch(`${URL}api/book/delete`, {
         method: "POST",
         body: bodyContent,
         headers: headersList

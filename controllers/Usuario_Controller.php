@@ -163,11 +163,14 @@ class Usuario_Controller extends Controller
             $sending = $send->SendMailForgetPassword($email, $ID_Password_Reset , $nombre);
             if ($sending){
                 echo "<script>alert('mail enviado')</script>";
+                $this->view->render('Usuario/login');
             }else{
                 echo "<script>alert('mail no enviado')</script>";
+                $this->view->render('Usuario/registrarse');
             }
         }else{
             echo "<script>alert('mail no enviado')</script>";
+            $this->view->render('Usuario/registrarse');
         }
         
 
