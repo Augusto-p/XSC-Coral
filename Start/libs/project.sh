@@ -13,6 +13,7 @@ cd ./ProZone
 git clone --branch $Branch $URL
 sudo chown daemon $Name
 sudo mv $Name /opt/lampp/htdocs/$Name
+sudo chmod -R 777 /opt/lamp/htdocs
 cd ..
 sudo ln -s /opt/lampp/htdocs/$Name/config/config.php ~/config.php
 rm -rf ProZone
