@@ -2,7 +2,7 @@
 #Programa Desarollado por XSC Software Company
 
 clear
-Name="Coral" #folder name
+Name="XSC-Coral" #folder name
 
 sudo chown daemon $Name
 sudo mv $Name /opt/lampp/htdocs/$Name
