@@ -352,8 +352,7 @@ class Book_Model extends Model {
             return $consulta->execute();
         } catch (PDOException $e) {
             Errors::NewError("PDO", __File__, __Line__, $e->getMessage());
-
-            return false;
+            return $e->getCode();
         } finally {
             $pdo = null;
         }

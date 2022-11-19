@@ -74,14 +74,12 @@
 #yes-image img {
     height: 100%;
 }
-
 #i-global{
     height: 7vh;
     display: none;
 }
- #foto {
+#foto {
     opacity: 0;
-
     position: absolute;
 }
 
@@ -146,7 +144,7 @@
     }
 
     .inputs:focus {
-        color: white;
+        color: #145075;
     }
 
     #form-reg {
@@ -166,6 +164,6 @@
     }
 
     #i-global:hover {
-        border-color: #2692ca
+        border-color: #2692ca;
     }
 }

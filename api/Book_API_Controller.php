@@ -159,11 +159,6 @@ class Book_API_Controller extends Controller {
             }else{
                 $res = ["mensaje" => $a, "code" => 404];    
             }
-            
-            
-            
-            
-
         } else {
             $res = ["mensaje" => "Permisos Insuficientes", "code" => 403];
         }
@@ -172,21 +167,23 @@ class Book_API_Controller extends Controller {
 
     }
 
-    public function delete() {
-        //add author
+     public function delete() {
+        //del book
         $userModel = new Usuario_Model();
         $data      = json_decode(file_get_contents('php://input'));
         $token = JWTs::ValidJWT(apache_request_headers()["Authorization"]);
         $email = $token != false ? $token : null; //JWT
         if ($userModel->getRol($email) == "Administrador" || $userModel->getRol($email) == "Empleado") {
             $book        = $this->model->get($data->Libro->ISBN);
-            unlink($book->sipnosis); // delete Sipnosis
-            foreach ($book->imagenes as $key => $value) {
-                unlink($value); // delete images
-            }
-            rmdir("public/imgs/Books/".$data->Libro->ISBN);
-            
-            if($this->model->delete($data->Libro->ISBN)){
+            $rq = $this->model->delete($data->Libro->ISBN); 
+            if ($rq == 23000) {
+                $res = ["mensaje" => "No es posible eliminar libros previamente comprados", "code" => 502];
+            }else if ($rq == true) {
+                unlink($book->sipnosis); // delete Sipnosis
+                foreach ($book->imagenes as $key => $value) {
+                    unlink($value); // delete images
+                }
+                rmdir("public/imgs/Books/".$data->Libro->ISBN);
                 $res = ["mensaje" => "Libro Eliminado Correctamente", "code" => 200];
             }else{
                 $res = ["mensaje" => "Libro No Localizado", "code" => 404];
@@ -194,9 +191,7 @@ class Book_API_Controller extends Controller {
         }
         $this->view->res = json_encode($res);
         $this->view->render("API/Book/del");
-
     }
-
     public function mod() {
         //add author
         $userModel = new Usuario_Model();
