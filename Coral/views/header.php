@@ -42,7 +42,7 @@
 
                 <?php }
                 if (unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"] : "") == "Administrador" || unserialize(!empty($_SESSION["rol"])?$_SESSION["rol"]: "") == "Empleado") {;?>
-                    <li class="noselect" onclick="goTo('<?php echo constant('URL'); ?>Book/info')">Panel Admin</li>
+                    <li class="noselect" onclick="goTo('<?php echo constant('URL'); ?>Book/info')">Panel de Control</li>
                 <?php  } if (isset($_SESSION["login"])) { 
                     if ($_SESSION["login"]) {?>
                         <li class="noselect" onclick="goTo('<?php echo constant('URL'); ?>usuario/settings')">Configuración</li>
