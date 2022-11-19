@@ -31,7 +31,7 @@ addproc() {
     if [ $con == "Y" ] || [ $con == "y" ]; then
         userana
     else
-        source ./main.sh
+        source /var/lib/XSC/main.sh
     fi
 }
 userana

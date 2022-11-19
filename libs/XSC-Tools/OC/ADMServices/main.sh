@@ -109,7 +109,7 @@ menuserv(){
                 S | s)
                     clear
                     cd ..
-                ./main.sh;;
+                source /var/lib/XSC/main.sh;;
                 N | n) clear
                 menuserv;;
             esac

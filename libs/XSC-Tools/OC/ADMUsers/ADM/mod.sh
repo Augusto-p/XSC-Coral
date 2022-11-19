@@ -14,25 +14,25 @@ modproc() {
     read opc
     case $opc in
         1)
-            source ./ADM/mods/logininic.sh
+            source /var/lib/XSC/OC/ADM/mods/logininic.sh
         ;;
         2)
-            source ./ADM/mods/dirinic.sh
+            source /var/lib/XSC/OC/ADM/mods/dirinic.sh
         ;;
         3)
-            source ./ADM/mods/passwdinic.sh
+            source /var/lib/XSC/OC/ADM/mods/passwdinic.sh
         ;;
         4)
-            source ./ADM/mods/grupinic.sh
+            source /var/lib/XSC/OC/ADM/mods/grupinic.sh
         ;;
         5)
-            source ./ADM/mods/shellinic.sh
+            source /var/lib/XSC/OC/ADM/mods/shellinic.sh
         ;;
         6)
-            source ./ADM/mods/cominic.sh
+            source /var/lib/XSC/OC/ADM/mods/cominic.sh
         ;;
         7)
-            source ./main.sh
+            source /var/lib/XSC/main.sh
         ;;
         *) echo -e "$opc no es una opción válida"
         modproc;;

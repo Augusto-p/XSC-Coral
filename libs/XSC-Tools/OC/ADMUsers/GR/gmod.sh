@@ -24,7 +24,7 @@ gmodmanage(){
                     if [ $con == "Y" ] || [ $con == "y" ]; then
                         gmodmanage
                     else
-                        source ./main.sh
+                        source /var/lib/XSC/main.sh
                     fi
                 fi
             ;;
@@ -38,11 +38,11 @@ gmodmanage(){
                     if [ $con == "Y" ] || [ $con == "y" ]; then
                         gmodmanage
                     else
-                        source ./main.sh
+                        source /var/lib/XSC/main.sh
                     fi
                 fi
             ;;
-            *)source ./main.sh;;
+            *)  source ./main.sh;;
         esac
     else
         echo "El grupo que modificar no existe"
@@ -51,7 +51,7 @@ gmodmanage(){
         if [ $con == "Y" ] || [ $con == "y" ]; then
             gmodmanage
         else
-            source ./main.sh
+            source /var/lib/XSC/main.sh
         fi
     fi
 }

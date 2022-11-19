@@ -13,10 +13,10 @@ menuprin(){
     echo "9-Salir"
     read -p "Ingrese la opción aquí: " opc
     case $opc in
-        1)source ./ADMServices/main.sh;;
-        2)source ./ADMWeb/main.sh;;
-        3)source ./ADMUsers/main.sh;;
-        4)source ./ADMLogs/main.sh;;
+        1)source /var/lib/XSC/OCADMServices/main.sh;;
+        2)source /var/lib/XSC/OCADMWeb/main.sh;;
+        3)source /var/lib/XSC/OCADMUsers/main.sh;;
+        4)source /var/lib/XSC/OCADMLogs/main.sh;;
         9) echo "Gracias por hacer uso de esta aplicación, tenga un buen día"
             clear
             exit

@@ -17,9 +17,9 @@ shellproc(){
     echo "¿Desea continuar?"
     read -p "Si=Y No=N" con
     if [ $con == "Y" ] || [ $con == "y" ]; then
-        source ./ADM/mod.sh
+        source /var/lib/XSC/OC/ADM/mod.sh
     else
-        source ./main.sh
+        source /var/lib/XSC/main.sh
     fi
     
 }

@@ -30,7 +30,7 @@ echo "¿Desea salir al menú principal?"
                 S | s)
                     clear
                     cd ..
-                ./main.sh;;
+                source /var/lib/XSC/main.sh;;
                 N | n) clear
-                source ./main.sh;;
+                source /var/lib/XSC/OC/ADMLogs/main.sh;;
             esac

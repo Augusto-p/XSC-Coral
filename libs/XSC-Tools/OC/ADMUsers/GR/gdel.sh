@@ -19,7 +19,7 @@ gdelmanage(){
         if [ $con == "Y" ] || [ $con == "y" ]; then
             gdelmanage
         else
-            source ./main.sh
+            source /var/lib/XSC/main.sh
         fi
     fi
 }

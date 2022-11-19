@@ -21,7 +21,7 @@ graddmanage(){
         if [ $con == "Y" ] || [ $con == "y" ]; then
             graddmanage
         else
-            source ./main.sh
+            source /var/lib/XSC/main.sh
         fi
     fi
 }

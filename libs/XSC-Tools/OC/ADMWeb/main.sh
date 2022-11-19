@@ -35,7 +35,7 @@ menuweb(){
                 S | s)
                     clear
                     cd ..
-                ./main.sh;;
+                source /var/lib/XSC/main.sh;;
                 N | n) clear
                 menuweb;;
             esac
@@ -94,7 +94,7 @@ menubacks(){
                 S | s)
                     clear
                     cd ..
-                ./main.sh;;
+                source /var/lib/XSC/main.sh;;
                 N | n) clear
                 menuweb;;
             esac
