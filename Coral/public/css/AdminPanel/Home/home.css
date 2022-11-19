@@ -1,0 +1,258 @@
+.seven-row {
+    height: 20vw;
+    background-color: #e0e0e0;
+    width: 65.48vw;
+    grid-template-columns: 1fr;
+    border-radius: 2vw;
+    grid-template-rows: 1fr;
+}
+
+
+.colrow {
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    user-select: none;
+}
+
+.colrow img {
+    width: 100%;
+    height: auto;
+}
+
+.colrow h3 {
+    margin: 0;
+    font-size: 2rem;
+    color: #145075;
+}
+
+.colrow p {
+    margin: 0;
+    font-size: .8rem;
+}
+
+.btn-change-ban {
+    font-size: 1.5rem;
+    color: #2692ca;
+    border: 2px solid #2692ca;
+    width: 20vw;
+    height: 5vh;
+    border-radius: 2vh;
+    background-color: #e0e0e0;
+}
+
+
+
+
+.InBanP {
+    position: absolute;
+    width: 20vw;
+    height: 5vh;
+    opacity: 0;
+}
+
+.div-change-ban:hover .btn-change-ban {
+    background-color: #2692ca;
+    color: white;
+    border: 2px solid #fff;
+}
+
+
+.subBaner {
+    height: 30vw;
+    user-select: none;
+}
+
+.colSc {
+    overflow: hidden;
+    height: 50vh;
+}
+
+.sroliable {
+    overflow-y: scroll;
+    justify-content: flex-end;
+    height: 100%;
+    width: 70%;
+}
+
+#slider1Div, #slider2Div {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.014);
+
+}
+
+.slider-Item-div {
+    display: grid;
+    grid-template-columns: 1fr 6vh 6vh;
+    height: 5vh;
+}
+
+.slider-Item-div h4 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5vh;
+    font-size: 1.3rem;
+}
+
+.remove {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    height: 5vh;
+    width: 5vh;
+    border-radius: .5vh;
+    background-color: rgb(175, 2, 2);
+}
+
+.slider-Item-div img {
+    height: 2vh;
+    filter: invert(1);
+}
+
+.remove:hover {
+
+    background-color: rgb(136, 1, 1);
+}
+
+.view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    height: 5vh;
+    width: 5vh;
+    border-radius: .5vh;
+    background-color: #2692ca;
+}
+
+.view:hover {
+
+    background-color: #145075;
+}
+
+.view img {
+    height: 4vh;
+}
+
+.btnadd {
+    height: 5vh;
+    width: 5vh;
+    background-color: #71eba1;
+    border: 1px solid #e0e0e0;
+    border-radius: .5vh;
+}
+
+.btnadd img {
+    height: 2vh;
+    filter: invert(1);
+}
+
+.btnadd:hover {
+    background-color: #5dbd83;
+}
+
+.Slider-title {
+    font-size: 2rem;
+    color: #145075;
+    margin-bottom: 2vh;
+    user-select: none;
+}
+
+#notView {
+    display: none;
+}
+
+.Slideszones {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto 10vh 50vh;
+}
+
+.Slideszones>div:nth-child(1) {
+    grid-row: 1;
+    grid-column: 1;
+    width: 100%;
+}
+
+.Slideszones>div:nth-child(2) {
+    grid-row: 1;
+    grid-column: 2;
+    width: 100%;
+}
+
+.Slideszones>div:nth-child(3) {
+    grid-row: 2;
+    grid-column: 1;
+    width: 100%;
+}
+
+.Slideszones>div:nth-child(4) {
+    grid-row: 2;
+    grid-column: 2;
+    width: 100%;
+}
+
+.Slideszones>div:nth-child(5) {
+    grid-row: 3;
+    grid-column: 1;
+    width: 100%;
+}
+
+.Slideszones>div:nth-child(6) {
+    grid-row: 3;
+    grid-column: 2;
+    width: 100%;
+}
+
+
+@media (max-width: 768px) and (min-width: 300px) {
+    .seven-row {
+        width: 90vw;
+        height: 22vh;
+    }
+
+    .div-change-ban {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .btn-change-ban, .InBanP {
+        width: 50vw;
+        height: 4vh;
+    }
+
+    .sroliable{
+        width: 90%;
+    }
+     .Slideszones {
+        width: 90vw;
+        grid-template-columns: 100%;
+        grid-template-rows: repeat(2, auto 10vh 50vh);
+    }
+
+
+    .Slideszones>div:nth-child(2) {
+        grid-row: 4;
+        grid-column: 1;
+    }
+
+    .Slideszones>div:nth-child(4) {
+        grid-row: 5;
+        grid-column: 1;
+    }
+
+    .Slideszones>div:nth-child(6) {
+        grid-row: 6;
+        grid-column: 1;
+    }
+
+    
+}

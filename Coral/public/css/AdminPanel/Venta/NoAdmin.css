@@ -1,0 +1,8 @@
+.Tabla-Detalles-Tbody .Tabla-Detalles-tr .Tabla-Detalles-td:nth-child(8) {
+    background-color: gray;
+    cursor: no-drop;
+}
+
+.Tabla-Detalles-Tbody .Tabla-Detalles-tr .Tabla-Detalles-td:nth-child(8):hover {
+    background-color: gray;
+}

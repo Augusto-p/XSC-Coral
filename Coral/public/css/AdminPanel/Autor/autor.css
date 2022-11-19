@@ -1,0 +1,95 @@
+#btnAddimage {
+    width: 20vw;
+    height: 5vh;
+    background-color: transparent;
+    border-radius: 3vh;
+    border: 2px solid #2692ca;
+    font-size: 1.2rem;
+    color: #2692ca;
+}
+
+#btnAddimage:hover {
+    color: #71eba1;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid #71eba1;
+}
+
+#Foto {
+    width: 20vw;
+    height: 5vh;
+    position: absolute;
+    opacity: 0;
+}
+
+#VFoto {
+    width: 10vh;
+    height: 10vh;
+    border-radius: 5vh;
+    object-fit: cover;
+}
+
+.btnSeach {
+    height: 5vh;
+    width: 5vh;
+    background-color: #DC0088;
+    border: 1px solid #e0e0e0;
+    border-radius: .5vh;
+}
+
+.btnSeach img {
+    height: 3vh;
+    filter: invert(1);
+}
+
+.btnSeach:hover {
+    background-color: #B80172;
+}
+
+.row-in-col {
+    display: flex;
+    justify-content: center;
+}
+
+.bioCol {
+    grid-column: 1/3;
+
+}
+
+.triple-row {
+    height: 30vh;
+}
+
+textarea {
+    font-size: 1.3em;
+    font-family: 'Roboto';
+    background-color: transparent;
+    border: none;
+    border: #145075 solid 0.4vh;
+    outline: none;
+    color: #757575;
+    width: 90%;
+    height: 80%;
+    margin: 0;
+    resize: none;
+}
+
+@media (max-width: 768px) and (min-width: 300px) {
+    
+
+    #btnAddimage, #Foto {
+        width: 50vw;
+    }
+
+    .triple-row {
+        grid-template-rows: 30vh;
+
+    }
+
+    .bioCol {
+        grid-column: 1;
+    }
+
+    
+
+
+}

@@ -1,0 +1,38 @@
+{
+    "roboto-900": {
+        "normal": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Black",
+        "bold": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-BlackItalic",
+        "italic": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Black",
+        "bold_italic": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Black"
+    },
+    "roboto-700": {
+        "normal": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Bold",
+        "bold": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-BoldItalic",
+        "italic": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Bold",
+        "bold_italic": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Bold"
+    },
+    "roboto-500": {
+        "normal": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Medium",
+        "bold": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-MediumItalic",
+        "italic": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Medium",
+        "bold_italic": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Medium"
+    },
+    "roboto-400": {
+        "normal": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Regular",
+        "bold": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Italic",
+        "italic": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Regular",
+        "bold_italic": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Regular"
+    },
+    "roboto-300": {
+        "normal": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Light",
+        "bold": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-LightItalic",
+        "italic": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Light",
+        "bold_italic": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Light"
+    },
+    "roboto-100": {
+        "normal": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Thin",
+        "bold": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-ThinItalic",
+        "italic": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Thin",
+        "bold_italic": "\/opt\/lampp\/htdocs\/XSC-Coral\/vendor\/dompdf\/dompdf\/lib\/fonts\/Roboto-Thin"
+    }
+}

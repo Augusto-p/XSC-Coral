@@ -1,0 +1,42 @@
+
+body {
+    margin: 0;
+    background-color: aliceblue;
+    font-family: 'Roboto';
+}
+
+
+.error {
+    font-size: 1.8em;
+    margin-left: 7vw;
+}
+
+.logo {
+    width: 27vw;
+    height: 15vh;
+    margin-top: 30vh;
+    margin-left: 7vw;
+}
+
+.serror {
+    font-size: 1.4;
+    margin-left: 7vw;
+}
+
+button {
+    width: 15vw;
+    height: 7vh;
+    margin-left: 13vw;
+    margin-top: 20vh;
+    background-color: azure;
+    border: 1px solid #37bee2;
+    color: #37BEE2;
+    border-radius: 3.5vh;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: #37BEE2;
+    color: white;
+    border: 1px solid white;
+}

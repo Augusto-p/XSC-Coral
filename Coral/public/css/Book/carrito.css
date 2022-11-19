@@ -1,0 +1,312 @@
+.PopUP-form {
+    width: 65%;
+    height: 70%;
+    background-color: white;
+    border-radius: 5vh;
+    display: grid;
+    grid-template-rows: 15% 75% 10%;
+    grid-template-columns: 100%;
+    overflow: hidden;
+    font-family: 'Roboto';
+}
+
+.PopUP-Titulo {
+    grid-row: 1;
+    grid-column: 1;
+    background-color: #145075;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+}
+
+.PopUP-Titulo h2 {
+    margin: 0;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.PopUP-BTNs {
+    background-color: #145075;
+    grid-row: 3;
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.PopUP-BTNs button {
+    width: 10vw;
+    font-size: 20px;
+    background-color: white;
+    border: .3vh solid;
+    border-radius: 5vh;
+    pointer-events: all;
+
+}
+
+.PopUP-Window {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    height: 100vh;
+    width: 100vw;
+    transition: opacity 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.show-PopUp {
+    display: flex;
+    opacity: 1;
+}
+
+.Tabla-Detalles {
+    background-color: transparent;
+    overflow: hidden;
+    /* border-radius: 5vh; */
+    font-family: 'Roboto';
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 5vh 1fr;
+    grid-template-columns: 100%;
+}
+
+.Tabla-Detalles-Thead {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    background-color: #145075;
+    height: 100%;
+}
+
+.Tabla-Detalles-tr {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 15% 30% 10% 20% 15% 10%;
+    justify-items: center;
+    align-items: center;
+}
+
+.Tabla-Detalles-th {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.inputs {
+    font-size: 1.3em;
+    font-family: 'Roboto';
+    background-color: transparent;
+    width: 50%;
+    border: none;
+    border-bottom: #145075 solid 0.4vh;
+    outline: none;
+    color: #757575;
+    padding: 0;
+
+}
+
+.Tabla-Detalles-Tbody {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+
+    height: 100%;
+    overflow-y: auto;
+    display: grid;
+    grid-auto-rows: 6vh;
+}
+
+.Tabla-Detalles-Tbody .Tabla-Detalles-tr {
+    font-size: 15px;
+    font-weight: 300;
+    min-height: 5vh;
+    background-color: white;
+}
+
+.Tabla-Detalles-Tbody .Tabla-Detalles-tr:nth-child(even) {
+    background-color: #2692ca;
+}
+
+.Tabla-Detalles-Tbody .Tabla-Detalles-tr .Tabla-Detalles-td:nth-child(6) {
+    cursor: pointer;
+    background-color: #ca2626;
+    height: 5vh;
+    width: 5vh;
+    border: 2px solid transparent;
+    border-radius: 5px;
+}
+
+.Tabla-Detalles-Tbody .Tabla-Detalles-tr .Tabla-Detalles-td:nth-child(6):hover {
+    background-color: rgb(176, 16, 48);
+}
+
+.Tabla-Detalles-Tbody .Tabla-Detalles-tr .Tabla-Detalles-td:nth-child(6) img {
+    height: 90%;
+    filter: invert(1);
+}
+
+.PopUP-Total span {
+    font-size: 1.3rem;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    padding: 0 5px;
+}
+
+.Tabla-Detalles-Tbody .Tabla-Detalles-tr .Tabla-Detalles-td:nth-child(4) span {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Tabla-Detalles-td {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.BTNSale {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 15vw;
+    height: 7vh;
+    background-color: #145075;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 3.5vh;
+    font-size: 1.3rem;
+}
+
+.BTNSale:hover {
+    color: #fff;
+    background-color: #71eba1;
+    border: 1px solid transparent;
+}
+
+
+.Tabla-Detalles-td span {
+    text-align: center;
+}
+
+#PopUP-Window2 .PopUP-form {
+    width: 50%;
+
+}
+
+#PopUP-Window2 .PopUP-form-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 25% 25% 1fr;
+
+}
+
+#Decripciondiv textarea {
+    border: #145075 solid 0.4vh;
+    outline: none;
+    width: 50%;
+    height: 60%;
+    margin: 0;
+    resize: none;
+}
+
+#Imgdiv {
+
+    grid-column: 1;
+    grid-row: 1/4;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#Imgdiv img {
+    grid-column: 1;
+    grid-row: 1/4;
+}
+
+#PopUP-Window2 .PopUP-form-data div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.PointersBTNSale {
+    width: 0px;
+    height: 0px;
+    background-color: transparent;
+    bottom: 0;
+    right: 0;
+}
+
+.PointersBTNSale#Element {
+    position: absolute;
+}
+
+.PointersBTNSale#window {
+    position: fixed;
+}
+
+.PopUP-BTNs-pagar, .PopUP-BTNs-Finalizar {
+    color: #71eba1;
+    border-color: #71eba1;
+}
+
+.PopUP-BTNs-pagar:hover, .PopUP-BTNs-Finalizar:hover {
+    background-color: #71eba1;
+    color: #fff;
+    border-color: #fff;
+}
+
+
+@media (max-width: 768px) and (min-width: 300px) {
+    .BTNSale {
+        width: 35vw;
+        font-size: 1.5rem;
+    }
+
+    .PopUP-form {
+        width: 100%;
+    }
+
+    .Tabla-Detalles-tr {
+        width: 200vw;
+    }
+
+    .Tabla-Detalles-Thead {
+        overflow-x: auto;
+    }
+
+    .PopUP-BTNs button {
+        width: 30vw;
+    }
+
+    #PopUP-Window2 .PopUP-form {
+        width: 100%;
+    }
+
+    #PopUP-Window2 .PopUP-form-data {
+        grid-template-columns: 100%;
+        grid-template-rows: 100% 15% 15% 50% ;
+        overflow-y: auto;
+    }
+
+    #Imgdiv {
+        grid-row: 1;
+    }      
+}
