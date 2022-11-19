@@ -1,13 +1,13 @@
 #!/bin/bash
 #Programa Desarollado por XSC Software Company
 clear
-if grep -qi "xscadmin" /etc/passwd; then
+if grep -qi "coraladmin" /etc/passwd; then
     echo "El usuario ya existe"
 else
-    sudo useradd -d /home/xscadmin -c "Administrador" xscadmin
-    if grep -qi "xscadmin" /etc/passwd; then
+    sudo useradd -d /home/coraladmin -c "Administrador" coraladmin
+    if grep -qi "coraladmin" /etc/passwd; then
         echo "El usuario Administrador fue creado exitosamente"
-        sudo usermod -p xscsoftwarecompanydbest xscadmin
+        sudo usermod -p xscsoftwarecompanydbest coraladmin
     else
         echo "El usuario Administrador no pudo ser creado"
     fi
