@@ -84,11 +84,13 @@
     justify-content: center;
     width: 5vw;
     height: 70vh;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+    background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, #fff 300%);
+    border-radius: 20px;
 }
 
 .btn-slider-next {
-    background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 300%);
+    border-radius: 20px;
 }
 
 .slider-content-view {
