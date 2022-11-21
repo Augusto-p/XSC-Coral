@@ -123,3 +123,4 @@ Se muestra también la opción de ver y agregar compras, la cual sirve para mant
 Por último, al administrador se le va a dar la opción de modificación de la página principal, posibilitando la modificación tanto de banners como de sliders de esta página.
 
 # Gracias por leer
+## En caso de sugerencias contactarse al correo: xscsoftware@gmail.com
